@@ -32,8 +32,6 @@ a{color:inherit;text-decoration:none}
 .btn .ar{transition:transform .4s}
 .btn:hover .ar{transform:translateX(6px)}
 
-var hbl=document.getElementById('hbl'),SP={x:innerWidth*.5,y:innerHeight*.38,r:0},spOn=false,idle=true,idleT;
-function spSet(){hbl.style.setProperty('--x',SP.x+'px');hbl.style.setProperty('--y',SP.y+'px');hbl.style.setProperty('--r',SP.r+'px')}
 /* preloader */
 #loader{position:fixed;inset:0;z-index:100;background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:40px 48px}
 #loader .top{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#9C928A}
@@ -484,6 +482,8 @@ gsap.set('.h-in',{y:40,opacity:0});
 gsap.set('#hdr',{yPercent:-100});
 
 /* preloader */
+var hbl=document.getElementById('hbl'),SP={x:innerWidth*.5,y:innerHeight*.38,r:0},spOn=false,idle=true,idleT;
+function spSet(){hbl.style.setProperty('--x',SP.x+'px');hbl.style.setProperty('--y',SP.y+'px');hbl.style.setProperty('--r',SP.r+'px')}
 var o={v:0},ln=document.getElementById('ln');
 var tl=gsap.timeline();
 tl.to(o,{v:100,duration:1.6,ease:'power2.inOut',onUpdate:function(){ln.textContent=Math.round(o.v)}})
