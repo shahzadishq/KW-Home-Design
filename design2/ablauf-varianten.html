@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KW Home Design – Ablauf: Varianten A / B / C</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#DC0F16;--red2:#FF4A50;--coal:#2A2420;--coal2:#221E1B;--dark:#34302C;--stone:#5E5650;--muted:#A89E96;--sand:#CFC6BE;--line:#E3DBD2;--paper:#EDE7E0;--cream:#F5F2ED;--white:#FFFDFB;--warm:#FFD9A8;--ease:cubic-bezier(.7,0,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--dark);font-family:'Open Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Enriqueta',Georgia,serif;font-weight:400;letter-spacing:-.02em}
+.wrap{max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--red);display:inline-flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.h2{font-size:clamp(36px,4.8vw,76px);line-height:1}
+.h2 em{font-style:normal;color:var(--red)}
+
+/* switcher bar */
+.vbar{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:100;display:flex;gap:6px;padding:6px;border-radius:999px;background:rgba(42,36,32,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.vbar a{padding:10px 18px;border-radius:999px;color:var(--sand);font-size:13px;font-weight:700;white-space:nowrap;transition:background .3s,color .3s}
+.vbar a.on,.vbar a:hover{background:#fff;color:var(--coal)}
+.vbar a.back{color:#fff;background:var(--red)}
+.vlabel{position:absolute;top:84px;left:clamp(20px,4vw,56px);z-index:5;padding:8px 14px;border-radius:999px;background:var(--red);color:#fff;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.intro-v{padding:150px 0 90px;text-align:center}
+.intro-v p{max-width:620px;margin:18px auto 0;color:var(--stone);line-height:1.75}
+
+/* ================= A: 3D exploded layers ================= */
+.va{position:relative;background:var(--coal);color:var(--cream);overflow:hidden}
+.va::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(245,242,237,.07) 1px,transparent 1.2px);background-size:22px 22px}
+.va-pin{height:100vh;display:flex;align-items:center;position:relative}
+.va-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,80px);align-items:center;width:100%}
+.va .eyebrow{color:var(--red2)}.va .h2 em{color:var(--red2)}
+.va .h2{margin:20px 0 30px}
+.va-steps{position:relative;min-height:170px}
+.va-step{position:absolute;inset:0 0 auto 0;opacity:0}
+.va-step:first-child{opacity:1}
+.va-step .n{font-family:'Enriqueta',serif;color:var(--red2);font-size:15px;margin-bottom:8px}
+.va-step h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(26px,2.4vw,36px);margin-bottom:10px}
+.va-step p{color:var(--sand);line-height:1.75;max-width:430px}
+.va-bar{display:flex;gap:8px;margin-top:18px}.va-bar i{height:4px;width:30px;border-radius:4px;background:rgba(255,255,255,.15);overflow:hidden;position:relative}.va-bar b{position:absolute;inset:0;background:var(--red);transform:scaleX(0);transform-origin:left}
+.stack{position:relative;height:min(70vh,600px);perspective:1800px;display:flex;align-items:center;justify-content:center}
+.layers{position:relative;margin-top:30vh;width:min(30vw,340px);aspect-ratio:1;transform-style:preserve-3d;transform:rotateX(62deg) rotateZ(-38deg)}
+.layer{position:absolute;inset:0;transform-style:preserve-3d;border-radius:10px}
+.layer .tag{position:absolute;left:100%;top:50%;transform-origin:left center;transform:rotateZ(38deg) rotateX(-62deg) translate(26px,-50%);white-space:nowrap;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:#fff;opacity:0}
+.layer .tag::before{content:"";width:40px;height:1px;background:var(--sand)}
+.layer .tag small{display:block;font-weight:400;color:var(--muted);font-size:11.5px}
+.l-old{background:#6b625b;background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.18) 0 2px,transparent 2px 10px),linear-gradient(135deg,#7a706a,#4e4640);box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 30px 60px rgba(0,0,0,.4)}
+.l-old::after{content:"";position:absolute;inset:0;background:linear-gradient(118deg,transparent 30%,rgba(0,0,0,.45) 30.4%,transparent 31%),linear-gradient(64deg,transparent 62%,rgba(0,0,0,.4) 62.3%,transparent 62.9%);border-radius:10px}
+.l-prof{border:12px solid #cfc6be;box-shadow:inset 0 0 0 2px #a89e96,0 0 0 2px #a89e96}
+.l-mem{background:linear-gradient(135deg,#fffdf9,#e9e2da 55%,#fff);box-shadow:0 0 50px rgba(255,255,255,.25)}
+.l-mem::after{content:"";position:absolute;inset:0;border-radius:10px;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.95) 45%,transparent 55%);background-size:250% 100%;animation:sheen 4s ease-in-out infinite}
+@keyframes sheen{0%{background-position:120% 0}100%{background-position:-120% 0}}
+.l-light{background:transparent}
+.l-light i{position:absolute;width:16%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff 0 18%,rgba(255,217,168,.9) 30%,rgba(255,217,168,0) 70%);transform:translate(-50%,-50%)}
+.va .chip{position:absolute;right:6%;top:10%;padding:10px 18px;border-radius:999px;background:var(--red);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:0}
+
+/* ================= B: stacking photo cards ================= */
+.vb{position:relative;background:var(--paper);padding:130px 0 120px}
+.vb-head{text-align:center;margin-bottom:60px}
+.vb-head .eyebrow{justify-content:center}
+.vb-head .h2{margin-top:18px}
+.cards{position:relative}
+.scard{position:sticky;top:110px;height:min(72vh,600px);margin-bottom:40px;border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1fr 1.1fr;box-shadow:0 40px 80px -40px rgba(42,36,32,.5);transform-origin:center top}
+.scard .txt{padding:clamp(28px,4vw,60px);display:flex;flex-direction:column;justify-content:space-between}
+.scard .num{font-family:'Enriqueta',serif;font-size:clamp(90px,10vw,160px);line-height:.8;letter-spacing:-.04em}
+.scard h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(30px,3vw,48px);line-height:1.05;margin:16px 0 14px}
+.scard p{line-height:1.75;max-width:420px;font-size:16px}
+.scard .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center}
+.scard .ic svg{width:28px;height:28px}
+.scard .ph{position:relative;overflow:hidden}
+.scard .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15)}
+.scard .ph .pill{position:absolute;left:18px;bottom:18px;padding:9px 16px;border-radius:999px;background:rgba(42,36,32,.65);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.c1{background:var(--white);color:var(--coal)}.c1 .num{color:var(--red)}.c1 p{color:var(--stone)}.c1 .ic{background:rgba(220,15,22,.08);color:var(--red)}
+.c2{background:var(--coal);color:var(--cream)}.c2 .num{color:var(--red2)}.c2 p{color:var(--sand)}.c2 .ic{background:rgba(255,255,255,.08);color:var(--red2)}
+.c3{background:var(--cream);color:var(--coal)}.c3 .num{color:var(--red)}.c3 p{color:var(--stone)}.c3 .ic{background:rgba(220,15,22,.08);color:var(--red)}
+.c4{background:var(--red);color:#fff}.c4 .num{color:#fff}.c4 p{color:rgba(255,255,255,.85)}.c4 .ic{background:rgba(255,255,255,.16);color:#fff}
+
+/* ================= C: one-day sun arc ================= */
+.vc{position:relative;overflow:hidden;color:#fff}
+.vc-pin{height:100vh;position:relative;display:flex;flex-direction:column;justify-content:center}
+.vc .sky{position:absolute;inset:0;background:linear-gradient(180deg,#2a2420 0%,#4a3a33 60%,#7a5a4a 100%)}
+.vc .sky2{position:absolute;inset:0;background:linear-gradient(180deg,#5d8fd6 0%,#a9c8ee 55%,#f3e2cc 100%);opacity:0}
+.vc .sky3{position:absolute;inset:0;background:linear-gradient(180deg,#2a2420 0%,#6b2b25 55%,#DC0F16 120%);opacity:0}
+.vc-head{position:absolute;top:110px;left:0;right:0;text-align:center;z-index:3}
+.vc-head .eyebrow{color:var(--warm);justify-content:center}
+.vc-head .h2{margin-top:14px;color:#fff}.vc-head .h2 em{color:var(--warm)}
+.arcwrap{position:relative;z-index:2;width:min(1100px,92vw);margin:110px auto 0}
+.arcwrap svg{width:100%;height:auto;overflow:visible}
+.vc-card{position:relative;z-index:3;margin:-30px auto 0;width:min(560px,90vw);text-align:center;min-height:150px}
+.vc-card .st{position:absolute;inset:0;opacity:0}
+.vc-card .st:first-child{opacity:1}
+.vc-card .k{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--warm);font-weight:700}
+.vc-card h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(28px,2.8vw,42px);margin:8px 0 10px}
+.vc-card p{color:rgba(255,255,255,.85);line-height:1.7}
+.room{position:absolute;left:0;right:0;bottom:0;height:16vh;z-index:1;background:linear-gradient(180deg,transparent,rgba(0,0,0,.35))}
+.done{position:absolute;left:50%;bottom:6vh;transform:translateX(-50%) scale(.7);z-index:4;padding:14px 26px;border-radius:999px;background:#fff;color:var(--red);font-weight:700;letter-spacing:.06em;opacity:0;white-space:nowrap}
+
+footer{padding:60px 0;text-align:center;color:var(--stone);font-size:14px}
+footer a{color:var(--red);font-weight:700}
+
+@media(max-width:900px){
+  .va-pin{height:auto;min-height:100vh;padding:120px 0 60px}
+  .va-grid{grid-template-columns:1fr}.stack{order:-1;height:380px}.layers{width:200px;margin-top:120px}
+  .layer .tag{font-size:11px}.layer .tag::before{width:18px}
+  .scard{grid-template-columns:1fr;grid-template-rows:auto 1fr;height:min(78vh,620px);top:80px}
+  .scard .ph{order:-1;height:200px}.scard .num{font-size:70px}
+  .vbar a{padding:9px 12px;font-size:12px}
+  .arcwrap{margin-top:150px}.vc-head{top:90px}
+}
+</style>
+</head>
+<body>
+<nav class="vbar"><a class="back" href="./">← Design 2</a><a href="#a" data-s="a">Variante A</a><a href="#b" data-s="b">Variante B</a><a href="#c" data-s="c">Variante C</a></nav>
+
+<section class="intro-v wrap">
+  <span class="eyebrow">Abschnitt „So funktioniert’s“</span>
+  <h1 class="serif h2" style="margin-top:18px">Neue Decke. <em>Alte bleibt.</em><br>Drei Varianten zur Auswahl</h1>
+  <p>Scrollen Sie durch die drei Varianten. Die gewählte Variante ersetzt anschließend den aktuellen Abschnitt auf der Startseite.</p>
+</section>
+
+<!-- ============ A ============ -->
+<section class="va" id="a">
+  <span class="vlabel">Variante A · 3D-Schichten</span>
+  <div class="va-pin">
+    <div class="wrap va-grid">
+      <div>
+        <span class="eyebrow">So funktioniert’s</span>
+        <h2 class="serif h2">Neue Decke.<br><em>Alte bleibt.</em></h2>
+        <div class="va-steps">
+          <div class="va-step"><div class="n">01</div><h3>Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist. Kein Abriss, kein Staub, keine Verschmutzung der Baustelle.</p></div>
+          <div class="va-step"><div class="n">02</div><h3>Profil montieren</h3><p>Ein schlankes Profil wird umlaufend an der Wand befestigt – knapp unter der bestehenden Decke.</p></div>
+          <div class="va-step"><div class="n">03</div><h3>Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei in das Profil eingespannt. Beim Abkühlen zieht sie sich straff und glatt.</p></div>
+          <div class="va-step"><div class="n">04</div><h3>Licht &amp; Service</h3><p>Lampen aller Art, Spots und Rauchmelder – alles aus einer Hand integriert. Fertig an einem Tag.</p></div>
+        </div>
+        <div class="va-bar"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+      </div>
+      <div class="stack">
+        <span class="chip">✓ Fertig an einem Tag</span>
+        <div class="layers">
+          <div class="layer l-old" style="--i:0"><span class="tag"><span>Alte Decke<small>bleibt erhalten</small></span></span></div>
+          <div class="layer l-prof" style="--i:1"><span class="tag"><span>Wandprofil<small>umlaufend montiert</small></span></span></div>
+          <div class="layer l-mem" style="--i:2"><span class="tag"><span>Spannfolie<small>straff &amp; fugenlos</small></span></span></div>
+          <div class="layer l-light" style="--i:3"><i style="left:25%;top:25%"></i><i style="left:75%;top:25%"></i><i style="left:50%;top:50%"></i><i style="left:25%;top:75%"></i><i style="left:75%;top:75%"></i><span class="tag"><span>Licht &amp; Rauchmelder<small>direkt integriert</small></span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ B ============ -->
+<section class="vb" id="b">
+  <span class="vlabel">Variante B · Gestapelte Foto-Karten</span>
+  <div class="wrap">
+    <div class="vb-head"><span class="eyebrow">So funktioniert’s</span><h2 class="serif h2">Neue Decke. <em>Alte bleibt.</em></h2></div>
+    <div class="cards">
+      <article class="scard c1"><div class="txt"><div><div class="num">01</div><h3>Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist. Kein Abriss, kein Staub, keine Verschmutzung der Baustelle.</p></div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span></div><div class="ph"><img src="img/ref-20190202_150039.webp" alt="Raum vor der Montage" loading="lazy"><span class="pill">Schritt 1 von 4</span></div></article>
+      <article class="scard c2"><div class="txt"><div><div class="num">02</div><h3>Profil montieren</h3><p>Ein schlankes Profil wird umlaufend an der Wand befestigt – knapp unter der bestehenden Decke.</p></div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></span></div><div class="ph"><img src="img/img_0640.webp" alt="Profil an der Wand" loading="lazy"><span class="pill">Schritt 2 von 4</span></div></article>
+      <article class="scard c3"><div class="txt"><div><div class="num">03</div><h3>Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei in das Profil eingespannt. Beim Abkühlen zieht sie sich straff und glatt.</p></div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M8 20c0-3 3-4 3-7s-2-4-2-7M13 20c0-3 3-4 3-7s-2-4-2-7"/></svg></span></div><div class="ph"><img src="img/img_0664.webp" alt="Gespannte glänzende Decke" loading="lazy"><span class="pill">Schritt 3 von 4</span></div></article>
+      <article class="scard c4"><div class="txt"><div><div class="num">04</div><h3>Licht &amp; Service – fertig an einem Tag</h3><p>Lampen aller Art, Spots und Rauchmelder – alles aus einer Hand integriert.</p></div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0012 3z"/></svg></span></div><div class="ph"><img src="img/img_20191216_203021.webp" alt="Fertige Decke mit Spots" loading="lazy"><span class="pill">Fertig ✓</span></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ C ============ -->
+<section class="vc" id="c">
+  <span class="vlabel">Variante C · Ein Tag – Sonnenbogen</span>
+  <div class="vc-pin">
+    <div class="sky"></div><div class="sky2"></div><div class="sky3"></div>
+    <div class="vc-head"><span class="eyebrow">So funktioniert’s</span><h2 class="serif h2">Neue Decke. <em>An einem Tag.</em></h2></div>
+    <div class="arcwrap">
+      <svg viewBox="0 0 1000 300" id="arcsvg">
+        <defs><radialGradient id="sun"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#FFD9A8"/><stop offset="1" stop-color="#FFD9A8" stop-opacity="0"/></radialGradient></defs>
+        <path id="arcbg" d="M40 290 Q500 -150 960 290" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="2" stroke-dasharray="4 8"/>
+        <path id="arcfg" d="M40 290 Q500 -150 960 290" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+        <g id="stops"></g>
+        <g id="sunG"><circle r="70" fill="url(#sun)"/><circle r="18" fill="#fff"/></g>
+      </svg>
+    </div>
+    <div class="vc-card">
+      <div class="st"><div class="k">Schritt 1</div><h3>Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist – kein Abriss, kein Staub.</p></div>
+      <div class="st"><div class="k">Schritt 2</div><h3>Profil montieren</h3><p>Ein schlankes Profil wird umlaufend an der Wand befestigt.</p></div>
+      <div class="st"><div class="k">Schritt 3</div><h3>Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei eingespannt – straff und glatt.</p></div>
+      <div class="st"><div class="k">Schritt 4</div><h3>Licht &amp; Service</h3><p>Lampen, Spots und Rauchmelder – alles aus einer Hand integriert.</p></div>
+    </div>
+    <div class="room"></div>
+    <div class="done">✓ Fertig – am selben Tag</div>
+  </div>
+</section>
+
+<footer>Welche Variante gefällt Ihnen? A, B oder C – <a href="./">zurück zu Design 2</a></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(()=>{
+gsap.registerPlugin(ScrollTrigger);
+const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
+const lenis=new Lenis({lerp:.09});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
+$$('.vbar a[data-s]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();lenis.scrollTo($(a.getAttribute('href')),{duration:1.4});});
+  ScrollTrigger.create({trigger:a.getAttribute('href'),start:'top 50%',end:'bottom 50%',onToggle:s=>a.classList.toggle('on',s.isActive)});});
+const mm=gsap.matchMedia();
+
+/* ---------- A ---------- */
+(()=>{const L=$$('.layer'),steps=$$('.va-step'),bars=$$('.va-bar b');
+  const gap=()=>innerWidth<900?44:74;
+  L.forEach((l,i)=>gsap.set(l,{z:(3-i)*6,opacity:i?0:1}));
+  const tl=gsap.timeline({defaults:{ease:'power2.inOut'}});
+  const show=(i,at)=>{steps.forEach((s,k)=>{if(k!==i)tl.to(s,{opacity:0,y:k<i?-20:20,duration:.2},at);});tl.fromTo(steps[i],{y:20},{opacity:1,y:0,duration:.3},at+.1);};
+  tl.to(L[0],{z:()=>gap()*3,duration:.6},0).to(L[0].querySelector('.tag'),{opacity:1,duration:.3},.3).to(bars[0],{scaleX:1,duration:1,ease:'none'},0);
+  show(1,1);tl.to(L[1],{opacity:1,z:()=>gap()*2,duration:.6},1.05).to(L[1].querySelector('.tag'),{opacity:1,duration:.3},1.35).to(bars[1],{scaleX:1,duration:1,ease:'none'},1);
+  show(2,2);tl.fromTo(L[2],{z:-60,opacity:0},{opacity:1,z:()=>gap(),duration:.7,ease:'back.out(1.6)'},2.05).to(L[2].querySelector('.tag'),{opacity:1,duration:.3},2.4).to(bars[2],{scaleX:1,duration:1,ease:'none'},2);
+  show(3,3);tl.to(L[3],{opacity:1,z:0,duration:.5},3.05).fromTo(L[3].querySelectorAll('i'),{scale:0},{scale:1,stagger:.06,duration:.4,ease:'back.out(2)'},3.1).to(L[3].querySelector('.tag'),{opacity:1,duration:.3},3.35)
+    .to('.layers',{rotateZ:-30,duration:1,ease:'none'},0).to('.va .chip',{opacity:1,duration:.3},3.5).to(bars[3],{scaleX:1,duration:.9,ease:'none'},3).to({},{duration:.4});
+  ScrollTrigger.create({trigger:'.va',start:'top top',end:'+=280%',pin:'.va-pin',scrub:.7,animation:tl,invalidateOnRefresh:true});
+})();
+
+/* ---------- B ---------- */
+(()=>{const cards=$$('.scard');
+  cards.forEach((c,i)=>{
+    gsap.fromTo(c.querySelector('.ph img'),{scale:1.25},{scale:1.05,ease:'none',scrollTrigger:{trigger:c,start:'top bottom',end:'top 110px',scrub:true}});
+    gsap.from(c.querySelector('.num'),{yPercent:60,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:c,start:'top 75%'}});
+    if(i<cards.length-1)gsap.fromTo(c,{scale:1,filter:'brightness(1)'},{scale:.93,filter:'brightness(.88)',ease:'none',scrollTrigger:{trigger:cards[i+1],start:'top bottom',end:'top 110px',scrub:true}});
+  });
+})();
+
+/* ---------- C ---------- */
+(()=>{const fg=$('#arcfg'),L=fg.getTotalLength(),sun=$('#sunG'),stopsG=$('#stops'),sts=$$('.vc-card .st');const NS='http://www.w3.org/2000/svg';
+  fg.style.strokeDasharray=L;fg.style.strokeDashoffset=L;
+  const marks=[.14,.38,.62,.86].map((f,i)=>{const p=fg.getPointAtLength(L*f);const g=document.createElementNS(NS,'g');g.setAttribute('transform',`translate(${p.x},${p.y})`);
+    g.innerHTML=`<circle r="16" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.6)"/><circle class="dot" r="7" fill="rgba(255,255,255,.6)"/><text y="-28" text-anchor="middle" fill="#fff" font-family="Enriqueta" font-size="18">0${i+1}</text>`;stopsG.appendChild(g);return {f,g};});
+  const st={p:0};let cur=-1;
+  const upd=()=>{const pt=fg.getPointAtLength(L*st.p);sun.setAttribute('transform',`translate(${pt.x},${pt.y})`);fg.style.strokeDashoffset=L*(1-st.p);
+    let idx=-1;marks.forEach((m,i)=>{const on=st.p>=m.f-.02;m.g.querySelector('.dot').setAttribute('fill',on?'#DC0F16':'rgba(255,255,255,.6)');if(on)idx=i;});idx=Math.max(0,idx);
+    if(idx!==cur){sts.forEach((s,k)=>gsap.to(s,{opacity:k===idx?1:0,y:k===idx?0:(k<idx?-16:16),duration:.4,overwrite:true}));cur=idx;}};
+  upd();
+  const tl=gsap.timeline();
+  tl.to(st,{p:1,duration:1,ease:'none',onUpdate:upd},0)
+    .to('.vc .sky2',{opacity:1,duration:.35,ease:'none'},.1).to('.vc .sky2',{opacity:0,duration:.3,ease:'none'},.62)
+    .to('.vc .sky3',{opacity:1,duration:.3,ease:'none'},.66)
+    .to('.vc .done',{opacity:1,scale:1,duration:.12,ease:'back.out(2)'},.9).to({},{duration:.15});
+  ScrollTrigger.create({trigger:'.vc',start:'top top',end:'+=260%',pin:'.vc-pin',scrub:.7,animation:tl});
+})();
+addEventListener('load',()=>ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
