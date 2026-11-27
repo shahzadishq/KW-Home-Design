@@ -1,0 +1,71 @@
+name: fetch-design2-images
+on:
+  push:
+    paths: ['.github/workflows/fetch-images.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick webp >/dev/null
+      - name: download and optimise
+        run: |
+          mkdir -p design2/img
+          cat > /tmp/list.txt <<'LIST'
+          https://www.kw-homedesign.de/assets/images/5/Logo-a09532eb.png logo-a09532eb 500
+          https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/IMG_0632.JPG img_0632 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/IMG_0633.JPG img_0633 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/IMG_0635.JPG img_0635 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/IMG_0640.JPG img_0640 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/IMG_0642.JPG img_0642 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/IMG_0645.JPG img_0645 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/k-GW8_7330.jpg k-gw8_7330 1920
+          https://www.kw-homedesign.de/files/kwhomedesign/layout/lizenzfreie/k-bathroom-1336167_1920.jpg k-bathroom-1336167_1920 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/layout/lizenzfreie/k-interior-2685518_1920.jpg k-interior-2685518_1920 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/layout/lizenzfreie/k-interior-3012218_1920.png k-interior-3012218_1920 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/layout/lizenzfreie/k-room-3051846_1920.jpg k-room-3051846_1920 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/03032019/kw-homedesign-GW8_7332.jpg kw-homedesign-gw8_7332 1400
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/1.jpg 1 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/7.jpg 7 1920
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_0664%5B2306%5D.JPG img_0664 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_0668%5B2310%5D.JPG img_0668 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_0673%5B2315%5D.JPG img_0673 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_0678%5B2317%5D.JPG img_0678 1920
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_20191216_203021%5B2342%5D.jpg img_20191216_203021 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_20191220_124021%5B2329%5D.jpg img_20191220_124021 1200
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/Leuchten.jpg leuchten 1920
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/Spanndecke%20schwarz.jpg spanndecke-schwarz 1920
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/03032019/kw-homedesign-GW8_7328.jpg ref-gw8_7328 800
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/03032019/kw-homedesign-GW8_7329.jpg ref-gw8_7329 800
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/03032019/kw-homedesign-GW8_7331.jpg ref-gw8_7331 800
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/03032019/kw-homedesign-GW8_7333.jpg ref-gw8_7333 800
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/03032019/kw-homedesign-GW8_7334.jpg ref-gw8_7334 800
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/03032019/kw-homedesign-20190202_111207.jpg ref-20190202_111207 800
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/03032019/kw-homedesign-20190202_150039.jpg ref-20190202_150039 800
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/03032019/kw-homedesign-20181110_110153.jpg ref-20181110_110153 800
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/03032019/kw-homedesign-20180915_184712.jpg ref-20180915_184712 800
+          https://www.kw-homedesign.de/files/kwhomedesign/referenzen/03032019/kw-homedesign-IMG-20190113-WA0020.jpg ref-img-20190113-wa0020 800
+          LIST
+          while read -r url name w; do
+            [ -z "$url" ] && continue
+            ok=0
+            for i in 1 2 3 4; do curl -fsSL --max-time 180 -o /tmp/src "$url" && ok=1 && break; sleep 5; done
+            [ $ok = 1 ] || { echo "FAILED $url"; continue; }
+            if [ "$name" = "logo-a09532eb" ]; then
+              convert /tmp/src -resize "${w}x>" design2/img/logo.png
+            else
+              convert /tmp/src -auto-orient -resize "${w}x>" -strip -quality 80 -define webp:method=6 design2/img/$name.webp
+            fi
+            echo "ok $name $(stat -c%s design2/img/* | tail -1)"
+          done < /tmp/list.txt
+          ls -la design2/img
+      - name: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add design2/img
+          git commit -m "design2: add optimised local images" || echo nothing
+          git push
