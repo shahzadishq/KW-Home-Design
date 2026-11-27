@@ -269,7 +269,7 @@ header .btn{padding:12px 20px;font-size:13px}
 .span{padding:clamp(100px,14vh,170px) 0;position:relative;background:var(--cream)}
 .st-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;padding-bottom:clamp(36px,5vh,56px);border-bottom:1px solid var(--line);position:relative}
 .st-head p{max-width:420px;color:var(--stone);line-height:1.75}
-.st-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,5vw,80px);margin-top:clamp(36px,5vh,60px);align-items:stretch;position:relative}
+.st-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,5vw,80px);margin-top:clamp(36px,5vh,60px);align-items:center;position:relative}
 .st-stage{position:relative;height:min(78vh,640px);min-height:440px;border-radius:26px;overflow:hidden;background:var(--coal);box-shadow:0 50px 90px -40px rgba(42,36,32,.55)}
 .st-img{position:absolute;inset:0;clip-path:inset(100% 0 0 0)}
 .st-img.on{clip-path:inset(0 0 0 0)}
@@ -1000,24 +1000,27 @@ $$('.split,.ab-head .h2,.hz-intro .h2').forEach(el=>{const ws=splitWords(el);if(
     if(lenis){lenis.stop();lenis.scrollTo(y,{duration:.85,force:true,lock:true,easing:t=>1-Math.pow(1-t,3),onComplete:done});setTimeout(done,1300);}
     else{scrollTo({top:y,behavior:'smooth'});setTimeout(done,900);}
   }
-  const ZONE_IN=()=>innerHeight*.75;                          // so weit vor/nach dem Abschnitt wird eingerastet
+  const ZONE_IN=()=>innerHeight*.75;
+  // Grenzen: PT = vorheriger Abschnitt komplett sichtbar, NT = Beginn des nächsten Abschnitts
+  const PT=()=>Math.max(0,ST.start-innerHeight);
+  const NT=()=>{const el=$('#leistungen');return el?el.getBoundingClientRect().top+scrollY:ST.end+innerHeight;};
   // true = Geste wurde verbraucht
   function handle(dir){
-    const y=yNow(),T=4;                                         // Toleranz in px
+    const y=yNow(),T=4,pt=PT(),nt=NT();
     if(dir>0){
-      if(y<ST.start-ZONE_IN()||y>ST.end-T)return false;          // außerhalb → normal scrollen
+      if(y<pt-innerHeight*.3||y>=nt-T)return false;               // außerhalb → normal scrollen
       for(let i=0;i<STOPS.length;i++){if(pos(i)>y+T){stepTo(pos(i));return true;}}
-      stepTo(ST.end+innerHeight*.6);return true;                 // nach Schritt 4: Abschnitt verlassen
+      stepTo(nt);return true;                                      // nach Schritt 4: direkt zum nächsten Abschnitt
     }else{
-      if(y>ST.end+ZONE_IN()||y<ST.start+T)return false;
+      if(y>nt+innerHeight*.3||y<=pt+T)return false;
       for(let i=STOPS.length-1;i>=0;i--){if(pos(i)<y-T){stepTo(pos(i));return true;}}
-      stepTo(Math.max(0,ST.start-innerHeight*.9));return true;   // vor Schritt 1: nach oben verlassen
+      stepTo(pt);return true;                                      // vor Schritt 1: direkt zum vorherigen Abschnitt
     }
   }
   addEventListener('wheel',e=>{
     if(innerWidth<900&&matchMedia('(hover:none)').matches)return;
     const now=performance.now(),gap=now-lastWheel;lastWheel=now;
-    const y=yNow(),near=y>=ST.start-ZONE_IN()&&y<=ST.end+ZONE_IN();
+    const y=yNow(),near=y>=PT()-innerHeight*.3&&y<=NT()+innerHeight*.3;
     if(!near)return;
     if(Math.abs(e.deltaY)<2)return;
     if(animating||(!quietOK&&gap<220)){e.preventDefault();e.stopPropagation();return;}
