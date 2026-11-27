@@ -130,9 +130,9 @@ header nav a:hover::after{transform:scaleX(1);transform-origin:left}
 .sv-tab sup{font-size:10px;color:var(--red2);margin-left:4px}
 .sv-tab.on{background:#fff;color:var(--ink)}
 .sv-tab:hover:not(.on){color:#fff}
-.sv-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:90px;margin-top:80px}
+.sv-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;margin-top:70px;align-items:stretch}
 .sv-stage{position:relative}
-.sv-frame{position:sticky;top:120px;height:calc(100vh - 170px);max-height:720px;min-height:460px;border-radius:24px;overflow:hidden;background:#221E1B}
+.sv-frame{position:relative;height:640px;border-radius:24px;overflow:hidden;background:#221E1B}
 .sv-img{position:absolute;inset:0;clip-path:inset(100% 0 0 0)}
 .sv-img.on{clip-path:inset(0 0 0 0)}
 .sv-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.15)}
@@ -141,9 +141,19 @@ header nav a:hover::after{transform:scaleX(1);transform-origin:left}
 .sv-big span{display:inline-block}
 .sv-prog{position:absolute;right:30px;bottom:40px;z-index:2;width:120px;height:2px;background:rgba(255,255,255,.25)}
 .sv-prog i{display:block;height:100%;width:100%;background:var(--red2);transform:scaleX(.1667);transform-origin:left}
-.sv-list{display:flex;flex-direction:column}
-.sv-item{min-height:72vh;display:flex;flex-direction:column;justify-content:center;gap:20px;padding:40px 0;opacity:.28;transition:opacity .6s}
-.sv-item.on{opacity:1}
+.sv-side{display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.sv-list{display:grid;flex:1}
+.sv-item{grid-area:1/1;display:flex;flex-direction:column;justify-content:center;gap:20px;visibility:hidden}
+.sv-item.on{visibility:visible}
+.sv-ctrl{display:flex;flex-direction:column;gap:22px;border-top:1px solid rgba(255,255,255,.12);padding-top:26px}
+.sv-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sv-btn{background:rgba(255,255,255,.05);border:1px solid transparent;color:#B8AEA6;font:600 14px 'Open Sans',sans-serif;text-align:left;padding:14px 16px;border-radius:12px;cursor:pointer;display:flex;flex-direction:column;gap:4px;transition:background .4s,color .4s,border-color .4s}
+.sv-btn span{font-family:'Enriqueta',serif;font-size:12px;color:var(--red2)}
+.sv-btn:hover{color:#fff;border-color:rgba(255,255,255,.2)}
+.sv-btn.on{background:#fff;color:var(--ink)}
+.sv-arrows{display:flex;gap:10px}
+.sv-arr{width:56px;height:56px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:none;color:#fff;font-size:20px;cursor:pointer;transition:background .4s,border-color .4s,transform .4s}
+.sv-arr:hover{background:var(--red);border-color:var(--red);transform:scale(1.08)}
 .sv-top{display:flex;align-items:center;gap:16px}
 .sv-n{font-family:'Enriqueta',serif;font-size:18px;color:var(--red2)}
 .sv-cat{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#B8AEA6;border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:999px}
@@ -154,8 +164,7 @@ header nav a:hover::after{transform:scaleX(1);transform-origin:left}
 .sv-link{align-self:flex-start;font-weight:700;font-size:15px;padding-bottom:6px;border-bottom:2px solid var(--red);margin-top:6px}
 .sv-link span{display:inline-block;transition:transform .4s}
 .sv-link:hover span{transform:translateX(6px)}
-.sv-mimg{display:none}
-@media(max-width:900px){.sv-head{grid-template-columns:1fr}.sv-head .eyebrow{grid-column:auto}.sv-grid{grid-template-columns:1fr;gap:0}.sv-stage{display:none}.sv-item{min-height:0;opacity:1;padding:50px 0;border-bottom:1px solid rgba(255,255,255,.1)}.sv-mimg{display:block;height:300px;border-radius:18px;overflow:hidden}.sv-mimg img{width:100%;height:100%;object-fit:cover}}
+@media(max-width:900px){.sv-head{grid-template-columns:1fr}.sv-head .eyebrow{grid-column:auto}.sv-grid{grid-template-columns:1fr;gap:36px}.sv-frame{height:380px}.sv-btns{grid-template-columns:repeat(2,1fr)}}
 
 /* benefits */
 .benefits{padding:150px 0;background:var(--cream)}
@@ -334,9 +343,9 @@ footer .bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20p
           <div class="sv-prog" aria-hidden="true"><i id="svp"></i></div>
         </div>
       </div>
-      <div class="sv-list">
+      <div class="sv-side">
+      <div class="sv-list" aria-live="polite">
       <article class="sv-item on" data-i="0" id="sv-decke0">
-        <div class="sv-mimg"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/IMG_0642.JPG" alt="Glänzende Spanndecke" loading="lazy"></div>
         <div class="sv-top"><span class="sv-n">01</span><span class="sv-cat">Decke</span></div>
         <h3 class="serif">Spanndecken</h3>
         <p>Über die alte Decke einfach eine neue – in zahlreichen Farben und Oberflächen. Fertig meist an einem Tag, ohne Schmutz.</p>
@@ -344,7 +353,6 @@ footer .bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20p
         <a class="sv-link" href="#kontakt">Beratung anfragen <span>→</span></a>
       </article>
       <article class="sv-item" data-i="1" id="sv-decke1">
-        <div class="sv-mimg"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/IMG_0632.JPG" alt="Holzdecke" loading="lazy"></div>
         <div class="sv-top"><span class="sv-n">02</span><span class="sv-cat">Decke</span></div>
         <h3 class="serif">Holzdecken</h3>
         <p>Natürliche Wärme und Charakter – handwerklich sauber montiert.</p>
@@ -352,7 +360,6 @@ footer .bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20p
         <a class="sv-link" href="#kontakt">Beratung anfragen <span>→</span></a>
       </article>
       <article class="sv-item" data-i="2" id="sv-boden2">
-        <div class="sv-mimg"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/lizenzfreie/k-bathroom-1336167_1920.jpg" alt="Laminatboden" loading="lazy"></div>
         <div class="sv-top"><span class="sv-n">03</span><span class="sv-cat">Boden</span></div>
         <h3 class="serif">Laminat</h3>
         <p>Robust, pflegeleicht und in vielen Dekoren erhältlich.</p>
@@ -360,7 +367,6 @@ footer .bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20p
         <a class="sv-link" href="#kontakt">Beratung anfragen <span>→</span></a>
       </article>
       <article class="sv-item" data-i="3" id="sv-boden3">
-        <div class="sv-mimg"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/lizenzfreie/k-interior-2685518_1920.jpg" alt="Vinylboden" loading="lazy"></div>
         <div class="sv-top"><span class="sv-n">04</span><span class="sv-cat">Boden</span></div>
         <h3 class="serif">Vinylboden</h3>
         <p>Angenehm warm unter den Füßen, leise und wohnlich.</p>
@@ -368,7 +374,6 @@ footer .bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20p
         <a class="sv-link" href="#kontakt">Beratung anfragen <span>→</span></a>
       </article>
       <article class="sv-item" data-i="4" id="sv-wand4">
-        <div class="sv-mimg"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/lizenzfreie/k-interior-3012218_1920.png" alt="Tapetengestaltung" loading="lazy"></div>
         <div class="sv-top"><span class="sv-n">05</span><span class="sv-cat">Wand</span></div>
         <h3 class="serif">Tapetengestaltung</h3>
         <p>Wände mit Persönlichkeit – vom dezenten Muster bis zum Statement.</p>
@@ -376,13 +381,24 @@ footer .bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20p
         <a class="sv-link" href="#kontakt">Beratung anfragen <span>→</span></a>
       </article>
       <article class="sv-item" data-i="5" id="sv-wand5">
-        <div class="sv-mimg"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/lizenzfreie/k-room-3051846_1920.jpg" alt="Wandverklinkung" loading="lazy"></div>
         <div class="sv-top"><span class="sv-n">06</span><span class="sv-cat">Wand</span></div>
         <h3 class="serif">Wandverklinkung</h3>
         <p>Der echte Klinker-Look – modern umgesetzt.</p>
         <ul class="sv-chips"><li>Klinker-Optik</li><li>Modern</li></ul>
         <a class="sv-link" href="#kontakt">Beratung anfragen <span>→</span></a>
       </article>
+      </div>
+      <div class="sv-ctrl">
+        <div class="sv-btns" role="tablist" aria-label="Leistungen">
+        <button class="sv-btn on" data-i="0"><span>01</span>Spanndecken</button>
+        <button class="sv-btn" data-i="1"><span>02</span>Holzdecken</button>
+        <button class="sv-btn" data-i="2"><span>03</span>Laminat</button>
+        <button class="sv-btn" data-i="3"><span>04</span>Vinylboden</button>
+        <button class="sv-btn" data-i="4"><span>05</span>Tapetengestaltung</button>
+        <button class="sv-btn" data-i="5"><span>06</span>Wandverklinkung</button>
+        </div>
+        <div class="sv-arrows"><button class="sv-arr" id="svprev" aria-label="Vorherige Leistung">←</button><button class="sv-arr" id="svnext" aria-label="Nächste Leistung">→</button></div>
+      </div>
       </div>
     </div>
   </div>
@@ -561,26 +577,30 @@ gsap.ticker.add(function(){mqx-=speed;var w=mq.scrollWidth/2;if(mqx<=-w)mqx+=w;i
 ScrollTrigger.create({onUpdate:function(s){var v=s.getVelocity()/120;if(Math.abs(v)>1)speed=gsap.utils.clamp(-14,14,v);}});
 gsap.ticker.add(function(){speed+= (1-speed)*0.05});
 
-/* services sticky showcase */
-var svI=gsap.utils.toArray('.sv-item'),svImg=gsap.utils.toArray('.sv-img'),svn=document.getElementById('svn'),svp=document.getElementById('svp'),svw=document.getElementById('svw'),svTabs=gsap.utils.toArray('.sv-tab'),svCur=0;
+/* services click showcase */
+var svI=gsap.utils.toArray('.sv-item'),svImg=gsap.utils.toArray('.sv-img'),svB=gsap.utils.toArray('.sv-btn'),svn=document.getElementById('svn'),svp=document.getElementById('svp'),svw=document.getElementById('svw'),svTabs=gsap.utils.toArray('.sv-tab'),svCur=0,svBusy=false;
 var words=['Decken','Decken','Böden','Böden','Wände','Wände'];
-function svGo(n){if(n===svCur)return;var dir=n>svCur?1:-1,a=svImg[svCur],b=svImg[n];
-svI[svCur].classList.remove('on');svI[n].classList.add('on');
-gsap.killTweensOf([a,b]);
-gsap.set(b,{zIndex:2,clipPath:dir>0?'inset(100% 0 0 0)':'inset(0 0 100% 0)'});gsap.set(a,{zIndex:1});
-gsap.to(b,{clipPath:'inset(0% 0 0 0)',duration:1.1,ease:'expo.inOut',onComplete:function(){svImg.forEach(function(x,k){if(k!==n){x.classList.remove('on');gsap.set(x,{zIndex:0,clipPath:'inset(100% 0 0 0)'})}});b.classList.add('on')}});
-gsap.fromTo(b.querySelector('img'),{scale:1.35,yPercent:dir*8},{scale:1.08,yPercent:0,duration:1.6,ease:'expo.out'});
-gsap.to(a.querySelector('img'),{yPercent:-dir*10,duration:1.1,ease:'expo.inOut',onComplete:function(){gsap.set(a.querySelector('img'),{yPercent:0})}});
+gsap.set(svI.slice(1),{autoAlpha:0});
+function svGo(n){if(n===svCur||svBusy)return;svBusy=true;var dir=n>svCur?1:-1,a=svImg[svCur],b=svImg[n],ta=svI[svCur],tb=svI[n];
+svB[svCur].classList.remove('on');svB[n].classList.add('on');
+gsap.set(b,{zIndex:2,clipPath:dir>0?'inset(0 0 0 100%)':'inset(0 100% 0 0)'});gsap.set(a,{zIndex:1});
+gsap.to(b,{clipPath:'inset(0 0% 0 0%)',duration:1.1,ease:'expo.inOut',onComplete:function(){svImg.forEach(function(x,k){if(k!==n){x.classList.remove('on');gsap.set(x,{zIndex:0,clipPath:'inset(100% 0 0 0)'})}});b.classList.add('on');svBusy=false}});
+gsap.fromTo(b.querySelector('img'),{scale:1.35,xPercent:dir*10},{scale:1.08,xPercent:0,duration:1.6,ease:'expo.out'});
+gsap.to(a.querySelector('img'),{xPercent:-dir*12,duration:1.1,ease:'expo.inOut',onComplete:function(){gsap.set(a.querySelector('img'),{xPercent:0})}});
+gsap.to(ta.children,{x:-dir*40,autoAlpha:0,duration:.4,stagger:.03,ease:'power3.in',onComplete:function(){ta.classList.remove('on');gsap.set(ta,{autoAlpha:0});gsap.set(ta.children,{x:0,autoAlpha:1})}});
+tb.classList.add('on');gsap.set(tb,{autoAlpha:1});
+gsap.fromTo(tb.children,{x:dir*60,autoAlpha:0},{x:0,autoAlpha:1,duration:.9,stagger:.07,delay:.35,ease:'expo.out'});
 gsap.timeline().to(svn,{yPercent:-dir*100,duration:.4,ease:'power3.in'}).add(function(){svn.textContent='0'+(n+1)}).fromTo(svn,{yPercent:dir*100},{yPercent:0,duration:.6,ease:'expo.out'});
 gsap.to(svp,{scaleX:(n+1)/svI.length,duration:.8,ease:'expo.out'});
 if(words[n]!==words[svCur]){gsap.timeline().to(svw,{yPercent:-40,opacity:0,duration:.3}).add(function(){svw.textContent=words[n]}).fromTo(svw,{yPercent:40,opacity:0},{yPercent:0,opacity:1,duration:.6,ease:'expo.out'});}
 svTabs.forEach(function(t){t.classList.toggle('on',+t.dataset.go===n-(n%2))});
 svCur=n;}
-svI.forEach(function(el,i){ScrollTrigger.create({trigger:el,start:'top 55%',end:'bottom 55%',onToggle:function(st){if(st.isActive)svGo(i)}})});
-ScrollTrigger.create({trigger:'.sv-list',start:'top 55%',onLeaveBack:function(){svGo(0)}});
-svTabs.forEach(function(t){t.addEventListener('click',function(){var el=svI[+t.dataset.go];if(lenis)lenis.scrollTo(el,{offset:-140});else el.scrollIntoView({behavior:'smooth'})})});
-gsap.fromTo('.sv-frame',{clipPath:'inset(12% 12% 12% 12% round 24px)'},{clipPath:'inset(0% 0% 0% 0% round 24px)',ease:'none',scrollTrigger:{trigger:'.sv-grid',start:'top 90%',end:'top 30%',scrub:true}});
-gsap.utils.toArray('.sv-chips').forEach(function(c){gsap.fromTo(c.children,{y:20,opacity:0},{y:0,opacity:1,duration:.7,stagger:.06,ease:'expo.out',scrollTrigger:{trigger:c,start:'top 85%'}})});
+svB.forEach(function(b){b.addEventListener('click',function(){svGo(+b.dataset.i)})});
+svTabs.forEach(function(t){t.addEventListener('click',function(){svGo(+t.dataset.go)})});
+document.getElementById('svnext').addEventListener('click',function(){svGo((svCur+1)%svI.length)});
+document.getElementById('svprev').addEventListener('click',function(){svGo((svCur-1+svI.length)%svI.length)});
+gsap.fromTo('.sv-frame',{clipPath:'inset(10% 10% 10% 10% round 24px)'},{clipPath:'inset(0% 0% 0% 0% round 24px)',ease:'none',scrollTrigger:{trigger:'.sv-grid',start:'top 90%',end:'top 35%',scrub:true}});
+gsap.fromTo('.sv-btn',{y:24,opacity:0},{y:0,opacity:1,duration:.8,stagger:.06,ease:'expo.out',scrollTrigger:{trigger:'.sv-ctrl',start:'top 92%'}});
 
 /* references accordion */
 var accs=gsap.utils.toArray('.acc');
