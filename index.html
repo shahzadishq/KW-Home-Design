@@ -67,27 +67,32 @@ header nav a:hover::after{transform:scaleX(1);transform-origin:left}
 .hero h1 .r{color:var(--red2)}
 .hero .glow{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(255,215,170,.2),transparent 65%);pointer-events:none;mix-blend-mode:screen;left:0;top:0;transform:translate(-50%,-50%);opacity:0;transition:opacity .6s}
 .hero:hover .glow{opacity:1}
-.hero.hB{background:#0B0A09;color:#fff}
-.hB-img{position:absolute;inset:-4%}
-.hB-img img{width:100%;height:100%;object-fit:cover}
-.hB-dark img{filter:grayscale(1) brightness(.22) contrast(1.1)}
-.hB-light img{filter:brightness(1.08) saturate(1.1)}
-.hB-light{-webkit-mask-image:radial-gradient(circle var(--r,0px) at var(--x,50%) var(--y,40%),#000 30%,rgba(0,0,0,.6) 55%,transparent 75%);mask-image:radial-gradient(circle var(--r,0px) at var(--x,50%) var(--y,40%),#000 30%,rgba(0,0,0,.6) 55%,transparent 75%)}
-.hB .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,10,9,.2) 0%,transparent 40%,rgba(11,10,9,.85) 85%);pointer-events:none;opacity:0}
-.hB .content{position:relative;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;gap:24px;padding-bottom:60px;pointer-events:none}
-.hB .content a,.hB .content button{pointer-events:auto}
-.hB h1{font-size:clamp(50px,min(8vw,12vh),140px);line-height:.96;text-shadow:0 4px 40px rgba(0,0,0,.5)}
-.hB p{font-size:17px;line-height:1.7;color:#D8CFC7;max-width:560px}
-.hB .ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center}
-.hB-switch{display:inline-flex;align-items:center;gap:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:999px;padding:10px 22px 10px 10px;font:700 15px 'Open Sans',sans-serif;cursor:pointer;backdrop-filter:blur(8px)}
-.hB-switch .knob{width:44px;height:26px;border-radius:999px;background:rgba(255,255,255,.2);position:relative;transition:background .4s}
-.hB-switch .knob::after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .4s cubic-bezier(.7,0,.2,1)}
-.hB-switch[aria-pressed="true"] .knob{background:var(--red)}
-.hB-switch[aria-pressed="true"] .knob::after{transform:translateX(18px);box-shadow:0 0 14px 4px rgba(255,220,180,.8)}
-.hB-hint{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#9C928A;display:flex;align-items:center;gap:10px}
-.hB-hint::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red2);animation:pulse 1.6s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,74,80,.7)}100%{box-shadow:0 0 0 14px rgba(255,74,80,0)}}
-
+.hero.hA{background:var(--cream);color:var(--dark)}
+.hA .content{position:relative;height:100%;display:flex;align-items:center;padding-top:96px;padding-bottom:30px}
+.hA-l{width:46%;display:flex;flex-direction:column;gap:clamp(14px,2.6vh,26px);position:relative;z-index:2}
+.hA h1{font-size:clamp(42px,min(6.2vw,9vh),112px);line-height:.98}
+.hA h1 .r{color:var(--red)}
+.hA p{font-size:17px;line-height:1.75;color:var(--muted);max-width:470px}
+.hA .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn-dark{border:1px solid rgba(52,48,44,.35);color:var(--dark)}
+.btn-dark::before{content:"";position:absolute;inset:0;background:var(--dark);transform:translateY(101%);transition:transform .55s cubic-bezier(.7,0,.2,1);z-index:-1}
+.btn-dark:hover{color:#fff}.btn-dark:hover::before{transform:none}
+.hA-stats{display:flex;gap:36px;padding-top:18px;border-top:1px solid rgba(52,48,44,.15);max-width:470px}
+.hA-stats div{display:flex;flex-direction:column}
+.hA-stats b{font-size:40px;font-weight:400;color:var(--red);line-height:1}
+.hA-stats span{font-size:13px;color:var(--muted)}
+.hA-r{position:absolute;top:0;bottom:0;right:0;width:50%;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-right:14px;-webkit-mask-image:linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent);transform:rotate(-6deg) scale(1.18);transform-origin:center;top:96px}
+.hA-r .col{overflow:hidden}
+.hA-r .track{display:flex;flex-direction:column;gap:14px;animation:colUp 38s linear infinite}
+.hA-r .col:nth-child(2) .track{animation-name:colDown;animation-duration:44s}
+.hA-r .col:nth-child(3) .track{animation-duration:32s}
+.hA-r:hover .track{animation-play-state:paused}
+.hA-r img{width:100%;height:300px;object-fit:cover;border-radius:16px;transition:transform .8s,filter .8s}
+.hA-r img:hover{transform:scale(1.04);filter:brightness(1.1)}
+@keyframes colUp{to{transform:translateY(-50%)}}
+@keyframes colDown{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+@media(max-width:900px){.hA-l{width:100%}.hA-r{opacity:.18;width:100%}}
+header{background:rgba(245,242,237,.9);backdrop-filter:blur(14px)}header nav{color:var(--dark)}
 /* marquee */
 .marquee{background:var(--red);color:#fff;padding:26px 0;overflow:hidden;white-space:nowrap}
 .marquee .track{display:inline-flex;gap:60px;font-family:'Enriqueta',serif;font-size:clamp(28px,3.4vw,48px)}
@@ -252,17 +257,17 @@ footer .bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20p
 </header>
 
 <main>
-<section class="hero hB" id="top">
-  <div class="hB-img hB-dark"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_20191216_203021%5B2342%5D.jpg" alt=""></div>
-  <div class="hB-img hB-light" id="hbl"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_20191216_203021%5B2342%5D.jpg" alt="Weiße Spanndecke mit Einbauspots"></div>
-  <div class="shade"></div>
+<section class="hero hA" id="top">
+  <div class="hA-r" aria-hidden="true"><div class="col"><div class="track"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_20191220_124021%5B2329%5D.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_0678%5B2317%5D.JPG" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/7.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/Spanndecke%20schwarz.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_20191220_124021%5B2329%5D.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_0678%5B2317%5D.JPG" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/7.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/Spanndecke%20schwarz.jpg" alt="" loading="lazy"></div></div><div class="col"><div class="track"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/k-GW8_7330.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_0668%5B2310%5D.JPG" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_20191216_203021%5B2342%5D.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/1.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/k-GW8_7330.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_0668%5B2310%5D.JPG" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_20191216_203021%5B2342%5D.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/1.jpg" alt="" loading="lazy"></div></div><div class="col"><div class="track"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/7.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/Spanndecke%20schwarz.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/k-GW8_7330.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_0668%5B2310%5D.JPG" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/7.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/Spanndecke%20schwarz.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/k-GW8_7330.jpg" alt="" loading="lazy"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_0668%5B2310%5D.JPG" alt="" loading="lazy"></div></div></div>
+  <div class="glow"></div>
   <div class="wrap content">
-    <div class="eyebrow h-in" style="color:#F2B8B0;justify-content:center">Spanndecken &amp; Raumausstattung</div>
-    <h1 class="serif split"><span class="line"><span>Machen Sie</span></span><span class="line"><span class="r">das Licht an.</span></span></h1>
-    <p class="h-in">Spanndecken mit integrierten Spots, LED-Linien und Leuchtdecken – montiert über Ihrer alten Decke, meist an einem Tag.</p>
-    <div class="ctas h-in"><a class="btn btn-red mag" href="#kontakt">Kostenlos beraten lassen <span class="ar">→</span></a>
-      <button class="hB-switch mag" id="hbs" aria-pressed="false"><span class="knob"></span><span class="lbl">Licht an</span></button></div>
-    <div class="hB-hint h-in" aria-hidden="true">Bewegen Sie die Maus über die Decke</div>
+    <div class="hA-l">
+      <div class="eyebrow h-in">Spanndecken &amp; Raumausstattung</div>
+      <h1 class="serif split"><span class="line"><span>Neue Decke.</span></span><span class="line"><span>In nur</span></span><span class="line"><span class="r">einem Tag.</span></span></h1>
+      <p class="h-in">Wir montieren Ihre neue Decke einfach über die alte – spiegelnd, matt oder glänzend. Ohne Schmutz, ohne Baustellen-Chaos.</p>
+      <div class="ctas h-in"><a class="btn btn-red mag" href="#kontakt">Kostenlos beraten lassen <span class="ar">→</span></a><a class="btn btn-dark mag" href="#referenzen">Referenzen</a></div>
+      <div class="hA-stats h-in"><div><b class="serif">15</b><span>Jahre Garantie</span></div><div><b class="serif">1</b><span>Tag Einbau</span></div><div><b class="serif">0</b><span>Schmutz</span></div></div>
+    </div>
   </div>
 </section>
 
@@ -482,29 +487,21 @@ gsap.set('.h-in',{y:40,opacity:0});
 gsap.set('#hdr',{yPercent:-100});
 
 /* preloader */
-var hbl=document.getElementById('hbl'),SP={x:innerWidth*.5,y:innerHeight*.38,r:0},spOn=false,idle=true,idleT;
-function spSet(){hbl.style.setProperty('--x',SP.x+'px');hbl.style.setProperty('--y',SP.y+'px');hbl.style.setProperty('--r',SP.r+'px')}
 var o={v:0},ln=document.getElementById('ln');
 var tl=gsap.timeline();
 tl.to(o,{v:100,duration:1.6,ease:'power2.inOut',onUpdate:function(){ln.textContent=Math.round(o.v)}})
   .to('#loader .bar',{width:'100%',duration:1.6,ease:'power2.inOut'},0)
   .to('#loader',{yPercent:-100,duration:1,ease:'expo.inOut'},'+=.15')
   .add(function(){loader.remove()})
-  .to(SP,{r:280,duration:1.8,ease:'expo.out',onUpdate:spSet},'-=.5')
+  .fromTo('.hA-r .col',{yPercent:40,opacity:0},{yPercent:0,opacity:1,duration:1.8,stagger:.15,ease:'expo.out'},'-=.6')
   .to('.hero .shade',{opacity:1,duration:1.2},'-=1.4')
   .to('.hero .split .line>span',{yPercent:0,duration:1.2,stagger:.12,ease:'expo.out'},'-=1.2')
   .to('.h-in',{y:0,opacity:1,duration:1,stagger:.1,ease:'expo.out'},'-=.9')
   .to('#hdr',{yPercent:0,duration:1,ease:'expo.out'},'-=1');
 
 
-/* hero B spotlight */
-var spX=gsap.quickTo(SP,'x',{duration:.9,ease:'power3',onUpdate:spSet}),spY=gsap.quickTo(SP,'y',{duration:.9,ease:'power3',onUpdate:spSet});
-var auto=gsap.timeline({repeat:-1,yoyo:true,paused:true}).to(SP,{x:function(){return innerWidth*.25},y:function(){return innerHeight*.3},duration:3,ease:'sine.inOut',onUpdate:spSet}).to(SP,{x:function(){return innerWidth*.75},y:function(){return innerHeight*.45},duration:4,ease:'sine.inOut',onUpdate:spSet});
-setTimeout(function(){if(idle)auto.play()},3800);
-document.querySelector('.hB').addEventListener('mousemove',function(e){var r=e.currentTarget.getBoundingClientRect();idle=false;auto.pause();clearTimeout(idleT);idleT=setTimeout(function(){idle=true;auto.play()},4000);spX(e.clientX-r.left);spY(e.clientY-r.top)});
-document.getElementById('hbs').addEventListener('click',function(){spOn=!spOn;this.setAttribute('aria-pressed',spOn);this.querySelector('.lbl').textContent=spOn?'Licht aus':'Licht an';gsap.to(SP,{r:spOn?Math.max(innerWidth,innerHeight)*1.4:280,duration:1.6,ease:'expo.inOut',onUpdate:spSet})});
-gsap.to('.hB-img img',{yPercent:12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
-
+/* hero A */
+hero=document.querySelector('.hero');
 /* hero parallax on scroll */
 
 gsap.to('.hero .content',{yPercent:-25,opacity:0,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
