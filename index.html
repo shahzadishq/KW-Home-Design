@@ -577,6 +577,7 @@ if(words[n]!==words[svCur]){gsap.timeline().to(svw,{yPercent:-40,opacity:0,durat
 svTabs.forEach(function(t){t.classList.toggle('on',+t.dataset.go===n-(n%2))});
 svCur=n;}
 svI.forEach(function(el,i){ScrollTrigger.create({trigger:el,start:'top 55%',end:'bottom 55%',onToggle:function(st){if(st.isActive)svGo(i)}})});
+ScrollTrigger.create({trigger:'.sv-list',start:'top 55%',onLeaveBack:function(){svGo(0)}});
 svTabs.forEach(function(t){t.addEventListener('click',function(){var el=svI[+t.dataset.go];if(lenis)lenis.scrollTo(el,{offset:-140});else el.scrollIntoView({behavior:'smooth'})})});
 gsap.fromTo('.sv-frame',{clipPath:'inset(12% 12% 12% 12% round 24px)'},{clipPath:'inset(0% 0% 0% 0% round 24px)',ease:'none',scrollTrigger:{trigger:'.sv-grid',start:'top 90%',end:'top 30%',scrub:true}});
 gsap.utils.toArray('.sv-chips').forEach(function(c){gsap.fromTo(c.children,{y:20,opacity:0},{y:0,opacity:1,duration:.7,stagger:.06,ease:'expo.out',scrollTrigger:{trigger:c,start:'top 85%'}})});
