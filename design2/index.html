@@ -180,26 +180,48 @@ header .btn{padding:12px 20px;font-size:13px}
 @media(max-width:900px){.intro-grid{grid-template-columns:1fr}.pics{height:520px}.badge{width:112px;height:112px;left:auto;right:0;top:-30px}.badge .c{font-size:32px}}
 @media(max-width:520px){.pics{height:430px}.pic.a{width:86%;height:74%}.pic.b{width:58%;height:44%}}
 
-/* ---------- ablauf (graphic 1) ---------- */
+/* ---------- ablauf: 3D-Schichten (Variante A) ---------- */
 .ab-pin{height:100vh;display:flex;align-items:center;position:relative;z-index:1}
 .ab-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,80px);align-items:center;width:100%}
-.ab-head .h2{font-size:clamp(36px,4.6vw,72px);margin:22px 0 34px}
-.steps{position:relative;min-height:190px}
-.step{position:absolute;inset:0 0 auto 0;opacity:0;transform:translateY(24px)}
-.step:first-child{opacity:1;transform:none}
+.ab-head .h2{font-size:clamp(36px,4.6vw,72px);margin:22px 0 32px}
+.steps{position:relative;min-height:180px}
+.step{position:absolute;inset:0 0 auto 0;opacity:0;transform:translateY(22px);transition:opacity .45s ease,transform .55s var(--ease);pointer-events:none}
+.step.on{opacity:1;transform:none}
 .step .n{font-family:'Enriqueta',serif;font-size:15px;color:var(--red2);margin-bottom:10px;display:flex;align-items:center;gap:12px}
 .step .n::after{content:"";height:1px;width:50px;background:rgba(255,74,80,.5)}
 .step h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(26px,2.4vw,36px);margin-bottom:12px}
 .step p{color:var(--sand);font-size:16px;line-height:1.75;max-width:440px}
 .dots{display:flex;gap:10px;margin-top:20px}
-.dots i{height:4px;width:28px;border-radius:4px;background:rgba(245,242,237,.15);overflow:hidden;position:relative}
+.dots i{height:4px;width:30px;border-radius:4px;background:rgba(245,242,237,.15);overflow:hidden;position:relative}
 .dots i b{position:absolute;inset:0;background:var(--red);transform:scaleX(0);transform-origin:left}
-.diagram{position:relative;border-radius:28px;background:radial-gradient(120% 90% at 50% 0%,#3a322d,#2a2420 70%);box-shadow:inset 0 0 0 1px rgba(245,242,237,.08),0 40px 100px rgba(0,0,0,.3);padding:clamp(10px,2vw,26px)}
-.diagram svg{width:100%;height:auto;display:block;overflow:visible}
-.diagram .lbl{font-family:'Open Sans';font-size:13px;font-weight:600;fill:var(--cream)}
-.diagram .lbl.s{font-size:11px;font-weight:400;fill:var(--muted)}
-.chip-day{position:absolute;right:22px;top:22px;padding:9px 16px;border-radius:999px;background:var(--red);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:0;transform:scale(.6)}
-@media(max-width:900px){.ab-pin{height:auto;min-height:100svh;padding:90px 0 50px}.ab-grid{grid-template-columns:1fr;gap:24px}.ab-head .h2{margin:14px 0 18px}.diagram{order:-1}.steps{min-height:200px}.diagram .lbl{font-size:16px}.diagram .lbl.s{font-size:14px}}
+.stack{position:relative;height:min(74vh,620px);perspective:1800px;display:flex;align-items:center;justify-content:center}
+.layers{position:relative;margin-top:24vh;width:min(30vw,340px);aspect-ratio:1;transform-style:preserve-3d;transform:rotateX(62deg) rotateZ(-38deg);will-change:transform}
+.layer{position:absolute;inset:0;border-radius:10px;will-change:transform,opacity}
+.l-old{background:#6b625b;background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.18) 0 2px,transparent 2px 10px),linear-gradient(135deg,#7a706a,#4e4640);box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 30px 60px rgba(0,0,0,.4)}
+.l-old::after{content:"";position:absolute;inset:0;border-radius:10px;background:linear-gradient(118deg,transparent 30%,rgba(0,0,0,.45) 30.4%,transparent 31%),linear-gradient(64deg,transparent 62%,rgba(0,0,0,.4) 62.3%,transparent 62.9%)}
+.l-prof{border:12px solid #cfc6be;box-shadow:inset 0 0 0 2px #a89e96,0 0 0 2px #a89e96}
+.l-mem{background:linear-gradient(135deg,#fffdf9,#e9e2da 55%,#fff);box-shadow:0 0 50px rgba(255,255,255,.25);overflow:hidden}
+.l-mem::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.95) 45%,transparent 55%);background-size:250% 100%;animation:memsheen 4s ease-in-out infinite}
+@keyframes memsheen{0%{background-position:120% 0}100%{background-position:-120% 0}}
+.l-light i{position:absolute;width:16%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff 0 18%,rgba(255,217,168,.9) 30%,rgba(255,217,168,0) 70%);transform:translate(-50%,-50%) scale(0);transition:transform .5s var(--ease)}
+.l-light.lit i{transform:translate(-50%,-50%) scale(1)}
+.legend{position:absolute;left:50%;bottom:2%;transform:translateX(-50%);display:flex;gap:8px;flex-wrap:wrap;justify-content:center;width:100%}
+.legend span{display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.06);font-size:12.5px;font-weight:600;color:var(--muted);transition:all .4s}
+.legend span i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .4s}
+.legend span.on{color:#fff;background:rgba(255,255,255,.12)}.legend span.on i{background:var(--red2)}
+.chip-day{position:absolute;right:2%;top:2%;padding:10px 18px;border-radius:999px;background:var(--red);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:0;transform:scale(.7);transition:opacity .4s,transform .5s var(--ease)}
+.chip-day.on{opacity:1;transform:none}
+@media(max-width:900px){
+  .ab-pin{height:100svh;padding:76px 0 20px}
+  .ab-grid{grid-template-columns:1fr;gap:6px}
+  .ab-head .h2{font-size:clamp(30px,8vw,42px);margin:10px 0 14px}
+  .stack{order:-1;height:min(44svh,360px)}
+  .layers{width:min(52vw,210px);margin-top:16svh}
+  .legend{bottom:0}.legend span{padding:6px 10px;font-size:11px}
+  .steps{min-height:150px}.step p{font-size:15px}.step h3{font-size:24px}
+  .chip-day{top:0;right:0;font-size:10.5px;padding:8px 12px}
+}
+@media(max-width:900px) and (max-height:700px){.ab-head .h2{display:none}}
 
 /* ---------- leistungen ---------- */
 .leist{background:var(--paper);color:var(--coal);position:relative;overflow:hidden}
@@ -343,55 +365,94 @@ header .btn{padding:12px 20px;font-size:13px}
 .map .hql{font-size:14px;font-weight:700;fill:#fff;font-family:'Open Sans'}
 @media(max-width:900px){.geb-grid{grid-template-columns:1fr}.map{max-width:340px}}
 
-/* ---------- kontakt + form ---------- */
-.kontakt{position:relative;padding:clamp(100px,15vh,180px) 0;background:var(--cream);overflow:hidden}
-.k-grid{display:flex;flex-direction:column;align-items:center;position:relative}
-.k-head{text-align:center;max-width:860px}
-.k-head .eyebrow{justify-content:center}
-.k-grid .h2{margin:22px 0 20px;font-size:clamp(38px,5vw,80px)}
-.k-grid .sub{color:var(--stone);line-height:1.75;max-width:520px;margin:0 auto}
-.k-grid .form{width:100%;max-width:880px;margin-top:clamp(36px,5vh,56px)}
-.form h3,.form .fsub{text-align:center}
-.cinfo{list-style:none;margin-top:22px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;width:100%;max-width:1180px}
-.cinfo li{display:flex}.cinfo li>a{flex:1}
-.cinfo a,.cinfo div.it{display:flex;gap:16px;align-items:center;padding:16px 18px;border-radius:18px;background:var(--white);box-shadow:0 0 0 1px var(--line);transition:transform .4s var(--ease),box-shadow .4s}
+/* ---------- kontakt: info links, funnel rechts ---------- */
+.kontakt{position:relative;padding:clamp(100px,14vh,170px) 0;background:var(--cream);overflow:hidden}
+.k-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,5vw,90px);align-items:center;position:relative}
+.k-left .h2{margin:22px 0 18px;font-size:clamp(36px,4.4vw,68px)}
+.k-left .sub{color:var(--stone);line-height:1.75;max-width:440px}
+.sum{margin-top:28px;border-radius:22px;background:var(--coal);color:#fff;padding:22px 24px 18px;position:relative;overflow:hidden}
+.sum::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:repeating-linear-gradient(-45deg,var(--red) 0 12px,var(--coal) 12px 24px)}
+.sum-h{display:flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--warm);margin-top:4px}
+.sum-h .dot{width:8px;height:8px;border-radius:50%;background:var(--red2);animation:ping 2s infinite}
+.sum dl{display:grid;grid-template-columns:auto 1fr;gap:0 18px;margin-top:10px}
+.sum dt{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.12)}
+.sum dd{font-size:15px;font-weight:600;color:rgba(255,255,255,.35);padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.12);text-align:right}
+.sum dd.set{color:#fff;animation:pop .6s var(--ease)}
+@keyframes pop{0%{transform:translateX(10px);opacity:0}100%{transform:none;opacity:1}}
+.cinfo{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.cinfo a{display:flex;gap:14px;align-items:center;padding:12px 16px;border-radius:16px;background:var(--white);box-shadow:0 0 0 1px var(--line);transition:transform .4s var(--ease),box-shadow .4s}
 .cinfo a:hover{transform:translateX(6px);box-shadow:0 16px 30px -16px rgba(42,36,32,.3),0 0 0 1px var(--line)}
-.cinfo .ic{width:48px;height:48px;flex-shrink:0;border-radius:14px;background:rgba(220,15,22,.08);color:var(--red);display:grid;place-items:center;transition:background .4s,color .4s}
+.cinfo .ic{width:44px;height:44px;flex-shrink:0;border-radius:12px;background:rgba(220,15,22,.08);color:var(--red);display:grid;place-items:center;transition:background .4s,color .4s}
 .cinfo a:hover .ic{background:var(--red);color:#fff}
-.cinfo .ic svg{width:22px;height:22px}
-.cinfo small{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:3px}
-.cinfo b{font-size:15.5px;font-weight:600;color:var(--coal)}
-.cinfo span.ad{display:block;font-size:13.5px;color:var(--stone)}
-.form{position:relative;border-radius:30px;background:var(--coal);color:var(--cream);padding:clamp(26px,3.4vw,48px);overflow:hidden;box-shadow:0 50px 100px -40px rgba(42,36,32,.6)}
-.form::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(245,242,237,.06) 1px,transparent 1.2px);background-size:20px 20px;pointer-events:none}
-.form .orb{width:320px;height:320px;right:-120px;top:-120px}
-.form>*:not(.orb):not(.ok){position:relative}
-.form .ok{z-index:5}
-.form h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(26px,2.4vw,36px);margin-bottom:6px}
-.form .fsub{color:var(--muted);font-size:14.5px;margin-bottom:26px}
-.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.fgrid .full{grid-column:1/-1}
-.fld{position:relative}
-.fld input,.fld select,.fld textarea{width:100%;background:rgba(245,242,237,.06);border:1px solid rgba(245,242,237,.14);border-radius:14px;padding:24px 16px 10px;font-size:15px;color:#fff;outline:none;transition:border-color .3s,background .3s;appearance:none;-webkit-appearance:none}
-.fld textarea{min-height:130px;resize:vertical}
-.fld select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 22px) 52%,calc(100% - 16px) 52%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
-.fld select option{color:var(--coal)}
-.fld label{position:absolute;left:17px;top:17px;font-size:14.5px;color:var(--muted);pointer-events:none;transition:all .25s var(--ease)}
-.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--red2);background:rgba(245,242,237,.09)}
-.fld input:focus+label,.fld input:not(:placeholder-shown)+label,.fld textarea:focus+label,.fld textarea:not(:placeholder-shown)+label,.fld select+label{top:8px;font-size:11px;letter-spacing:.08em;color:var(--warm)}
-.chk{display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--muted);line-height:1.55;cursor:pointer}
-.chk input{width:20px;height:20px;accent-color:var(--red);flex-shrink:0;margin-top:1px}
-.form .send{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.form .send small{color:var(--muted);font-size:12.5px}
-.form .btn-red::before{background:#fff}.form .btn-red:hover{color:var(--coal)}.form .btn-red:hover .ar{background:var(--red);color:#fff}
-.ok{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:30px;background:var(--coal);opacity:0;pointer-events:none;transition:opacity .5s}
-.ok.on{opacity:1;pointer-events:auto}
-.ok .tick{width:76px;height:76px;border-radius:50%;background:var(--red);display:grid;place-items:center}
-.ok h4{font-family:'Enriqueta',serif;font-weight:400;font-size:30px}
-.ok p{color:var(--muted);max-width:340px;line-height:1.65}
-@media(max-width:1100px){.cinfo{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.cinfo{grid-template-columns:1fr}}
-@media(max-width:560px){.fgrid{grid-template-columns:1fr}.form .send .btn{width:100%;justify-content:center}}
+.cinfo .ic svg{width:20px;height:20px}
+.cinfo small{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:2px}
+.cinfo b{font-size:15px;font-weight:600;color:var(--coal)}
+.cinfo span.ad{display:block;font-size:13px;color:var(--stone)}
+.fcard{background:var(--white);border-radius:30px;padding:clamp(24px,3.2vw,46px);box-shadow:0 50px 100px -50px rgba(42,36,32,.55),0 0 0 1px var(--line);position:relative}
+.ftrack{position:relative;height:50px;margin-bottom:4px}
+.frail{position:absolute;left:0;right:0;bottom:8px;height:8px;border-radius:4px;background:var(--paper);overflow:hidden}
+.frail i{display:block;height:100%;width:0;background:repeating-linear-gradient(-45deg,var(--red) 0 10px,var(--red2) 10px 20px);transition:width .8s var(--ease)}
+.froof{position:absolute;bottom:14px;left:0;width:44px;transition:left .8s var(--ease)}
+.froof svg{width:44px;height:auto;display:block;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-4px)}}
+.fmeta{display:flex;justify-content:space-between;font-weight:600;font-size:14px;color:var(--stone);margin-bottom:22px}
+.fmeta b{color:var(--red)}
+.fs{border:0;margin:0;padding:0;min-width:0;animation:fin .5s var(--ease)}
+.fs[hidden]{display:none}
+@keyframes fin{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+.fq{font-family:'Enriqueta',serif;font-size:clamp(24px,2.4vw,34px);line-height:1.15;padding:0;margin-bottom:6px;outline:none;color:var(--coal)}
+.fh{color:var(--stone);margin-bottom:20px;font-size:15px}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:10px}
+.opt{display:flex}.opt label{flex:1}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt label{display:flex;align-items:center;gap:12px;min-height:74px;padding:12px 14px;border:2px solid var(--line);border-radius:16px;cursor:pointer;background:var(--white);transition:border-color .25s,background-color .25s,transform .25s var(--ease),box-shadow .25s}
+.opt label:hover{border-color:var(--red2);transform:translateY(-2px)}
+.opt input:focus-visible+label{outline:3px solid var(--red2);outline-offset:2px}
+.opt input:checked+label{border-color:var(--red);background:#fff4f3;box-shadow:0 12px 24px -16px rgba(220,15,22,.8)}
+.oic{width:46px;height:46px;border-radius:12px;background:var(--paper);display:grid;place-items:center;flex:none;color:var(--coal);transition:background .25s,color .25s}
+.opt input:checked+label .oic{background:var(--red);color:#fff}
+.oic svg{width:24px;height:24px}
+.ot{font-weight:700;line-height:1.25;font-size:15px;color:var(--coal);min-width:0}.ot small{display:block;font-weight:500;color:var(--stone);font-size:12.5px;margin-top:2px}
+.ock{margin-left:auto;width:26px;height:26px;border-radius:50%;background:var(--red);display:grid;place-items:center;transform:scale(0);transition:transform .35s var(--ease);flex:none}
+.ock svg{width:14px;height:14px}
+.opt input:checked+label .ock{transform:scale(1)}
+.fcard .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fcard .fgrid .full{grid-column:1/-1}
+.fcard .fld{position:relative}
+.fcard .fld input,.fcard .fld textarea{width:100%;background:var(--cream);border:2px solid var(--line);border-radius:14px;padding:24px 16px 10px;font-size:15.5px;color:var(--coal);outline:none;transition:border-color .3s,background .3s;-moz-appearance:textfield;appearance:textfield}
+.fcard .fld input::-webkit-outer-spin-button,.fcard .fld input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.fcard .fld textarea{min-height:110px;resize:vertical}
+.fcard .fld label{position:absolute;left:18px;top:18px;font-size:15px;color:var(--muted);pointer-events:none;transition:all .25s var(--ease)}
+.fcard .fld input:focus,.fcard .fld textarea:focus{border-color:var(--red2);background:#fff}
+.fcard .fld input:focus+label,.fcard .fld input:not(:placeholder-shown)+label,.fcard .fld textarea:focus+label,.fcard .fld textarea:not(:placeholder-shown)+label{top:8px;font-size:11px;letter-spacing:.06em;color:var(--red)}
+.fcard .fld .unit{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--muted);pointer-events:none}
+.fcard [aria-invalid="true"]{border-color:var(--red)!important;background:#fff4f3!important}
+.fcard .chk{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--stone);line-height:1.55;cursor:pointer}
+.fcard .chk input{width:20px;height:20px;accent-color:var(--red);flex-shrink:0;margin-top:1px}
+.hp{position:absolute;left:-9999px}
+.ferr{margin-top:14px;padding:12px 16px;border-radius:12px;background:#fff4f3;border:1px solid #f3c7c4;color:#a3121a;font-weight:600;font-size:14px}
+.ferr[hidden]{display:none}
+.fnav{display:flex;gap:12px;justify-content:space-between;margin-top:24px}
+.fnav .fback[hidden]{display:none}
+.fnav .fnext{margin-left:auto;min-width:200px;justify-content:center}
+.fnav .fnext::before{background:var(--coal)}
+.fdone{text-align:center;display:grid;gap:14px;justify-items:center;padding:30px 0;animation:fin .6s var(--ease)}
+.fdone[hidden]{display:none}
+.fdone .tick{width:80px;height:80px;border-radius:50%;background:var(--red);display:grid;place-items:center}
+.fdone .tick svg{width:38px;height:38px}
+.fdone h3{font-family:'Enriqueta',serif;font-weight:400;font-size:32px;color:var(--coal)}
+.fdone p{color:var(--stone);max-width:420px;line-height:1.65}
+@media(max-width:980px){.k-grid{grid-template-columns:1fr}.fcard{order:2}}
+@media(max-width:560px){.opts{grid-template-columns:1fr}.opt label{min-height:64px}.fcard .fgrid{grid-template-columns:1fr}.fnav .fnext{min-width:0;flex:1}.sum dd{font-size:14px}}
+
+/* tabs: Decke / Boden / Wand */
+.st-tabs{display:flex;gap:6px;background:var(--white);padding:6px;border-radius:999px;box-shadow:0 0 0 1px var(--line)}
+.st-tab{color:var(--stone);font-weight:600;font-size:15px;padding:13px 24px;border-radius:999px;transition:background .4s,color .4s}
+.st-tab sup{font-size:10px;color:var(--red);margin-left:4px}
+.st-tab.on{background:var(--coal);color:#fff}.st-tab.on sup{color:var(--red2)}
+.st-tab:hover:not(.on){color:var(--coal)}
+#stword{display:inline-block}
+@media(max-width:600px){.st-tabs{width:100%}.st-tab{flex:1;padding:12px 10px;font-size:14px}}
 
 /* footer */
 footer{background:var(--coal2);color:var(--sand);padding:0 0 calc(30px + env(safe-area-inset-bottom))}
@@ -536,74 +597,26 @@ footer{background:var(--coal2);color:var(--sand);padding:0 0 calc(30px + env(saf
         <span class="eyebrow">So funktioniert’s</span>
         <h2 class="serif h2">Neue Decke.<br><em>Alte bleibt.</em></h2>
         <div class="steps">
-          <div class="step"><div class="n">01</div><h3>Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist. Kein Abriss, kein Staub, keine Verschmutzung der Baustelle.</p></div>
+          <div class="step on"><div class="n">01</div><h3>Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist. Kein Abriss, kein Staub, keine Verschmutzung der Baustelle.</p></div>
           <div class="step"><div class="n">02</div><h3>Profil montieren</h3><p>Ein schlankes Profil wird umlaufend an der Wand befestigt – knapp unter der bestehenden Decke.</p></div>
           <div class="step"><div class="n">03</div><h3>Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei in das Profil eingespannt. Beim Abkühlen zieht sie sich straff und glatt.</p></div>
           <div class="step"><div class="n">04</div><h3>Licht &amp; Service</h3><p>Lampen aller Art, Spots und Rauchmelder – alles aus einer Hand integriert. Fertig an einem Tag.</p></div>
         </div>
         <div class="dots"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
       </div>
-
-      <div class="diagram">
-        <span class="chip-day">✓ An einem Tag</span>
-        <svg viewBox="0 0 800 540" id="dg" role="img" aria-label="Querschnitt: Spanndecke unter bestehender Decke">
-          <defs>
-            <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#5E5650" stroke-width="2"/></pattern>
-            <linearGradient id="cone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD9A8" stop-opacity=".55"/><stop offset="1" stop-color="#FFD9A8" stop-opacity="0"/></linearGradient>
-            <linearGradient id="memb" x1="0" x2="1"><stop offset="0" stop-color="#FFD9A8"/><stop offset=".5" stop-color="#fff"/><stop offset="1" stop-color="#FFD9A8"/></linearGradient>
-            <radialGradient id="bulb"><stop offset="0" stop-color="#fff"/><stop offset=".4" stop-color="#FFD9A8"/><stop offset="1" stop-color="#FFD9A8" stop-opacity="0"/></radialGradient>
-          </defs>
-          <!-- room -->
-          <rect x="40" y="40" width="40" height="460" fill="#2c2622"/>
-          <rect x="720" y="40" width="40" height="460" fill="#2c2622"/>
-          <rect x="40" y="500" width="720" height="8" fill="#2c2622"/>
-          <!-- old ceiling -->
-          <g id="old">
-            <rect x="40" y="40" width="720" height="50" fill="url(#hatch)"/>
-            <rect x="40" y="40" width="720" height="50" fill="none" stroke="#5E5650"/>
-            <path d="M180 90 l12 14 l-6 10 l10 12 M420 90 l-8 12 l8 8 l-4 14 M600 90 l10 10 l-6 16" stroke="#7a706a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <circle cx="300" cy="96" r="5" fill="#5E5650"/><line x1="300" y1="90" x2="300" y2="92" stroke="#5E5650"/>
-          </g>
-          <!-- profiles -->
-          <g id="prof" opacity="0">
-            <rect x="80" y="128" width="16" height="14" rx="2" fill="#CFC6BE"/>
-            <rect x="704" y="128" width="16" height="14" rx="2" fill="#CFC6BE"/>
-          </g>
-          <!-- heat -->
-          <g id="heat" opacity="0" stroke="#FF4A50" stroke-width="2" fill="none" stroke-linecap="round">
-            <path d="M330 330 q8 -10 0 -20 q-8 -10 0 -20 q8 -10 0 -20"/>
-            <path d="M400 340 q8 -10 0 -20 q-8 -10 0 -20 q8 -10 0 -20"/>
-            <path d="M470 330 q8 -10 0 -20 q-8 -10 0 -20 q8 -10 0 -20"/>
-          </g>
-          <!-- membrane -->
-          <path id="mem" d="M96 135 Q400 135 704 135" stroke="url(#memb)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0"/>
-          <!-- lights -->
-          <g id="lights" opacity="0">
-            <polygon points="232,140 268,140 330,500 170,500" fill="url(#cone)"/>
-            <polygon points="382,140 418,140 480,500 320,500" fill="url(#cone)"/>
-            <polygon points="532,140 568,140 630,500 470,500" fill="url(#cone)"/>
-            <circle cx="250" cy="140" r="22" fill="url(#bulb)"/><circle cx="400" cy="140" r="22" fill="url(#bulb)"/><circle cx="550" cy="140" r="22" fill="url(#bulb)"/>
-            <rect x="634" y="138" width="22" height="7" rx="3" fill="#F5F2ED"/><circle cx="645" cy="141" r="1.6" fill="#DC0F16"/>
-          </g>
-          <!-- sofa for scale -->
-          <g fill="#3a332e">
-            <rect x="300" y="430" width="200" height="50" rx="12"/>
-            <rect x="286" y="410" width="30" height="76" rx="12"/>
-            <rect x="484" y="410" width="30" height="76" rx="12"/>
-            <rect x="310" y="400" width="180" height="36" rx="10" fill="#443c36"/>
-            <rect x="306" y="486" width="10" height="14" fill="#2c2622"/><rect x="484" y="486" width="10" height="14" fill="#2c2622"/>
-          </g>
-          <!-- labels -->
-          <g id="l1" opacity="0"><line x1="600" y1="65" x2="640" y2="20" stroke="#A89E96"/><text x="646" y="18" class="lbl">Alte Decke</text><text x="646" y="32" class="lbl s">bleibt erhalten</text></g>
-          <g id="l2" opacity="0"><line x1="96" y1="142" x2="140" y2="200" stroke="#A89E96"/><text x="146" y="204" class="lbl">Wandprofil</text><text x="146" y="218" class="lbl s">umlaufend</text></g>
-          <g id="l3" opacity="0"><line x1="560" y1="140" x2="590" y2="220" stroke="#A89E96"/><text x="596" y="226" class="lbl">Spannfolie</text><text x="596" y="240" class="lbl s">straff &amp; fugenlos</text></g>
-          <g id="l4" opacity="0"><line x1="645" y1="146" x2="660" y2="290" stroke="#A89E96"/><text x="602" y="306" class="lbl">Rauchmelder</text><text x="602" y="320" class="lbl s">&amp; Spots integriert</text></g>
-        </svg>
+      <div class="stack" aria-hidden="true">
+        <span class="chip-day">✓ Fertig an einem Tag</span>
+        <div class="layers">
+          <div class="layer l-old"></div>
+          <div class="layer l-prof"></div>
+          <div class="layer l-mem"></div>
+          <div class="layer l-light"><i style="left:25%;top:25%"></i><i style="left:75%;top:25%"></i><i style="left:50%;top:50%"></i><i style="left:25%;top:75%"></i><i style="left:75%;top:75%"></i></div>
+        </div>
+        <div class="legend"><span><i></i>Alte Decke bleibt</span><span><i></i>Wandprofil</span><span><i></i>Spannfolie</span><span><i></i>Licht &amp; Rauchmelder</span></div>
       </div>
     </div>
   </div>
 </section>
-
 
 <!-- LEISTUNGEN -->
 <section class="leist" id="leistungen">
@@ -615,12 +628,12 @@ footer{background:var(--coal2);color:var(--sand);padding:0 0 calc(30px + env(saf
         <p>Sechs Disziplinen, ein Anspruch: Räume, die beim ersten Blick begeistern – sauber ausgeführt von unserem Team.</p>
         <div class="hint"><i></i>Scrollen</div>
       </div>
-      <a class="card" href="#kontakt" data-cursor="view"><img src="img/img_0642.webp" alt="Spanndecken" loading="lazy"><div class="top"><span class="cat">Deckendesign</span><span class="num">01</span></div><div class="bot"><h3>Spanndecken</h3><p>Fugenlos, pflegeleicht und in vielen Oberflächen – montiert direkt unter der alten Decke.</p><span class="go">↗</span></div></a>
-      <a class="card" href="#kontakt" data-cursor="view"><img src="img/img_0632.webp" alt="Holzdecken" loading="lazy"><div class="top"><span class="cat">Deckendesign</span><span class="num">02</span></div><div class="bot"><h3>Holzdecken</h3><p>Natürliche Wärme über Kopf – Holzdecken für ein behagliches Raumgefühl.</p><span class="go">↗</span></div></a>
-      <a class="card" href="#kontakt" data-cursor="view"><img src="img/k-bathroom-1336167_1920.webp" alt="Laminat" loading="lazy"><div class="top"><span class="cat">Bodendesign</span><span class="num">03</span></div><div class="bot"><h3>Laminat</h3><p>Robust, vielseitig und schnell verlegt – Laminat für jeden Wohnraum.</p><span class="go">↗</span></div></a>
-      <a class="card" href="#kontakt" data-cursor="view"><img src="img/k-interior-2685518_1920.webp" alt="Vinylboden" loading="lazy"><div class="top"><span class="cat">Bodendesign</span><span class="num">04</span></div><div class="bot"><h3>Vinylboden</h3><p>Angenehm fußwarm, leise und strapazierfähig – ideal für stark genutzte Räume.</p><span class="go">↗</span></div></a>
-      <a class="card" href="#kontakt" data-cursor="view"><img src="img/k-interior-3012218_1920.webp" alt="Tapetengestaltung" loading="lazy"><div class="top"><span class="cat">Wanddesign</span><span class="num">05</span></div><div class="bot"><h3>Tapeten&shy;gestaltung</h3><p>Individuelle Wandgestaltung mit Tapeten, die jedem Raum Charakter geben.</p><span class="go">↗</span></div></a>
-      <a class="card" href="#kontakt" data-cursor="view"><img src="img/k-room-3051846_1920.webp" alt="Wandverklinkung" loading="lazy"><div class="top"><span class="cat">Wanddesign</span><span class="num">06</span></div><div class="bot"><h3>Wand&shy;verklinkung</h3><p>Klinker-Optik für Wände mit Ausdruck – warm, markant und zeitlos.</p><span class="go">↗</span></div></a>
+      <a class="card" href="#kontakt" data-pick="decke:spann" data-cursor="view"><img src="img/img_0642.webp" alt="Spanndecken" loading="lazy"><div class="top"><span class="cat">Deckendesign</span><span class="num">01</span></div><div class="bot"><h3>Spanndecken</h3><p>Fugenlos, pflegeleicht und in vielen Oberflächen – montiert direkt unter der alten Decke.</p><span class="go">↗</span></div></a>
+      <a class="card" href="#kontakt" data-pick="decke:holz" data-cursor="view"><img src="img/img_0632.webp" alt="Holzdecken" loading="lazy"><div class="top"><span class="cat">Deckendesign</span><span class="num">02</span></div><div class="bot"><h3>Holzdecken</h3><p>Natürliche Wärme über Kopf – Holzdecken für ein behagliches Raumgefühl.</p><span class="go">↗</span></div></a>
+      <a class="card" href="#kontakt" data-pick="boden:laminat" data-cursor="view"><img src="img/k-bathroom-1336167_1920.webp" alt="Laminat" loading="lazy"><div class="top"><span class="cat">Bodendesign</span><span class="num">03</span></div><div class="bot"><h3>Laminat</h3><p>Robust, vielseitig und schnell verlegt – Laminat für jeden Wohnraum.</p><span class="go">↗</span></div></a>
+      <a class="card" href="#kontakt" data-pick="boden:vinyl" data-cursor="view"><img src="img/k-interior-2685518_1920.webp" alt="Vinylboden" loading="lazy"><div class="top"><span class="cat">Bodendesign</span><span class="num">04</span></div><div class="bot"><h3>Vinylboden</h3><p>Angenehm fußwarm, leise und strapazierfähig – ideal für stark genutzte Räume.</p><span class="go">↗</span></div></a>
+      <a class="card" href="#kontakt" data-pick="wand:tapete" data-cursor="view"><img src="img/k-interior-3012218_1920.webp" alt="Tapetengestaltung" loading="lazy"><div class="top"><span class="cat">Wanddesign</span><span class="num">05</span></div><div class="bot"><h3>Tapeten&shy;gestaltung</h3><p>Individuelle Wandgestaltung mit Tapeten, die jedem Raum Charakter geben.</p><span class="go">↗</span></div></a>
+      <a class="card" href="#kontakt" data-pick="wand:klinker" data-cursor="view"><img src="img/k-room-3051846_1920.webp" alt="Wandverklinkung" loading="lazy"><div class="top"><span class="cat">Wanddesign</span><span class="num">06</span></div><div class="bot"><h3>Wand&shy;verklinkung</h3><p>Klinker-Optik für Wände mit Ausdruck – warm, markant und zeitlos.</p><span class="go">↗</span></div></a>
       <div class="hz-end">
         <span class="eyebrow">Ihr Projekt</span>
         <h3>Welcher Raum soll als nächstes <em>„Wow“</em> sagen?</h3>
@@ -637,29 +650,26 @@ footer{background:var(--coal2);color:var(--sand);padding:0 0 calc(30px + env(saf
   <div class="lines"></div>
   <div class="wrap">
     <div class="st-head">
-      <div><span class="eyebrow">Spanndecken-Arten</span><h2 class="serif h2 split" style="margin-top:20px">Acht Oberflächen. <em>Ihr Stil.</em></h2></div>
-      <p>Ob dezent oder spektakulär – wählen Sie eine Oberfläche. Lampen aller Art und Rauchmelder bauen wir direkt mit ein.</p>
+      <div>
+        <span class="eyebrow">Decke · Boden · Wand</span>
+        <h2 class="serif h2 split" style="margin-top:20px">Wir gestalten <em id="stword">Decken.</em></h2>
+      </div>
+      <div class="st-tabs" role="tablist" aria-label="Bereiche">
+        <button class="st-tab on" data-c="0" role="tab">Decke <sup>09</sup></button>
+        <button class="st-tab" data-c="1" role="tab">Boden <sup>02</sup></button>
+        <button class="st-tab" data-c="2" role="tab">Wand <sup>02</sup></button>
+      </div>
     </div>
     <div class="st-grid">
-      <div class="st-stage">
-        <div class="st-img on"><img src="img/img_0635.webp" alt="Spanndecke Satin"></div><div class="st-img"><img src="img/img_0664.webp" alt="Spanndecke Lack" loading="lazy"></div><div class="st-img"><img src="img/img_0645.webp" alt="Spanndecke Matt" loading="lazy"></div><div class="st-img"><img src="img/ref-20190202_150039.webp" alt="Spanndecke Akustik" loading="lazy"></div><div class="st-img"><img src="img/img_0642.webp" alt="Spanndecke Double Vision" loading="lazy"></div><div class="st-img"><img src="img/spanndecke-schwarz.webp" alt="Spanndecke Perforiert" loading="lazy"></div><div class="st-img"><img src="img/img_20191220_124021.webp" alt="Spanndecke Leuchtdecken" loading="lazy"></div><div class="st-img"><img src="img/img_0668.webp" alt="Spanndecke Digital bedruckt" loading="lazy"></div>
+      <div class="st-stage" id="ststage">
         <div class="st-big" aria-hidden="true"><span id="stn">01</span></div>
         <div class="st-prog" aria-hidden="true"><i id="stp"></i></div>
       </div>
       <div class="st-side">
-        <div class="st-list" aria-live="polite">
-          <article class="st-item on"><div class="st-top"><span class="st-n">01</span><span class="st-cat">Spanndecke</span></div><h3 class="serif">Satin</h3><p>Seidiger, dezenter Schimmer – das Licht verteilt sich weich im Raum.</p><ul class="st-chips"><li>Dezent</li><li>Seidenglanz</li><li>Zeitlos</li></ul></article>
-          <article class="st-item"><div class="st-top"><span class="st-n">02</span><span class="st-cat">Spanndecke</span></div><h3 class="serif">Lack</h3><p>Hochglanz mit Spiegeleffekt – lässt Räume optisch höher und größer wirken.</p><ul class="st-chips"><li>Hochglanz</li><li>Spiegeleffekt</li><li>Raumwirkung</li></ul></article>
-          <article class="st-item"><div class="st-top"><span class="st-n">03</span><span class="st-cat">Spanndecke</span></div><h3 class="serif">Matt</h3><p>Klassisch ruhig – wirkt wie eine perfekt verputzte Decke, nur fugenlos.</p><ul class="st-chips"><li>Klassisch</li><li>Ruhig</li><li>Fugenlos</li></ul></article>
-          <article class="st-item"><div class="st-top"><span class="st-n">04</span><span class="st-cat">Spanndecke</span></div><h3 class="serif">Akustik</h3><p>Spezielle Oberfläche für eine angenehmere Raumakustik.</p><ul class="st-chips"><li>Raumakustik</li><li>Wohnlich</li><li>Büro & Gastro</li></ul></article>
-          <article class="st-item"><div class="st-top"><span class="st-n">05</span><span class="st-cat">Spanndecke</span></div><h3 class="serif">Double Vision</h3><p>Zwei Optiken in einer Fläche – für Decken mit echtem Wow-Effekt.</p><ul class="st-chips"><li>Zweifarbig</li><li>Individuell</li><li>Wow-Effekt</li></ul></article>
-          <article class="st-item"><div class="st-top"><span class="st-n">06</span><span class="st-cat">Spanndecke</span></div><h3 class="serif">Perforiert</h3><p>Feine Perforation – besonders eindrucksvoll in Kombination mit Licht.</p><ul class="st-chips"><li>Perforation</li><li>Lichteffekte</li><li>Modern</li></ul></article>
-          <article class="st-item"><div class="st-top"><span class="st-n">07</span><span class="st-cat">Spanndecke</span></div><h3 class="serif">Leuchtdecken</h3><p>Licht direkt aus der Decke – mit LED-Lichtbändern und Leuchtflächen.</p><ul class="st-chips"><li>LED</li><li>Stimmungslicht</li><li>Blickfang</li></ul></article>
-          <article class="st-item"><div class="st-top"><span class="st-n">08</span><span class="st-cat">Spanndecke</span></div><h3 class="serif">Digital bedruckt</h3><p>Ihr Motiv auf Decke und Wand – von Marmoroptik bis Himmel.</p><ul class="st-chips"><li>Motivdruck</li><li>Marmor</li><li>Individuell</li></ul></article>
-        </div>
+        <div class="st-list" id="stlist" aria-live="polite"></div>
         <div class="st-ctrl">
-          <div class="st-btns" role="tablist" aria-label="Spanndecken-Arten"><button class="st-btn on" data-i="0" role="tab"><span>01</span>Satin</button><button class="st-btn" data-i="1" role="tab"><span>02</span>Lack</button><button class="st-btn" data-i="2" role="tab"><span>03</span>Matt</button><button class="st-btn" data-i="3" role="tab"><span>04</span>Akustik</button><button class="st-btn" data-i="4" role="tab"><span>05</span>Double Vision</button><button class="st-btn" data-i="5" role="tab"><span>06</span>Perforiert</button><button class="st-btn" data-i="6" role="tab"><span>07</span>Leuchtdecken</button><button class="st-btn" data-i="7" role="tab"><span>08</span>Digital bedruckt</button></div>
-          <div class="st-foot"><a class="btn btn-red mag" href="#kontakt">Beratung anfragen <span class="ar">↗</span></a><div class="st-arrows"><button class="st-arr" id="stprev" aria-label="Vorherige">←</button><button class="st-arr" id="stnext" aria-label="Nächste">→</button></div></div>
+          <div class="st-btns" id="stbtns" role="tablist" aria-label="Varianten"></div>
+          <div class="st-foot"><a class="btn btn-red mag" href="#kontakt" id="stcta">Beratung anfragen <span class="ar">↗</span></a><div class="st-arrows"><button class="st-arr" id="stprev" aria-label="Vorherige">←</button><button class="st-arr" id="stnext" aria-label="Nächste">→</button></div></div>
         </div>
       </div>
     </div>
@@ -736,34 +746,85 @@ footer{background:var(--coal2);color:var(--sand);padding:0 0 calc(30px + env(saf
 <section class="kontakt" id="kontakt">
   <div class="lines"></div>
   <div class="wrap k-grid">
-    <div class="k-head">
+    <aside class="k-left">
       <span class="eyebrow">Kontakt</span>
       <h2 class="serif h2 split">Erfüllen Sie sich Ihren Traum von einer <em>schönen Decke.</em></h2>
-      <p class="sub">Schreiben Sie uns oder rufen Sie an – wir beraten Sie gerne persönlich zu Ihrem Projekt.</p>
-      
-    </div>
-    <form class="form" id="form" novalidate>
-      <div class="orb r"></div>
-      <h3>Anfrage senden</h3>
-      <p class="fsub">Erzählen Sie uns von Ihrem Raum – wir melden uns schnellstmöglich.</p>
-      <div class="fgrid">
-        <div class="fld"><input id="f-name" name="name" placeholder=" " required autocomplete="name"><label for="f-name">Name *</label></div>
-        <div class="fld"><input id="f-tel" name="telefon" type="tel" placeholder=" " autocomplete="tel"><label for="f-tel">Telefon</label></div>
-        <div class="fld full"><input id="f-mail" name="email" type="email" placeholder=" " required autocomplete="email"><label for="f-mail">E-Mail *</label></div>
-        <div class="fld"><select id="f-leist" name="leistung"><option>Spanndecken</option><option>Holzdecken</option><option>Laminat</option><option>Vinylboden</option><option>Tapetengestaltung</option><option>Wandverklinkung</option><option>Sonstiges</option></select><label for="f-leist">Leistung</label></div>
-        <div class="fld"><select id="f-ort" name="standort"><option>Empfingen</option><option>Lehrensteinsfeld</option></select><label for="f-ort">Nächster Standort</label></div>
-        <div class="fld full"><textarea id="f-msg" name="nachricht" placeholder=" " required></textarea><label for="f-msg">Ihre Nachricht (Raum, Größe, Wünsche) *</label></div>
-        <label class="chk full"><input type="checkbox" name="dsgvo" required><span>Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage verwendet werden (Datenschutzerklärung).</span></label>
+      <p class="sub">In fünf kurzen Schritten zu Ihrer Anfrage – oder rufen Sie uns direkt an.</p>
+      <div class="sum">
+        <div class="sum-h"><span class="dot"></span>Ihre Auswahl</div>
+        <dl>
+          <dt>Bereich</dt><dd id="s-bereich">—</dd>
+          <dt>Leistung</dt><dd id="s-leistung">—</dd>
+          <dt>Raum</dt><dd id="s-raum">—</dd>
+          <dt>Fläche &amp; Ort</dt><dd id="s-ort">—</dd>
+        </dl>
       </div>
-      <div class="send"><small>* Pflichtfelder</small><button class="btn btn-red mag" type="submit">Anfrage absenden <span class="ar">↗</span></button></div>
-      <div class="ok" id="ok"><div class="tick"><svg width="34" height="34" stroke="#fff"><use href="#i-check"/></svg></div><h4>Vielen Dank!</h4><p>Ihr E-Mail-Programm öffnet sich mit Ihrer Anfrage. Wir melden uns schnellstmöglich bei Ihnen.</p><button type="button" class="btn btn-ghost" id="okback">Neue Anfrage</button></div>
-    </form>
-    <ul class="cinfo">
-        <li><a href="tel:+4974852830609"><span class="ic"><svg><use href="#i-phone"/></svg></span><span><small>Standort Empfingen</small><b>+49 (0) 7485 2830 609</b><span class="ad">Zollernring 12, 72186 Empfingen</span></span></a></li>
-        <li><a href="tel:+4971349069440"><span class="ic"><svg><use href="#i-phone"/></svg></span><span><small>Standort Lehrensteinsfeld</small><b>+49 (0) 7134 9069 440</b><span class="ad">Starenweg 3, 74251 Lehrensteinsfeld</span></span></a></li>
+      <ul class="cinfo">
+        <li><a href="tel:+4974852830609"><span class="ic"><svg><use href="#i-phone"/></svg></span><span><small>Empfingen</small><b>+49 (0) 7485 2830 609</b><span class="ad">Zollernring 12, 72186 Empfingen</span></span></a></li>
+        <li><a href="tel:+4971349069440"><span class="ic"><svg><use href="#i-phone"/></svg></span><span><small>Lehrensteinsfeld</small><b>+49 (0) 7134 9069 440</b><span class="ad">Starenweg 3, 74251 Lehrensteinsfeld</span></span></a></li>
         <li><a href="mailto:info@kw-homedesign.de"><span class="ic"><svg><use href="#i-mail"/></svg></span><span><small>E-Mail</small><b>info@kw-homedesign.de</b></span></a></li>
-        <li><a href="https://www.google.com/maps/search/?api=1&query=Zollernring+12+72186+Empfingen" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-pin"/></svg></span><span><small>Einsatzgebiet</small><b>Baden-Württemberg &amp; Umgebung</b><span class="ad">Stuttgart · Heilbronn · Tübingen · bis Konstanz</span></span></a></li>
       </ul>
+    </aside>
+
+    <div class="fcard" id="fcard">
+      <form id="funnel" novalidate>
+        <div class="fbody">
+          <div class="ftrack" aria-hidden="true">
+            <div class="froof" id="froof"><svg viewBox="0 0 64 40"><path d="M2 38 32 4l30 34" fill="none" stroke="#DC0F16" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><rect x="24" y="22" width="16" height="16" rx="2" fill="#2A2420"/></svg></div>
+            <div class="frail"><i id="frail"></i></div>
+          </div>
+          <div class="fmeta"><span id="flabel" aria-live="polite">Schritt 1 von 5</span><b id="fpct">0 %</b></div>
+
+          <fieldset class="fs" data-key="bereich">
+            <legend class="fq" tabindex="-1">Was möchten Sie neu gestalten?</legend>
+            <p class="fh">Wählen Sie einen Bereich aus.</p>
+            <div class="opts" id="o-bereich"></div>
+          </fieldset>
+          <fieldset class="fs" data-key="leistung" hidden>
+            <legend class="fq" tabindex="-1">Welche Lösung interessiert Sie?</legend>
+            <p class="fh">Sie sind sich noch unsicher? Kein Problem – wir beraten Sie.</p>
+            <div class="opts" id="o-leistung"></div>
+          </fieldset>
+          <fieldset class="fs" data-key="raum" hidden>
+            <legend class="fq" tabindex="-1">Um welchen Raum geht es?</legend>
+            <p class="fh">Eine grobe Einordnung genügt.</p>
+            <div class="opts" id="o-raum"></div>
+          </fieldset>
+          <fieldset class="fs" data-key="ort" hidden>
+            <legend class="fq" tabindex="-1">Wie groß ist die Fläche – und wo?</legend>
+            <p class="fh">Ein Schätzwert reicht völlig aus.</p>
+            <div class="fgrid">
+              <div class="fld"><input id="f-flaeche" name="flaeche" type="number" inputmode="numeric" min="1" max="100000" placeholder=" " required><label for="f-flaeche">Fläche in m² *</label><span class="unit" aria-hidden="true">m²</span></div>
+              <div class="fld"><input id="f-plz" name="ort" type="text" autocomplete="postal-code" placeholder=" " required><label for="f-plz">PLZ und Ort *</label></div>
+            </div>
+          </fieldset>
+          <fieldset class="fs" data-key="kontakt" hidden>
+            <legend class="fq" tabindex="-1">Fast geschafft – wie erreichen wir Sie?</legend>
+            <p class="fh">Wir melden uns schnellstmöglich bei Ihnen.</p>
+            <div class="fgrid">
+              <div class="fld full"><input id="f-name" name="name" placeholder=" " required autocomplete="name"><label for="f-name">Name *</label></div>
+              <div class="fld"><input id="f-mail" name="email" type="email" placeholder=" " required autocomplete="email"><label for="f-mail">E-Mail *</label></div>
+              <div class="fld"><input id="f-tel" name="telefon" type="tel" placeholder=" " autocomplete="tel"><label for="f-tel">Telefon</label></div>
+              <div class="fld full"><textarea id="f-msg" name="nachricht" placeholder=" "></textarea><label for="f-msg">Nachricht (optional)</label></div>
+              <label class="chk full"><input type="checkbox" id="f-ok" name="dsgvo" required><span>Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage verwendet werden (Datenschutzerklärung). *</span></label>
+              <div class="hp" aria-hidden="true"><label>Bitte leer lassen <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            </div>
+          </fieldset>
+
+          <p class="ferr" id="ferr" role="alert" hidden></p>
+          <div class="fnav">
+            <button type="button" class="btn btn-dark fback" id="fback" hidden>← Zurück</button>
+            <button type="submit" class="btn btn-red fnext" id="fnext"><span>Weiter</span><span class="ar">→</span></button>
+          </div>
+        </div>
+        <div class="fdone" id="fdone" tabindex="-1" hidden>
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+          <h3 id="fdone-t">Vielen Dank für Ihre Anfrage!</h3>
+          <p>Ihr E-Mail-Programm öffnet sich mit Ihrer vorbereiteten Anfrage – bitte dort absenden. Falls sich nichts öffnet, rufen Sie uns an: <a href="tel:+4974852830609"><b>07485 2830 609</b></a>.</p>
+          <button type="button" class="btn btn-dark" id="frestart">Neue Anfrage</button>
+        </div>
+      </form>
+    </div>
   </div>
 </section>
 </main>
@@ -892,47 +953,37 @@ $$('.split,.ab-head .h2,.hz-intro .h2').forEach(el=>{const ws=splitWords(el);if(
   gsap.from('.badge',{scale:0,rotate:-120,duration:1.2,ease:'back.out(1.6)',scrollTrigger:{trigger:'.pics',start:'top 70%'}});
 })();
 
-/* ---------- ablauf diagram ---------- */
+/* ---------- ablauf: 3D-Schichten, direkt an die Scroll-Position gekoppelt ---------- */
 (()=>{
-  const mem=$('#mem'),steps=$$('.step'),bars=$$('.dots b');
-  const st={sag:0,draw:0};
-  const len=mem.getTotalLength?660:660;
-  const setMem=()=>{
-    mem.setAttribute('d',`M96 135 Q400 ${135+st.sag*2} 704 135`);
-    mem.style.strokeDasharray=900;mem.style.strokeDashoffset=900*(1-st.draw);
-  };
-  setMem();
-  const tl=gsap.timeline({defaults:{ease:'power2.inOut'}});
-  const showStep=(i,at)=>{
-    steps.forEach((s,k)=>{ if(k!==i) tl.to(s,{opacity:0,y:k<i?-24:24,duration:.25},at); });
-    tl.to(steps[i],{opacity:1,y:0,duration:.3},at+.1);
-  };
-  // step 1: old ceiling label
-  tl.to('#l1',{opacity:1,duration:.4},0).to(bars[0],{scaleX:1,duration:1,ease:'none'},0)
-    .fromTo('#old',{opacity:.55},{opacity:1,duration:.5},0);
-  // step 2: profiles
-  showStep(1,1);
-  tl.to('#prof',{opacity:1,duration:.3},1.1).fromTo('#prof rect',{scaleY:0,transformOrigin:'50% 50%'},{scaleY:1,duration:.4,stagger:.1},1.1)
-    .to('#l2',{opacity:1,duration:.3},1.3).to(bars[1],{scaleX:1,duration:1,ease:'none'},1);
-  // step 3: membrane hang -> heat -> taut
-  showStep(2,2);
-  tl.set(mem,{opacity:1},2).fromTo(st,{draw:0,sag:85},{draw:1,duration:.5,onUpdate:setMem},2.05)
-    .to('#heat',{opacity:1,duration:.25},2.3).fromTo('#heat path',{y:10},{y:-8,duration:.6,stagger:.08,repeat:0},2.3)
-    .to(st,{sag:0,duration:.55,ease:'back.out(2.2)',onUpdate:setMem},2.55)
-    .to('#heat',{opacity:0,duration:.2},2.8)
-    .to('#l3',{opacity:1,duration:.3},2.75).to(bars[2],{scaleX:1,duration:1,ease:'none'},2);
-  // step 4: lights
-  showStep(3,3);
-  tl.to('#lights',{opacity:1,duration:.4},3.1).fromTo('#lights polygon',{opacity:0},{opacity:1,stagger:.1,duration:.3},3.15)
-    .to('#l4',{opacity:1,duration:.3},3.3).to('.chip-day',{opacity:1,scale:1,duration:.4,ease:'back.out(2)'},3.4)
-    .to(bars[3],{scaleX:1,duration:.9,ease:'none'},3).to({}, {duration:.3});
-  if(RM){tl.progress(1);return;}
-  ScrollTrigger.matchMedia({
-    '(min-width:901px)':()=>{ScrollTrigger.create({trigger:'.ablauf',start:'top top',end:'+=260%',pin:'.ab-pin',scrub:.6,animation:tl});},
-    '(max-width:900px)':()=>{ScrollTrigger.create({trigger:'.ablauf',start:'top top',end:'+=200%',pin:'.ab-pin',scrub:.6,animation:tl});}
-  });
+  const sec=$('#ablauf'),L=$$('#ablauf .layer'),steps=$$('#ablauf .step'),bars=$$('#ablauf .dots b'),
+        leg=$$('#ablauf .legend span'),chip=$('#ablauf .chip-day'),stackEl=$('#ablauf .layers'),light=$('#ablauf .l-light');
+  const cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),ease=t=>1-Math.pow(1-t,3);
+  let target=RM?1:0,cur=RM?1:0,last=-1,activeStep=-1;
+  function apply(p){
+    const seg=p*4.4, gap=innerWidth<900?40:70;          // 4 Phasen + kurzer Ausklang
+    const ph=i=>cl(seg-i);
+    // Schicht 0: alte Decke hebt sich
+    L[0].style.transform=`translateZ(${ease(ph(0))*gap*3}px)`;
+    // Schicht 1: Profil erscheint und hebt sich
+    L[1].style.opacity=cl(ph(1)*2.5); L[1].style.transform=`translateZ(${ease(ph(1))*gap*2}px)`;
+    // Schicht 2: Folie "schnappt" in Position
+    const m=ph(2); L[2].style.opacity=cl(m*2.5); L[2].style.transform=`translateZ(${-50+ease(m)*(gap+50)}px)`;
+    // Schicht 3: Licht
+    L[3].style.opacity=cl(ph(3)*2.5); light.classList.toggle('lit',seg>=3.25);
+    stackEl.style.transform=`rotateX(62deg) rotateZ(${-38+cl(p)*8}deg)`;
+    const s=Math.min(3,Math.floor(cl(seg,0,3.999)));
+    if(s!==activeStep){steps.forEach((x,k)=>x.classList.toggle('on',k===s));activeStep=s;}
+    bars.forEach((b,k)=>b.style.transform=`scaleX(${cl(seg-k)})`);
+    leg.forEach((x,k)=>x.classList.toggle('on',seg>=k+.05||(k===0&&p>0)));
+    chip.classList.toggle('on',seg>=3.7);
+  }
+  apply(cur);
+  if(RM)return;
+  ScrollTrigger.create({trigger:sec,start:'top top',end:()=>'+='+(innerWidth<900?220:280)+'%',pin:'.ab-pin',
+    invalidateOnRefresh:true,onUpdate:st=>{target=st.progress;},onRefresh:st=>{target=st.progress;}});
+  // weiches Nachlaufen; funktioniert in beide Richtungen und bei schnellem Scrollen
+  gsap.ticker.add(()=>{const d=target-cur;if(Math.abs(d)<.0005){if(cur!==target){cur=target;apply(cur);}return;}cur+=d*.14;apply(cur);});
 })();
-
 
 /* ---------- leistungen horizontal ---------- */
 ScrollTrigger.matchMedia({
@@ -953,26 +1004,79 @@ ScrollTrigger.matchMedia({
 
 
 
-/* spanndecken arten tabs */
-(()=>{const imgs=$$('.st-img'),items=$$('.st-item'),btns=$$('.st-btn'),num=$('#stn'),prog=$('#stp');let cur=0,timer=null,busy=false;const N=imgs.length;
-  function go(n,dir){n=(n+N)%N;if(n===cur||busy)return;busy=true;dir=dir||(n>cur?1:-1);const a=imgs[cur],b=imgs[n],ia=items[cur],ib=items[n];
-    imgs.forEach(x=>x.style.zIndex=0);a.style.zIndex=1;b.style.zIndex=2;b.classList.add('on');
-    btns.forEach((x,k)=>x.classList.toggle('on',k===n));
-    const done=()=>{a.classList.remove('on');busy=false;};
-    if(RM){gsap.set(b,{clipPath:'inset(0 0 0 0)'});ia.classList.remove('on');ib.classList.add('on');num.textContent=String(n+1).padStart(2,'0');done();}
-    else{gsap.fromTo(b,{clipPath:dir>0?'inset(100% 0 0 0)':'inset(0 0 100% 0)'},{clipPath:'inset(0% 0 0% 0)',duration:1,ease:'expo.inOut',onComplete:done});
-      gsap.fromTo(b.querySelector('img'),{scale:1.32},{scale:1.12,duration:1.5,ease:'expo.out'});
-      gsap.to(ia.children,{y:-24,opacity:0,duration:.3,stagger:.03,ease:'power2.in',onComplete:()=>{ia.classList.remove('on');gsap.set(ia.children,{clearProps:'all'});ib.classList.add('on');
-        gsap.fromTo(ib.children,{y:30,opacity:0},{y:0,opacity:1,duration:.65,stagger:.06,ease:'power3.out'});}});
-      gsap.to(num,{yPercent:-100*dir,duration:.35,ease:'power2.in',onComplete:()=>{num.textContent=String(n+1).padStart(2,'0');gsap.fromTo(num,{yPercent:100*dir},{yPercent:0,duration:.5,ease:'expo.out'});}});}
-    gsap.to(prog,{scaleX:(n+1)/N,duration:.8,ease:'expo.out'});cur=n;restart();}
-  function restart(){clearInterval(timer);if(!RM)timer=setInterval(()=>go(cur+1,1),5500);}
-  btns.forEach((b,k)=>b.addEventListener('click',()=>go(k)));
-  $('#stnext').addEventListener('click',()=>go(cur+1,1));$('#stprev').addEventListener('click',()=>go(cur-1,-1));
-  imgs.forEach((x,k)=>{if(k)gsap.set(x,{clipPath:'inset(100% 0 0 0)'});});
-  ScrollTrigger.create({trigger:'.st-grid',start:'top 75%',onEnter:restart,onEnterBack:restart,onLeave:()=>clearInterval(timer),onLeaveBack:()=>clearInterval(timer)});
-  if(!RM){gsap.from('.st-stage',{clipPath:'inset(25% 25% 25% 25% round 26px)',duration:1.4,ease:'expo.out',scrollTrigger:{trigger:'.st-grid',start:'top 80%'}});
-    gsap.from('.st-btn',{y:24,opacity:0,stagger:.04,duration:.6,ease:'power3.out',scrollTrigger:{trigger:'.st-btns',start:'top 92%'}});}
+/* ---------- Decke · Boden · Wand: Tabs mit Varianten ---------- */
+(()=>{
+  const CATS=[
+    {name:'Decke',word:'Decken.',items:[
+      ['Spanndecke Satin','img_0635','Seidiger, dezenter Schimmer – das Licht verteilt sich weich im Raum.',['Dezent','Seidenglanz','Zeitlos']],
+      ['Spanndecke Lack','img_0664','Hochglanz mit Spiegeleffekt – lässt Räume optisch höher und größer wirken.',['Hochglanz','Spiegeleffekt','Raumwirkung']],
+      ['Spanndecke Matt','img_0645','Klassisch ruhig – wirkt wie eine perfekt verputzte Decke, nur fugenlos.',['Klassisch','Ruhig','Fugenlos']],
+      ['Akustik-Spanndecke','ref-20190202_150039','Spezielle Oberfläche für eine angenehmere Raumakustik.',['Raumakustik','Wohnlich','Büro & Gastro']],
+      ['Double Vision','img_0642','Zwei Optiken in einer Fläche – für Decken mit echtem Wow-Effekt.',['Zweifarbig','Individuell','Wow-Effekt']],
+      ['Perforierte Spanndecke','spanndecke-schwarz','Feine Perforation – besonders eindrucksvoll in Kombination mit Licht.',['Perforation','Lichteffekte','Modern']],
+      ['Leuchtdecke','img_20191220_124021','Licht direkt aus der Decke – mit LED-Lichtbändern und Leuchtflächen.',['LED','Stimmungslicht','Blickfang']],
+      ['Digital bedruckt','img_0668','Ihr Motiv auf der Decke – von Marmoroptik bis Himmel.',['Motivdruck','Marmor','Individuell']],
+      ['Holzdecke','img_0632','Natürliche Wärme und Charakter über Kopf – handwerklich sauber montiert.',['Natürlich','Warm','Langlebig']]]},
+    {name:'Boden',word:'Böden.',items:[
+      ['Laminatboden','k-bathroom-1336167_1920','Nahezu jede Optik möglich, robust gegen Stöße und leicht zu reinigen – ideal auch für Allergiker.',['Viele Dekore','Robust','Pflegeleicht']],
+      ['Vinylboden','k-interior-2685518_1920','Sehr widerstandsfähig, rutschhemmend und lichtecht – dank Beschichtung auch für Küche und Bad geeignet.',['Rutschhemmend','Strapazierfähig','Küche & Bad']]]},
+    {name:'Wand',word:'Wände.',items:[
+      ['Tapetengestaltung','k-interior-3012218_1920','Tapete ist alles andere als langweilig – heute in unzähligen Farben und Mustern erhältlich.',['Farben','Muster','Individuell']],
+      ['Wandklinker','k-room-3051846_1920','Als Akzent in einer Ecke, rund um den Kamin oder über die ganze Wand – Klinker gibt Räumen Charakter.',['Akzentwand','Kamin','Ganze Wand']]]}
+  ];
+  const stage=$('#ststage'),list=$('#stlist'),btnBox=$('#stbtns'),num=$('#stn'),prog=$('#stp'),word=$('#stword'),tabs=$$('.st-tab');
+  // alle Bilder einmal anlegen
+  const imgEl={};
+  CATS.forEach((c,ci)=>c.items.forEach((it,ii)=>{const d=document.createElement('div');d.className='st-img';d.innerHTML=`<img src="img/${it[1]}.webp" alt="${it[0]}" loading="${ci===0&&ii===0?'eager':'lazy'}">`;stage.insertBefore(d,stage.firstChild);imgEl[ci+'-'+ii]=d;gsap.set(d,{clipPath:'inset(100% 0 0 0)'});}));
+  let cat=0,idx=0,timer=null,busy=false,shownImg=null;
+  const pad=n=>String(n).padStart(2,'0');
+  function renderCat(){
+    const c=CATS[cat];
+    list.innerHTML=c.items.map((it,i)=>`<article class="st-item${i===idx?' on':''}"><div class="st-top"><span class="st-n">${pad(i+1)}</span><span class="st-cat">${c.name}</span></div><h3 class="serif">${it[0]}</h3><p>${it[2]}</p><ul class="st-chips">${it[3].map(x=>`<li>${x}</li>`).join('')}</ul></article>`).join('');
+    btnBox.innerHTML=c.items.map((it,i)=>`<button class="st-btn${i===idx?' on':''}" data-i="${i}" role="tab"><span>${pad(i+1)}</span>${it[0].replace('Spanndecke ','').replace('-Spanndecke','')}</button>`).join('');
+    btnBox.style.gridTemplateColumns=`repeat(${c.items.length>4?(innerWidth<1100?2:3):2},1fr)`;
+    $$('.st-btn',btnBox).forEach(b=>b.addEventListener('click',()=>go(+b.dataset.i)));
+  }
+  function showImg(el,dir){
+    const prev=shownImg;Object.values(imgEl).forEach(x=>x.style.zIndex=0);if(prev)prev.style.zIndex=1;el.style.zIndex=2;
+    if(RM){gsap.set(el,{clipPath:'inset(0% 0 0% 0)'});shownImg=el;return;}
+    gsap.fromTo(el,{clipPath:dir>0?'inset(100% 0 0 0)':'inset(0 0 100% 0)'},{clipPath:'inset(0% 0 0% 0)',duration:1,ease:'expo.inOut',onComplete:()=>{busy=false;}});
+    gsap.fromTo(el.querySelector('img'),{scale:1.3},{scale:1.1,duration:1.5,ease:'expo.out'});shownImg=el;
+  }
+  function setNum(n,dir){
+    if(RM){num.textContent=pad(n);return;}
+    gsap.to(num,{yPercent:-100*dir,duration:.3,ease:'power2.in',onComplete:()=>{num.textContent=pad(n);gsap.fromTo(num,{yPercent:100*dir},{yPercent:0,duration:.5,ease:'expo.out'});}});
+  }
+  function go(n,dir){
+    const c=CATS[cat],N=c.items.length;n=(n+N)%N;if(n===idx||busy)return;busy=!RM;dir=dir||(n>idx?1:-1);
+    const items=$$('.st-item',list),a=items[idx],b=items[n];
+    $$('.st-btn',btnBox).forEach((x,k)=>x.classList.toggle('on',k===n));
+    showImg(imgEl[cat+'-'+n],dir);setNum(n+1,dir);
+    if(RM){a.classList.remove('on');b.classList.add('on');busy=false;}
+    else gsap.to(a.children,{y:-22,opacity:0,duration:.28,stagger:.03,ease:'power2.in',onComplete:()=>{a.classList.remove('on');gsap.set(a.children,{clearProps:'all'});b.classList.add('on');gsap.fromTo(b.children,{y:28,opacity:0},{y:0,opacity:1,duration:.6,stagger:.06,ease:'power3.out'});}});
+    gsap.to(prog,{scaleX:(n+1)/N,duration:.8,ease:'expo.out'});idx=n;restart();
+  }
+  function setCat(ci){
+    if(ci===cat&&shownImg)return;const dir=ci>cat?1:-1;cat=ci;idx=0;busy=false;
+    tabs.forEach((t,k)=>t.classList.toggle('on',k===ci));
+    renderCat();showImg(imgEl[ci+'-0'],dir);setNum(1,dir);
+    gsap.set(prog,{scaleX:1/CATS[ci].items.length});
+    if(!RM){gsap.fromTo($$('.st-item.on > *',list),{y:28,opacity:0},{y:0,opacity:1,duration:.6,stagger:.06,ease:'power3.out'});
+      gsap.fromTo($$('.st-btn',btnBox),{y:16,opacity:0},{y:0,opacity:1,duration:.5,stagger:.04,ease:'power3.out'});
+      gsap.to(word,{yPercent:-100,opacity:0,duration:.25,onComplete:()=>{word.textContent=CATS[ci].word;gsap.fromTo(word,{yPercent:100,opacity:0},{yPercent:0,opacity:1,duration:.5,ease:'expo.out'});}});}
+    else word.textContent=CATS[ci].word;
+    restart();
+  }
+  function restart(){clearInterval(timer);if(!RM&&inView)timer=setInterval(()=>go(idx+1,1),5500);}
+  let inView=false;
+  tabs.forEach(t=>t.addEventListener('click',()=>setCat(+t.dataset.c)));
+  $('#stnext').addEventListener('click',()=>go(idx+1,1));$('#stprev').addEventListener('click',()=>go(idx-1,-1));
+  // Leistungs-Karten öffnen den passenden Bereich
+  window.kwOpenCat=(ci,ii)=>{setCat(ci);if(ii)setTimeout(()=>go(ii,1),50);};
+  cat=-1;setCat(0);
+  addEventListener('resize',()=>{btnBox.style.gridTemplateColumns=`repeat(${CATS[cat].items.length>4?(innerWidth<1100?2:3):2},1fr)`;});
+  ScrollTrigger.create({trigger:'.st-grid',start:'top 80%',end:'bottom 20%',onToggle:s=>{inView=s.isActive;restart();}});
+  if(!RM)gsap.from('.st-stage',{clipPath:'inset(25% 25% 25% 25% round 26px)',duration:1.4,ease:'expo.out',scrollTrigger:{trigger:'.st-grid',start:'top 80%'}});
 })();
 
 /* vorteile */
@@ -1037,19 +1141,95 @@ lb.addEventListener('click',e=>{if(e.target!==lbi)closeLb();});addEventListener(
 })();
 
 
-/* kontakt form (mailto) */
-(()=>{const f=$('#form'),ok=$('#ok');
-  f.addEventListener('submit',e=>{e.preventDefault();
-    if(!f.checkValidity()){f.reportValidity();return;}
-    const d=new FormData(f);
-    const body=`Name: ${d.get('name')}\nE-Mail: ${d.get('email')}\nTelefon: ${d.get('telefon')||'-'}\nLeistung: ${d.get('leistung')}\nNächster Standort: ${d.get('standort')}\n\n${d.get('nachricht')}`;
-    location.href=`mailto:info@kw-homedesign.de?subject=${encodeURIComponent('Anfrage über die Website – '+d.get('leistung'))}&body=${encodeURIComponent(body)}`;
-    ok.classList.add('on');});
-  $('#okback').addEventListener('click',()=>{ok.classList.remove('on');f.reset();});
-  if(!RM){gsap.from('.form',{y:80,opacity:0,duration:1.2,ease:'power3.out',scrollTrigger:{trigger:'.form',start:'top 88%'}});
-    gsap.from('.cinfo li',{x:-40,opacity:0,stagger:.1,duration:.9,ease:'power3.out',scrollTrigger:{trigger:'.cinfo',start:'top 88%'}});
+/* ---------- Kontakt: mehrstufiges Anfrage-Formular ---------- */
+(()=>{
+  const ICON={
+    decke:'<path d="M3 9 12 3l9 6"/><path d="M5 9v11h14V9"/><path d="M5 12h14" stroke-dasharray="2 2"/>',
+    boden:'<path d="M3 20h18"/><path d="M4 16h4v4M10 16h4v4M16 16h4v4"/><path d="M6 12l6-8 6 8"/>',
+    wand:'<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M3 14h18M9 4v5M15 9v5M9 14v6"/>',
+    mehr:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/>',
+    spann:'<path d="M3 7h18"/><path d="M5 7c2 3 12 3 14 0" /><circle cx="8" cy="13" r="1.4"/><circle cx="16" cy="13" r="1.4"/>',
+    holz:'<rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 10h18M3 14.5h18M8 5v5M15 10v4.5M10 14.5V19"/>',
+    licht:'<path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0012 3z"/>',
+    laminat:'<path d="M3 18 12 4l9 14z"/><path d="M7.5 11h9M5.5 14.5h13"/>',
+    vinyl:'<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 6v12M13 6v12"/><path d="M17 10c1 1 1 3 0 4"/>',
+    tapete:'<path d="M5 3h10a3 3 0 0 1 0 6H5z"/><path d="M5 9v12M15 9v12M5 15h10"/>',
+    klinker:'<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9.3h18M3 14.6h18M10 4v5.3M16 9.3v5.3M8 14.6V20"/>',
+    frage:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5V14"/><path d="M12 17.5h.01"/>',
+    wohn:'<path d="M4 18v-5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5"/><path d="M2 18h20M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/>',
+    kueche:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 10h16M8 6.5h.01M12 6.5h.01M9 14h6"/>',
+    bad:'<path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5z"/><path d="M6 12V6a2 2 0 0 1 4 0"/>',
+    schlaf:'<path d="M3 19v-8h18v8M3 15h18"/><path d="M6 11V8a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/>',
+    buero:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
+    gastro:'<path d="M7 3v8a2 2 0 0 0 2 2v8M5 3v5M9 3v5M17 3c-2 2-2 6 0 8v10"/>'
+  };
+  const BEREICH=[['decke','Decke','Spanndecken, Holzdecken, Licht'],['boden','Boden','Laminat, Vinylboden'],['wand','Wand','Tapeten, Wandklinker'],['mehr','Mehrere Bereiche','Decke, Boden und/oder Wand']];
+  const LEIST={
+    decke:[['spann','Spanndecke'],['holz','Holzdecke'],['licht','Leuchtdecke / Licht'],['frage','Noch unsicher – Beratung']],
+    boden:[['laminat','Laminat'],['vinyl','Vinylboden'],['frage','Noch unsicher – Beratung']],
+    wand:[['tapete','Tapetengestaltung'],['klinker','Wandklinker'],['frage','Noch unsicher – Beratung']],
+    mehr:[['spann','Spanndecke'],['holz','Holzdecke'],['laminat','Laminat'],['vinyl','Vinylboden'],['tapete','Tapete'],['klinker','Wandklinker']]
+  };
+  const RAUM=[['wohn','Wohnzimmer'],['kueche','Küche'],['bad','Bad'],['schlaf','Schlafzimmer'],['buero','Büro / Gewerbe'],['gastro','Gastronomie']];
+  const CK='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg>';
+  const opt=(k,o,i)=>`<div class="opt"><input type="radio" name="${k}" id="f-${k}-${i}" value="${o[0]}" data-text="${o[1]}"><label for="f-${k}-${i}"><span class="oic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${ICON[o[0]]||ICON.frage}</svg></span><span class="ot">${o[1]}${o[2]?`<small>${o[2]}</small>`:''}</span><span class="ock">${CK}</span></label></div>`;
+  $('#o-bereich').innerHTML=BEREICH.map((o,i)=>opt('bereich',o,i)).join('');
+  $('#o-raum').innerHTML=RAUM.map((o,i)=>opt('raum',o,i)).join('')+opt('raum',['mehr','Mehrere Räume'],6);
+  const fillLeist=b=>{$('#o-leistung').innerHTML=(LEIST[b]||LEIST.mehr).map((o,i)=>opt('leistung',o,i)).join('');};
+  fillLeist('decke');
+
+  const f=$('#funnel'),fs=$$('.fs',f),N=fs.length,err=$('#ferr'),back=$('#fback'),next=$('#fnext');let cur=0;
+  const sum={bereich:$('#s-bereich'),leistung:$('#s-leistung'),raum:$('#s-raum'),ort:$('#s-ort')};
+  const setSum=(k,v)=>{const el=sum[k];if(!el)return;el.textContent=v||'—';el.classList.remove('set');if(v){void el.offsetWidth;el.classList.add('set');}};
+  const checked=st=>st.querySelector('input[type=radio]:checked');
+  function show(focus){
+    fs.forEach((s,i)=>s.hidden=i!==cur);
+    const p=cur/N;$('#frail').style.width=(p*100)+'%';$('#fpct').textContent=Math.round(p*100)+' %';
+    const tw=$('.ftrack').clientWidth-44;$('#froof').style.left=Math.max(0,p*tw)+'px';
+    $('#flabel').textContent='Schritt '+(cur+1)+' von '+N;back.hidden=cur===0;
+    $('span',next).textContent=cur===N-1?'Anfrage senden':'Weiter';err.hidden=true;
+    if(focus){const q=$('.fq',fs[cur]);q&&q.focus({preventScroll:true});const c=$('#fcard'),top=c.getBoundingClientRect().top;
+      if(top<0||top>innerHeight*.6){lenis?lenis.scrollTo(c,{offset:-90,duration:.9}):c.scrollIntoView({behavior:'smooth',block:'start'});}}
+  }
+  const fail=(m,el)=>{err.textContent=m;err.hidden=false;if(el){el.setAttribute('aria-invalid','true');el.focus();}};
+  function valid(){
+    const st=fs[cur],k=st.dataset.key;
+    if(['bereich','leistung','raum'].includes(k)&&!checked(st)){fail('Bitte wählen Sie eine Antwort aus.');return false;}
+    if(k==='ort'){const fl=$('#f-flaeche'),v=parseFloat(String(fl.value).replace(',','.'));if(!(v>0)){fail('Bitte geben Sie die ungefähre Fläche in m² an.',fl);return false;}
+      const o=$('#f-plz');if(o.value.trim().length<3){fail('Bitte geben Sie PLZ und Ort an.',o);return false;}}
+    if(k==='kontakt'){const n=$('#f-name'),m=$('#f-mail'),ok=$('#f-ok');
+      if(n.value.trim().length<2){fail('Bitte geben Sie Ihren Namen an.',n);return false;}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m.value.trim())){fail('Bitte geben Sie eine gültige E-Mail-Adresse an.',m);return false;}
+      if(!ok.checked){fail('Bitte stimmen Sie der Verarbeitung Ihrer Angaben zu.',ok);return false;}}
+    return true;
+  }
+  f.addEventListener('change',e=>{const t=e.target;if(t.type!=='radio')return;
+    setSum(t.name,t.dataset.text);err.hidden=true;
+    if(t.name==='bereich'){fillLeist(t.value);setSum('leistung','');}
+    const st=fs[cur];if(st.contains(t)&&cur<N-1)setTimeout(()=>{if(fs[cur]===st&&checked(st)){cur++;show(true);}},380);});
+  f.addEventListener('input',e=>{const t=e.target;t.removeAttribute('aria-invalid');
+    if(t.id==='f-flaeche'||t.id==='f-plz'){const a=$('#f-flaeche').value.trim(),b=$('#f-plz').value.trim();setSum('ort',[a?a+' m²':'',b].filter(Boolean).join(' · '));}});
+  back.addEventListener('click',()=>{if(cur>0){cur--;show(true);}});
+  f.addEventListener('submit',e=>{e.preventDefault();if(!valid())return;if(cur<N-1){cur++;show(true);}else send();});
+  function send(){
+    const v=f.elements;if(v.website.value.trim())return;
+    const d={};fs.forEach(s=>{const r=checked(s);if(r)d[s.dataset.key]=r.dataset.text;});
+    const body=['Name: '+v.name.value.trim(),'E-Mail: '+v.email.value.trim(),'Telefon: '+(v.telefon.value.trim()||'nicht angegeben'),'','Bereich: '+(d.bereich||'-'),'Leistung: '+(d.leistung||'-'),'Raum: '+(d.raum||'-'),'Fläche: '+v.flaeche.value.trim()+' m²','Ort: '+v.ort.value.trim(),'','Nachricht:',v.nachricht.value.trim()||'-'].join('\n');
+    const first=v.name.value.trim().split(' ')[0];if(first)$('#fdone-t').textContent='Vielen Dank, '+first+'!';
+    $('#frail').style.width='100%';$('#fpct').textContent='100 %';$('.fbody',f).hidden=true;const dn=$('#fdone');dn.hidden=false;dn.focus({preventScroll:true});
+    location.href='mailto:info@kw-homedesign.de?subject='+encodeURIComponent('Anfrage über die Website – '+(d.leistung||d.bereich||'KW Home Design'))+'&body='+encodeURIComponent(body);
+  }
+  $('#frestart').addEventListener('click',()=>{f.reset();Object.keys(sum).forEach(k=>setSum(k,''));fillLeist('decke');cur=0;$('.fbody',f).hidden=false;$('#fdone').hidden=true;show(false);});
+  // Vorauswahl aus Leistungs-Karten / Buttons
+  window.kwPick=(bereich,leistung)=>{const r=$(`input[name=bereich][value="${bereich}"]`);if(!r)return;r.checked=true;setSum('bereich',r.dataset.text);fillLeist(bereich);cur=1;
+    if(leistung){const l=$(`input[name=leistung][value="${leistung}"]`);if(l){l.checked=true;setSum('leistung',l.dataset.text);cur=2;}}show(false);};
+  $$('[data-pick]').forEach(a=>a.addEventListener('click',()=>{const [b,l]=a.dataset.pick.split(':');window.kwPick(b,l);}));
+  show(false);addEventListener('resize',()=>show(false));
+  if(!RM){gsap.from('.fcard',{y:70,opacity:0,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:'.fcard',start:'top 88%'}});
+    gsap.from('.k-left .sum, .k-left .cinfo li',{x:-40,opacity:0,stagger:.08,duration:.8,ease:'power3.out',scrollTrigger:{trigger:'.k-left',start:'top 80%'}});
     gsap.fromTo('.giant span',{xPercent:-4,opacity:0},{xPercent:0,opacity:1,ease:'none',scrollTrigger:{trigger:'footer',start:'top bottom',end:'bottom bottom',scrub:true}});}
 })();
+
 addEventListener('load',()=>ScrollTrigger.refresh());
 })();
 });
