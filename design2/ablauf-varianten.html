@@ -47,7 +47,7 @@ a{color:inherit;text-decoration:none}
 .stack{position:relative;height:min(70vh,600px);perspective:1800px;display:flex;align-items:center;justify-content:center}
 .layers{position:relative;margin-top:30vh;width:min(30vw,340px);aspect-ratio:1;transform-style:preserve-3d;transform:rotateX(62deg) rotateZ(-38deg)}
 .layer{position:absolute;inset:0;transform-style:preserve-3d;border-radius:10px}
-.layer .tag{position:absolute;left:100%;top:50%;transform-origin:left center;transform:rotateZ(38deg) rotateX(-62deg) translate(26px,-50%);white-space:nowrap;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:#fff;opacity:0}
+.layer .tag{display:none!important;position:absolute;left:100%;top:50%;transform-origin:left center;transform:rotateZ(38deg) rotateX(-62deg) translate(26px,-50%);white-space:nowrap;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:#fff;opacity:0}
 .layer .tag::before{content:"";width:40px;height:1px;background:var(--sand)}
 .layer .tag small{display:block;font-weight:400;color:var(--muted);font-size:11.5px}
 .l-old{background:#6b625b;background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.18) 0 2px,transparent 2px 10px),linear-gradient(135deg,#7a706a,#4e4640);box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 30px 60px rgba(0,0,0,.4)}
@@ -58,7 +58,11 @@ a{color:inherit;text-decoration:none}
 @keyframes sheen{0%{background-position:120% 0}100%{background-position:-120% 0}}
 .l-light{background:transparent}
 .l-light i{position:absolute;width:16%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff 0 18%,rgba(255,217,168,.9) 30%,rgba(255,217,168,0) 70%);transform:translate(-50%,-50%)}
-.va .chip{position:absolute;right:6%;top:10%;padding:10px 18px;border-radius:999px;background:var(--red);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:0}
+.legend{position:absolute;left:50%;bottom:4%;transform:translateX(-50%);display:flex;gap:8px;flex-wrap:wrap;justify-content:center;width:100%}
+.legend span{display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.06);font-size:12.5px;font-weight:600;color:var(--muted);transition:all .4s}
+.legend span i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .4s}
+.legend span.on{color:#fff;background:rgba(255,255,255,.12)}.legend span.on i{background:var(--red2)}
+.va .chip{position:absolute;right:4%;top:4%;padding:10px 18px;border-radius:999px;background:var(--red);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:0}
 
 /* ================= B: stacking photo cards ================= */
 .vb{position:relative;background:var(--paper);padding:130px 0 120px}
@@ -142,6 +146,7 @@ footer a{color:var(--red);font-weight:700}
       </div>
       <div class="stack">
         <span class="chip">✓ Fertig an einem Tag</span>
+        <div class="legend"><span><i></i>Alte Decke bleibt</span><span><i></i>Wandprofil</span><span><i></i>Spannfolie</span><span><i></i>Licht &amp; Rauchmelder</span></div>
         <div class="layers">
           <div class="layer l-old" style="--i:0"><span class="tag"><span>Alte Decke<small>bleibt erhalten</small></span></span></div>
           <div class="layer l-prof" style="--i:1"><span class="tag"><span>Wandprofil<small>umlaufend montiert</small></span></span></div>
@@ -203,8 +208,7 @@ footer a{color:var(--red);font-weight:700}
 gsap.registerPlugin(ScrollTrigger);
 const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
 const lenis=new Lenis({lerp:.09});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
-$$('.vbar a[data-s]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();lenis.scrollTo($(a.getAttribute('href')),{duration:1.4});});
-  ScrollTrigger.create({trigger:a.getAttribute('href'),start:'top 50%',end:'bottom 50%',onToggle:s=>a.classList.toggle('on',s.isActive)});});
+$$('.vbar a[data-s]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();lenis.scrollTo($(a.getAttribute('href')),{duration:1.4});}));
 const mm=gsap.matchMedia();
 
 /* ---------- A ---------- */
@@ -218,7 +222,7 @@ const mm=gsap.matchMedia();
   show(2,2);tl.fromTo(L[2],{z:-60,opacity:0},{opacity:1,z:()=>gap(),duration:.7,ease:'back.out(1.6)'},2.05).to(L[2].querySelector('.tag'),{opacity:1,duration:.3},2.4).to(bars[2],{scaleX:1,duration:1,ease:'none'},2);
   show(3,3);tl.to(L[3],{opacity:1,z:0,duration:.5},3.05).fromTo(L[3].querySelectorAll('i'),{scale:0},{scale:1,stagger:.06,duration:.4,ease:'back.out(2)'},3.1).to(L[3].querySelector('.tag'),{opacity:1,duration:.3},3.35)
     .to('.layers',{rotateZ:-30,duration:1,ease:'none'},0).to('.va .chip',{opacity:1,duration:.3},3.5).to(bars[3],{scaleX:1,duration:.9,ease:'none'},3).to({},{duration:.4});
-  ScrollTrigger.create({trigger:'.va',start:'top top',end:'+=280%',pin:'.va-pin',scrub:.7,animation:tl,invalidateOnRefresh:true});
+  const lg=$$('.legend span');ScrollTrigger.create({trigger:'.va',start:'top top',end:'+=280%',pin:'.va-pin',scrub:.7,animation:tl,invalidateOnRefresh:true,onUpdate:st=>{const t=tl.time();lg.forEach((x,k)=>x.classList.toggle('on',t>=k+0.15||(k===0&&st.progress>0.01)));}});
 })();
 
 /* ---------- B ---------- */
@@ -247,6 +251,8 @@ const mm=gsap.matchMedia();
     .to('.vc .done',{opacity:1,scale:1,duration:.12,ease:'back.out(2)'},.9).to({},{duration:.15});
   ScrollTrigger.create({trigger:'.vc',start:'top top',end:'+=260%',pin:'.vc-pin',scrub:.7,animation:tl});
 })();
+$$('.vbar a[data-s]').forEach(a=>ScrollTrigger.create({trigger:a.getAttribute('href'),start:'top 50%',end:'bottom 50%',onToggle:s=>a.classList.toggle('on',s.isActive)}));
+ScrollTrigger.sort();
 addEventListener('load',()=>ScrollTrigger.refresh());
 })();
 </script>
