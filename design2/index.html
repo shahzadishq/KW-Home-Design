@@ -989,39 +989,38 @@ $$('.split,.ab-head .h2,.hz-intro .h2').forEach(el=>{const ws=splitWords(el);if(
   const ST=ScrollTrigger.create({trigger:sec,start:'top top',end:()=>'+='+(innerWidth<900?220:280)+'%',pin:'.ab-pin',
     invalidateOnRefresh:true,onUpdate:st=>{target=st.progress;},onRefresh:st=>{target=st.progress;}});
 
-  /* Ein Scroll = ein Schritt: innerhalb des Abschnitts springt jede Scroll-Geste genau zum nächsten/vorigen Schritt */
-  const STOPS=[0,.95,1.95,2.95,3.95].map(x=>x/4.4);           // Start + vier fertige Schritte
+  /* Ein Scroll = ein Schritt: 4 Schritte = 4 Scroll-Gesten (der erste Scroll in den Abschnitt zeigt Schritt 1) */
+  const STOPS=[.9,1.9,2.9,3.9].map(x=>x/4.4);
   let animating=false,lastWheel=0,quietOK=true,touchY=null;
   const pos=i=>ST.start+(ST.end-ST.start)*STOPS[i];
   const yNow=()=>lenis?lenis.scroll:scrollY;
-  const nearest=y=>{let b=0,d=1e9;STOPS.forEach((_,i)=>{const dd=Math.abs(pos(i)-y);if(dd<d){d=dd;b=i;}});return b;};
   let tok=0;
   function stepTo(y){animating=true;const my=++tok;
     const done=()=>{if(my!==tok)return;animating=false;lenis&&lenis.start();};
     if(lenis){lenis.stop();lenis.scrollTo(y,{duration:.85,force:true,lock:true,easing:t=>1-Math.pow(1-t,3),onComplete:done});setTimeout(done,1300);}
     else{scrollTo({top:y,behavior:'smooth'});setTimeout(done,900);}
   }
-  // entscheidet, ob die Geste im Abschnitt einen Schritt auslöst; true = Geste wurde verbraucht
+  const ZONE_IN=()=>innerHeight*.75;                          // so weit vor/nach dem Abschnitt wird eingerastet
+  // true = Geste wurde verbraucht
   function handle(dir){
-    const y=yNow(),inside=y>=ST.start-2&&y<=ST.end-2;
-    if(!inside){
-      // von oben kommend kurz vor dem Abschnitt: am Start einrasten statt hineinzurutschen
-      if(dir>0&&y<ST.start&&y>ST.start-innerHeight*.6){stepTo(ST.start);return true;}
-      if(dir<0&&y>ST.end-2&&y<ST.end+innerHeight*.6){stepTo(pos(STOPS.length-1));return true;}
-      return false;
+    const y=yNow(),T=4;                                         // Toleranz in px
+    if(dir>0){
+      if(y<ST.start-ZONE_IN()||y>ST.end-T)return false;          // außerhalb → normal scrollen
+      for(let i=0;i<STOPS.length;i++){if(pos(i)>y+T){stepTo(pos(i));return true;}}
+      stepTo(ST.end+innerHeight*.6);return true;                 // nach Schritt 4: Abschnitt verlassen
+    }else{
+      if(y>ST.end+ZONE_IN()||y<ST.start+T)return false;
+      for(let i=STOPS.length-1;i>=0;i--){if(pos(i)<y-T){stepTo(pos(i));return true;}}
+      stepTo(Math.max(0,ST.start-innerHeight*.9));return true;   // vor Schritt 1: nach oben verlassen
     }
-    const i=nearest(y);let n=i+dir;
-    if(n<0){return false;}                                     // nach oben verlassen
-    if(n>STOPS.length-1){stepTo(ST.end+2);return true;}         // nach unten verlassen
-    stepTo(pos(n));return true;
   }
   addEventListener('wheel',e=>{
     if(innerWidth<900&&matchMedia('(hover:none)').matches)return;
     const now=performance.now(),gap=now-lastWheel;lastWheel=now;
-    const y=yNow(),near=y>=ST.start-innerHeight*.6&&y<=ST.end+innerHeight*.6;
+    const y=yNow(),near=y>=ST.start-ZONE_IN()&&y<=ST.end+ZONE_IN();
     if(!near)return;
     if(Math.abs(e.deltaY)<2)return;
-    if(animating||(!quietOK&&gap<220)){if(y>=ST.start-2&&y<=ST.end-2){e.preventDefault();e.stopPropagation();}return;}
+    if(animating||(!quietOK&&gap<220)){e.preventDefault();e.stopPropagation();return;}
     if(handle(Math.sign(e.deltaY))){e.preventDefault();e.stopPropagation();quietOK=false;}
     else quietOK=true;
   },{passive:false,capture:true});
@@ -1029,12 +1028,11 @@ $$('.split,.ab-head .h2,.hz-intro .h2').forEach(el=>{const ws=splitWords(el);if(
   setInterval(()=>{if(!animating&&performance.now()-lastWheel>220)quietOK=true;},120);
   // Touch (Handy/Tablet)
   addEventListener('touchstart',e=>{touchY=e.touches[0].clientY;},{passive:true});
-  addEventListener('touchmove',e=>{const y=yNow();if(y>=ST.start-2&&y<=ST.end-2&&touchY!==null)e.preventDefault();},{passive:false});
+  addEventListener('touchmove',e=>{const y=yNow();if(touchY!==null&&(animating||(y>=ST.start-2&&y<=ST.end-2)))e.preventDefault();},{passive:false});
   addEventListener('touchend',e=>{if(touchY===null)return;const dy=touchY-e.changedTouches[0].clientY;touchY=null;
-    const y=yNow();if(!(y>=ST.start-2&&y<=ST.end-2)||animating||Math.abs(dy)<25)return;
-    if(!handle(Math.sign(dy))){window.scrollBy({top:dy*2,behavior:'smooth'});}},{passive:true});
+    if(animating||Math.abs(dy)<25)return;const y=yNow();if(!(y>=ST.start-2&&y<=ST.end-2))return;handle(Math.sign(dy));},{passive:true});
   addEventListener('keydown',e=>{const y=yNow();if(!(y>=ST.start-2&&y<=ST.end-2))return;
-    const d={ArrowDown:1,PageDown:1,' ':1,ArrowUp:-1,PageUp:-1}[e.key];if(!d)return;e.preventDefault();if(!animating)handle(d)||stepTo(ST.start-innerHeight*.4);});
+    const d={ArrowDown:1,PageDown:1,' ':1,ArrowUp:-1,PageUp:-1}[e.key];if(!d)return;e.preventDefault();if(!animating)handle(d);});
   // weiches Nachlaufen; funktioniert in beide Richtungen und bei schnellem Scrollen
   gsap.ticker.add(()=>{const d=target-cur;if(Math.abs(d)<.0005){if(cur!==target){cur=target;apply(cur);}return;}cur+=d*.14;apply(cur);});
 })();
