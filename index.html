@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KW Home Design – Spanndecken &amp; Raumausstattung</title>
+<meta name="description" content="KW Home Design – Ihr starker Partner für Spanndecken und Raumausstattung. 15 Jahre Herstellergarantie, Einbau an einem Tag.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F5F2ED}
+a{color:#2A2522}a:hover{color:#B3122A}
+*{box-sizing:border-box}
+.kw{font-family:'Manrope',system-ui,sans-serif;color:#2A2522;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Fraunces',Georgia,serif;font-weight:300;letter-spacing:-0.02em}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes sweep{0%{transform:translateX(-120%)}100%{transform:translateX(220%)}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes drift{0%{transform:scale(1.08) translate(0,0)}100%{transform:scale(1.16) translate(-2%,-2%)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes linegrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.r1{animation:rise 1s cubic-bezier(.2,.7,.2,1) both .15s}
+.r2{animation:rise 1s cubic-bezier(.2,.7,.2,1) both .35s}
+.r3{animation:rise 1s cubic-bezier(.2,.7,.2,1) both .55s}
+.r4{animation:rise 1s cubic-bezier(.2,.7,.2,1) both .75s}
+.ceiling{animation:drift 18s ease-in-out infinite alternate}
+.led{animation:glow 4s ease-in-out infinite}
+.led2{animation:glow 4s ease-in-out infinite 1.3s}
+.led3{animation:glow 4s ease-in-out infinite 2.6s}
+.shine{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.shine::after{content:"";position:absolute;top:0;bottom:0;width:35%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.16),transparent);animation:sweep 6s ease-in-out infinite 1.2s}
+.track{display:flex;gap:56px;width:max-content;animation:marquee 38s linear infinite}
+.redline{transform-origin:left;animation:linegrow 1.2s cubic-bezier(.2,.7,.2,1) both .9s}
+.card{transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s}
+.card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -30px rgba(42,37,34,.45)}
+.card .ph{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.card:hover .ph{transform:scale(1.06)}
+.card .arrow{transition:transform .4s}
+.card:hover .arrow{transform:translateX(6px)}
+.btn{transition:background .3s,color .3s,transform .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn-red:hover{background:#8E0E21;color:#fff}
+.btn-ghost:hover{background:#fff;color:#2A2522}
+.navlink{text-decoration:none;color:#2A2522;position:relative;padding:6px 0}
+.navlink::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:#B3122A;transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.navlink:hover::after{transform:scaleX(1)}
+.loc{transition:background .5s,color .5s}
+.loc:hover{background:#2A2522;color:#F5F2ED}
+@supports (animation-timeline: view()){
+.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+
+<style>html{scroll-behavior:smooth}@media(max-width:700px){.wrap{padding:0 20px}#referenzen .wrap>div:last-child{grid-template-columns:repeat(2,minmax(0,1fr))!important}}</style>
+</head>
+<body>
+
+
+<div class="kw" style="width: 100%; overflow: hidden; background: #F5F2ED">
+
+<header style="position: sticky; top: 0; z-index: 20; background: rgba(245,242,237,.86); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(42,37,34,.08)">
+<div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 84px; flex-wrap: wrap">
+<a href="#top" style="display: flex; align-items: center; gap: 14px; text-decoration: none; color: #2A2522">
+<span style="display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; background: #2A2522; color: #F5F2ED; font-weight: 800; font-size: 17px; letter-spacing: -.02em; position: relative">KW<span style="position: absolute; top: 0; left: 0; width: 14px; height: 4px; background: #D0162F"></span></span>
+<span style="display: flex; flex-direction: column; line-height: 1.1"><span style="font-weight: 700; font-size: 16px; letter-spacing: .14em">HOME DESIGN</span><span style="font-size: 11px; letter-spacing: .2em; color: #6B625B">MIT HAND ANS WERK!</span></span>
+</a>
+<nav aria-label="Hauptnavigation" style="display: flex; gap: 34px; font-size: 14px; font-weight: 600; flex-wrap: wrap">
+<a class="navlink" href="#leistungen">Deckendesign</a>
+<a class="navlink" href="#leistungen">Bodendesign</a>
+<a class="navlink" href="#leistungen">Wanddesign</a>
+<a class="navlink" href="#referenzen">Referenzen</a>
+<a class="navlink" href="#standorte">Standorte</a>
+</nav>
+<a class="btn btn-red" href="#kontakt" style="background: #B3122A; color: #fff; text-decoration: none; padding: 14px 24px; font-size: 14px; font-weight: 700; letter-spacing: .04em">Beratung anfragen</a>
+</div>
+</header>
+
+<section id="top" style="position: relative; min-height: 820px; background: #1E1A18; color: #F5F2ED; overflow: hidden">
+<div class="ceiling" aria-hidden="true" style="position: absolute; inset: -6%; background: radial-gradient(ellipse 70% 50% at 70% 10%, #4A403A 0%, #2A2522 45%, #1A1614 100%)"></div>
+<div aria-hidden="true" style="position: absolute; top: 0; right: 0; width: 62%; height: 62%; perspective: 900px">
+<div style="position: absolute; inset: 0; transform: rotateX(58deg); transform-origin: top; background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,0)); border-bottom: 1px solid rgba(255,255,255,.08)">
+<div class="led" style="position: absolute; left: 12%; right: 12%; top: 22%; height: 2px; background: #FFE9D2; box-shadow: 0 0 24px 6px rgba(255,214,170,.55), 0 0 80px 20px rgba(255,200,150,.18)"></div>
+<div class="led2" style="position: absolute; left: 22%; right: 22%; top: 50%; height: 2px; background: #FFE9D2; box-shadow: 0 0 24px 6px rgba(255,214,170,.5), 0 0 80px 20px rgba(255,200,150,.15)"></div>
+<div class="led3" style="position: absolute; left: 32%; right: 32%; top: 78%; height: 2px; background: #FFE9D2; box-shadow: 0 0 24px 6px rgba(255,214,170,.45)"></div>
+<div style="position: absolute; left: 6%; top: 8%; bottom: 8%; width: 1px; background: rgba(208,22,47,.7); box-shadow: 0 0 18px 3px rgba(208,22,47,.45)"></div>
+</div>
+</div>
+<div class="shine" aria-hidden="true"></div>
+<div class="wrap" style="position: relative; padding-top: 170px; padding-bottom: 120px; display: flex; flex-direction: column; gap: 34px">
+<div class="r1 eyebrow" style="display: flex; align-items: center; gap: 14px; color: #E9B9A9"><span class="redline" style="display: inline-block; width: 48px; height: 2px; background: #D0162F"></span>Spanndecken &amp; Raumausstattung</div>
+<h1 class="r2 serif" style="margin: 0; font-size: clamp(48px, 7vw, 104px); line-height: .98; max-width: 900px">Schluss mit<br><em style="font-weight: 400; color: #F0C9B4">langweiligen</em> Decken.</h1>
+<p class="r3" style="margin: 0; max-width: 520px; font-size: 18px; line-height: 1.7; color: #CFC6BE">Wir montieren Ihre neue Decke einfach über die alte – spiegelnd, matt oder glänzend, in zahlreichen Farben. Sauber, schnell und mit Handwerksqualität aus einer Hand.</p>
+<div class="r4" style="display: flex; gap: 14px; flex-wrap: wrap; padding-top: 6px">
+<a class="btn btn-red" href="#kontakt" style="background: #B3122A; color: #fff; text-decoration: none; padding: 18px 30px; font-weight: 700; font-size: 15px">Kostenlos beraten lassen</a>
+<a class="btn btn-ghost" href="#referenzen" style="border: 1px solid rgba(245,242,237,.5); color: #F5F2ED; text-decoration: none; padding: 18px 30px; font-weight: 600; font-size: 15px">Referenzen ansehen</a>
+</div>
+<div class="r4" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: rgba(245,242,237,.14); max-width: 760px; margin-top: 50px">
+<div style="background: #221E1B; padding: 24px 26px"><div class="serif" style="font-size: 40px; color: #fff">15 J.</div><div style="font-size: 13px; color: #B8AEA6; padding-top: 4px">Herstellergarantie auf alle Spanndecken</div></div>
+<div style="background: #221E1B; padding: 24px 26px"><div class="serif" style="font-size: 40px; color: #fff">1 Tag</div><div style="font-size: 13px; color: #B8AEA6; padding-top: 4px">Einbauzeit – meist innerhalb eines Tages</div></div>
+<div style="background: #221E1B; padding: 24px 26px"><div class="serif" style="font-size: 40px; color: #fff">0 Schmutz</div><div style="font-size: 13px; color: #B8AEA6; padding-top: 4px">Ihre Baustelle bleibt sauber</div></div>
+</div>
+</div>
+</section>
+
+<div aria-label="Oberflächen" style="background: #B3122A; color: #fff; padding: 22px 0; overflow: hidden">
+<div class="track serif" style="font-size: 26px; font-style: italic; white-space: nowrap">
+<span>Satin</span><span>✦</span><span>Lack</span><span>✦</span><span>Matt</span><span>✦</span><span>Akustik</span><span>✦</span><span>Double Vision</span><span>✦</span><span>Perforiert</span><span>✦</span><span>Leuchtdecken</span><span>✦</span><span>Digitaldruck</span><span>✦</span>
+<span>Satin</span><span>✦</span><span>Lack</span><span>✦</span><span>Matt</span><span>✦</span><span>Akustik</span><span>✦</span><span>Double Vision</span><span>✦</span><span>Perforiert</span><span>✦</span><span>Leuchtdecken</span><span>✦</span><span>Digitaldruck</span><span>✦</span>
+</div>
+</div>
+
+<section style="padding: 140px 0 110px">
+<div class="wrap" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 70px; align-items: center">
+<div class="reveal" style="display: flex; flex-direction: column; gap: 26px">
+<div class="eyebrow" style="color: #B3122A">Willkommen</div>
+<h2 class="serif" style="margin: 0; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.05">Handwerk, das man <em>sieht</em> – jeden Tag, wenn Sie nach oben schauen.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.8; color: #5A514B">KW Home Design ist Ihr starker Partner für Spanndecken und Raumausstattung. Wir legen größten Wert auf die hohe Qualität unserer Produkte – und auf Ihre Zufriedenheit.</p>
+<a class="btn" href="#referenzen" style="align-self: flex-start; color: #2A2522; font-weight: 700; text-decoration: none; border-bottom: 2px solid #B3122A; padding-bottom: 6px">Unsere Referenzen →</a>
+</div>
+<div class="reveal" style="position: relative; height: 520px">
+<div style="position: absolute; left: 0; top: 0; width: 72%; height: 80%; background: linear-gradient(145deg, #CFC5BB, #A89B90); display: flex; align-items: flex-end; padding: 18px; font-size: 12px; color: #2A2522; font-weight: 600">[Foto: Spanndecke Wohnraum – Kundenbild]</div>
+<div style="position: absolute; right: 0; bottom: 0; width: 52%; height: 56%; background: linear-gradient(145deg, #3A322D, #2A2522); border: 10px solid #F5F2ED; display: flex; align-items: flex-end; padding: 14px; font-size: 12px; color: #E6DDD5; font-weight: 600">[Foto: Leuchtdecke Detail]</div>
+<div style="position: absolute; right: 8%; top: 6%; background: #B3122A; color: #fff; padding: 20px 22px; max-width: 200px"><div class="serif" style="font-size: 30px">Alles</div><div style="font-size: 13px; line-height: 1.5">aus einer Hand – inkl. Lampen &amp; Rauchmelder</div></div>
+</div>
+</div>
+</section>
+
+<section id="leistungen" style="padding: 40px 0 140px">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 56px">
+<div class="reveal" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap">
+<div style="display: flex; flex-direction: column; gap: 18px"><div class="eyebrow" style="color: #B3122A">Leistungen</div><h2 class="serif" style="margin: 0; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.05">Decke. Boden. Wand.</h2></div>
+<p style="margin: 0; max-width: 400px; font-size: 16px; line-height: 1.7; color: #5A514B">Vom ersten Gespräch bis zum fertigen Raum – wir gestalten jede Fläche mit derselben Sorgfalt.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px">
+<a class="card reveal" href="#kontakt" style="text-decoration: none; color: #2A2522; background: #fff; display: flex; flex-direction: column">
+<div style="height: 260px; overflow: hidden"><div class="ph" style="height: 100%; background: linear-gradient(160deg, #3A322D, #1E1A18); display: flex; align-items: flex-end; padding: 14px; font-size: 12px; color: #E6DDD5">[Foto: Spanndecke]</div></div>
+<div style="padding: 28px; display: flex; flex-direction: column; gap: 10px"><div class="eyebrow" style="color: #8A7F77; font-size: 11px">01 · Deckendesign</div><div style="display: flex; justify-content: space-between; align-items: center"><h3 class="serif" style="margin: 0; font-size: 30px">Spanndecken</h3><span class="arrow" style="color: #B3122A; font-size: 22px">→</span></div><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #5A514B">Satin, Lack, Matt, Akustik, Leuchtdecken oder digital bedruckt.</p></div>
+</a>
+<a class="card reveal" href="#kontakt" style="text-decoration: none; color: #2A2522; background: #fff; display: flex; flex-direction: column">
+<div style="height: 260px; overflow: hidden"><div class="ph" style="height: 100%; background: linear-gradient(160deg, #B98D62, #7A5536); display: flex; align-items: flex-end; padding: 14px; font-size: 12px; color: #fff">[Foto: Holzdecke]</div></div>
+<div style="padding: 28px; display: flex; flex-direction: column; gap: 10px"><div class="eyebrow" style="color: #8A7F77; font-size: 11px">02 · Deckendesign</div><div style="display: flex; justify-content: space-between; align-items: center"><h3 class="serif" style="margin: 0; font-size: 30px">Holzdecken</h3><span class="arrow" style="color: #B3122A; font-size: 22px">→</span></div><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #5A514B">Natürliche Wärme und Charakter für jeden Raum.</p></div>
+</a>
+<a class="card reveal" href="#kontakt" style="text-decoration: none; color: #2A2522; background: #fff; display: flex; flex-direction: column">
+<div style="height: 260px; overflow: hidden"><div class="ph" style="height: 100%; background: linear-gradient(160deg, #D8CBBB, #A9977F); display: flex; align-items: flex-end; padding: 14px; font-size: 12px; color: #2A2522">[Foto: Laminat]</div></div>
+<div style="padding: 28px; display: flex; flex-direction: column; gap: 10px"><div class="eyebrow" style="color: #8A7F77; font-size: 11px">03 · Bodendesign</div><div style="display: flex; justify-content: space-between; align-items: center"><h3 class="serif" style="margin: 0; font-size: 30px">Laminat</h3><span class="arrow" style="color: #B3122A; font-size: 22px">→</span></div><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #5A514B">Robust, pflegeleicht und in vielen Dekoren.</p></div>
+</a>
+<a class="card reveal" href="#kontakt" style="text-decoration: none; color: #2A2522; background: #fff; display: flex; flex-direction: column">
+<div style="height: 260px; overflow: hidden"><div class="ph" style="height: 100%; background: linear-gradient(160deg, #9C9289, #5F5751); display: flex; align-items: flex-end; padding: 14px; font-size: 12px; color: #fff">[Foto: Vinylboden]</div></div>
+<div style="padding: 28px; display: flex; flex-direction: column; gap: 10px"><div class="eyebrow" style="color: #8A7F77; font-size: 11px">04 · Bodendesign</div><div style="display: flex; justify-content: space-between; align-items: center"><h3 class="serif" style="margin: 0; font-size: 30px">Vinylboden</h3><span class="arrow" style="color: #B3122A; font-size: 22px">→</span></div><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #5A514B">Angenehm warm, leise und wohnlich.</p></div>
+</a>
+<a class="card reveal" href="#kontakt" style="text-decoration: none; color: #2A2522; background: #fff; display: flex; flex-direction: column">
+<div style="height: 260px; overflow: hidden"><div class="ph" style="height: 100%; background: linear-gradient(160deg, #C9B7A6, #8E7563); display: flex; align-items: flex-end; padding: 14px; font-size: 12px; color: #fff">[Foto: Tapetengestaltung]</div></div>
+<div style="padding: 28px; display: flex; flex-direction: column; gap: 10px"><div class="eyebrow" style="color: #8A7F77; font-size: 11px">05 · Wanddesign</div><div style="display: flex; justify-content: space-between; align-items: center"><h3 class="serif" style="margin: 0; font-size: 30px">Tapetengestaltung</h3><span class="arrow" style="color: #B3122A; font-size: 22px">→</span></div><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #5A514B">Wände mit Persönlichkeit und Stil.</p></div>
+</a>
+<a class="card reveal" href="#kontakt" style="text-decoration: none; color: #2A2522; background: #fff; display: flex; flex-direction: column">
+<div style="height: 260px; overflow: hidden"><div class="ph" style="height: 100%; background: linear-gradient(160deg, #A4553F, #6B2F22); display: flex; align-items: flex-end; padding: 14px; font-size: 12px; color: #fff">[Foto: Wandverklinkung]</div></div>
+<div style="padding: 28px; display: flex; flex-direction: column; gap: 10px"><div class="eyebrow" style="color: #8A7F77; font-size: 11px">06 · Wanddesign</div><div style="display: flex; justify-content: space-between; align-items: center"><h3 class="serif" style="margin: 0; font-size: 30px">Wandverklinkung</h3><span class="arrow" style="color: #B3122A; font-size: 22px">→</span></div><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #5A514B">Der echte Klinker-Look – modern umgesetzt.</p></div>
+</a>
+</div>
+</div>
+</section>
+
+<section style="background: #2A2522; color: #F5F2ED; padding: 130px 0">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 60px">
+<div class="reveal" style="display: flex; flex-direction: column; gap: 18px; max-width: 700px"><div class="eyebrow" style="color: #E9B9A9">Warum KW Home Design</div><h2 class="serif" style="margin: 0; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.05">Eine neue Decke – ohne Baustellen-Chaos.</h2></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: rgba(245,242,237,.12)">
+<div class="reveal" style="background: #2A2522; padding: 40px 30px; display: flex; flex-direction: column; gap: 16px"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E0475C" stroke-width="1.5"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg><h3 class="serif" style="margin: 0; font-size: 26px">Garantie</h3><p style="margin: 0; font-size: 15px; line-height: 1.65; color: #C4BAB2">15 Jahre Herstellergarantie auf alle Spanndecken.</p></div>
+<div class="reveal" style="background: #2A2522; padding: 40px 30px; display: flex; flex-direction: column; gap: 16px"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E0475C" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3 class="serif" style="margin: 0; font-size: 26px">Schneller Einbau</h3><p style="margin: 0; font-size: 15px; line-height: 1.65; color: #C4BAB2">Einbauzeit innerhalb eines Tages.</p></div>
+<div class="reveal" style="background: #2A2522; padding: 40px 30px; display: flex; flex-direction: column; gap: 16px"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E0475C" stroke-width="1.5"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0012 3z"/></svg><h3 class="serif" style="margin: 0; font-size: 26px">Service</h3><p style="margin: 0; font-size: 15px; line-height: 1.65; color: #C4BAB2">Alles aus einer Hand – Einbau von Lampen aller Art, Rauchmeldern usw.</p></div>
+<div class="reveal" style="background: #2A2522; padding: 40px 30px; display: flex; flex-direction: column; gap: 16px"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#E0475C" stroke-width="1.5"><path d="M5 12l5 5L20 7"/></svg><h3 class="serif" style="margin: 0; font-size: 26px">Ohne Verschmutzung</h3><p style="margin: 0; font-size: 15px; line-height: 1.65; color: #C4BAB2">Keine Verschmutzung der Baustelle. Die vorherige Decke bleibt erhalten.</p></div>
+</div>
+</div>
+</section>
+
+<section id="referenzen" style="padding: 140px 0">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 50px">
+<div class="reveal" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap"><div style="display: flex; flex-direction: column; gap: 18px"><div class="eyebrow" style="color: #B3122A">Referenzen</div><h2 class="serif" style="margin: 0; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.05">Räume, die wir verwandelt haben.</h2></div><a class="btn" href="#kontakt" style="color: #2A2522; font-weight: 700; text-decoration: none; border-bottom: 2px solid #B3122A; padding-bottom: 6px">Alle Projekte →</a></div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 240px; gap: 16px">
+<div class="card reveal" style="grid-column: span 2; grid-row: span 2; overflow: hidden"><div class="ph" style="height: 100%; background: linear-gradient(150deg, #4A403A, #1E1A18); display: flex; align-items: flex-end; padding: 16px; font-size: 12px; color: #E6DDD5">[Referenzfoto 1 – Vorher/Nachher]</div></div>
+<div class="card reveal" style="grid-column: span 2; overflow: hidden"><div class="ph" style="height: 100%; background: linear-gradient(150deg, #D4C8BC, #A89B90); display: flex; align-items: flex-end; padding: 16px; font-size: 12px; color: #2A2522">[Referenzfoto 2 – Badezimmer]</div></div>
+<div class="card reveal" style="overflow: hidden"><div class="ph" style="height: 100%; background: linear-gradient(150deg, #8E2A2A, #4A1515); display: flex; align-items: flex-end; padding: 16px; font-size: 12px; color: #fff">[Referenzfoto 3]</div></div>
+<div class="card reveal" style="overflow: hidden"><div class="ph" style="height: 100%; background: linear-gradient(150deg, #B7A99B, #6E625A); display: flex; align-items: flex-end; padding: 16px; font-size: 12px; color: #fff">[Referenzfoto 4]</div></div>
+</div>
+</div>
+</section>
+
+<section id="standorte" style="padding: 0 0 140px">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 50px">
+<div class="reveal" style="display: flex; flex-direction: column; gap: 18px"><div class="eyebrow" style="color: #B3122A">Standorte</div><h2 class="serif" style="margin: 0; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.05">Dreimal in Ihrer Nähe.</h2></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0; border-top: 1px solid rgba(42,37,34,.18)">
+<div class="loc reveal" style="padding: 40px 30px; border-bottom: 1px solid rgba(42,37,34,.18); display: flex; flex-direction: column; gap: 12px"><div class="serif" style="font-size: 54px; color: #B3122A">01</div><h3 class="serif" style="margin: 0; font-size: 30px">Empfingen</h3><p style="margin: 0; font-size: 15px; line-height: 1.7">Zollernring 12<br>72186 Empfingen<br><a href="tel:+4974852830609">+49 (0) 7485 2830 609</a></p></div>
+<div class="loc reveal" style="padding: 40px 30px; border-bottom: 1px solid rgba(42,37,34,.18); display: flex; flex-direction: column; gap: 12px"><div class="serif" style="font-size: 54px; color: #B3122A">02</div><h3 class="serif" style="margin: 0; font-size: 30px">Lehrensteinsfeld</h3><p style="margin: 0; font-size: 15px; line-height: 1.7">Starenweg 3<br>74251 Lehrensteinsfeld<br><a href="tel:+4971349069440">+49 (0) 7134 9069 440</a></p></div>
+<div class="loc reveal" style="padding: 40px 30px; border-bottom: 1px solid rgba(42,37,34,.18); display: flex; flex-direction: column; gap: 12px"><div class="serif" style="font-size: 54px; color: #B3122A">03</div><h3 class="serif" style="margin: 0; font-size: 30px">[Dritter Standort]</h3><p style="margin: 0; font-size: 15px; line-height: 1.7">[Straße Nr.]<br>[PLZ Ort]<br>[Telefon]</p></div>
+</div>
+</div>
+</section>
+
+<section id="kontakt" style="position: relative; background: #B3122A; color: #fff; padding: 120px 0; overflow: hidden">
+<div class="shine" aria-hidden="true"></div>
+<div class="wrap reveal" style="position: relative; display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap">
+<h2 class="serif" style="margin: 0; font-size: clamp(40px, 5vw, 72px); line-height: 1.02; max-width: 720px">Erfüllen Sie sich Ihren Traum von einer schönen Decke.</h2>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<a class="btn" href="mailto:info@kw-homedesign.de" style="background: #fff; color: #2A2522; text-decoration: none; padding: 20px 34px; font-weight: 700; font-size: 16px; text-align: center">Jetzt Kontakt aufnehmen</a>
+<a href="mailto:info@kw-homedesign.de" style="color: #fff; font-size: 15px; text-align: center">info@kw-homedesign.de</a>
+</div>
+</div>
+</section>
+
+<footer style="background: #1E1A18; color: #B8AEA6; padding: 70px 0 40px">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 50px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 12px"><div style="color: #F5F2ED; font-weight: 700; letter-spacing: .14em">KW HOME DESIGN</div><p style="margin: 0; font-size: 14px; line-height: 1.7">KW Home Design GmbH &amp; Co. KG<br>Ihr starker Partner für Spanndecken und Raumausstattung.</p></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><div class="eyebrow" style="color: #F5F2ED; font-size: 11px">Spanndecken</div><p style="margin: 0; font-size: 14px; line-height: 1.7">Satin, Lack, Matt, Akustik, Double Vision, Perforiert, Leuchtdecken, digital bedruckte Spanndecken und Wände</p></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><div class="eyebrow" style="color: #F5F2ED; font-size: 11px">Einsatzgebiet</div><p style="margin: 0; font-size: 14px; line-height: 1.7">Böblingen, Stuttgart, Tübingen, Reutlingen, Heilbronn, Rottweil, Ludwigsburg, Heidelberg und Umgebung</p></div>
+</div>
+<div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; border-top: 1px solid rgba(245,242,237,.12); padding-top: 26px; font-size: 13px">
+<span>© KW Home Design</span>
+<div style="display: flex; gap: 24px"><a href="#kontakt" style="color: #B8AEA6">Kontakt</a><a href="#top" style="color: #B8AEA6">Impressum</a><a href="#top" style="color: #B8AEA6">Datenschutz</a><a href="#top" style="color: #B8AEA6">AGB</a></div>
+</div>
+</div>
+</footer>
+
+</div>
+
+<script>
+if(!CSS.supports('animation-timeline','view()')&&'IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.style.animation='rise 1s cubic-bezier(.2,.7,.2,1) both';io.unobserve(e.target);}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(function(el){el.style.opacity=0;io.observe(el);});
+}
+</script>
+</body>
+</html>
