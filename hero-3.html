@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KW Home Design – Spanndecken &amp; Raumausstattung</title>
+<meta name="description" content="KW Home Design – Ihr starker Partner für Spanndecken und Raumausstattung. 15 Jahre Herstellergarantie, Einbau an einem Tag.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#DC0F16;--red2:#FF4A50;--dark:#34302C;--ink:#16130F;--cream:#F5F2ED;--muted:#5E5650}
+*{box-sizing:border-box;margin:0;padding:0}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--cream);color:var(--dark);font-family:'Open Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Enriqueta',Georgia,serif;font-weight:400;letter-spacing:-.015em}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:40px;height:2px;background:var(--red)}
+.wrap{max-width:1320px;margin:0 auto;padding:0 48px}
+.h2{font-size:clamp(40px,5.4vw,84px);line-height:1}
+.line{display:block;overflow:hidden;padding-bottom:.08em}
+.line>span{display:inline-block}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:20px 34px;font-weight:700;font-size:15px;letter-spacing:.03em;position:relative;overflow:hidden;isolation:isolate}
+.btn-red{background:var(--red);color:#fff}
+.btn-red::before,.btn-line::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .55s cubic-bezier(.7,0,.2,1);z-index:-1}
+.btn-line{border:1px solid rgba(255,255,255,.45);color:#fff}
+.btn-line::before{background:#fff}
+.btn-line:hover{color:var(--ink)}
+.btn:hover::before{transform:none}
+.btn .ar{transition:transform .4s}
+.btn:hover .ar{transform:translateX(6px)}
+
+/* preloader */
+#loader{position:fixed;inset:0;z-index:100;background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:40px 48px}
+#loader .top{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#9C928A}
+#loader .num{font-family:'Enriqueta',serif;font-size:clamp(90px,16vw,240px);line-height:.85;align-self:flex-end}
+#loader .bar{position:absolute;left:0;bottom:0;height:4px;background:var(--red);width:0}
+
+/* cursor */
+.cursor,.cursor-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:90;border-radius:50%;transform:translate(-50%,-50%)}
+.cursor{width:44px;height:44px;border:1px solid rgba(220,15,22,.7);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:.1em;color:#fff;text-transform:uppercase;transition:width .35s,height .35s,background .35s,border-color .35s}
+.cursor span{opacity:0;transition:opacity .2s}
+.cursor.hover{width:76px;height:76px;background:rgba(220,15,22,.15)}
+.cursor.view{width:110px;height:110px;background:var(--red);border-color:var(--red)}
+.cursor.view span{opacity:1}
+.cursor-dot{width:6px;height:6px;background:var(--red)}
+@media (hover:none),(max-width:900px){.cursor,.cursor-dot{display:none}}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,box-shadow .4s,transform .5s}
+header.solid{background:rgba(245,242,237,.92);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(52,48,44,.08)}
+header.hide{transform:translateY(-100%)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:96px;gap:24px}
+header .logo{background:#fff;padding:8px 12px}
+header .logo img{height:52px;width:auto}
+header nav{display:flex;gap:36px;font-size:14px;font-weight:600;color:#fff;transition:color .4s}
+header.solid nav{color:var(--dark)}
+header nav a{position:relative;padding:6px 0}
+header nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--red);transform:scaleX(0);transform-origin:right;transition:transform .45s}
+header nav a:hover::after{transform:scaleX(1);transform-origin:left}
+@media(max-width:980px){header nav{display:none}}
+
+/* hero */
+.hero{position:relative;height:100vh;min-height:760px;overflow:hidden}
+.hero h1 .r{color:var(--red2)}
+.hero .glow{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(255,215,170,.2),transparent 65%);pointer-events:none;mix-blend-mode:screen;left:0;top:0;transform:translate(-50%,-50%);opacity:0;transition:opacity .6s}
+.hero:hover .glow{opacity:1}
+.hero.hC{background:var(--ink);color:#fff}
+.hC-card{position:absolute;left:50%;top:50%;width:min(34vw,520px);height:34vh;transform:translate(-50%,-50%);border-radius:22px;overflow:hidden;z-index:1}
+.hC-card img{width:100%;height:100%;object-fit:cover;transform:scale(1.4)}
+.hC-over{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:18px;padding:6vw;background:linear-gradient(90deg,rgba(22,19,15,.75),transparent 60%);opacity:0}
+.hC-over .serif{font-size:clamp(50px,8vw,140px);line-height:.95;color:#fff}
+.hC-h{position:static;font-size:clamp(56px,min(9vw,13vh),170px);line-height:1}
+.hC-t1,.hC-t2{position:absolute;left:0;right:0;text-align:center;z-index:2;pointer-events:none}
+.hC-t1{bottom:calc(50% + 17vh - .18em)}
+.hC-t2{top:calc(50% + 17vh - .22em)}
+.hC-side{position:absolute;bottom:44px;z-index:3;display:flex;flex-direction:column;gap:16px;max-width:300px;font-size:14px;line-height:1.7;color:#CFC6BE}
+.hC-l{left:48px}.hC-r{right:48px;align-items:flex-end;text-align:right}
+.hC-scroll{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#9C928A}
+.hC-scroll i{width:22px;height:36px;border:1px solid rgba(255,255,255,.35);border-radius:12px;position:relative}
+.hC-scroll i::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--red2);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:1;transform:none}100%{opacity:0;transform:translateY(12px)}}
+@media(max-width:900px){.hC-side{display:none}.hC-card{width:70vw}}
+
+/* marquee */
+.marquee{background:var(--red);color:#fff;padding:26px 0;overflow:hidden;white-space:nowrap}
+.marquee .track{display:inline-flex;gap:60px;font-family:'Enriqueta',serif;font-size:clamp(28px,3.4vw,48px)}
+.marquee .track span:nth-child(even){color:rgba(255,255,255,.45)}
+
+/* intro */
+.intro{padding:170px 0 150px}
+.intro .grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.intro .txt{display:flex;flex-direction:column;gap:30px}
+.intro .txt p{font-size:18px;line-height:1.85;color:var(--muted);max-width:520px}
+.pics{position:relative;height:640px}
+.pic{position:absolute;overflow:hidden}
+.pic img{width:100%;height:120%;object-fit:cover}
+.pic.a{left:0;top:0;width:74%;height:78%}
+.pic.b{right:0;bottom:0;width:50%;height:50%;outline:12px solid var(--cream)}
+.badge{position:absolute;right:4%;top:4%;width:150px;height:150px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;z-index:2}
+.badge svg{position:absolute;inset:0;animation:spin 16s linear infinite}
+.badge b{font-family:'Enriqueta',serif;font-size:34px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:120px;border-top:1px solid rgba(52,48,44,.15)}
+.stats>div{padding:40px 30px 0 0}
+.stats .n{font-family:'Enriqueta',serif;font-size:clamp(56px,6vw,96px);line-height:1;color:var(--dark)}
+.stats .n sup{font-size:.4em;color:var(--red);vertical-align:top;margin-left:4px}
+.stats .l{font-size:15px;color:var(--muted);padding-top:10px;max-width:240px;line-height:1.6}
+@media(max-width:900px){.intro .grid{grid-template-columns:1fr}.pics{height:480px}.stats{grid-template-columns:1fr}}
+
+/* services – sticky showcase */
+.services{background:var(--ink);color:#fff;padding:150px 0 120px}
+.sv-head{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;gap:28px 40px;align-items:end;padding-bottom:70px;border-bottom:1px solid rgba(255,255,255,.12)}
+.sv-head .eyebrow{grid-column:1/3}
+.sv-lead{font-size:clamp(34px,3.8vw,58px);line-height:1.12;color:#fff}
+.sv-word{color:var(--red2);display:inline-block;min-width:4ch}
+.sv-tabs{display:flex;gap:8px;background:rgba(255,255,255,.06);padding:6px;border-radius:999px}
+.sv-tab{background:none;border:0;color:#B8AEA6;font:600 15px 'Open Sans',sans-serif;padding:14px 26px;border-radius:999px;cursor:pointer;transition:background .4s,color .4s}
+.sv-tab sup{font-size:10px;color:var(--red2);margin-left:4px}
+.sv-tab.on{background:#fff;color:var(--ink)}
+.sv-tab:hover:not(.on){color:#fff}
+.sv-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;margin-top:70px;align-items:stretch}
+.sv-stage{position:relative}
+.sv-frame{position:relative;height:640px;border-radius:24px;overflow:hidden;background:#221E1B}
+.sv-img{position:absolute;inset:0;clip-path:inset(100% 0 0 0)}
+.sv-img.on{clip-path:inset(0 0 0 0)}
+.sv-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.15)}
+.sv-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(22,19,15,.75));pointer-events:none}
+.sv-big{position:absolute;left:30px;bottom:14px;z-index:2;font-family:'Enriqueta',serif;font-size:clamp(90px,11vw,170px);line-height:1;color:#fff;overflow:hidden;height:1em}
+.sv-big span{display:inline-block}
+.sv-prog{position:absolute;right:30px;bottom:40px;z-index:2;width:120px;height:2px;background:rgba(255,255,255,.25)}
+.sv-prog i{display:block;height:100%;width:100%;background:var(--red2);transform:scaleX(.1667);transform-origin:left}
+.sv-side{display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.sv-list{display:grid;flex:1}
+.sv-item{grid-area:1/1;display:flex;flex-direction:column;justify-content:center;gap:20px;visibility:hidden}
+.sv-item.on{visibility:visible}
+.sv-ctrl{display:flex;flex-direction:column;gap:22px;border-top:1px solid rgba(255,255,255,.12);padding-top:26px}
+.sv-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sv-btn{background:rgba(255,255,255,.05);border:1px solid transparent;color:#B8AEA6;font:600 14px 'Open Sans',sans-serif;text-align:left;padding:14px 16px;border-radius:12px;cursor:pointer;display:flex;flex-direction:column;gap:4px;transition:background .4s,color .4s,border-color .4s}
+.sv-btn span{font-family:'Enriqueta',serif;font-size:12px;color:var(--red2)}
+.sv-btn:hover{color:#fff;border-color:rgba(255,255,255,.2)}
+.sv-btn.on{background:#fff;color:var(--ink)}
+.sv-arrows{display:flex;gap:10px}
+.sv-arr{width:56px;height:56px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:none;color:#fff;font-size:20px;cursor:pointer;transition:background .4s,border-color .4s,transform .4s}
+.sv-arr:hover{background:var(--red);border-color:var(--red);transform:scale(1.08)}
+.sv-top{display:flex;align-items:center;gap:16px}
+.sv-n{font-family:'Enriqueta',serif;font-size:18px;color:var(--red2)}
+.sv-cat{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#B8AEA6;border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:999px}
+.sv-item h3{font-weight:400;font-size:clamp(44px,4.6vw,76px);line-height:1}
+.sv-item p{font-size:17px;line-height:1.75;color:#CFC6BE;max-width:460px}
+.sv-chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.sv-chips li{font-size:13px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.07);color:#E8E0D9}
+.sv-link{align-self:flex-start;font-weight:700;font-size:15px;padding-bottom:6px;border-bottom:2px solid var(--red);margin-top:6px}
+.sv-link span{display:inline-block;transition:transform .4s}
+.sv-link:hover span{transform:translateX(6px)}
+@media(max-width:900px){.sv-head{grid-template-columns:1fr}.sv-head .eyebrow{grid-column:auto}.sv-grid{grid-template-columns:1fr;gap:36px}.sv-frame{height:380px}.sv-btns{grid-template-columns:repeat(2,1fr)}}
+
+/* benefits */
+.benefits{padding:150px 0;background:var(--cream)}
+.bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:80px;border-left:1px solid rgba(52,48,44,.14)}
+.b{padding:44px 34px 50px;border-right:1px solid rgba(52,48,44,.14);position:relative;overflow:hidden;transition:color .5s}
+.b::before{content:"";position:absolute;inset:0;background:var(--dark);transform:scaleY(0);transform-origin:bottom;transition:transform .6s cubic-bezier(.7,0,.2,1);z-index:-1}
+.b{isolation:isolate}
+.b:hover{color:#fff}.b:hover::before{transform:none}.b:hover p{color:#CFC6BE}
+.b svg{width:44px;height:44px;stroke:var(--red);margin-bottom:60px;transition:transform .6s}
+.b:hover svg{transform:rotate(-10deg) scale(1.1)}
+.b h3{font-family:'Enriqueta',serif;font-weight:400;font-size:28px;margin-bottom:14px}
+.b p{color:var(--muted);line-height:1.7;font-size:15px;transition:color .5s}
+@media(max-width:1000px){.bgrid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.bgrid{grid-template-columns:1fr}}
+
+/* references */
+.refs{padding:150px 0 160px;background:var(--ink);color:#fff}
+.refhead{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+.refside{display:flex;flex-direction:column;gap:24px;max-width:360px}
+.refside p{color:#B8AEA6;line-height:1.7}
+.accs{display:flex;gap:14px;height:640px;margin-top:80px}
+.acc{position:relative;flex:1;overflow:hidden;border-radius:18px;transition:flex 1s cubic-bezier(.7,0,.2,1);min-width:0}
+.acc.on{flex:5}
+.acc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15);filter:grayscale(.7) brightness(.55);transition:transform 1.4s cubic-bezier(.2,.7,.2,1),filter 1s}
+.acc.on img{transform:scale(1);filter:none}
+.acc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(22,19,15,.85))}
+.acc-v{position:absolute;left:50%;bottom:34px;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;z-index:2;font-family:'Enriqueta',serif;font-size:22px;white-space:nowrap;display:flex;gap:14px;align-items:center;transition:opacity .5s}
+.acc.on .acc-v{opacity:0}
+.acc-c{position:absolute;left:40px;bottom:36px;right:40px;z-index:2;display:flex;flex-direction:column;gap:8px;opacity:0;transform:translateY(30px);transition:opacity .5s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.acc.on .acc-c{opacity:1;transform:none;transition-delay:.45s}
+.acc-n{font-family:'Enriqueta',serif;font-size:14px;color:var(--red2)}
+.acc-t{font-family:'Enriqueta',serif;font-size:clamp(34px,3.6vw,56px);line-height:1}
+.acc-s{color:#D2C9C1;font-size:15px}
+@media(max-width:900px){.accs{flex-direction:column;height:900px}.acc-v{writing-mode:horizontal-tb;transform:translateX(-50%);bottom:auto;top:50%}}
+
+/* locations */
+.locs{padding:150px 0 160px}
+.lrow{display:grid;grid-template-columns:120px 1fr 1fr auto;gap:30px;align-items:center;padding:44px 0;border-bottom:1px solid rgba(52,48,44,.15);position:relative;transition:padding .5s}
+.lrow:first-of-type{border-top:1px solid rgba(52,48,44,.15)}
+.lrow .no{font-family:'Enriqueta',serif;font-size:20px;color:var(--red)}
+.lrow h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(32px,4vw,58px);transition:transform .5s,color .5s}
+.lrow:hover h3{transform:translateX(24px);color:var(--red)}
+.lrow p{color:var(--muted);line-height:1.7}
+.lrow .go{width:58px;height:58px;border-radius:50%;border:1px solid rgba(52,48,44,.3);display:flex;align-items:center;justify-content:center;transition:.5s}
+.lrow:hover .go{background:var(--red);border-color:var(--red);color:#fff;transform:rotate(-45deg)}
+@media(max-width:800px){.lrow{grid-template-columns:1fr;gap:10px}}
+
+/* cta */
+.cta{padding:0 0 0}
+.cta .box{background:var(--red);color:#fff;border-radius:40px;margin:0 auto;padding:150px 48px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:44px;overflow:hidden;position:relative}
+.cta h2{font-size:clamp(46px,7vw,120px);line-height:.98;max-width:1100px}
+.cta .btn-white{background:#fff;color:var(--ink)}
+.cta .btn-white::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .55s cubic-bezier(.7,0,.2,1);z-index:-1}
+.cta .btn-white:hover{color:#fff}
+.cta .rings{position:absolute;inset:0;pointer-events:none}
+.cta .rings i{position:absolute;left:50%;top:50%;border:1px solid rgba(255,255,255,.18);border-radius:50%;transform:translate(-50%,-50%)}
+
+footer{background:var(--ink);color:#A89E96;padding:120px 0 40px;margin-top:-40px;padding-top:160px}
+footer .big{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;overflow:hidden}
+.flogo{display:inline-block;background:#fff;padding:22px 28px;border-radius:14px}
+.flogo img{height:clamp(90px,10vw,150px);width:auto}
+.ftag{font-size:clamp(24px,2.6vw,38px);line-height:1.25;color:#fff;max-width:620px}
+footer .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin:80px 0 60px;font-size:14px;line-height:1.8}
+footer h4{color:#fff;font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px}
+footer a:hover{color:#fff}
+footer .bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;border-top:1px solid rgba(255,255,255,.1);padding-top:26px;font-size:13px}
+@media(max-width:900px){footer .cols{grid-template-columns:1fr 1fr}.wrap{padding:0 24px}}
+
+.js .rv{opacity:0}
+@media (prefers-reduced-motion:reduce){#loader{display:none}.js .rv{opacity:1}}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <div class="top"><span>KW Home Design</span><span>Mit Hand ans Werk!</span></div>
+  <div class="num"><span id="ln">0</span>%</div>
+  <div class="bar"></div>
+</div>
+
+<div class="cursor"><span>Ansehen</span></div><div class="cursor-dot"></div>
+
+<header id="hdr">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="KW Home Design – Startseite"><img src="https://www.kw-homedesign.de/assets/images/5/Logo-a09532eb.png" alt="KW Home Design – Mit Hand ans Werk!"></a>
+    <nav aria-label="Hauptnavigation">
+      <a href="#leistungen">Deckendesign</a><a href="#leistungen">Bodendesign</a><a href="#leistungen">Wanddesign</a><a href="#referenzen">Referenzen</a><a href="#standorte">Standorte</a>
+    </nav>
+    <a class="btn btn-red mag" href="#kontakt" style="padding:16px 26px">Beratung anfragen <span class="ar">→</span></a>
+  </div>
+</header>
+
+<main>
+<section class="hero hC" id="top">
+  <div class="hC-card" id="hcc"><img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_0678%5B2317%5D.JPG" alt="Hochglanz-Spanndecke im Gastraum"><div class="hC-over"><span class="eyebrow" style="color:#fff">KW Home Design</span><span class="serif">Mit Hand<br>ans Werk.</span></div></div>
+  <h1 class="serif split hC-h"><span class="line hC-t1"><span>Decken mit</span></span><span class="line hC-t2"><span class="r">Charakter.</span></span></h1>
+  <div class="hC-side hC-l h-in"><div class="eyebrow" style="color:#F2B8B0">Spanndecken &amp; Raumausstattung</div><p>15 Jahre Herstellergarantie<br>Einbau meist an einem Tag</p></div>
+  <div class="hC-side hC-r h-in"><p>Wir montieren Ihre neue Decke einfach über die alte – sauber, schnell, in Handwerksqualität.</p><a class="btn btn-red mag" href="#kontakt">Beratung anfragen <span class="ar">→</span></a></div>
+  <div class="hC-scroll h-in" aria-hidden="true"><i></i>Scrollen</div>
+</section>
+
+<div class="marquee" aria-label="Oberflächen"><div class="track" id="mq">
+  <span>Satin</span><span>✦</span><span>Lack</span><span>✦</span><span>Matt</span><span>✦</span><span>Akustik</span><span>✦</span><span>Double Vision</span><span>✦</span><span>Perforiert</span><span>✦</span><span>Leuchtdecken</span><span>✦</span><span>Digitaldruck</span><span>✦</span>
+  <span>Satin</span><span>✦</span><span>Lack</span><span>✦</span><span>Matt</span><span>✦</span><span>Akustik</span><span>✦</span><span>Double Vision</span><span>✦</span><span>Perforiert</span><span>✦</span><span>Leuchtdecken</span><span>✦</span><span>Digitaldruck</span><span>✦</span>
+</div></div>
+
+<section class="intro">
+  <div class="wrap">
+    <div class="grid">
+      <div class="txt">
+        <div class="eyebrow rv">Willkommen</div>
+        <h2 class="serif h2 split"><span class="line"><span>Handwerk, das</span></span><span class="line"><span>man sieht –</span></span><span class="line"><span style="color:var(--red)">jeden Tag.</span></span></h2>
+        <p class="rv">KW Home Design ist Ihr starker Partner für Spanndecken und Raumausstattung. Wir legen größten Wert auf die hohe Qualität unserer Produkte – und auf Ihre Zufriedenheit. Alles aus einer Hand: inklusive Lampen aller Art und Rauchmeldern.</p>
+        <div class="rv"><a class="btn btn-red mag" href="#referenzen">Unsere Referenzen <span class="ar">→</span></a></div>
+      </div>
+      <div class="pics">
+        <div class="badge"><svg viewBox="0 0 150 150" aria-hidden="true"><defs><path id="c" d="M75,75 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/></defs><text fill="#fff" font-size="11.5" font-weight="700" letter-spacing="3.2"><textPath href="#c">MIT HAND ANS WERK ✦ KW HOME DESIGN ✦</textPath></text></svg><b>KW</b></div>
+        <div class="pic a reveal-img" data-cursor="view"><img class="par" src="https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/k-GW8_7330.jpg" alt="Weiße Spanndecke in offener Wohnküche"></div>
+        <div class="pic b reveal-img" data-cursor="view"><img class="par" src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/7.jpg" alt="Spanndecke mit roter LED-Lichtleiste"></div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="rv"><div class="n"><span class="count" data-to="15">0</span><sup>Jahre</sup></div><div class="l">Herstellergarantie auf alle Spanndecken</div></div>
+      <div class="rv"><div class="n"><span class="count" data-to="1">0</span><sup>Tag</sup></div><div class="l">Einbauzeit – meist innerhalb eines Tages</div></div>
+      <div class="rv"><div class="n"><span class="count" data-to="100">0</span><sup>%</sup></div><div class="l">Sauber: keine Verschmutzung, die alte Decke bleibt erhalten</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="leistungen">
+  <div class="wrap">
+    <div class="sv-head">
+      <div class="eyebrow rv" style="color:var(--red2)">Leistungen</div>
+      <p class="sv-lead serif rv">Wir gestalten <span class="sv-word" id="svw">Decken</span><br>mit Hand ans Werk.</p>
+      <div class="sv-tabs rv" role="tablist" aria-label="Bereiche">
+        <button class="sv-tab on" data-go="0">Decke <sup>02</sup></button>
+        <button class="sv-tab" data-go="2">Boden <sup>02</sup></button>
+        <button class="sv-tab" data-go="4">Wand <sup>02</sup></button>
+      </div>
+    </div>
+    <div class="sv-grid">
+      <div class="sv-stage">
+        <div class="sv-frame">
+        <div class="sv-img on"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/IMG_0642.JPG" alt="Glänzende Spanndecke"></div>
+        <div class="sv-img"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/eigenebilder/IMG_0632.JPG" alt="Holzdecke"></div>
+        <div class="sv-img"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/lizenzfreie/k-bathroom-1336167_1920.jpg" alt="Laminatboden"></div>
+        <div class="sv-img"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/lizenzfreie/k-interior-2685518_1920.jpg" alt="Vinylboden"></div>
+        <div class="sv-img"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/lizenzfreie/k-interior-3012218_1920.png" alt="Tapetengestaltung"></div>
+        <div class="sv-img"><img src="https://www.kw-homedesign.de/files/kwhomedesign/layout/lizenzfreie/k-room-3051846_1920.jpg" alt="Wandverklinkung"></div>
+          <div class="sv-big" aria-hidden="true"><span id="svn">01</span></div>
+          <div class="sv-prog" aria-hidden="true"><i id="svp"></i></div>
+        </div>
+      </div>
+      <div class="sv-side">
+      <div class="sv-list" aria-live="polite">
+      <article class="sv-item on" data-i="0" id="sv-decke0">
+        <div class="sv-top"><span class="sv-n">01</span><span class="sv-cat">Decke</span></div>
+        <h3 class="serif">Spanndecken</h3>
+        <p>Über die alte Decke einfach eine neue – in zahlreichen Farben und Oberflächen. Fertig meist an einem Tag, ohne Schmutz.</p>
+        <ul class="sv-chips"><li>Satin</li><li>Lack</li><li>Matt</li><li>Akustik</li><li>Leuchtdecken</li><li>Digitaldruck</li></ul>
+        <a class="sv-link" href="#kontakt">Beratung anfragen <span>→</span></a>
+      </article>
+      <article class="sv-item" data-i="1" id="sv-decke1">
+        <div class="sv-top"><span class="sv-n">02</span><span class="sv-cat">Decke</span></div>
+        <h3 class="serif">Holzdecken</h3>
+        <p>Natürliche Wärme und Charakter – handwerklich sauber montiert.</p>
+        <ul class="sv-chips"><li>Natürlich</li><li>Warm</li><li>Langlebig</li></ul>
+        <a class="sv-link" href="#kontakt">Beratung anfragen <span>→</span></a>
+      </article>
+      <article class="sv-item" data-i="2" id="sv-boden2">
+        <div class="sv-top"><span class="sv-n">03</span><span class="sv-cat">Boden</span></div>
+        <h3 class="serif">Laminat</h3>
+        <p>Robust, pflegeleicht und in vielen Dekoren erhältlich.</p>
+        <ul class="sv-chips"><li>Pflegeleicht</li><li>Robust</li><li>Viele Dekore</li></ul>
+        <a class="sv-link" href="#kontakt">Beratung anfragen <span>→</span></a>
+      </article>
+      <article class="sv-item" data-i="3" id="sv-boden3">
+        <div class="sv-top"><span class="sv-n">04</span><span class="sv-cat">Boden</span></div>
+        <h3 class="serif">Vinylboden</h3>
+        <p>Angenehm warm unter den Füßen, leise und wohnlich.</p>
+        <ul class="sv-chips"><li>Fußwarm</li><li>Leise</li><li>Wohnlich</li></ul>
+        <a class="sv-link" href="#kontakt">Beratung anfragen <span>→</span></a>
+      </article>
+      <article class="sv-item" data-i="4" id="sv-wand4">
+        <div class="sv-top"><span class="sv-n">05</span><span class="sv-cat">Wand</span></div>
+        <h3 class="serif">Tapetengestaltung</h3>
+        <p>Wände mit Persönlichkeit – vom dezenten Muster bis zum Statement.</p>
+        <ul class="sv-chips"><li>Individuell</li><li>Stilvoll</li></ul>
+        <a class="sv-link" href="#kontakt">Beratung anfragen <span>→</span></a>
+      </article>
+      <article class="sv-item" data-i="5" id="sv-wand5">
+        <div class="sv-top"><span class="sv-n">06</span><span class="sv-cat">Wand</span></div>
+        <h3 class="serif">Wandverklinkung</h3>
+        <p>Der echte Klinker-Look – modern umgesetzt.</p>
+        <ul class="sv-chips"><li>Klinker-Optik</li><li>Modern</li></ul>
+        <a class="sv-link" href="#kontakt">Beratung anfragen <span>→</span></a>
+      </article>
+      </div>
+      <div class="sv-ctrl">
+        <div class="sv-btns" role="tablist" aria-label="Leistungen">
+        <button class="sv-btn on" data-i="0"><span>01</span>Spanndecken</button>
+        <button class="sv-btn" data-i="1"><span>02</span>Holzdecken</button>
+        <button class="sv-btn" data-i="2"><span>03</span>Laminat</button>
+        <button class="sv-btn" data-i="3"><span>04</span>Vinylboden</button>
+        <button class="sv-btn" data-i="4"><span>05</span>Tapetengestaltung</button>
+        <button class="sv-btn" data-i="5"><span>06</span>Wandverklinkung</button>
+        </div>
+        <div class="sv-arrows"><button class="sv-arr" id="svprev" aria-label="Vorherige Leistung">←</button><button class="sv-arr" id="svnext" aria-label="Nächste Leistung">→</button></div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="wrap">
+    <div class="eyebrow rv">Warum KW Home Design</div>
+    <h2 class="serif h2 split" style="margin-top:22px"><span class="line"><span>Neue Decke –</span></span><span class="line"><span>ohne Baustellen-Chaos.</span></span></h2>
+    <div class="bgrid">
+      <div class="b rv"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg><h3>Garantie</h3><p>15 Jahre Herstellergarantie auf alle Spanndecken.</p></div>
+      <div class="b rv"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Schneller Einbau</h3><p>Einbauzeit innerhalb eines Tages.</p></div>
+      <div class="b rv"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0012 3z"/></svg><h3>Service</h3><p>Alles aus einer Hand – Einbau von Lampen aller Art, Rauchmeldern usw.</p></div>
+      <div class="b rv"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><h3>Ohne Schmutz</h3><p>Keine Verschmutzung der Baustelle. Die vorherige Decke bleibt erhalten.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="refs" id="referenzen">
+  <div class="wrap">
+    <div class="refhead">
+      <div style="display:flex;flex-direction:column;gap:22px"><div class="eyebrow rv" style="color:var(--red2)">Referenzen</div><h2 class="serif h2 split"><span class="line"><span>Räume, die wir</span></span><span class="line"><span>verwandelt haben.</span></span></h2></div>
+      <div class="refside rv"><p>Fahren Sie über die Bilder – jedes Projekt erzählt seine eigene Geschichte.</p><a class="btn btn-red mag" href="https://www.kw-homedesign.de/referenzen.html">Alle Projekte <span class="ar">→</span></a></div>
+    </div>
+    <div class="accs" id="accs">
+      <a class="acc on" href="https://www.kw-homedesign.de/referenzen.html" data-cursor="view">
+        <img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_0678%5B2317%5D.JPG" alt="Glänzende Spanndecke im Gastraum" loading="lazy">
+        <span class="acc-v"><span class="acc-n">01</span>Gastraum</span>
+        <span class="acc-c"><span class="acc-n">01 / 05</span><span class="acc-t">Gastraum</span><span class="acc-s">Hochglanz-Spanndecke</span></span>
+      </a>
+      <a class="acc" href="https://www.kw-homedesign.de/referenzen.html" data-cursor="view">
+        <img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/Spanndecke%20schwarz.jpg" alt="Schwarze Spanndecke mit Einbauleuchten" loading="lazy">
+        <span class="acc-v"><span class="acc-n">02</span>Wohnraum</span>
+        <span class="acc-c"><span class="acc-n">02 / 05</span><span class="acc-t">Wohnraum</span><span class="acc-s">Schwarz matt</span></span>
+      </a>
+      <a class="acc" href="https://www.kw-homedesign.de/referenzen.html" data-cursor="view">
+        <img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_0668%5B2310%5D.JPG" alt="Spanndecke in Marmoroptik" loading="lazy">
+        <span class="acc-v"><span class="acc-n">03</span>Showroom</span>
+        <span class="acc-c"><span class="acc-n">03 / 05</span><span class="acc-t">Showroom</span><span class="acc-s">Marmor-Digitaldruck</span></span>
+      </a>
+      <a class="acc" href="https://www.kw-homedesign.de/referenzen.html" data-cursor="view">
+        <img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/1.jpg" alt="Bar mit roten Wänden und schwarzer Spanndecke" loading="lazy">
+        <span class="acc-v"><span class="acc-n">04</span>Bar</span>
+        <span class="acc-c"><span class="acc-n">04 / 05</span><span class="acc-t">Bar</span><span class="acc-s">Schwarz-Rot</span></span>
+      </a>
+      <a class="acc" href="https://www.kw-homedesign.de/referenzen.html" data-cursor="view">
+        <img src="https://www.kw-homedesign.de/files/kwhomedesign/referenzen/14042020/IMG_20191216_203021%5B2342%5D.jpg" alt="Weiße Spanndecke mit Einbauspots" loading="lazy">
+        <span class="acc-v"><span class="acc-n">05</span>Wohnzimmer</span>
+        <span class="acc-c"><span class="acc-n">05 / 05</span><span class="acc-t">Wohnzimmer</span><span class="acc-s">Weiß mit Spots</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="locs" id="standorte">
+  <div class="wrap">
+    <div class="eyebrow rv">Standorte</div>
+    <h2 class="serif h2 split" style="margin:22px 0 70px"><span class="line"><span>Dreimal in Ihrer Nähe.</span></span></h2>
+    <a class="lrow rv" href="tel:+4974852830609"><span class="no">01</span><h3>Empfingen</h3><p>Zollernring 12, 72186 Empfingen<br>+49 (0) 7485 2830 609</p><span class="go" aria-hidden="true">→</span></a>
+    <a class="lrow rv" href="tel:+4971349069440"><span class="no">02</span><h3>Lehrensteinsfeld</h3><p>Starenweg 3, 74251 Lehrensteinsfeld<br>+49 (0) 7134 9069 440</p><span class="go" aria-hidden="true">→</span></a>
+    <a class="lrow rv" href="#kontakt"><span class="no">03</span><h3>[Dritter Standort]</h3><p>[Straße Nr., PLZ Ort]<br>[Telefon]</p><span class="go" aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<section class="cta" id="kontakt">
+  <div class="box" id="ctabox">
+    <div class="rings" aria-hidden="true"><i style="width:600px;height:600px"></i><i style="width:900px;height:900px"></i><i style="width:1200px;height:1200px"></i></div>
+    <h2 class="serif split"><span class="line"><span>Erfüllen Sie sich Ihren</span></span><span class="line"><span>Traum von einer</span></span><span class="line"><span>schönen Decke.</span></span></h2>
+    <a class="btn btn-white mag" href="mailto:info@kw-homedesign.de">Jetzt Kontakt aufnehmen <span class="ar">→</span></a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="big"><a href="#top" id="fb" class="flogo" aria-label="KW Home Design – nach oben"><img src="https://www.kw-homedesign.de/assets/images/5/Logo-a09532eb.png" alt="KW Home Design – Mit Hand ans Werk!"></a><span class="ftag serif">Ihr starker Partner für Spanndecken<br>und Raumausstattung.</span></div>
+    <div class="cols">
+      <div><h4>Unternehmen</h4>KW Home Design GmbH &amp; Co. KG<br><a href="mailto:info@kw-homedesign.de">info@kw-homedesign.de</a></div>
+      <div><h4>Empfingen</h4>Zollernring 12<br>72186 Empfingen<br>+49 (0) 7485 2830 609</div>
+      <div><h4>Lehrensteinsfeld</h4>Starenweg 3<br>74251 Lehrensteinsfeld<br>+49 (0) 7134 9069 440</div>
+      <div><h4>Einsatzgebiet</h4>Böblingen, Stuttgart, Tübingen, Reutlingen, Heilbronn, Rottweil, Ludwigsburg, Heidelberg und Umgebung</div>
+    </div>
+    <div class="bottom"><span>© KW Home Design</span><span style="display:flex;gap:24px"><a href="#kontakt">Kontakt</a><a href="https://www.kw-homedesign.de/impressum.html">Impressum</a><a href="https://www.kw-homedesign.de/datenschutz.html">Datenschutz</a><a href="https://www.kw-homedesign.de/agb.html">AGB</a></span></div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var loader=document.getElementById('loader');
+if(!window.gsap||reduce){if(loader)loader.remove();document.querySelector('.hero .shade').style.opacity=1;return;}
+document.documentElement.classList.add('js');
+gsap.registerPlugin(ScrollTrigger);
+
+/* smooth scroll */
+var lenis=null;
+if(window.Lenis){lenis=new Lenis({duration:1.25,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0);
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-80})}})});}
+
+/* initial states */
+gsap.set('.split .line>span',{yPercent:110});
+gsap.set('.h-in',{y:40,opacity:0});
+gsap.set('#hdr',{yPercent:-100});
+
+/* preloader */
+var o={v:0},ln=document.getElementById('ln');
+var tl=gsap.timeline();
+tl.to(o,{v:100,duration:1.6,ease:'power2.inOut',onUpdate:function(){ln.textContent=Math.round(o.v)}})
+  .to('#loader .bar',{width:'100%',duration:1.6,ease:'power2.inOut'},0)
+  .to('#loader',{yPercent:-100,duration:1,ease:'expo.inOut'},'+=.15')
+  .add(function(){loader.remove()})
+  .fromTo('#hcc',{clipPath:'inset(50% 50% 50% 50% round 22px)'},{clipPath:'inset(0% 0% 0% 0% round 22px)',duration:1.5,ease:'expo.inOut'},'-=.6')
+  .to('#hcc img',{scale:1.15,duration:2,ease:'expo.out'},'<')
+  .to('.hero .shade',{opacity:1,duration:1.2},'-=1.4')
+  .to('.hero .split .line>span',{yPercent:0,duration:1.2,stagger:.12,ease:'expo.out'},'-=1.2')
+  .to('.h-in',{y:0,opacity:1,duration:1,stagger:.1,ease:'expo.out'},'-=.9')
+  .to('#hdr',{yPercent:0,duration:1,ease:'expo.out'},'-=1');
+
+
+/* hero C scroll zoom */
+gsap.timeline({scrollTrigger:{trigger:'.hC',start:'top top',end:'+=140%',pin:true,scrub:1}})
+ .to('#hcc',{width:'100vw',height:'100vh',borderRadius:0,ease:'power2.inOut',duration:1},0)
+ .to('#hcc img',{scale:1,ease:'none',duration:1},0)
+ .to('.hC-t1',{yPercent:-160,opacity:0,ease:'power2.in',duration:.6},0)
+ .to('.hC-t2',{yPercent:160,opacity:0,ease:'power2.in',duration:.6},0)
+ .to('.hC-side,.hC-scroll',{opacity:0,duration:.3},0)
+ .to('.hC-over',{opacity:1,duration:.4},.7)
+ .fromTo('.hC-over .serif',{y:80},{y:0,duration:.4,ease:'power3.out'},.7);
+hero=document.querySelector('.hero');
+hero.addEventListener('mousemove',function(e){gsap.to('#hcc img',{x:(e.clientX/innerWidth-.5)*-30,y:(e.clientY/innerHeight-.5)*-20,duration:1.2,ease:'power3.out'})});
+/* hero parallax on scroll */
+
+
+
+/* hero light following mouse */
+var hero=document.querySelector('.hero'),glow=document.querySelector('.hero .glow');
+hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();gsap.to(glow,{x:e.clientX-r.left,y:e.clientY-r.top,duration:.8,ease:'power3.out'});});
+
+/* header: solid + hide on scroll down */
+var hdr=document.getElementById('hdr');
+ScrollTrigger.create({start:80,end:'max',onUpdate:function(s){hdr.classList.toggle('solid',s.scroll()>80);hdr.classList.toggle('hide',s.direction===1&&s.scroll()>700)}});
+
+/* split headings (non hero) */
+document.querySelectorAll('.split').forEach(function(el){if(el.closest('.hero'))return;
+gsap.to(el.querySelectorAll('.line>span'),{yPercent:0,duration:1.2,stagger:.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 85%'}})});
+
+/* generic reveals */
+gsap.utils.toArray('.rv').forEach(function(el){gsap.fromTo(el,{y:60,opacity:0},{y:0,opacity:1,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%'}})});
+
+/* image clip reveals + parallax */
+gsap.utils.toArray('.reveal-img').forEach(function(el,i){
+gsap.fromTo(el,{clipPath:'inset(100% 0% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.5,ease:'expo.inOut',scrollTrigger:{trigger:el,start:'top 85%'}});
+var im=el.querySelector('img');
+if(im.classList.contains('zoom'))gsap.fromTo(im,{scale:1.35},{scale:1,ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true}});
+else gsap.fromTo(im,{yPercent:-10},{yPercent:5,ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true}});
+});
+gsap.fromTo('.badge',{scale:0,rotate:-90},{scale:1,rotate:0,duration:1.2,ease:'back.out(1.6)',scrollTrigger:{trigger:'.pics',start:'top 70%'}});
+gsap.to('.pic.b',{yPercent:-18,ease:'none',scrollTrigger:{trigger:'.pics',start:'top bottom',end:'bottom top',scrub:true}});
+
+/* counters */
+document.querySelectorAll('.count').forEach(function(c){var to=+c.dataset.to,v={n:0};
+gsap.to(v,{n:to,duration:2,ease:'power2.out',scrollTrigger:{trigger:c,start:'top 90%'},onUpdate:function(){c.textContent=Math.round(v.n)}})});
+
+/* marquee with scroll velocity */
+var mq=document.getElementById('mq'),mqx=0,speed=1;
+gsap.ticker.add(function(){mqx-=speed;var w=mq.scrollWidth/2;if(mqx<=-w)mqx+=w;if(mqx>0)mqx-=w;mq.style.transform='translateX('+mqx+'px)'});
+ScrollTrigger.create({onUpdate:function(s){var v=s.getVelocity()/120;if(Math.abs(v)>1)speed=gsap.utils.clamp(-14,14,v);}});
+gsap.ticker.add(function(){speed+= (1-speed)*0.05});
+
+/* services click showcase */
+var svI=gsap.utils.toArray('.sv-item'),svImg=gsap.utils.toArray('.sv-img'),svB=gsap.utils.toArray('.sv-btn'),svn=document.getElementById('svn'),svp=document.getElementById('svp'),svw=document.getElementById('svw'),svTabs=gsap.utils.toArray('.sv-tab'),svCur=0,svBusy=false;
+var words=['Decken','Decken','Böden','Böden','Wände','Wände'];
+gsap.set(svI.slice(1),{autoAlpha:0});
+function svGo(n){if(n===svCur||svBusy)return;svBusy=true;var dir=n>svCur?1:-1,a=svImg[svCur],b=svImg[n],ta=svI[svCur],tb=svI[n];
+svB[svCur].classList.remove('on');svB[n].classList.add('on');
+gsap.set(b,{zIndex:2,clipPath:dir>0?'inset(0 0 0 100%)':'inset(0 100% 0 0)'});gsap.set(a,{zIndex:1});
+gsap.to(b,{clipPath:'inset(0 0% 0 0%)',duration:1.1,ease:'expo.inOut',onComplete:function(){svImg.forEach(function(x,k){if(k!==n){x.classList.remove('on');gsap.set(x,{zIndex:0,clipPath:'inset(100% 0 0 0)'})}});b.classList.add('on');svBusy=false}});
+gsap.fromTo(b.querySelector('img'),{scale:1.35,xPercent:dir*10},{scale:1.08,xPercent:0,duration:1.6,ease:'expo.out'});
+gsap.to(a.querySelector('img'),{xPercent:-dir*12,duration:1.1,ease:'expo.inOut',onComplete:function(){gsap.set(a.querySelector('img'),{xPercent:0})}});
+gsap.to(ta.children,{x:-dir*40,autoAlpha:0,duration:.4,stagger:.03,ease:'power3.in',onComplete:function(){ta.classList.remove('on');gsap.set(ta,{autoAlpha:0});gsap.set(ta.children,{x:0,autoAlpha:1})}});
+tb.classList.add('on');gsap.set(tb,{autoAlpha:1});
+gsap.fromTo(tb.children,{x:dir*60,autoAlpha:0},{x:0,autoAlpha:1,duration:.9,stagger:.07,delay:.35,ease:'expo.out'});
+gsap.timeline().to(svn,{yPercent:-dir*100,duration:.4,ease:'power3.in'}).add(function(){svn.textContent='0'+(n+1)}).fromTo(svn,{yPercent:dir*100},{yPercent:0,duration:.6,ease:'expo.out'});
+gsap.to(svp,{scaleX:(n+1)/svI.length,duration:.8,ease:'expo.out'});
+if(words[n]!==words[svCur]){gsap.timeline().to(svw,{yPercent:-40,opacity:0,duration:.3}).add(function(){svw.textContent=words[n]}).fromTo(svw,{yPercent:40,opacity:0},{yPercent:0,opacity:1,duration:.6,ease:'expo.out'});}
+svTabs.forEach(function(t){t.classList.toggle('on',+t.dataset.go===n-(n%2))});
+svCur=n;}
+svB.forEach(function(b){b.addEventListener('click',function(){svGo(+b.dataset.i)})});
+svTabs.forEach(function(t){t.addEventListener('click',function(){svGo(+t.dataset.go)})});
+document.getElementById('svnext').addEventListener('click',function(){svGo((svCur+1)%svI.length)});
+document.getElementById('svprev').addEventListener('click',function(){svGo((svCur-1+svI.length)%svI.length)});
+gsap.fromTo('.sv-frame',{clipPath:'inset(10% 10% 10% 10% round 24px)'},{clipPath:'inset(0% 0% 0% 0% round 24px)',ease:'none',scrollTrigger:{trigger:'.sv-grid',start:'top 90%',end:'top 35%',scrub:true}});
+gsap.fromTo('.sv-btn',{y:24,opacity:0},{y:0,opacity:1,duration:.8,stagger:.06,ease:'expo.out',scrollTrigger:{trigger:'.sv-ctrl',start:'top 92%'}});
+
+/* references accordion */
+var accs=gsap.utils.toArray('.acc');
+accs.forEach(function(a){a.addEventListener('mouseenter',function(){accs.forEach(function(x){x.classList.toggle('on',x===a)})});a.addEventListener('focus',function(){accs.forEach(function(x){x.classList.toggle('on',x===a)})})});
+gsap.fromTo('.acc',{yPercent:30,opacity:0},{yPercent:0,opacity:1,duration:1.3,stagger:.1,ease:'expo.out',scrollTrigger:{trigger:'#accs',start:'top 85%'}});
+
+/* benefits stagger */
+gsap.fromTo('.b svg',{scale:0,rotate:-45},{scale:1,rotate:0,duration:1,stagger:.12,ease:'back.out(2)',scrollTrigger:{trigger:'.bgrid',start:'top 80%'}});
+
+/* CTA expand */
+gsap.fromTo('#ctabox',{width:'72%',borderRadius:'60px'},{width:'100%',borderRadius:'0px',ease:'none',scrollTrigger:{trigger:'.cta',start:'top 95%',end:'top 25%',scrub:true}});
+gsap.to('.cta .rings i',{scale:1.4,opacity:0,stagger:.4,duration:3,repeat:-1,ease:'power1.out'});
+
+/* footer big text */
+gsap.fromTo('#fb',{y:80,opacity:0,rotate:-4},{y:0,opacity:1,rotate:0,duration:1.4,ease:'expo.out',scrollTrigger:{trigger:'footer',start:'top 80%'}});
+gsap.fromTo('.ftag',{y:60,opacity:0},{y:0,opacity:1,duration:1.4,delay:.15,ease:'expo.out',scrollTrigger:{trigger:'footer',start:'top 80%'}});
+
+/* magnetic buttons */
+document.querySelectorAll('.mag').forEach(function(b){
+b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.3,y:(e.clientY-r.top-r.height/2)*.4,duration:.5,ease:'power3.out'})});
+b.addEventListener('mouseleave',function(){gsap.to(b,{x:0,y:0,duration:.8,ease:'elastic.out(1,.4)'})});
+});
+
+/* custom cursor */
+var cur=document.querySelector('.cursor'),dot=document.querySelector('.cursor-dot');
+if(matchMedia('(hover:hover)').matches){
+var xTo=gsap.quickTo(cur,'x',{duration:.5,ease:'power3'}),yTo=gsap.quickTo(cur,'y',{duration:.5,ease:'power3'});
+addEventListener('mousemove',function(e){xTo(e.clientX);yTo(e.clientY);gsap.set(dot,{x:e.clientX,y:e.clientY})});
+document.querySelectorAll('a,button').forEach(function(a){
+a.addEventListener('mouseenter',function(){cur.classList.add(a.dataset.cursor==='view'?'view':'hover')});
+a.addEventListener('mouseleave',function(){cur.classList.remove('view','hover')});});
+document.querySelectorAll('.pic[data-cursor]').forEach(function(a){
+a.addEventListener('mouseenter',function(){cur.classList.add('view')});a.addEventListener('mouseleave',function(){cur.classList.remove('view')});});
+}
+
+addEventListener('load',function(){ScrollTrigger.refresh()});
+})();
+</script>
+</body>
+</html>
