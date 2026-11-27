@@ -222,7 +222,8 @@ const mm=gsap.matchMedia();
   show(2,2);tl.fromTo(L[2],{z:-60,opacity:0},{opacity:1,z:()=>gap(),duration:.7,ease:'back.out(1.6)'},2.05).to(L[2].querySelector('.tag'),{opacity:1,duration:.3},2.4).to(bars[2],{scaleX:1,duration:1,ease:'none'},2);
   show(3,3);tl.to(L[3],{opacity:1,z:0,duration:.5},3.05).fromTo(L[3].querySelectorAll('i'),{scale:0},{scale:1,stagger:.06,duration:.4,ease:'back.out(2)'},3.1).to(L[3].querySelector('.tag'),{opacity:1,duration:.3},3.35)
     .to('.layers',{rotateZ:-30,duration:1,ease:'none'},0).to('.va .chip',{opacity:1,duration:.3},3.5).to(bars[3],{scaleX:1,duration:.9,ease:'none'},3).to({},{duration:.4});
-  const lg=$$('.legend span');ScrollTrigger.create({trigger:'.va',start:'top top',end:'+=280%',pin:'.va-pin',scrub:.7,animation:tl,invalidateOnRefresh:true,onUpdate:st=>{const t=tl.time();lg.forEach((x,k)=>x.classList.toggle('on',t>=k+0.15||(k===0&&st.progress>0.01)));}});
+  const lg=$$('.legend span');ScrollTrigger.create({trigger:'.va',start:'top top',end:'+=280%',pin:'.va-pin',scrub:.7,animation:tl,invalidateOnRefresh:true});
+  tl.eventCallback('onUpdate',()=>{const t=tl.time();lg.forEach((x,k)=>x.classList.toggle('on',t>=k+0.1));});
 })();
 
 /* ---------- B ---------- */
@@ -251,8 +252,8 @@ const mm=gsap.matchMedia();
     .to('.vc .done',{opacity:1,scale:1,duration:.12,ease:'back.out(2)'},.9).to({},{duration:.15});
   ScrollTrigger.create({trigger:'.vc',start:'top top',end:'+=260%',pin:'.vc-pin',scrub:.7,animation:tl});
 })();
-$$('.vbar a[data-s]').forEach(a=>ScrollTrigger.create({trigger:a.getAttribute('href'),start:'top 50%',end:'bottom 50%',onToggle:s=>a.classList.toggle('on',s.isActive)}));
-ScrollTrigger.sort();
+const navs=$$('.vbar a[data-s]');const hl=()=>{const m=innerHeight/2;navs.forEach(a=>{const r=$(a.getAttribute('href')).getBoundingClientRect();a.classList.toggle('on',r.top<m&&r.bottom>m);});};
+lenis.on('scroll',hl);addEventListener('scroll',hl,{passive:true});hl();
 addEventListener('load',()=>ScrollTrigger.refresh());
 })();
 </script>
