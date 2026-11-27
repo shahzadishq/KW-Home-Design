@@ -68,16 +68,16 @@ header nav a:hover::after{transform:scaleX(1);transform-origin:left}
 .hs{position:absolute;inset:0;overflow:hidden;clip-path:inset(0 0 0 100%)}
 .hs.on{clip-path:inset(0 0 0 0)}
 .hs img{width:100%;height:112%;object-fit:cover;transform:scale(1.25)}
-.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,19,15,.55) 0%,rgba(22,19,15,.1) 35%,rgba(22,19,15,.55) 65%,rgba(22,19,15,.95) 100%);opacity:0;pointer-events:none}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,19,15,.78) 0%,rgba(22,19,15,.35) 55%,rgba(22,19,15,.15) 100%),linear-gradient(180deg,rgba(22,19,15,.6) 0%,rgba(22,19,15,.05) 30%,rgba(22,19,15,.5) 62%,rgba(22,19,15,.96) 100%);opacity:0;pointer-events:none}
 .grain{position:absolute;inset:-50%;opacity:.07;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1s steps(6) infinite}
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-5%,3%)}40%{transform:translate(3%,-4%)}60%{transform:translate(-3%,5%)}80%{transform:translate(4%,-2%)}100%{transform:translate(0,0)}}
-.hero .content{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-top:150px;padding-bottom:44px;gap:56px}
+.hero .content{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-top:120px;padding-bottom:36px;gap:clamp(24px,5vh,56px)}
 .hgrid{display:grid;grid-template-columns:1.5fr 1fr;gap:60px;align-items:end}
 .hleft{display:flex;flex-direction:column;gap:26px}
-.hero h1{font-size:clamp(46px,min(7vw,11vh),120px);line-height:.98}
+.hero h1{font-size:clamp(42px,min(7vw,9.5vh),120px);line-height:.98;text-shadow:0 2px 30px rgba(0,0,0,.25)}
 .hero h1 .r{color:var(--red2)}
 .hright{display:flex;flex-direction:column;gap:28px;padding-bottom:10px}
-.hright p{font-size:17px;line-height:1.75;color:#D8CFC7}
+.hright p{text-shadow:0 1px 12px rgba(0,0,0,.4);font-size:17px;line-height:1.75;color:#D8CFC7}
 .hright .ctas{display:flex;gap:12px;flex-wrap:wrap}
 .hnav{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.18);padding-top:20px}
 .hn{background:none;border:0;color:rgba(255,255,255,.5);text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:6px;font:inherit;padding:0;transition:color .4s}
