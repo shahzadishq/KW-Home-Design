@@ -337,10 +337,12 @@ header .btn{padding:12px 20px;font-size:13px}
 .rimg:hover::after{transform:scale(1)}
 .r1{grid-column:1/6;grid-row:span 4}.r2{grid-column:6/10;grid-row:span 3}.r3{grid-column:10/13;grid-row:span 3}
 .r4{grid-column:6/9;grid-row:span 3}.r5{grid-column:9/13;grid-row:span 3}.r6{grid-column:1/6;grid-row:span 2}
-.strip{margin-top:16px;overflow:hidden;position:relative;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.strip-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:clamp(40px,6vh,64px);padding-top:26px;border-top:1px solid var(--line)}
+.strip-head small{color:var(--stone);font-size:13px}
+.strip{margin-top:18px;border-radius:20px;overflow:hidden;position:relative;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .strip-t{display:flex;gap:16px;width:max-content;animation:strip 60s linear infinite}
 .strip:hover .strip-t{animation-play-state:paused}
-.strip-t figure{width:clamp(200px,20vw,300px);aspect-ratio:4/3;border-radius:18px;overflow:hidden;flex-shrink:0;cursor:pointer;margin:0}
+.strip-t figure{width:clamp(220px,22vw,320px);aspect-ratio:4/3;border-radius:20px;overflow:hidden;flex-shrink:0;cursor:pointer;margin:0}
 .strip-t img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .strip-t figure:hover img{transform:scale(1.08)}
 @keyframes strip{to{transform:translateX(-50%)}}
@@ -370,16 +372,22 @@ header .btn{padding:12px 20px;font-size:13px}
 .k-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,5vw,90px);align-items:center;position:relative}
 .k-left .h2{margin:22px 0 18px;font-size:clamp(36px,4.4vw,68px)}
 .k-left .sub{color:var(--stone);line-height:1.75;max-width:440px}
-.sum{margin-top:28px;border-radius:22px;background:var(--coal);color:#fff;padding:22px 24px 18px;position:relative;overflow:hidden}
+.k-right{display:flex;flex-direction:column;gap:14px;min-width:0}
+.sum{margin-top:0;border-radius:22px;background:var(--coal);color:#fff;padding:18px 18px 16px;position:relative;overflow:hidden}
 .sum::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:repeating-linear-gradient(-45deg,var(--red) 0 12px,var(--coal) 12px 24px)}
 .sum-h{display:flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--warm);margin-top:4px}
 .sum-h .dot{width:8px;height:8px;border-radius:50%;background:var(--red2);animation:ping 2s infinite}
+.sgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
+.si{padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.05);min-width:0}
+.sl{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.sv{display:block;font-size:14.5px;font-weight:600;color:rgba(255,255,255,.35);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sv.set{color:#fff;animation:pop .6s var(--ease)}
 .sum dl{display:grid;grid-template-columns:auto 1fr;gap:0 18px;margin-top:10px}
 .sum dt{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.12)}
 .sum dd{font-size:15px;font-weight:600;color:rgba(255,255,255,.35);padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.12);text-align:right}
 .sum dd.set{color:#fff;animation:pop .6s var(--ease)}
 @keyframes pop{0%{transform:translateX(10px);opacity:0}100%{transform:none;opacity:1}}
-.cinfo{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.cinfo{list-style:none;margin-top:30px;display:flex;flex-direction:column;gap:10px}
 .cinfo a{display:flex;gap:14px;align-items:center;padding:12px 16px;border-radius:16px;background:var(--white);box-shadow:0 0 0 1px var(--line);transition:transform .4s var(--ease),box-shadow .4s}
 .cinfo a:hover{transform:translateX(6px);box-shadow:0 16px 30px -16px rgba(42,36,32,.3),0 0 0 1px var(--line)}
 .cinfo .ic{width:44px;height:44px;flex-shrink:0;border-radius:12px;background:rgba(220,15,22,.08);color:var(--red);display:grid;place-items:center;transition:background .4s,color .4s}
@@ -442,7 +450,8 @@ header .btn{padding:12px 20px;font-size:13px}
 .fdone .tick svg{width:38px;height:38px}
 .fdone h3{font-family:'Enriqueta',serif;font-weight:400;font-size:32px;color:var(--coal)}
 .fdone p{color:var(--stone);max-width:420px;line-height:1.65}
-@media(max-width:980px){.k-grid{grid-template-columns:1fr}.fcard{order:2}}
+@media(max-width:980px){.k-grid{grid-template-columns:1fr}.k-right{order:2}}
+@media(max-width:700px){.sgrid{grid-template-columns:1fr 1fr!important}}
 @media(max-width:560px){.opts{grid-template-columns:1fr}.opt label{min-height:64px}.fcard .fgrid{grid-template-columns:1fr}.fnav .fnext{min-width:0;flex:1}.sum dd{font-size:14px}}
 
 /* tabs: Decke / Boden / Wand */
@@ -708,7 +717,7 @@ footer{background:var(--coal2);color:var(--sand);padding:0 0 calc(30px + env(saf
       <figure class="rimg r6" data-cursor="view"><img src="img/1.webp" alt="Bar mit roten Wänden und schwarzer Spanndecke" loading="lazy"></figure>
     </div>
   </div>
-  <div class="strip"><div class="strip-t" id="strip"></div></div>
+  <div class="wrap"><div class="strip-head"><span class="eyebrow">Weitere Projekte</span><small>Läuft automatisch · zum Anhalten mit der Maus darüberfahren · Klick zum Vergrößern</small></div><div class="strip"><div class="strip-t" id="strip"></div></div></div>
 </section>
 <div class="lb" id="lb"><button aria-label="Schließen">×</button><img alt=""></div>
 
@@ -750,15 +759,7 @@ footer{background:var(--coal2);color:var(--sand);padding:0 0 calc(30px + env(saf
       <span class="eyebrow">Kontakt</span>
       <h2 class="serif h2 split">Erfüllen Sie sich Ihren Traum von einer <em>schönen Decke.</em></h2>
       <p class="sub">In fünf kurzen Schritten zu Ihrer Anfrage – oder rufen Sie uns direkt an.</p>
-      <div class="sum">
-        <div class="sum-h"><span class="dot"></span>Ihre Auswahl</div>
-        <dl>
-          <dt>Bereich</dt><dd id="s-bereich">—</dd>
-          <dt>Leistung</dt><dd id="s-leistung">—</dd>
-          <dt>Raum</dt><dd id="s-raum">—</dd>
-          <dt>Fläche &amp; Ort</dt><dd id="s-ort">—</dd>
-        </dl>
-      </div>
+      
       <ul class="cinfo">
         <li><a href="tel:+4974852830609"><span class="ic"><svg><use href="#i-phone"/></svg></span><span><small>Empfingen</small><b>+49 (0) 7485 2830 609</b><span class="ad">Zollernring 12, 72186 Empfingen</span></span></a></li>
         <li><a href="tel:+4971349069440"><span class="ic"><svg><use href="#i-phone"/></svg></span><span><small>Lehrensteinsfeld</small><b>+49 (0) 7134 9069 440</b><span class="ad">Starenweg 3, 74251 Lehrensteinsfeld</span></span></a></li>
@@ -766,6 +767,7 @@ footer{background:var(--coal2);color:var(--sand);padding:0 0 calc(30px + env(saf
       </ul>
     </aside>
 
+    <div class="k-right">
     <div class="fcard" id="fcard">
       <form id="funnel" novalidate>
         <div class="fbody">
@@ -824,6 +826,11 @@ footer{background:var(--coal2);color:var(--sand);padding:0 0 calc(30px + env(saf
           <button type="button" class="btn btn-dark" id="frestart">Neue Anfrage</button>
         </div>
       </form>
+    </div>
+      <div class="sum">
+        <div class="sum-h"><span class="dot"></span>Ihre Auswahl</div>
+        <div class="sgrid"><div class="si"><span class="sl">Bereich</span><span class="sv" id="s-bereich">—</span></div><div class="si"><span class="sl">Leistung</span><span class="sv" id="s-leistung">—</span></div><div class="si"><span class="sl">Raum</span><span class="sv" id="s-raum">—</span></div><div class="si"><span class="sl">Fläche &amp; Ort</span><span class="sv" id="s-ort">—</span></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -979,8 +986,55 @@ $$('.split,.ab-head .h2,.hz-intro .h2').forEach(el=>{const ws=splitWords(el);if(
   }
   apply(cur);
   if(RM)return;
-  ScrollTrigger.create({trigger:sec,start:'top top',end:()=>'+='+(innerWidth<900?220:280)+'%',pin:'.ab-pin',
+  const ST=ScrollTrigger.create({trigger:sec,start:'top top',end:()=>'+='+(innerWidth<900?220:280)+'%',pin:'.ab-pin',
     invalidateOnRefresh:true,onUpdate:st=>{target=st.progress;},onRefresh:st=>{target=st.progress;}});
+
+  /* Ein Scroll = ein Schritt: innerhalb des Abschnitts springt jede Scroll-Geste genau zum nächsten/vorigen Schritt */
+  const STOPS=[0,.95,1.95,2.95,3.95].map(x=>x/4.4);           // Start + vier fertige Schritte
+  let animating=false,lastWheel=0,quietOK=true,touchY=null;
+  const pos=i=>ST.start+(ST.end-ST.start)*STOPS[i];
+  const yNow=()=>lenis?lenis.scroll:scrollY;
+  const nearest=y=>{let b=0,d=1e9;STOPS.forEach((_,i)=>{const dd=Math.abs(pos(i)-y);if(dd<d){d=dd;b=i;}});return b;};
+  let tok=0;
+  function stepTo(y){animating=true;const my=++tok;
+    const done=()=>{if(my!==tok)return;animating=false;lenis&&lenis.start();};
+    if(lenis){lenis.stop();lenis.scrollTo(y,{duration:.85,force:true,lock:true,easing:t=>1-Math.pow(1-t,3),onComplete:done});setTimeout(done,1300);}
+    else{scrollTo({top:y,behavior:'smooth'});setTimeout(done,900);}
+  }
+  // entscheidet, ob die Geste im Abschnitt einen Schritt auslöst; true = Geste wurde verbraucht
+  function handle(dir){
+    const y=yNow(),inside=y>=ST.start-2&&y<=ST.end-2;
+    if(!inside){
+      // von oben kommend kurz vor dem Abschnitt: am Start einrasten statt hineinzurutschen
+      if(dir>0&&y<ST.start&&y>ST.start-innerHeight*.6){stepTo(ST.start);return true;}
+      if(dir<0&&y>ST.end-2&&y<ST.end+innerHeight*.6){stepTo(pos(STOPS.length-1));return true;}
+      return false;
+    }
+    const i=nearest(y);let n=i+dir;
+    if(n<0){return false;}                                     // nach oben verlassen
+    if(n>STOPS.length-1){stepTo(ST.end+2);return true;}         // nach unten verlassen
+    stepTo(pos(n));return true;
+  }
+  addEventListener('wheel',e=>{
+    if(innerWidth<900&&matchMedia('(hover:none)').matches)return;
+    const now=performance.now(),gap=now-lastWheel;lastWheel=now;
+    const y=yNow(),near=y>=ST.start-innerHeight*.6&&y<=ST.end+innerHeight*.6;
+    if(!near)return;
+    if(Math.abs(e.deltaY)<2)return;
+    if(animating||(!quietOK&&gap<220)){if(y>=ST.start-2&&y<=ST.end-2){e.preventDefault();e.stopPropagation();}return;}
+    if(handle(Math.sign(e.deltaY))){e.preventDefault();e.stopPropagation();quietOK=false;}
+    else quietOK=true;
+  },{passive:false,capture:true});
+  // nach einer Pause ist die nächste Geste wieder frei (Trackpad-Nachlauf wird ignoriert)
+  setInterval(()=>{if(!animating&&performance.now()-lastWheel>220)quietOK=true;},120);
+  // Touch (Handy/Tablet)
+  addEventListener('touchstart',e=>{touchY=e.touches[0].clientY;},{passive:true});
+  addEventListener('touchmove',e=>{const y=yNow();if(y>=ST.start-2&&y<=ST.end-2&&touchY!==null)e.preventDefault();},{passive:false});
+  addEventListener('touchend',e=>{if(touchY===null)return;const dy=touchY-e.changedTouches[0].clientY;touchY=null;
+    const y=yNow();if(!(y>=ST.start-2&&y<=ST.end-2)||animating||Math.abs(dy)<25)return;
+    if(!handle(Math.sign(dy))){window.scrollBy({top:dy*2,behavior:'smooth'});}},{passive:true});
+  addEventListener('keydown',e=>{const y=yNow();if(!(y>=ST.start-2&&y<=ST.end-2))return;
+    const d={ArrowDown:1,PageDown:1,' ':1,ArrowUp:-1,PageUp:-1}[e.key];if(!d)return;e.preventDefault();if(!animating)handle(d)||stepTo(ST.start-innerHeight*.4);});
   // weiches Nachlaufen; funktioniert in beide Richtungen und bei schnellem Scrollen
   gsap.ticker.add(()=>{const d=target-cur;if(Math.abs(d)<.0005){if(cur!==target){cur=target;apply(cur);}return;}cur+=d*.14;apply(cur);});
 })();
