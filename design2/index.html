@@ -989,54 +989,33 @@ $$('.split,.ab-head .h2,.hz-intro .h2').forEach(el=>{const ws=splitWords(el);if(
   const ST=ScrollTrigger.create({trigger:sec,start:'top top',end:()=>'+='+(innerWidth<900?220:280)+'%',pin:'.ab-pin',
     invalidateOnRefresh:true,onUpdate:st=>{target=st.progress;},onRefresh:st=>{target=st.progress;}});
 
-  /* Ein Scroll = ein Schritt: 4 Schritte = 4 Scroll-Gesten (der erste Scroll in den Abschnitt zeigt Schritt 1) */
+  /* Schritt-Einrasten: Scrollen wird NIE blockiert. Erst wenn das Scrollen im Abschnitt stoppt,
+     gleitet die Seite zum nächsten Schritt in Scrollrichtung. 1 Raste ≈ 1 Schritt, Dauerscrollen läuft frei durch. */
   const STOPS=[.9,1.9,2.9,3.9].map(x=>x/4.4);
-  let animating=false,lastWheel=0,quietOK=true,touchY=null;
   const pos=i=>ST.start+(ST.end-ST.start)*STOPS[i];
-  const yNow=()=>lenis?lenis.scroll:scrollY;
-  let tok=0;
-  function stepTo(y){animating=true;const my=++tok;
-    const done=()=>{if(my!==tok)return;animating=false;lenis&&lenis.start();};
-    if(lenis){lenis.stop();lenis.scrollTo(y,{duration:.85,force:true,lock:true,easing:t=>1-Math.pow(1-t,3),onComplete:done});setTimeout(done,1300);}
-    else{scrollTo({top:y,behavior:'smooth'});setTimeout(done,900);}
-  }
-  const ZONE_IN=()=>innerHeight*.75;
-  // Grenzen: PT = vorheriger Abschnitt komplett sichtbar, NT = Beginn des nächsten Abschnitts
   const PT=()=>Math.max(0,ST.start-innerHeight);
   const NT=()=>{const el=$('#leistungen');return el?el.getBoundingClientRect().top+scrollY:ST.end+innerHeight;};
-  // true = Geste wurde verbraucht
-  function handle(dir){
-    const y=yNow(),T=4,pt=PT(),nt=NT();
-    if(dir>0){
-      if(y<pt-innerHeight*.3||y>=nt-T)return false;               // außerhalb → normal scrollen
-      for(let i=0;i<STOPS.length;i++){if(pos(i)>y+T){stepTo(pos(i));return true;}}
-      stepTo(nt);return true;                                      // nach Schritt 4: direkt zum nächsten Abschnitt
-    }else{
-      if(y>nt+innerHeight*.3||y<=pt+T)return false;
-      for(let i=STOPS.length-1;i>=0;i--){if(pos(i)<y-T){stepTo(pos(i));return true;}}
-      stepTo(pt);return true;                                      // vor Schritt 1: direkt zum vorherigen Abschnitt
-    }
+  let dir=1,timer=null,snapping=false,lastY=scrollY;
+  function targetFor(y){
+    const T=6,pt=PT(),nt=NT();
+    if(y<=pt+T||y>=nt-T)return null;                         // außerhalb: nichts tun
+    if(STOPS.some((_,i)=>Math.abs(pos(i)-y)<=T))return null;  // steht schon auf einem Schritt
+    if(dir>0){for(let i=0;i<STOPS.length;i++)if(pos(i)>y)return pos(i);return nt;}
+    for(let i=STOPS.length-1;i>=0;i--)if(pos(i)<y)return pos(i);return pt;
   }
-  addEventListener('wheel',e=>{
-    if(innerWidth<900&&matchMedia('(hover:none)').matches)return;
-    const now=performance.now(),gap=now-lastWheel;lastWheel=now;
-    const y=yNow(),near=y>=PT()-innerHeight*.3&&y<=NT()+innerHeight*.3;
-    if(!near)return;
-    if(Math.abs(e.deltaY)<2)return;
-    if(animating||(!quietOK&&gap<220)){e.preventDefault();e.stopPropagation();return;}
-    if(handle(Math.sign(e.deltaY))){e.preventDefault();e.stopPropagation();quietOK=false;}
-    else quietOK=true;
-  },{passive:false,capture:true});
-  // nach einer Pause ist die nächste Geste wieder frei (Trackpad-Nachlauf wird ignoriert)
-  setInterval(()=>{if(!animating&&performance.now()-lastWheel>220)quietOK=true;},120);
-  // Touch (Handy/Tablet)
-  addEventListener('touchstart',e=>{touchY=e.touches[0].clientY;},{passive:true});
-  addEventListener('touchmove',e=>{const y=yNow();if(touchY!==null&&(animating||(y>=ST.start-2&&y<=ST.end-2)))e.preventDefault();},{passive:false});
-  addEventListener('touchend',e=>{if(touchY===null)return;const dy=touchY-e.changedTouches[0].clientY;touchY=null;
-    if(animating||Math.abs(dy)<25)return;const y=yNow();if(!(y>=ST.start-2&&y<=ST.end-2))return;handle(Math.sign(dy));},{passive:true});
-  addEventListener('keydown',e=>{const y=yNow();if(!(y>=ST.start-2&&y<=ST.end-2))return;
-    const d={ArrowDown:1,PageDown:1,' ':1,ArrowUp:-1,PageUp:-1}[e.key];if(!d)return;e.preventDefault();if(!animating)handle(d);});
-  // weiches Nachlaufen; funktioniert in beide Richtungen und bei schnellem Scrollen
+  function settle(){
+    const y=lenis?lenis.scroll:scrollY;
+    if(lenis&&Math.abs(lenis.velocity)>.3){timer=setTimeout(settle,80);return;}
+    const t=targetFor(y);if(t==null)return;
+    snapping=true;
+    if(lenis)lenis.scrollTo(t,{duration:.7,easing:x=>1-Math.pow(1-x,3),onComplete:()=>{snapping=false;}});
+    else{scrollTo({top:t,behavior:'smooth'});setTimeout(()=>{snapping=false;},700);}
+  }
+  const onScroll=()=>{const y=lenis?lenis.scroll:scrollY;if(Math.abs(y-lastY)>.5&&!snapping)dir=y>lastY?1:-1;lastY=y;
+    clearTimeout(timer);timer=setTimeout(settle,snapping?250:160);};
+  if(lenis)lenis.on('scroll',onScroll);else addEventListener('scroll',onScroll,{passive:true});
+  // jede neue Nutzereingabe beendet ein laufendes Einrasten sofort (nie blockieren)
+  ['wheel','touchstart','keydown'].forEach(ev=>addEventListener(ev,()=>{snapping=false;},{passive:true}));
   gsap.ticker.add(()=>{const d=target-cur;if(Math.abs(d)<.0005){if(cur!==target){cur=target;apply(cur);}return;}cur+=d*.14;apply(cur);});
 })();
 
