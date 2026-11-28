@@ -272,28 +272,41 @@ header nav a:hover{background:#fff;color:var(--ink)}
 .pg p{margin-top:12px;font-size:15px;line-height:1.6;opacity:.9;max-width:220px}
 @media(max-width:900px){.pgrid{grid-template-columns:1fr 1fr;gap:40px}.pg{border:0;margin:0}}
 
-/* MAP */
-.area{background:var(--cream);color:var(--dark);padding:150px 0}
-.agrid{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;align-items:center}
-.area p.lead{color:var(--muted);line-height:1.8;font-size:17px;max-width:480px;margin:26px 0 40px}
-.locs{display:flex;flex-direction:column;gap:14px}
-.loc{display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;background:#fff;border-radius:20px;padding:22px 26px;transition:transform .5s,box-shadow .5s}
-.loc:hover{transform:translateX(10px);box-shadow:0 20px 50px -25px rgba(52,48,44,.4)}
-.loc .pin{width:48px;height:48px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Enriqueta',serif}
-.loc h3{font-family:'Enriqueta',serif;font-weight:400;font-size:26px}
-.loc p{font-size:14px;color:var(--muted);line-height:1.6}
-.loc .call{font-size:13px;font-weight:700;color:var(--red);white-space:nowrap}
-.map{position:relative;background:#fff;border-radius:28px;padding:20px;aspect-ratio:1/1.05}
-.map svg{width:100%;height:100%}
-.map .city circle{fill:var(--dark)}
-.map .city text{font-size:13px;fill:var(--muted);font-family:'Open Sans',sans-serif}
-.map .hq circle.c{fill:var(--red)}
-.map .hq text{font-size:15px;font-weight:700;fill:var(--dark)}
-.map .pulse{fill:none;stroke:var(--red);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:pu 2.4s ease-out infinite}
-@keyframes pu{from{transform:scale(.4);opacity:1}to{transform:scale(3);opacity:0}}
-.map .route{fill:none;stroke:var(--red);stroke-width:1.4;stroke-dasharray:4 5;opacity:.65}
-.map .bw{fill:#F3EFE9;stroke:#E2DBD2;stroke-width:2}
-@media(max-width:1000px){.agrid{grid-template-columns:1fr}}
+/* MAP – Reichweite (Variante A) */
+.ga{position:relative;padding:150px 0 140px;overflow:hidden;color:#fff}
+.ga .eyebrow{color:var(--red2)}
+.ga .h2{font-size:clamp(40px,5.2vw,86px);line-height:1}
+.ga{background:radial-gradient(ellipse at 70% 50%,#2A1A18,#100E0C 65%)}
+.ga-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,5vw,80px);align-items:center}
+.ga-l{display:flex;flex-direction:column;gap:26px}
+.ga-l .h2 em{font-style:normal;color:var(--red2)}
+.ga-l p{color:#B8AEA6;line-height:1.8;font-size:17px;max-width:470px}
+.ga-stats{display:flex;gap:34px;border-top:1px solid rgba(255,255,255,.12);padding-top:22px}
+.ga-stats b{display:block;font-family:'Enriqueta',serif;font-weight:400;font-size:52px;line-height:1;color:#fff}
+.ga-stats span{font-size:13px;color:#9C928A}
+.hq{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:20px 22px;border-radius:20px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);transition:background .4s,border-color .4s,transform .4s;cursor:pointer}
+.hq:hover,.hq.on{background:rgba(255,74,80,.1);border-color:rgba(255,74,80,.6);transform:translateX(6px)}
+.hq .pin{width:46px;height:46px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-family:'Enriqueta',serif;box-shadow:0 0 0 6px rgba(220,15,22,.2)}
+.hq h3{font-family:'Enriqueta',serif;font-weight:400;font-size:24px}
+.hq p{font-size:14px;color:#9C928A}
+.hq .call{font-weight:700;font-size:14px;color:var(--red2);white-space:nowrap}
+.ga-map{position:relative;aspect-ratio:1/1.06}
+.ga-map svg{width:100%;height:100%;overflow:visible}
+.ga .bw{fill:rgba(255,255,255,.025);stroke:rgba(255,120,110,.55);stroke-width:1.6;filter:drop-shadow(0 0 10px rgba(255,74,80,.35))}
+.ga .gridl{stroke:rgba(255,255,255,.05);stroke-width:1}
+.ga .ring{fill:none;stroke:var(--red2);stroke-width:1.4;opacity:0}
+.ga .zone{fill:rgba(220,15,22,.07);stroke:rgba(255,74,80,.35);stroke-width:1;stroke-dasharray:4 6}
+.ga .sweep{fill:url(#swG);transform-box:view-box}
+.ga .city circle{fill:#6B625C;transition:fill .4s,r .4s}
+.ga .city text{font-size:12px;fill:#6B625C;font-family:'Open Sans',sans-serif;transition:fill .4s}
+.ga .city.lit circle{fill:#fff}.ga .city.lit text{fill:#E8E0D9}
+.ga .city.hot circle{fill:var(--red2)}.ga .city.hot text{fill:#fff;font-weight:700}
+.ga .hqp circle.c{fill:var(--red);stroke:#fff;stroke-width:3}
+.ga .hqp text{font-size:15px;font-weight:700;fill:#fff;font-family:'Open Sans',sans-serif}
+.ga .link{stroke:rgba(255,74,80,.0);stroke-width:1.2;fill:none;transition:stroke .4s}
+.ga .link.on{stroke:rgba(255,74,80,.7)}
+@media(max-width:960px){.ga-grid{grid-template-columns:1fr}}
+
 
 /* FORM – redesign */
 .ask{position:relative;background:var(--ink);padding:150px 0;overflow:hidden}
@@ -578,19 +591,18 @@ footer{background:#0A0908;padding:110px 0 36px;color:#8C827A;font-size:14px}
   </div>
 </section>
 
-<!-- MAP -->
-<section class="area" id="gebiet">
-  <div class="wrap agrid">
-    <div>
-      <div class="eyebrow rv" style="color:var(--red)">Einsatzgebiet</div>
-      <h2 class="serif h2 split" style="margin-top:22px"><span class="line"><span>Von Mannheim</span></span><span class="line"><span>bis zum <span style="color:var(--red)">Bodensee.</span></span></span></h2>
-      <p class="lead rv">Von unseren zwei Standorten aus sind wir in ganz Baden-Württemberg für Sie im Einsatz.</p>
-      <div class="locs">
-        <a class="loc rv" href="tel:+4974852830609"><span class="pin">01</span><span><h3>Empfingen</h3><p>Zollernring 12, 72186 Empfingen</p></span><span class="call">07485 2830 609 →</span></a>
-        <a class="loc rv" href="tel:+4971349069440"><span class="pin">02</span><span><h3>Lehrensteinsfeld</h3><p>Starenweg 3, 74251 Lehrensteinsfeld</p></span><span class="call">07134 9069 440 →</span></a>
-      </div>
+<!-- MAP (Variante A – Reichweite) -->
+<section class="ga" id="gebiet">
+  <div class="wrap ga-grid">
+    <div class="ga-l">
+      <span class="eyebrow">Einsatzgebiet</span>
+      <h2 class="serif h2">Von Mannheim<br>bis zum <em>Bodensee.</em></h2>
+      <p>Von unseren zwei Standorten aus sind wir in ganz Baden-Württemberg für Sie im Einsatz. Fahren Sie über einen Standort, um seine Region zu sehen.</p>
+      <div class="hq" data-h="0" tabindex="0"><span class="pin">01</span><span><h3>Empfingen</h3><p>Zollernring 12, 72186 Empfingen</p></span><a class="call" href="tel:+4974852830609">07485 2830 609 →</a></div>
+      <div class="hq" data-h="1" tabindex="0"><span class="pin">02</span><span><h3>Lehrensteinsfeld</h3><p>Starenweg 3, 74251 Lehrensteinsfeld</p></span><a class="call" href="tel:+4971349069440">07134 9069 440 →</a></div>
+      <div class="ga-stats"><div><b>2</b><span>Standorte</span></div><div><b id="aCnt">0</b><span>Städte &amp; Regionen</span></div><div><b>1</b><span>Bundesland, ganz abgedeckt</span></div></div>
     </div>
-    <div class="map rv"><svg id="map" viewBox="0 0 600 640" role="img" aria-label="Karte des Einsatzgebiets in Baden-Württemberg"></svg></div>
+    <div class="ga-map"><svg id="aMap" viewBox="0 0 600 640" role="img" aria-label="Karte: Einsatzgebiet in Baden-Württemberg mit den Standorten Empfingen und Lehrensteinsfeld"></svg></div>
   </div>
 </section>
 
@@ -732,18 +744,55 @@ stage.addEventListener('mouseleave',function(){tgt.x=.5;tgt.y=.62});
 var target=tgt;
 $('#cGo').addEventListener('click',function(){if(window.syncOb)syncOb(MATS[cur][0]+(room.classList.contains('led-on')?' + LED-Linie':'')+(room.classList.contains('spots-on')?' + Spots':''))});
 
-/* ---------- map ---------- */
-var svgNS='http://www.w3.org/2000/svg',map=$('#map');
-function P(lon,lat){return[(lon-7.45)/(10.6-7.45)*560+20,(49.75-lat)/(49.75-47.5)*600+20]}
-var bw=[[8.2,49.6],[8.6,49.65],[9.1,49.62],[9.6,49.75],[10.2,49.55],[10.45,49.1],[10.5,48.7],[10.25,48.3],[10.0,47.95],[9.6,47.55],[9.0,47.65],[8.6,47.62],[8.1,47.58],[7.55,47.6],[7.55,48.1],[7.8,48.6],[8.1,48.95],[8.35,49.2],[8.2,49.6]];
-var bp=document.createElementNS(svgNS,'path');bp.setAttribute('d','M'+bw.map(function(c){var p=P(c[0],c[1]);return p[0].toFixed(1)+' '+p[1].toFixed(1)}).join(' L')+'Z');bp.setAttribute('class','bw');map.appendChild(bp);
-var cities=[['Mannheim',8.47,49.49],['Heidelberg',8.69,49.40],['Öhringen',9.50,49.20],['Schwäbisch Hall',9.74,49.11],['Bad Mergentheim',9.77,49.49],['Ludwigsburg',9.19,48.90],['Stuttgart',9.18,48.78],['Böblingen',9.01,48.68],['Tübingen',9.06,48.52],['Reutlingen',9.21,48.49],['Rottweil',8.63,48.17],['Villingen-Schwenningen',8.46,48.06],['Konstanz',9.17,47.66],['Calw',8.74,48.71]];
-var hqs=[['Empfingen',8.71,48.39],['Lehrensteinsfeld',9.33,49.13]];
-var routes=document.createElementNS(svgNS,'g');map.appendChild(routes);
-cities.forEach(function(c){var p=P(c[1],c[2]);var near=hqs.map(function(h){var q=P(h[1],h[2]);return[Math.hypot(q[0]-p[0],q[1]-p[1]),q]}).sort(function(a,b){return a[0]-b[0]})[0][1];
-var path=document.createElementNS(svgNS,'path');var mx=(p[0]+near[0])/2,my=(p[1]+near[1])/2-30;path.setAttribute('d','M'+near[0]+' '+near[1]+' Q'+mx+' '+my+' '+p[0]+' '+p[1]);path.setAttribute('class','route');routes.appendChild(path);
-var g=document.createElementNS(svgNS,'g');g.setAttribute('class','city');g.innerHTML='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="4"/><text x="'+(p[0]+9)+'" y="'+(p[1]+4)+'">'+c[0]+'</text>';map.appendChild(g)});
-hqs.forEach(function(h){var p=P(h[1],h[2]);var g=document.createElementNS(svgNS,'g');g.setAttribute('class','hq');g.innerHTML='<circle class="pulse" cx="'+p[0]+'" cy="'+p[1]+'" r="10"/><circle class="c" cx="'+p[0]+'" cy="'+p[1]+'" r="9"/><text x="'+(h[0]==='Empfingen'?p[0]-16:p[0]+16)+'" y="'+(p[1]-12)+'" text-anchor="'+(h[0]==='Empfingen'?'end':'start')+'">'+h[0]+'</text>';map.appendChild(g)});
+/* ---------- map (Variante A – Reichweite) ---------- */
+var NS='http://www.w3.org/2000/svg',G=window.gsap;if(G&&window.ScrollTrigger)gsap.registerPlugin(ScrollTrigger);
+/* shared geo data (approximate outline of Baden-Württemberg) */
+var BW=[[8.47,49.58],[8.62,49.68],[8.95,49.52],[9.10,49.58],[9.35,49.66],[9.47,49.78],[9.65,49.72],[9.90,49.80],[10.12,49.63],[10.15,49.40],[10.30,49.15],[10.45,48.95],[10.48,48.70],[10.30,48.52],[10.15,48.45],[10.05,48.20],[10.10,47.98],[9.95,47.75],[9.75,47.58],[9.55,47.55],[9.25,47.66],[8.95,47.67],[8.70,47.72],[8.58,47.62],[8.40,47.57],[8.20,47.62],[7.95,47.55],[7.60,47.58],[7.52,47.75],[7.58,48.05],[7.70,48.30],[7.82,48.60],[8.05,48.80],[8.20,48.97],[8.33,49.10],[8.45,49.28],[8.47,49.58]];
+var HQ=[['Empfingen',8.71,48.39,'07485 2830 609'],['Lehrensteinsfeld',9.33,49.13,'07134 9069 440']];
+var CITIES=[['Mannheim',8.47,49.49],['Heidelberg',8.69,49.40],['Sinsheim',8.88,49.25],['Heilbronn',9.22,49.14],['Neckarsulm',9.22,49.19],['Öhringen',9.50,49.20],['Schwäbisch Hall',9.74,49.11],['Bad Mergentheim',9.77,49.49],['Ludwigsburg',9.19,48.90],['Stuttgart',9.18,48.78],['Sindelfingen',9.00,48.71],['Böblingen',9.01,48.68],['Herrenberg',8.87,48.60],['Tübingen',9.06,48.52],['Reutlingen',9.21,48.49],['Metzingen',9.28,48.54],['Rottenburg',8.93,48.48],['Horb am Neckar',8.69,48.44],['Oberndorf',8.58,48.29],['Rottweil',8.63,48.17],['Villingen-Schwenningen',8.46,48.06],['Konstanz',9.17,47.66]];
+function P(lon,lat){return[(lon-7.45)/(10.6-7.45)*560+20,(49.85-lat)/(49.85-47.45)*600+20]}
+function km(a,b){var R=6371,r=Math.PI/180,dLat=(b[1]-a[1])*r,dLon=(b[0]-a[0])*r,x=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(a[1]*r)*Math.cos(b[1]*r)*Math.sin(dLon/2)*Math.sin(dLon/2);return 2*R*Math.asin(Math.sqrt(x))}
+function nearest(c){var d0=km([c[1],c[2]],[HQ[0][1],HQ[0][2]]),d1=km([c[1],c[2]],[HQ[1][1],HQ[1][2]]);return d0<=d1?[0,d0]:[1,d1]}
+var bwPath='M'+BW.map(function(c){var p=P(c[0],c[1]);return p[0].toFixed(1)+' '+p[1].toFixed(1)}).join(' L')+'Z';
+function el(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e}
+
+/* =========== A: radar =========== */
+(function(){var svg=$('#aMap');
+el('defs',{},svg).innerHTML='<radialGradient id="swG" cx="0" cy="0" r="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#FF4A50" stop-opacity=".0"/></radialGradient><linearGradient id="swL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FF4A50" stop-opacity="0"/><stop offset="1" stop-color="#FF4A50" stop-opacity=".45"/></linearGradient><clipPath id="bwClip"><path d="'+bwPath+'"/></clipPath>';
+var g=el('g',{},svg);
+for(var x=40;x<600;x+=40)el('line',{class:'gridl',x1:x,y1:0,x2:x,y2:640},g);
+for(var y=40;y<640;y+=40)el('line',{class:'gridl',x1:0,y1:y,x2:600,y2:y},g);
+el('path',{class:'bw',d:bwPath},svg);
+var clipG=el('g',{'clip-path':'url(#bwClip)'},svg);
+var zones=HQ.map(function(h,i){var p=P(h[1],h[2]);return el('circle',{class:'zone',cx:p[0],cy:p[1],r:0},clipG)});
+var sweeps=HQ.map(function(h){var p=P(h[1],h[2]);var w=el('g',{transform:'translate('+p[0]+','+p[1]+')'},clipG);var rg=el('g',{},w);el('path',{d:'M0 0 L260 0 A260 260 0 0 0 225.2 -130 Z',fill:'url(#swL)',opacity:'.55'},rg);return rg});
+var links=el('g',{},svg),cg=el('g',{},svg);
+var cityEls=CITIES.map(function(c){var p=P(c[1],c[2]),n=nearest(c),h=P(HQ[n[0]][1],HQ[n[0]][2]);
+var l=el('line',{class:'link',x1:h[0],y1:h[1],x2:p[0],y2:p[1]},links);l.dataset.h=n[0];
+var gg=el('g',{class:'city'},cg);gg.dataset.h=n[0];el('circle',{cx:p[0],cy:p[1],r:3.5},gg);var left=p[0]>470||c[0]==='Heilbronn'||c[0]==='Tübingen';var t=el('text',{x:left?p[0]-8:p[0]+8,y:p[1]+4,'text-anchor':left?'end':'start'},gg);t.textContent=c[0];
+gg.dataset.d=Math.hypot(p[0]-h[0],p[1]-h[1]);return{g:gg,l:l,d:+gg.dataset.d,h:n[0]}});
+var rings=[];
+HQ.forEach(function(h,i){var p=P(h[1],h[2]);for(var k=0;k<3;k++)rings.push(el('circle',{class:'ring',cx:p[0],cy:p[1],r:10},svg));
+var hg=el('g',{class:'hqp'},svg);el('circle',{class:'c',cx:p[0],cy:p[1],r:10},hg);var t=el('text',{x:i===0?p[0]-18:p[0]+14,y:i===0?p[1]-14:p[1]-22,'text-anchor':i===0?'end':'start'},hg);t.textContent=h[0]});
+// labels collide a bit near Heilbronn/Neckarsulm and Böblingen/Sindelfingen: hide small duplicates
+['Neckarsulm','Sindelfingen','Metzingen','Rottenburg','Horb am Neckar','Herrenberg','Sinsheim','Öhringen'].forEach(function(n){var i=CITIES.findIndex(function(c){return c[0]===n});if(i>-1)cityEls[i].g.querySelector('text').style.display='none'});
+function focusHQ(i){$$('.hq').forEach(function(h){h.classList.toggle('on',+h.dataset.h===i)});cityEls.forEach(function(c){c.g.classList.toggle('hot',c.h===i);c.l.classList.toggle('on',c.h===i)})}
+function clearHQ(){$$('.hq').forEach(function(h){h.classList.remove('on')});cityEls.forEach(function(c){c.g.classList.remove('hot');c.l.classList.remove('on')})}
+$$('.hq').forEach(function(h){h.addEventListener('mouseenter',function(){focusHQ(+h.dataset.h)});h.addEventListener('focus',function(){focusHQ(+h.dataset.h)});h.addEventListener('mouseleave',clearHQ);h.addEventListener('blur',clearHQ)});
+function lightAll(){cityEls.forEach(function(c){c.g.classList.add('lit')});$('#aCnt').textContent=CITIES.length}
+if(!G){zones.forEach(function(z){z.setAttribute('r',210)});lightAll();return}
+// entrance: zones grow, cities light up as the wave passes
+var W={r:0};
+ScrollTrigger.create({trigger:'#aMap',start:'top 75%',once:true,onEnter:function(){
+ gsap.to(W,{r:230,duration:2.4,ease:'power2.out',onUpdate:function(){zones.forEach(function(z){z.setAttribute('r',W.r)});cityEls.forEach(function(c){if(c.d<=W.r)c.g.classList.add('lit')})},onComplete:lightAll});
+ var o={n:0};gsap.to(o,{n:CITIES.length,duration:2.4,ease:'power2.out',onUpdate:function(){$('#aCnt').textContent=Math.round(o.n)}});
+ gsap.from('.ga .bw',{opacity:0,duration:1})}});
+// continuous radar rings + sweep
+rings.forEach(function(r,i){gsap.fromTo(r,{attr:{r:10},opacity:.9},{attr:{r:170},opacity:0,duration:3.6,repeat:-1,delay:(i%3)*1.2,ease:'power1.out'})});
+sweeps.forEach(function(s,i){gsap.to(s,{rotation:360,svgOrigin:'0 0',duration:6+i,repeat:-1,ease:'none'})});
+gsap.from('.ga-l > *',{y:40,opacity:0,duration:1,stagger:.08,ease:'expo.out',scrollTrigger:{trigger:'.ga-l',start:'top 80%'}});
+})();
+
 
 /* ---------- form ---------- */
 var fs=$$('.fs'),fstep=0,sl=$$('.steps2 li'),qm=$('#qm'),qmo=$('#qmo'),mf=$('#mf');
@@ -923,11 +972,6 @@ rrun();
 
 // counters
 $$('.cnt').forEach(function(c){var to=+c.dataset.to,o={n:to===0?9:0};gsap.to(o,{n:to,duration:2,ease:'power2.out',scrollTrigger:{trigger:c,start:'top 90%'},onUpdate:function(){c.textContent=Math.round(o.n)}})});
-
-// map: draw routes
-$$('#map .route').forEach(function(p){var l=p.getTotalLength();p.style.strokeDasharray=l;p.style.strokeDashoffset=l});
-gsap.to('#map .route',{strokeDashoffset:0,duration:1.6,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'#map',start:'top 75%'},onComplete:function(){$$('#map .route').forEach(function(p){p.style.strokeDasharray='4 5'})}});
-gsap.fromTo('#map .city',{opacity:0,scale:0,transformOrigin:'center'},{opacity:1,scale:1,duration:.6,stagger:.05,ease:'back.out(2)',scrollTrigger:{trigger:'#map',start:'top 75%'}});
 
 // magnetic + cursor
 $$('.mag').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.25,y:(e.clientY-r.top-r.height/2)*.35,duration:.5})});b.addEventListener('mouseleave',function(){gsap.to(b,{x:0,y:0,duration:.8,ease:'elastic.out(1,.4)'})})});
