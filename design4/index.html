@@ -188,8 +188,8 @@ header nav a:hover{background:#fff;color:var(--ink)}
 .vc-card .k{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--warm);font-weight:700}
 .vc-card h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(26px,min(2.8vw,5vh),42px);margin:8px 0 8px}
 .vc-card p{color:rgba(255,255,255,.88);line-height:1.65;font-size:16px}
-.room{position:absolute;left:0;right:0;bottom:0;height:16vh;z-index:1;background:linear-gradient(180deg,transparent,rgba(0,0,0,.35))}
-.done{padding:12px 24px;border-radius:999px;background:#fff;color:var(--red);font-weight:700;letter-spacing:.06em;opacity:0;transform:scale(.7);white-space:nowrap}
+.vc-room{position:absolute;left:0;right:0;bottom:0;height:16vh;z-index:1;background:linear-gradient(180deg,transparent,rgba(0,0,0,.35))}
+.vc-done{padding:12px 24px;border-radius:999px;background:#fff;color:var(--red);font-weight:700;letter-spacing:.06em;opacity:0;transform:scale(.7);white-space:nowrap}
 
 /* BENTO SERVICES */
 .svc{background:var(--ink);padding:150px 0}
@@ -316,13 +316,13 @@ form.mf{padding:44px 48px;display:flex;flex-direction:column;min-height:620px}
 .fs legend{font-size:clamp(26px,2.4vw,34px);margin-bottom:22px;line-height:1.15;color:var(--dark)}
 .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .ro{cursor:pointer;position:relative}
-.ro input,.sw input{position:absolute;opacity:0}
+.ro input,.osw input{position:absolute;opacity:0}
 .ro span{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:20px;border-radius:18px;border:2px solid #EDE7E0;font-weight:700;font-size:15px;transition:border-color .3s,background .3s,transform .3s,box-shadow .3s}
 .ro svg{width:34px;height:34px;color:var(--muted);transition:color .3s}
 .ro:hover span{border-color:#D8CFC6;transform:translateY(-3px)}
 .ro input:checked+span{border-color:var(--red);background:#FFF5F4;box-shadow:0 14px 30px -18px rgba(220,15,22,.6)}
 .ro input:checked+span svg{color:var(--red)}
-.ro input:focus-visible+span,.sw input:focus-visible+span{outline:2px solid var(--red);outline-offset:3px}
+.ro input:focus-visible+span,.osw input:focus-visible+span{outline:2px solid var(--red);outline-offset:3px}
 .qm{background:var(--cream);border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:14px}
 .qmv{display:flex;align-items:baseline;gap:8px}
 .qmv output{font-family:'Enriqueta',serif;font-size:64px;line-height:1;color:var(--red)}
@@ -332,14 +332,14 @@ form.mf{padding:44px 48px;display:flex;flex-direction:column;min-height:620px}
 .qchips button{border:1px solid #D8CFC6;background:#fff;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
 .qchips button:hover{background:var(--dark);color:#fff;border-color:var(--dark)}
 .sws{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.sw{cursor:pointer;position:relative}
-.sw span{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--muted);text-align:center}
-.sw i.sq{display:block;width:100%;aspect-ratio:1.6;border-radius:12px;border:3px solid transparent;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
-.sw i.m-stern{background:radial-gradient(circle,#fff 1px,transparent 1.5px) 0 0/9px 9px,radial-gradient(ellipse,#1B2340,#070A16)}
-.sw i.m-stern::before,.sw i.m-stern::after{display:none}
-.sw:hover i.sq{transform:translateY(-2px)}
-.sw input:checked+span{color:var(--dark)}
-.sw input:checked+span i.sq{border-color:var(--red)}
+.osw{cursor:pointer;position:relative}
+.osw span{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--muted);text-align:center}
+.osw i.sq{display:block;width:100%;aspect-ratio:1.6;border-radius:12px;border:3px solid transparent;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
+.osw i.m-stern{background:radial-gradient(circle,#fff 1px,transparent 1.5px) 0 0/9px 9px,radial-gradient(ellipse,#1B2340,#070A16)}
+.osw i.m-stern::before,.osw i.m-stern::after{display:none}
+.osw:hover i.sq{transform:translateY(-2px)}
+.osw input:checked+span{color:var(--dark)}
+.osw input:checked+span i.sq{border-color:var(--red)}
 .flds{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .fl{position:relative}
 .fl.wide{grid-column:1/3}
@@ -496,9 +496,9 @@ footer{background:#0A0908;padding:110px 0 36px;color:#8C827A;font-size:14px}
         <div class="st"><div class="k">Schritt 3 · Mittags</div><h3>Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei eingespannt – straff und glatt.</p></div>
         <div class="st"><div class="k">Schritt 4 · Abends</div><h3>Licht &amp; Service</h3><p>Lampen, Spots und Rauchmelder – alles aus einer Hand integriert.</p></div>
       </div>
-      <div class="done">✓ Fertig – am selben Tag</div>
+      <div class="vc-done">✓ Fertig – am selben Tag</div>
     </div>
-    <div class="room"></div>
+    <div class="vc-room"></div>
   </div>
 </section>
 
@@ -630,14 +630,14 @@ footer{background:#0A0908;padding:110px 0 36px;color:#8C827A;font-size:14px}
             <div class="qchips"><button type="button" data-q="12">≈ Bad</button><button type="button" data-q="18">≈ Schlafzimmer</button><button type="button" data-q="30">≈ Wohnzimmer</button><button type="button" data-q="80">Ganze Etage</button></div>
           </div>
           <div class="sws">
-          <label class="sw"><input type="radio" name="obr" value="Matt"><span><i class="sq m-matt"></i>Matt</span></label>
-          <label class="sw"><input type="radio" name="obr" value="Satin"><span><i class="sq m-satin"></i>Satin</span></label>
-          <label class="sw"><input type="radio" name="obr" value="Hochglanz" checked><span><i class="sq m-glanz"></i>Hochglanz</span></label>
-          <label class="sw"><input type="radio" name="obr" value="Schwarz Lack"><span><i class="sq m-schwarz"></i>Schwarz Lack</span></label>
-          <label class="sw"><input type="radio" name="obr" value="Sternenhimmel"><span><i class="sq m-stern"></i>Sternenhimmel</span></label>
-          <label class="sw"><input type="radio" name="obr" value="Leuchtdecke"><span><i class="sq m-licht"></i>Leuchtdecke</span></label>
-          <label class="sw"><input type="radio" name="obr" value="Digitaldruck"><span><i class="sq m-druck"></i>Digitaldruck</span></label>
-          <label class="sw"><input type="radio" name="obr" value="Akustik"><span><i class="sq m-akustik"></i>Akustik</span></label>
+          <label class="osw"><input type="radio" name="obr" value="Matt"><span><i class="sq m-matt"></i>Matt</span></label>
+          <label class="osw"><input type="radio" name="obr" value="Satin"><span><i class="sq m-satin"></i>Satin</span></label>
+          <label class="osw"><input type="radio" name="obr" value="Hochglanz" checked><span><i class="sq m-glanz"></i>Hochglanz</span></label>
+          <label class="osw"><input type="radio" name="obr" value="Schwarz Lack"><span><i class="sq m-schwarz"></i>Schwarz Lack</span></label>
+          <label class="osw"><input type="radio" name="obr" value="Sternenhimmel"><span><i class="sq m-stern"></i>Sternenhimmel</span></label>
+          <label class="osw"><input type="radio" name="obr" value="Leuchtdecke"><span><i class="sq m-licht"></i>Leuchtdecke</span></label>
+          <label class="osw"><input type="radio" name="obr" value="Digitaldruck"><span><i class="sq m-druck"></i>Digitaldruck</span></label>
+          <label class="osw"><input type="radio" name="obr" value="Akustik"><span><i class="sq m-akustik"></i>Akustik</span></label>
           </div>
         </fieldset>
         <fieldset class="fs" data-s="2"><legend class="serif">Wie erreichen wir Sie?</legend>
@@ -888,7 +888,7 @@ var tl2=gsap.timeline();
 tl2.to(st,{p:1,duration:1,ease:'none',onUpdate:upd},0)
  .to('.vc .sky2',{opacity:1,duration:.35,ease:'none'},.1).to('.vc .sky2',{opacity:0,duration:.3,ease:'none'},.62)
  .to('.vc .sky3',{opacity:1,duration:.3,ease:'none'},.66)
- .to('.vc .done',{opacity:1,scale:1,duration:.12,ease:'back.out(2)'},.9).to({},{duration:.15});
+ .to('.vc .vc-done',{opacity:1,scale:1,duration:.12,ease:'back.out(2)'},.9).to({},{duration:.15});
 tl2.pause(0);
 // one scroll gesture = one step: the section locks, each wheel/swipe jumps the sun to the next stop
 var T=[.15,.39,.63,1.02],idx=0,locked=false,busy=false,releasedAt=0,stv=null;
