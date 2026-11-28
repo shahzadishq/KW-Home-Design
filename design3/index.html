@@ -137,42 +137,47 @@ em.r{font-style:italic;color:var(--red)}
 .ovl .r a.ct svg{width:20px;height:20px}
 @media(max-width:820px){.ovl{grid-template-columns:1fr}.ovl .r{padding-top:30px;justify-content:flex-start}.ovl .l{padding-bottom:10px;justify-content:flex-end}}
 
-/* ---------- hero ---------- */
-.hero{position:relative;height:100svh;min-height:640px;background:var(--ink);color:#fff;overflow:hidden}
-.hero .grid-bg{z-index:1}
-.hero-top{position:absolute;left:0;right:0;top:0;padding-top:clamp(110px,15vh,150px);z-index:3;text-align:center}
-.hero-top .kicker{color:var(--warm)}
-.hero-top .kicker i{background:var(--red2);box-shadow:0 0 0 4px rgba(255,74,80,.2);animation:pulse 2s infinite}
+/* ---------- hero: full-bleed cinematic slideshow ---------- */
+.hero{position:relative;height:100svh;min-height:620px;background:var(--ink);color:#fff;overflow:hidden}
+.hs{position:absolute;inset:0;overflow:hidden}
+.hs-i{position:absolute;inset:0;clip-path:inset(0 0 0 100%);will-change:clip-path}
+.hs-i.on{clip-path:inset(0 0 0 0)}
+.hs-i img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);will-change:transform}
+.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(26,23,21,.86) 0%,rgba(26,23,21,.55) 38%,rgba(26,23,21,.1) 70%),linear-gradient(0deg,rgba(26,23,21,.9) 0%,rgba(26,23,21,0) 45%),linear-gradient(180deg,rgba(26,23,21,.55) 0%,transparent 22%)}
+.hero .grid-bg{z-index:1;opacity:.6;mask-image:linear-gradient(90deg,#000,transparent 60%);-webkit-mask-image:linear-gradient(90deg,#000,transparent 60%)}
+.hero .light{position:absolute;inset:0;z-index:1;background:linear-gradient(105deg,transparent 42%,rgba(255,217,168,.10) 50%,transparent 58%);background-size:260% 100%;animation:lightsweep 9s ease-in-out infinite;mix-blend-mode:screen;pointer-events:none}
+@keyframes lightsweep{0%{background-position:130% 0}100%{background-position:-130% 0}}
+.hero-c{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(110px,16vh,170px)}
+.hero-c .kicker{color:var(--warm)}
+.hero-c .kicker i{background:var(--red2);box-shadow:0 0 0 4px rgba(255,74,80,.2);animation:pulse 2s infinite}
 @keyframes pulse{50%{box-shadow:0 0 0 9px rgba(255,74,80,0)}}
-.hero h1{margin-top:clamp(16px,2.4vh,28px);font-size:clamp(46px,min(8.4vw,13vh),150px);line-height:.92;letter-spacing:-.035em}
-.hero h1 .pill{display:inline-block;width:1.7em;height:.78em;border-radius:999px;overflow:hidden;vertical-align:.02em;margin:0 .08em;position:relative}
-.hero h1 .pill img{width:100%;height:100%;object-fit:cover;transform:scale(1.2)}
+.hero h1{margin-top:clamp(16px,2.4vh,26px);font-size:clamp(50px,min(9.4vw,15vh),170px);line-height:.9;letter-spacing:-.04em;max-width:10.5ch}
 .hero h1 em{font-style:italic;color:var(--red2)}
-.win-anchor{position:absolute;left:50%;bottom:clamp(26px,5vh,54px);width:min(38vw,560px);height:min(44vh,400px);transform:translateX(-50%);z-index:2;pointer-events:none}
-.win{position:absolute;inset:0;z-index:2;clip-path:inset(50% 50% 50% 50% round 24px);will-change:clip-path}
-.win img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.18);will-change:transform}
-.win::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,23,21,.1) 0%,rgba(26,23,21,.25) 45%,rgba(26,23,21,.82) 100%)}
-.win-cap{position:absolute;left:0;right:0;bottom:12vh;z-index:4;text-align:center;opacity:0;pointer-events:none}
-.win-cap h2{font-size:clamp(34px,5.4vw,92px);line-height:1;color:#fff;text-shadow:0 10px 40px rgba(0,0,0,.45)}
-.win-cap p{margin-top:14px;color:rgba(255,255,255,.85);font-size:clamp(14px,1.2vw,17px)}
-.hero-side{position:absolute;bottom:clamp(26px,5vh,54px);z-index:3;max-width:min(320px,26vw)}
-.hero-side.l{left:var(--pad)}.hero-side.r{right:var(--pad);text-align:right}
-.hero-side p{color:rgba(255,255,255,.72);font-size:15px;line-height:1.7;margin-bottom:20px}
-.hero-facts{display:flex;flex-direction:column;gap:14px;align-items:flex-end}
-.hf{display:flex;align-items:center;gap:14px}
-.hf b{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(34px,3vw,52px);line-height:1;letter-spacing:-.03em}
-.hf b sup{font-size:.36em;color:var(--red2);margin-left:3px}
-.hf span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:left;line-height:1.4}
-.scrl{position:absolute;left:50%;top:calc(100% - 24px);transform:translateX(-50%);z-index:5;width:22px;height:34px;border:1.5px solid rgba(255,255,255,.4);border-radius:12px;display:none}
+.hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:clamp(22px,3.4vh,40px);flex-wrap:wrap}
+.hero-row p{max-width:440px;color:rgba(255,255,255,.8);font-size:clamp(15px,1.15vw,17px);line-height:1.75}
+.hero-bar{position:absolute;left:0;right:0;bottom:0;z-index:4;border-top:1px solid rgba(255,255,255,.12);background:linear-gradient(0deg,rgba(26,23,21,.55),rgba(26,23,21,.15));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hero-bar .wrap{display:grid;grid-template-columns:repeat(3,1fr) auto;align-items:center}
+.hb{display:flex;align-items:center;gap:14px;padding:20px 20px 20px 0;border-right:1px solid rgba(255,255,255,.1)}
+.hb+.hb{padding-left:24px}
+.hb .ic{width:40px;height:40px;border-radius:12px;background:var(--red);display:grid;place-items:center;flex:none}
+.hb .ic svg{width:20px;height:20px;color:#fff}
+.hb b{display:block;font-size:15px}.hb small{font-size:12.5px;color:rgba(255,255,255,.65)}
+.hs-nav{display:flex;align-items:center;gap:16px;padding-left:28px;font-family:'Enriqueta',serif;font-size:14px}
+.hs-nav .bars{display:flex;gap:6px}
+.hs-nav .bars i{width:42px;height:3px;border-radius:3px;background:rgba(255,255,255,.22);position:relative;overflow:hidden;cursor:pointer}
+.hs-nav .bars i b{position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left}
+.hs-cap{position:absolute;right:var(--pad);top:clamp(110px,16vh,150px);z-index:3;text-align:right;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:12px}
+.hs-cap::before{content:"";width:40px;height:1px;background:rgba(255,255,255,.5)}
 @media(max-width:900px){
-  .hero-side.r{display:none}
-  .hero-side.l{left:var(--pad);right:var(--pad);max-width:none;bottom:24px;text-align:center}
-  .hero-side.l p{display:none}
-  .hero-side.l .btns{justify-content:center}
-  .win-anchor{width:min(78vw,380px);height:min(30svh,260px);bottom:118px}
-  .hero-top{padding-top:110px}
+  .hero .shade{background:linear-gradient(0deg,rgba(26,23,21,.95) 8%,rgba(26,23,21,.55) 55%,rgba(26,23,21,.35) 100%)}
+  .hero-c{padding-bottom:150px}
+  .hero-bar .wrap{grid-template-columns:1fr 1fr}
+  .hb:nth-child(3),.hs-nav{display:none}
+  .hb{padding:14px 10px 14px 0}.hb+.hb{padding-left:14px;border-right:0}
+  .hb .ic{width:34px;height:34px}.hb b{font-size:14px}
+  .hs-cap{display:none}
 }
-.btns{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:900px) and (max-height:720px){.hero h1{font-size:clamp(40px,11vw,52px)}.hero-row p{display:none}}
 
 /* ---------- marquee ---------- */
 .mq{background:var(--ink);color:#fff;padding:clamp(26px,4vh,40px) 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.06)}
@@ -194,12 +199,12 @@ em.r{font-style:italic;color:var(--red)}
 .sf>span{display:block;margin-top:10px;color:var(--stone);font-size:15px;line-height:1.6;max-width:280px}
 @media(max-width:700px){.stmt-foot{grid-template-columns:1fr;gap:26px}}
 
-/* ---------- process (sticky story) ---------- */
-.proc{padding:clamp(110px,15vh,180px) 0;overflow:clip}
-.proc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,120px);position:relative;z-index:1}
-.proc-l{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center}
-.proc-l .h-l{margin:22px 0 40px;font-size:clamp(38px,4.4vw,76px)}
-.ring{position:relative;width:min(340px,28vw);aspect-ratio:1}
+/* ---------- process: pinned stepper (one scroll = one step) ---------- */
+.proc{overflow:clip}
+.proc-pin{height:100vh;display:flex;align-items:center;position:relative;z-index:1}
+.proc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,120px);align-items:center;width:100%}
+.proc-l .h-l{margin:22px 0 clamp(26px,4vh,44px);font-size:clamp(36px,4.2vw,72px)}
+.ring{position:relative;width:min(320px,26vw,calc(100vh - 360px));min-width:190px;aspect-ratio:1}
 .ring svg{width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
 .ring circle{fill:none;stroke-width:2}
 .ring .bg{stroke:rgba(255,255,255,.1)}
@@ -207,26 +212,33 @@ em.r{font-style:italic;color:var(--red)}
 .ring .tick{fill:var(--coal);stroke:rgba(255,255,255,.25);stroke-width:2;transition:fill .4s,stroke .4s}
 .ring .tick.on{fill:var(--red);stroke:var(--red)}
 .ring .ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.ring .num{font-family:'Enriqueta',serif;font-size:clamp(70px,7vw,120px);line-height:1;height:1em;overflow:hidden}
+.ring .num{font-family:'Enriqueta',serif;font-size:clamp(64px,6.4vw,112px);line-height:1;height:1em;overflow:hidden}
 .ring .num span{display:block}
 .ring .lbl{margin-top:8px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
-.proc-r{padding:30vh 0 20vh}
-.pstep{min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding:12vh 0;opacity:.25;transition:opacity .6s}
-.pstep+.pstep{border-top:1px solid rgba(255,255,255,.08)}
-.pstep.on{opacity:1}
-.pstep .ic{width:64px;height:64px;border-radius:18px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);display:grid;place-items:center;color:var(--red2);margin-bottom:26px}
-.pstep .ic svg{width:30px;height:30px}
-.pstep .n{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--red2);font-weight:700;margin-bottom:12px}
-.pstep h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(34px,3.6vw,62px);line-height:1.02;margin-bottom:18px}
-.pstep p{color:var(--sand);font-size:17px;line-height:1.75;max-width:460px}
-.pstep .ph{margin-top:28px;width:min(100%,460px);aspect-ratio:16/10;border-radius:20px;overflow:hidden}
-.pstep .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}
+.pdots{display:flex;gap:8px;margin-top:22px}
+.pdots i{width:34px;height:3px;border-radius:3px;background:rgba(255,255,255,.15);transition:background .4s}
+.pdots i.on{background:var(--red2)}
+.pstage{position:relative;height:min(80vh,660px)}
+.pstep{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0;visibility:hidden;transform:translateY(46px);transition:opacity .5s,transform .8s var(--out),visibility 0s .8s;pointer-events:none}
+.pstep.up{transform:translateY(-46px)}
+.pstep.on{opacity:1;visibility:visible;transform:none;pointer-events:auto;transition:opacity .6s .12s,transform .9s var(--out) .08s,visibility 0s}
+.pstep .ic{width:60px;height:60px;border-radius:18px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);display:grid;place-items:center;color:var(--red2);margin-bottom:22px}
+.pstep .ic svg{width:28px;height:28px}
+.pstep .n{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--red2);font-weight:700;margin-bottom:10px}
+.pstep h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(32px,3.4vw,58px);line-height:1.02;margin-bottom:14px}
+.pstep p{color:var(--sand);font-size:16.5px;line-height:1.7;max-width:460px}
+.pstep .ph{margin-top:24px;width:min(100%,480px);aspect-ratio:16/10;max-height:34vh;border-radius:20px;overflow:hidden}
+.pstep .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 1.6s var(--out)}
+.pstep.on .ph img{transform:scale(1.02)}
 @media(max-width:900px){
-  .proc-grid{grid-template-columns:1fr}
-  .proc-l{position:relative;height:auto;padding-bottom:10px}
-  .ring{display:none}
-  .proc-r{padding:10px 0 0}
-  .pstep{min-height:0;padding:34px 0;opacity:1;border-top:1px solid rgba(255,255,255,.08)}
+  .proc{padding:clamp(90px,12vh,130px) 0}
+  .proc-pin{height:auto;display:block}
+  .proc-grid{grid-template-columns:1fr;gap:10px}
+  .ring,.pdots{display:none}
+  .pstage{height:auto}
+  .pstep{position:static;opacity:1;visibility:visible;transform:none;pointer-events:auto;padding:34px 0;border-top:1px solid rgba(255,255,255,.08)}
+  .pstep .ph{max-height:none}
+  .pstep .ph img{transform:none}
 }
 
 /* ---------- services: expanding panels ---------- */
@@ -262,8 +274,7 @@ em.r{font-style:italic;color:var(--red)}
 }
 
 /* ---------- spanndecken carousel ---------- */
-.types{padding:clamp(90px,12vh,130px) 0 clamp(60px,8vh,90px);overflow:hidden;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
-@media(min-width:901px){.track .tc{flex:0 0 clamp(230px,calc((100vh - 340px)*.75),400px)}}
+.types{padding:clamp(110px,15vh,170px) 0 clamp(90px,12vh,140px);overflow:hidden}
 @media(max-width:900px){.types{min-height:0}}
 .types-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
 .types-head .ctl{display:flex;gap:10px}
@@ -502,8 +513,6 @@ a.fc:hover .fi{background:var(--red);color:#fff}
 .fcard .btn-dark{color:var(--coal);box-shadow:inset 0 0 0 1px rgba(52,48,44,.28);padding:0 24px}
 .fcard .btn-dark::before{background:var(--coal)}.fcard .btn-dark:hover{color:#fff}
 /* process ring fits short screens */
-.ring{width:min(340px,28vw,calc(100vh - 360px));min-width:200px}
-@media(max-height:760px){.proc-l .h-l{margin:16px 0 26px;font-size:clamp(34px,3.8vw,60px)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -569,26 +578,32 @@ a.fc:hover .fi{background:var(--red);color:#fff}
 <main>
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="grid-bg"></div>
-  <div class="hero-top">
+  <div class="hs" id="hs">
+    <div class="hs-i on" data-cap="Wohnküche · Lack-Spanndecke"><img src="../design2/img/k-gw8_7330.webp" alt="Wohnküche mit glänzender Spanndecke von KW Home Design"></div>
+    <div class="hs-i" data-cap="Spanndecke · LED-Lichtleiste"><img src="../design2/img/7.webp" alt="Spanndecke mit roter LED-Lichtleiste"></div>
+    <div class="hs-i" data-cap="Gastraum · Lack-Spanndecke"><img src="../design2/img/img_0678.webp" alt="Glänzende Spanndecke im Gastraum"></div>
+  </div>
+  <div class="shade"></div><div class="grid-bg"></div><div class="light"></div>
+  <div class="hs-cap h-in" id="hscap">Wohnküche · Lack-Spanndecke</div>
+  <div class="hero-c">
     <div class="wrap">
       <span class="kicker h-in"><i></i>Ihr starker Partner für Spanndecken &amp; Raumausstattung</span>
-      <h1 class="serif" id="h1">Schluss mit <span class="pill"><img src="../design2/img/img_0642.webp" alt=""></span> langweiligen <em>Decken.</em></h1>
+      <h1 class="serif" id="h1">Schluss mit langweiligen <em>Decken.</em></h1>
+      <div class="hero-row h-in">
+        <p>Wir montieren Ihre neue Decke einfach über die alte – ohne Schmutz, mit 15 Jahren Herstellergarantie und in nur einem Tag.</p>
+        <div class="btns">
+          <a class="btn b-red mag" href="#kontakt"><span class="lbl"><span>Jetzt anfragen</span><span>Jetzt anfragen</span></span><span class="ar"><svg><use href="#i-arrow"/></svg></span></a>
+          <a class="btn b-line mag" href="#galerie" style="color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)"><span class="lbl"><span>Referenzen</span><span>Referenzen</span></span><span class="ar" style="background:#fff;color:var(--coal)"><svg><use href="#i-arrow"/></svg></span></a>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="win-anchor" id="winA"></div>
-  <div class="win" id="win"><img src="../design2/img/k-gw8_7330.webp" alt="Wohnküche mit glänzender Spanndecke von KW Home Design"></div>
-  <div class="win-cap" id="wincap"><h2 class="serif">Neue Decke. <em class="r" style="color:var(--red2)">In einem Tag.</em></h2><p>Montiert über der alten Decke – ohne Abriss, ohne Schmutz.</p></div>
-  <div class="hero-side l h-in">
-    <p>Wir montieren Ihre neue Decke einfach über die alte – ohne Schmutz, mit 15 Jahren Herstellergarantie und in nur einem Tag.</p>
-    <div class="btns">
-      <a class="btn b-red mag" href="#kontakt"><span class="lbl"><span>Jetzt anfragen</span><span>Jetzt anfragen</span></span><span class="ar"><svg><use href="#i-arrow"/></svg></span></a>
-    </div>
-  </div>
-  <div class="hero-side r h-in">
-    <div class="hero-facts">
-      <div class="hf"><span>Hersteller-<br>garantie</span><b>15<sup>J</sup></b></div>
-      <div class="hf"><span>Einbau-<br>zeit</span><b>1<sup>Tag</sup></b></div>
+  <div class="hero-bar h-in">
+    <div class="wrap">
+      <div class="hb"><span class="ic"><svg><use href="#i-shield"/></svg></span><span><b>15 Jahre</b><small>Herstellergarantie</small></span></div>
+      <div class="hb"><span class="ic"><svg><use href="#i-clock"/></svg></span><span><b>1 Tag</b><small>Einbauzeit</small></span></div>
+      <div class="hb"><span class="ic"><svg><use href="#i-spark"/></svg></span><span><b>Ohne Schmutz</b><small>Alte Decke bleibt</small></span></div>
+      <div class="hs-nav"><span id="hsn">01</span><span class="bars"><i><b></b></i><i><b></b></i><i><b></b></i></span><span>03</span></div>
     </div>
   </div>
 </section>
@@ -616,21 +631,24 @@ a.fc:hover .fi{background:var(--red);color:#fff}
 <section class="proc dark" id="ablauf">
   <div class="grid-bg"></div>
   <div class="glow r" style="width:540px;height:540px;left:-180px;top:20%"></div>
-  <div class="wrap proc-grid">
-    <div class="proc-l">
-      <span class="kicker"><i></i>So funktioniert’s</span>
-      <h2 class="serif h-l split">Neue Decke. <em class="r">Alte bleibt.</em></h2>
-      <div class="ring" aria-hidden="true">
-        <svg viewBox="0 0 200 200"><circle class="bg" cx="100" cy="100" r="92"/><circle class="fg" id="ringfg" cx="100" cy="100" r="92"/>
-          <circle class="tick" cx="192" cy="100" r="5"/><circle class="tick" cx="100" cy="192" r="5"/><circle class="tick" cx="8" cy="100" r="5"/><circle class="tick" cx="100" cy="8" r="5"/></svg>
-        <div class="ctr"><div class="num"><span id="ringn">01</span></div><div class="lbl" id="ringl">Bestand bleibt</div></div>
+  <div class="proc-pin">
+    <div class="wrap proc-grid">
+      <div class="proc-l">
+        <span class="kicker"><i></i>So funktioniert’s</span>
+        <h2 class="serif h-l split">Neue Decke. <em class="r">Alte bleibt.</em></h2>
+        <div class="ring" aria-hidden="true">
+          <svg viewBox="0 0 200 200"><circle class="bg" cx="100" cy="100" r="92"/><circle class="fg" id="ringfg" cx="100" cy="100" r="92"/>
+            <circle class="tick" cx="192" cy="100" r="5"/><circle class="tick" cx="100" cy="192" r="5"/><circle class="tick" cx="8" cy="100" r="5"/><circle class="tick" cx="100" cy="8" r="5"/></svg>
+          <div class="ctr"><div class="num"><span id="ringn">01</span></div><div class="lbl" id="ringl">Bestand bleibt</div></div>
+        </div>
+        <div class="pdots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
       </div>
-    </div>
-    <div class="proc-r">
-      <article class="pstep" data-t="Bestand bleibt"><div class="ic"><svg><use href="#i-home"/></svg></div><div class="n">Schritt 01</div><h3>Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist. Kein Abriss, kein Staub, keine Verschmutzung der Baustelle.</p><div class="ph"><img src="../design2/img/ref-20190202_150039.webp" alt="Raum vor der Montage" loading="lazy"></div></article>
-      <article class="pstep" data-t="Profil montieren"><div class="ic"><svg><use href="#i-frame"/></svg></div><div class="n">Schritt 02</div><h3>Profil montieren</h3><p>Ein schlankes Profil wird umlaufend an der Wand befestigt – knapp unter der bestehenden Decke.</p><div class="ph"><img src="../design2/img/img_0640.webp" alt="Wandanschluss der Spanndecke" loading="lazy"></div></article>
-      <article class="pstep" data-t="Erwärmen &amp; spannen"><div class="ic"><svg><use href="#i-heat"/></svg></div><div class="n">Schritt 03</div><h3>Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei in das Profil eingespannt. Beim Abkühlen zieht sie sich straff und glatt.</p><div class="ph"><img src="../design2/img/img_0664.webp" alt="Gespannte glänzende Decke" loading="lazy"></div></article>
-      <article class="pstep" data-t="Licht &amp; Service"><div class="ic"><svg><use href="#i-bulb"/></svg></div><div class="n">Schritt 04</div><h3>Licht &amp; Service</h3><p>Lampen aller Art, Spots und Rauchmelder – alles aus einer Hand integriert. Fertig an einem Tag.</p><div class="ph"><img src="../design2/img/img_20191216_203021.webp" alt="Fertige Decke mit Einbauspots" loading="lazy"></div></article>
+      <div class="pstage">
+        <article class="pstep on" data-t="Bestand bleibt"><div class="ic"><svg><use href="#i-home"/></svg></div><div class="n">Schritt 01 / 04</div><h3>Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist. Kein Abriss, kein Staub, keine Verschmutzung der Baustelle.</p><div class="ph"><img src="../design2/img/ref-20190202_150039.webp" alt="Raum vor der Montage"></div></article>
+        <article class="pstep" data-t="Profil montieren"><div class="ic"><svg><use href="#i-frame"/></svg></div><div class="n">Schritt 02 / 04</div><h3>Profil montieren</h3><p>Ein schlankes Profil wird umlaufend an der Wand befestigt – knapp unter der bestehenden Decke.</p><div class="ph"><img src="../design2/img/img_0640.webp" alt="Wandanschluss der Spanndecke"></div></article>
+        <article class="pstep" data-t="Erwärmen &amp; spannen"><div class="ic"><svg><use href="#i-heat"/></svg></div><div class="n">Schritt 03 / 04</div><h3>Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei in das Profil eingespannt. Beim Abkühlen zieht sie sich straff und glatt.</p><div class="ph"><img src="../design2/img/img_0664.webp" alt="Gespannte glänzende Decke"></div></article>
+        <article class="pstep" data-t="Licht &amp; Service"><div class="ic"><svg><use href="#i-bulb"/></svg></div><div class="n">Schritt 04 / 04</div><h3>Licht &amp; Service</h3><p>Lampen aller Art, Spots und Rauchmelder – alles aus einer Hand integriert. Fertig an einem Tag.</p><div class="ph"><img src="../design2/img/img_20191216_203021.webp" alt="Fertige Decke mit Einbauspots"></div></article>
+      </div>
     </div>
   </div>
 </section>
@@ -904,9 +922,22 @@ $$('.nav a').forEach(a=>{const t=$(a.getAttribute('href'));if(t)ScrollTrigger.cr
 
 /* ---------- loader → hero ---------- */
 const h1w=splitWords($('#h1'));
-gsap.set(h1w,{yPercent:115});gsap.set('#h1 .pill',{scale:0});gsap.set('.h-in',{y:30,opacity:0});
-function winRect(){const h=$('.hero').getBoundingClientRect(),a=$('#winA').getBoundingClientRect();return {t:a.top-h.top,r:h.right-a.right,b:h.bottom-a.bottom,l:a.left-h.left};}
-function setWin(p){const r=winRect(),k=1-p,rad=24*k;$('#win').style.clipPath=`inset(${r.t*k}px ${r.r*k}px ${r.b*k}px ${r.l*k}px round ${rad}px)`;}
+gsap.set(h1w,{yPercent:115});gsap.set('.h-in',{y:30,opacity:0});
+const slides=$$('.hs-i'),hbars=$$('.hs-nav .bars i b');let hi=0,htimer=null;
+function heroSlide(n){
+  const prev=slides[hi];hi=(n+slides.length)%slides.length;const nx=slides[hi];
+  slides.forEach(s=>s.style.zIndex=0);prev.style.zIndex=1;nx.style.zIndex=2;
+  $('#hsn').textContent=String(hi+1).padStart(2,'0');
+  const cap=$('#hscap');
+  if(RM){slides.forEach(s=>s.classList.toggle('on',s===nx));cap.textContent=nx.dataset.cap;return;}
+  gsap.fromTo(nx,{clipPath:'inset(0 0 0 100%)'},{clipPath:'inset(0 0 0 0%)',duration:1.4,ease:'expo.inOut',onStart:()=>nx.classList.add('on'),onComplete:()=>{slides.forEach(s=>{if(s!==nx)s.classList.remove('on');});}});
+  gsap.fromTo(nx.querySelector('img'),{scale:1.3,xPercent:-4},{scale:1.08,xPercent:0,duration:7.5,ease:'power2.out'});
+  gsap.to(cap,{opacity:0,y:-10,duration:.3,onComplete:()=>{cap.textContent=nx.dataset.cap;gsap.to(cap,{opacity:1,y:0,duration:.6,ease:'power3.out'});}});
+  hbars.forEach((b,k)=>{gsap.killTweensOf(b);gsap.set(b,{scaleX:k<hi?1:0});});
+  gsap.fromTo(hbars[hi],{scaleX:0},{scaleX:1,duration:6.5,ease:'none'});
+  clearTimeout(htimer);htimer=setTimeout(()=>heroSlide(hi+1),6500);
+}
+$$('.hs-nav .bars i').forEach((b,k)=>b.addEventListener('click',()=>{if(k!==hi)heroSlide(k);}));
 function intro(){
   const o={v:0},tl=gsap.timeline(),lc=$('#lcnt');
   tl.to('#loader .roof path',{strokeDashoffset:0,duration:1.1,stagger:.15,ease:'power2.inOut'},0)
@@ -914,32 +945,21 @@ function intro(){
     .to(o,{v:100,duration:1.5,ease:'power2.inOut',onUpdate:()=>{lc.textContent=Math.round(o.v);}},0)
     .to('#loader .bar i',{scaleX:1,duration:1.5,ease:'power2.inOut'},0)
     .to('#loader .inner',{opacity:0,y:-30,duration:.5,ease:'power2.in'},1.65)
-    .to('#loader .panels i',{scaleY:0,duration:.9,stagger:.06,ease:'expo.inOut'},1.9)
+    .to('#loader .panels i',{scaleY:0,duration:1,stagger:.06,ease:'expo.inOut'},1.9)
     .add(()=>{$('#loader').style.background='transparent';},1.9)
-    .fromTo('#win',{clipPath:'inset(50% 50% 50% 50% round 24px)'},{duration:1.4,ease:'expo.out',onStart:()=>{},onUpdate:function(){},clipPath:()=>{const r=winRect();return `inset(${r.t}px ${r.r}px ${r.b}px ${r.l}px round 24px)`;}},2.15)
-    .fromTo('#win img',{scale:1.5},{scale:1.18,duration:1.8,ease:'expo.out'},2.15)
-    .to('.hero-top .kicker',{y:0,opacity:1,duration:.8,ease:'power3.out'},2.25)
-    .to(h1w,{yPercent:0,duration:1.25,stagger:.08,ease:'expo.out'},2.3)
-    .to('#h1 .pill',{scale:1,duration:1,ease:'back.out(1.6)'},2.6)
-    .to('.hero-side',{y:0,opacity:1,duration:.9,stagger:.1,ease:'power3.out'},2.6)
-    .add(()=>{$('#loader').remove();body.classList.remove('loading');lenis&&lenis.start();heroScroll();ScrollTrigger.sort();ScrollTrigger.refresh();},2.9);
+    .fromTo(slides[0].querySelector('img'),{scale:1.35},{scale:1.08,duration:2.6,ease:'expo.out'},1.95)
+    .to('.hero-c .kicker,#hscap',{y:0,opacity:1,duration:.8,ease:'power3.out'},2.3)
+    .to(h1w,{yPercent:0,duration:1.3,stagger:.08,ease:'expo.out'},2.35)
+    .to('.hero-row,.hero-bar',{y:0,opacity:1,duration:1,stagger:.12,ease:'power3.out'},2.7)
+    .add(()=>{$('#loader').remove();body.classList.remove('loading');lenis&&lenis.start();
+      gsap.fromTo(hbars[0],{scaleX:0},{scaleX:1,duration:6.5,ease:'none'});htimer=setTimeout(()=>heroSlide(1),6500);ScrollTrigger.refresh();},2.9);
 }
-function heroScroll(){
-  if(RM){setWin(0);return;}
-  const st={p:0};
-  ScrollTrigger.create({trigger:'.hero',start:'top top',end:'+=120%',pin:true,scrub:true,anticipatePin:1,invalidateOnRefresh:true,refreshPriority:10,
-    animation:gsap.timeline()
-      .to(st,{p:1,ease:'power1.inOut',duration:1,onUpdate:()=>setWin(st.p)},0)
-      .to('#win img',{scale:1,ease:'none',duration:1},0)
-      .to('.hero-top',{yPercent:-40,opacity:0,ease:'power1.in',duration:.5},0)
-      .to('.hero-side',{opacity:0,y:40,duration:.3},0)
-      .to('.hero .grid-bg',{opacity:0,duration:.4},0)
-      .fromTo('#wincap',{opacity:0,y:50},{opacity:1,y:0,duration:.3,ease:'power2.out'},.62)
-      .to({},{duration:.2})});
-  addEventListener('resize',()=>{if(scrollY<5)setWin(0);});
+if(RM){$('#loader').remove();body.classList.remove('loading');gsap.set(h1w,{yPercent:0});gsap.set('.h-in',{y:0,opacity:1});}
+else{const lg=$('#loader .lg');Promise.race([Promise.all([document.fonts?document.fonts.ready:0,lg.complete?0:new Promise(r=>{lg.onload=lg.onerror=r;})]),new Promise(r=>setTimeout(r,1400))]).then(intro);
+  // parallax on scroll (no pin)
+  gsap.to('#hs',{yPercent:18,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  gsap.to('.hero-c .wrap',{yPercent:-30,opacity:0,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'75% top',scrub:true}});
 }
-if(RM){$('#loader').remove();body.classList.remove('loading');gsap.set(h1w,{yPercent:0});gsap.set('#h1 .pill',{scale:1});gsap.set('.h-in',{y:0,opacity:1});setWin(0);}
-else{const lg=$('#loader .lg');Promise.race([Promise.all([document.fonts?document.fonts.ready:0,lg.complete?0:new Promise(r=>{lg.onload=lg.onerror=r;})]),new Promise(r=>setTimeout(r,1400))]).then(intro);}
 
 /* ---------- marquees (scroll-velocity) ---------- */
 function marquee(el,speed,dirSign){let x=0,v=0;
@@ -965,22 +985,44 @@ $$('.split').forEach(el=>{const ws=splitWords(el);if(RM)return;gsap.from(ws,{yPe
 $$('.cnt').forEach(el=>{const to=+el.dataset.to,from=el.dataset.from?+el.dataset.from:0,o={v:from};if(RM){el.textContent=to;return;}
   ScrollTrigger.create({trigger:el,start:'top 90%',once:true,onEnter:()=>gsap.to(o,{v:to,duration:to<=2&&!el.dataset.from?1.2:2.2,ease:'power3.out',onUpdate:()=>el.textContent=Math.round(o.v)})});});
 
-/* ---------- process: sticky ring follows the steps ---------- */
-(()=>{const steps=$$('.pstep'),fg=$('#ringfg'),ticks=$$('.ring .tick'),n=$('#ringn'),l=$('#ringl');const C=2*Math.PI*92;
-  fg.style.strokeDasharray=C;fg.style.strokeDashoffset=C;let cur=-1;
-  const setStep=i=>{if(i===cur)return;const dir=i>cur?1:-1;cur=i;steps.forEach((s,k)=>s.classList.toggle('on',k===i));ticks.forEach((t,k)=>t.classList.toggle('on',k<=i));
-    if(RM){n.textContent='0'+(i+1);l.textContent=steps[i].dataset.t;return;}
-    l.textContent=steps[i].dataset.t;
-    gsap.to(n,{yPercent:-100*dir,duration:.25,ease:'power2.in',overwrite:true,onComplete:()=>{n.textContent='0'+(cur+1);gsap.fromTo(n,{yPercent:100*dir},{yPercent:0,duration:.5,ease:'expo.out',overwrite:true});}});};
-  setStep(0);
-  // live measurement on every scroll frame (immune to late font/image layout shifts)
-  const pr=$('.proc-r');
-  const live=()=>{const line=innerHeight*.55;let idx=0;steps.forEach((s,k)=>{if(s.getBoundingClientRect().top<=line)idx=k;});setStep(idx);
-    const r=pr.getBoundingClientRect();const p=Math.min(1,Math.max(0,(innerHeight*.5-r.top)/r.height));fg.style.strokeDashoffset=C*(1-p);};
-  if(lenis)lenis.on('scroll',live);addEventListener('scroll',live,{passive:true});addEventListener('resize',live);live();
-  steps.forEach((s,i)=>{
-    const im=s.querySelector('.ph img');if(im&&!RM)gsap.fromTo(im,{scale:1.25},{scale:1.02,ease:'none',scrollTrigger:{trigger:s,start:'top bottom',end:'bottom top',scrub:true}});
-    if(!RM)gsap.from(s.querySelector('.ph'),{clipPath:'inset(0 0 100% 0 round 20px)',duration:1.3,ease:'expo.inOut',scrollTrigger:{trigger:s,start:'top 70%'}});});
+/* ---------- process: pinned stepper — one scroll = one step, never blocks scrolling ---------- */
+(()=>{
+  const steps=$$('.pstep'),fg=$('#ringfg'),ticks=$$('.ring .tick'),dots=$$('.pdots i'),n=$('#ringn'),l=$('#ringl');
+  const C=2*Math.PI*92,N=steps.length;fg.style.strokeDasharray=C;
+  let cur=0;
+  const setRing=f=>{fg.style.strokeDashoffset=C*(1-f);};
+  function setStep(i){
+    if(i===cur)return;const dir=i>cur?1:-1;
+    steps.forEach((s,k)=>{s.classList.toggle('on',k===i);s.classList.toggle('up',k<i);});
+    ticks.forEach((t,k)=>t.classList.toggle('on',k<=i));dots.forEach((d,k)=>d.classList.toggle('on',k<=i));
+    l.textContent=steps[i].dataset.t;cur=i;
+    if(RM){n.textContent='0'+(i+1);return;}
+    gsap.to(n,{yPercent:-100*dir,duration:.22,ease:'power2.in',overwrite:true,onComplete:()=>{n.textContent='0'+(cur+1);gsap.fromTo(n,{yPercent:100*dir},{yPercent:0,duration:.5,ease:'expo.out',overwrite:true});}});
+  }
+  ticks[0].classList.add('on');setRing(1/N);
+  ScrollTrigger.matchMedia({'(min-width:901px)':()=>{
+    if(RM)return;
+    const ST=ScrollTrigger.create({trigger:'.proc',start:'top top',end:()=>'+='+(innerHeight*(N-1)*.9),pin:'.proc-pin',invalidateOnRefresh:true,
+      onUpdate:s=>{const p=s.progress;setStep(Math.min(N-1,Math.round(p*(N-1))));setRing((p*(N-1)+1)/N);}});
+    // glide to the next/previous step once scrolling stops (direction-aware); scroll input is never blocked
+    const pos=k=>ST.start+(ST.end-ST.start)*k/(N-1);
+    const PT=()=>Math.max(0,ST.start-innerHeight);
+    const NT=()=>{const el=$('#leistungen');return el?el.getBoundingClientRect().top+scrollY:ST.end+innerHeight;};
+    let dir=1,timer=null,snapping=false,lastY=scrollY;
+    const target=y=>{const T=6,pt=PT(),nt=NT();
+      if(y<=pt+T||y>=nt-T)return null;
+      for(let k=0;k<N;k++)if(Math.abs(pos(k)-y)<=T)return null;
+      if(dir>0){for(let k=0;k<N;k++)if(pos(k)>y)return pos(k);return nt;}
+      for(let k=N-1;k>=0;k--)if(pos(k)<y)return pos(k);return pt;};
+    const settle=()=>{const y=lenis?lenis.scroll:scrollY;if(lenis&&Math.abs(lenis.velocity)>.3){timer=setTimeout(settle,80);return;}
+      const t=target(y);if(t==null)return;snapping=true;
+      if(lenis)lenis.scrollTo(t,{duration:.75,easing:x=>1-Math.pow(1-x,3),onComplete:()=>{snapping=false;}});
+      else{scrollTo({top:t,behavior:'smooth'});setTimeout(()=>{snapping=false;},750);}};
+    const onScroll=()=>{const y=lenis?lenis.scroll:scrollY;if(Math.abs(y-lastY)>.5&&!snapping)dir=y>lastY?1:-1;lastY=y;clearTimeout(timer);timer=setTimeout(settle,snapping?250:160);};
+    if(lenis)lenis.on('scroll',onScroll);else addEventListener('scroll',onScroll,{passive:true});
+    const stop=()=>{snapping=false;};['wheel','touchstart','keydown'].forEach(ev=>addEventListener(ev,stop,{passive:true}));
+    return ()=>{if(lenis)lenis.off&&lenis.off('scroll',onScroll);removeEventListener('scroll',onScroll);};
+  }});
 })();
 
 /* ---------- services: expanding panels ---------- */
@@ -1018,7 +1060,7 @@ $$('.cnt').forEach(el=>{const to=+el.dataset.to,from=el.dataset.from?+el.dataset
     if(RM)return;
     const maxX=()=>tr.scrollWidth-tr.clientWidth;
     tr.style.scrollSnapType='none';tr.style.overflowX='hidden';
-    const st=ScrollTrigger.create({trigger:'.types',start:'top top',end:()=>'+='+Math.max(1,maxX()),pin:true,anticipatePin:1,invalidateOnRefresh:true,
+    const st=ScrollTrigger.create({trigger:'#track',start:()=>{const h=tr.getBoundingClientRect().height;return h+160>innerHeight?'bottom bottom-=24':'center 54%';},end:()=>'+='+Math.max(1,maxX()),pin:'.types',anticipatePin:1,invalidateOnRefresh:true,
       onUpdate:s=>{tr.scrollLeft=s.progress*maxX();upd();}});
     pinned=st;
     return ()=>{pinned=null;tr.style.scrollSnapType='';tr.style.overflowX='';};

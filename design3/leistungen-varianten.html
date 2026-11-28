@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KW Home Design – Leistungen: Varianten A / B / C / D</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;600&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#DC0F16;--red2:#FF4A50;--ink:#1A1715;--coal:#221E1B;--dark:#34302C;--stone:#5E5650;--muted:#A89E96;--sand:#CFC6BE;--line:#E3DBD2;--paper:#EDE7E0;--cream:#F5F2ED;--white:#FFFDFB;--ease:cubic-bezier(.76,0,.24,1);--out:cubic-bezier(.16,1,.3,1);--pad:clamp(20px,4.2vw,64px)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--dark);font-family:'Open Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
+.serif{font-family:'Enriqueta',Georgia,serif;font-weight:400;letter-spacing:-.025em}
+.wrap{max-width:1440px;margin:0 auto;padding:0 var(--pad)}
+.kicker{display:inline-flex;align-items:center;gap:12px;font-size:11.5px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--red)}
+.kicker i{width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px rgba(220,15,22,.15)}
+.dark .kicker{color:var(--red2)}
+.h-l{font-size:clamp(38px,5vw,84px);line-height:.98}
+em.r{font-style:italic;color:var(--red)}.dark em.r{color:var(--red2)}
+.vbar{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:100;display:flex;gap:6px;padding:6px;border-radius:999px;background:rgba(34,30,27,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:calc(100vw - 20px);overflow-x:auto}
+.vbar a{padding:10px 16px;border-radius:999px;color:var(--sand);font-size:13px;font-weight:700;white-space:nowrap;transition:background .3s,color .3s}
+.vbar a.on,.vbar a:hover{background:#fff;color:var(--coal)}.vbar a.back{background:var(--red);color:#fff}
+.vlabel{display:inline-block;margin-bottom:22px;padding:8px 14px;border-radius:999px;background:var(--red);color:#fff;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.intro{padding:140px 0 70px;text-align:center}.intro p{max-width:620px;margin:16px auto 0;color:var(--stone);line-height:1.75}
+section.v{padding:clamp(100px,13vh,150px) 0;position:relative;overflow:hidden}
+.vhead{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(36px,5vh,60px)}
+.vhead p{max-width:420px;color:var(--stone);line-height:1.75}
+.dark{background:var(--coal);color:var(--cream)}.dark .vhead p{color:var(--sand)}
+.light{background:var(--white)}.paper{background:var(--paper)}
+.pbtn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 20px;border-radius:999px;background:#fff;color:var(--coal);font-weight:700;font-size:13.5px;transition:background .4s,color .4s}
+.pbtn:hover{background:var(--red);color:#fff}
+.pbtn svg,.arrow svg{width:16px;height:16px}
+
+/* A: expanding panels */
+.panels{display:flex;gap:12px;height:min(72vh,640px);min-height:460px}
+.pnl{position:relative;flex:1;min-width:0;border-radius:26px;overflow:hidden;cursor:pointer;background:var(--coal);transition:flex .9s var(--ease);isolation:isolate}
+.pnl.on{flex:4.6}
+.pnl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15);transition:transform 1.4s var(--out),filter .8s;filter:saturate(.6) brightness(.75);z-index:-2}
+.pnl.on img{transform:scale(1);filter:none}
+.pnl::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,23,21,.35),rgba(26,23,21,.1) 35%,rgba(26,23,21,.85));z-index:-1}
+.pno{position:absolute;left:22px;top:22px;font-family:'Enriqueta',serif;font-size:15px;color:#fff;padding:7px 13px;border-radius:999px;background:rgba(26,23,21,.35)}
+.vt{position:absolute;left:50%;bottom:30px;writing-mode:vertical-rl;transform:translateX(-50%) rotate(180deg);font-family:'Enriqueta',serif;font-size:clamp(22px,1.8vw,30px);color:#fff;white-space:nowrap;transition:opacity .4s}
+.pnl.on .vt{opacity:0}
+.pbody{position:absolute;left:36px;right:36px;bottom:32px;color:#fff;opacity:0;transform:translateY(30px);transition:opacity .4s,transform .7s var(--out);max-width:540px}
+.pnl.on .pbody{opacity:1;transform:none;transition-delay:.35s}
+.pbody h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(36px,3.8vw,64px);line-height:1;margin-bottom:12px}
+.pbody p{color:rgba(255,255,255,.82);line-height:1.7;margin-bottom:20px}
+@media(max-width:900px){.panels{flex-direction:column;height:auto;min-height:0}.pnl{flex:none;height:92px;transition:height .8s var(--ease)}.pnl.on{flex:none;height:420px}.vt{writing-mode:horizontal-tb;transform:none;left:76px;bottom:auto;top:50%;margin-top:-.6em;font-size:24px}.pnl .pno{top:50%;margin-top:-17px}.pnl.on .pno{top:22px;margin-top:0}}
+
+/* B: bento grid */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,minmax(260px,34vh));gap:14px}
+.bt{position:relative;border-radius:24px;overflow:hidden;color:#fff;isolation:isolate}
+.bt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--out);z-index:-2}
+.bt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,23,21,.05) 30%,rgba(26,23,21,.88));z-index:-1;transition:background .5s}
+.bt:hover img{transform:scale(1.08)}
+.bt:hover::after{background:linear-gradient(180deg,rgba(26,23,21,.25),rgba(26,23,21,.92))}
+.bt .top{position:absolute;left:20px;right:20px;top:20px;display:flex;justify-content:space-between}
+.bt .chip{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.bt .no{font-family:'Enriqueta',serif}
+.bt .bot{position:absolute;left:24px;right:24px;bottom:22px}
+.bt h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(26px,2.4vw,40px);line-height:1.05}
+.bt p{font-size:14px;line-height:1.6;color:rgba(255,255,255,.82);max-height:0;opacity:0;overflow:hidden;transition:max-height .6s var(--ease),opacity .4s,margin .6s;margin-top:0}
+.bt:hover p{max-height:80px;opacity:1;margin-top:8px}
+.bt .arrow{position:absolute;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--red);display:grid;place-items:center;transform:scale(0) rotate(-90deg);transition:transform .5s var(--out)}
+.bt:hover .arrow{transform:none}
+.bt.b1{grid-column:span 2;grid-row:span 2}.bt.b2{grid-column:span 2}.bt.b5{grid-column:span 1}
+.bt.cta{background:var(--red);display:flex;flex-direction:column;justify-content:space-between;padding:26px}
+.bt.cta::after{display:none}
+.bt.cta h3{font-size:clamp(26px,2.2vw,36px)}
+@media(max-width:900px){.bento{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:220px}.bt.b1{grid-column:span 2;grid-row:span 1;}.bt.b2{grid-column:span 2}.bt p{max-height:none;opacity:1;margin-top:6px}.bt .arrow{transform:none}}
+
+/* C: split showcase */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,90px);align-items:center}
+.slist{list-style:none;border-top:1px solid rgba(255,255,255,.1)}
+.slist li{border-bottom:1px solid rgba(255,255,255,.1)}
+.slist button{width:100%;display:flex;align-items:baseline;gap:22px;padding:22px 0;text-align:left;transition:padding .5s var(--out)}
+.slist .no{font-family:'Enriqueta',serif;font-size:14px;color:var(--muted);width:28px}
+.slist .t{font-family:'Enriqueta',serif;font-size:clamp(30px,3.4vw,56px);line-height:1;color:rgba(255,255,255,.35);transition:color .4s}
+.slist .c{margin-left:auto;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);transition:color .4s}
+.slist li.on button{padding-left:18px}
+.slist li.on .t{color:#fff}.slist li.on .no,.slist li.on .c{color:var(--red2)}
+.show{position:relative;aspect-ratio:4/4.4;max-height:72vh;border-radius:28px;overflow:hidden}
+.show .si{position:absolute;inset:0;clip-path:inset(100% 0 0 0);transition:clip-path 1s var(--ease)}
+.show .si.on{clip-path:inset(0)}
+.show .si img{width:100%;height:100%;object-fit:cover;transform:scale(1.15);transition:transform 1.6s var(--out)}
+.show .si.on img{transform:scale(1)}
+.show::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(26,23,21,.85));pointer-events:none;z-index:2}
+.show .cap{position:absolute;left:28px;right:28px;bottom:26px;z-index:3;color:#fff}
+.show .cap p{color:rgba(255,255,255,.85);line-height:1.65;margin-bottom:16px;max-width:440px}
+@media(max-width:900px){.split{grid-template-columns:1fr}.show{order:-1;aspect-ratio:4/3}}
+
+/* D: category columns */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.col{border-radius:28px;background:var(--white);box-shadow:inset 0 0 0 1px var(--line);padding:16px;display:flex;flex-direction:column;transition:transform .6s var(--out),box-shadow .5s}
+.col:hover{transform:translateY(-8px);box-shadow:inset 0 0 0 1px var(--line),0 40px 70px -40px rgba(42,36,32,.45)}
+.col .cv{position:relative;height:min(40vh,360px);border-radius:20px;overflow:hidden}
+.col .cv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s,transform 1.2s var(--out)}
+.col .cv img+img{opacity:0}
+.col:hover .cv img{transform:scale(1.06)}
+.col .cv .tag{position:absolute;left:16px;top:16px;z-index:2;padding:8px 14px;border-radius:999px;background:var(--red);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.col h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(30px,2.6vw,44px);margin:22px 10px 6px;color:var(--coal)}
+.col .sub{margin:0 10px 18px;color:var(--stone);font-size:14.5px;line-height:1.6}
+.col ul{list-style:none;margin:auto 0 0;padding:0 6px}
+.col li a{display:flex;justify-content:space-between;align-items:center;padding:14px 10px;border-top:1px solid var(--line);font-weight:600;color:var(--coal);transition:padding .4s var(--out),color .3s}
+.col li a span{color:var(--muted);font-size:13px;font-weight:400}
+.col li a:hover{padding-left:18px;color:var(--red)}
+@media(max-width:900px){.cols{grid-template-columns:1fr}}
+footer{padding:50px 0;text-align:center;color:var(--stone)}footer a{color:var(--red);font-weight:700}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol></svg>
+<nav class="vbar"><a class="back" href="./">← Design 3</a><a href="#a">A · Panels</a><a href="#b">B · Bento</a><a href="#c">C · Showcase</a><a href="#d">D · Bereiche</a></nav>
+
+<section class="intro wrap"><span class="kicker"><i></i>Abschnitt „Leistungen“</span><h1 class="serif h-l" style="margin-top:16px">Vier Varianten <em class="r">zur Auswahl.</em></h1><p>Scrollen Sie durch die vier Designs. Die gewählte Variante ersetzt anschließend den aktuellen Abschnitt auf Design 3.</p></section>
+
+<!-- A -->
+<section class="v light" id="a"><div class="wrap">
+  <span class="vlabel">Variante A · Ausklappende Panels (aktuell)</span>
+  <div class="vhead"><div><span class="kicker"><i></i>Leistungen</span><h2 class="serif h-l" style="margin-top:18px">Decke. Boden. <em class="r">Wand.</em></h2></div><p>Fahren Sie über ein Panel – es öffnet sich mit Bild, Beschreibung und Anfrage-Button.</p></div>
+  <div class="panels" id="panels"></div>
+</div></section>
+
+<!-- B -->
+<section class="v paper" id="b"><div class="wrap">
+  <span class="vlabel">Variante B · Bento-Raster</span>
+  <div class="vhead"><div><span class="kicker"><i></i>Leistungen</span><h2 class="serif h-l" style="margin-top:18px">Alles für Ihren <em class="r">Raum.</em></h2></div><p>Ein Bildraster in unterschiedlichen Größen – Spanndecken als großes Hauptmotiv.</p></div>
+  <div class="bento" id="bento"></div>
+</div></section>
+
+<!-- C -->
+<section class="v dark" id="c"><div class="wrap">
+  <span class="vlabel">Variante C · Showcase mit großem Bild</span>
+  <div class="vhead"><div><span class="kicker"><i></i>Leistungen</span><h2 class="serif h-l" style="margin-top:18px">Sechs Disziplinen. <em class="r">Ein Anspruch.</em></h2></div><p>Links die Liste, rechts ein großes Bild, das beim Überfahren wechselt.</p></div>
+  <div class="split"><ul class="slist" id="slist"></ul><div class="show" id="show"><div class="cap"><p id="scap"></p><a class="pbtn" href="#">Anfragen <svg><use href="#i-arrow"/></svg></a></div></div></div>
+</div></section>
+
+<!-- D -->
+<section class="v light" id="d"><div class="wrap">
+  <span class="vlabel">Variante D · Nach Bereichen</span>
+  <div class="vhead"><div><span class="kicker"><i></i>Leistungen</span><h2 class="serif h-l" style="margin-top:18px">Drei Bereiche. <em class="r">Ein Team.</em></h2></div><p>Gruppiert nach Decke, Boden und Wand – jeweils mit Bild und den passenden Leistungen.</p></div>
+  <div class="cols">
+    <article class="col"><div class="cv"><span class="tag">Decke</span><img src="../design2/img/img_0642.webp" alt="Spanndecke"><img src="../design2/img/img_0632.webp" alt="Holzdecke"></div><h3>Deckendesign</h3><p class="sub">Spanndecken in vielen Oberflächen und Holzdecken mit natürlicher Wärme.</p><ul><li><a href="#">Spanndecken <span>9 Arten</span></a></li><li><a href="#">Holzdecken <span>Natürlich</span></a></li><li><a href="#">Licht &amp; Rauchmelder <span>Service</span></a></li></ul></article>
+    <article class="col"><div class="cv"><span class="tag">Boden</span><img src="../design2/img/k-bathroom-1336167_1920.webp" alt="Laminat"><img src="../design2/img/k-interior-2685518_1920.webp" alt="Vinylboden"></div><h3>Bodendesign</h3><p class="sub">Robuste, pflegeleichte Böden – auch für Küche und Bad.</p><ul><li><a href="#">Laminat <span>Viele Dekore</span></a></li><li><a href="#">Vinylboden <span>Rutschhemmend</span></a></li></ul></article>
+    <article class="col"><div class="cv"><span class="tag">Wand</span><img src="../design2/img/k-interior-3012218_1920.webp" alt="Tapete"><img src="../design2/img/k-room-3051846_1920.webp" alt="Wandklinker"></div><h3>Wanddesign</h3><p class="sub">Tapeten in unzähligen Farben und Mustern oder Wandklinker als Akzent.</p><ul><li><a href="#">Tapetengestaltung <span>Farben &amp; Muster</span></a></li><li><a href="#">Wandklinker <span>Akzent &amp; Kamin</span></a></li></ul></article>
+  </div>
+</div></section>
+
+<footer>Welche Variante gefällt Ihnen – A, B, C oder D? <a href="./">Zurück zu Design 3</a></footer>
+
+<script>
+const S=[['Spanndecken','Decke','img_0642','Fugenlos, pflegeleicht und in vielen Oberflächen – montiert direkt unter der alten Decke.'],
+['Holzdecken','Decke','img_0632','Natürliche Wärme und Charakter über Kopf – handwerklich sauber montiert.'],
+['Laminat','Boden','k-bathroom-1336167_1920','Nahezu jede Optik, robust und leicht zu reinigen – ideal auch für Allergiker.'],
+['Vinylboden','Boden','k-interior-2685518_1920','Widerstandsfähig, rutschhemmend und lichtecht – auch für Küche und Bad.'],
+['Tapeten','Wand','k-interior-3012218_1920','Tapete in unzähligen Farben und Mustern – alles andere als langweilig.'],
+['Wandklinker','Wand','k-room-3051846_1920','Als Akzent, rund um den Kamin oder über die ganze Wand.']];
+const I=n=>`../design2/img/${n}.webp`,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],ar='<svg><use href="#i-arrow"/></svg>';
+const fine=matchMedia('(hover:hover)').matches;
+// A
+$('#panels').innerHTML=S.map((s,i)=>`<article class="pnl${i?'':' on'}"><img src="${I(s[2])}" alt="${s[0]}"><span class="pno">0${i+1}</span><h3 class="vt">${s[0]}</h3><div class="pbody"><h3>${s[0]}</h3><p>${s[3]}</p><a class="pbtn" href="#">Anfragen ${ar}</a></div></article>`).join('');
+$$('.pnl').forEach(p=>{const o=()=>$$('.pnl').forEach(x=>x.classList.toggle('on',x===p));if(fine)p.addEventListener('mouseenter',o);p.addEventListener('click',o);});
+// B
+$('#bento').innerHTML=S.map((s,i)=>`<a class="bt b${i+1}" href="#"><img src="${I(s[2])}" alt="${s[0]}"><div class="top"><span class="chip">${s[1]}</span><span class="no">0${i+1}</span></div><div class="bot"><h3>${s[0]}</h3><p>${s[3]}</p></div><span class="arrow">${ar}</span></a>`).slice(0,5).join('')+`<a class="bt cta" href="#"><span class="chip" style="align-self:flex-start;background:rgba(255,255,255,.2)">Wand</span><div><h3 class="serif">Wandklinker &amp; mehr</h3><p style="max-height:none;opacity:1;margin-top:8px">Fragen Sie uns nach allen Leistungen.</p></div><span class="pbtn" style="align-self:flex-start">Beratung ${ar}</span></a>`;
+// C
+const sh=$('#show');S.forEach((s,i)=>{const d=document.createElement('div');d.className='si'+(i?'':' on');d.innerHTML=`<img src="${I(s[2])}" alt="${s[0]}">`;sh.insertBefore(d,sh.firstChild);});
+const sis=[...sh.querySelectorAll('.si')].reverse();
+$('#slist').innerHTML=S.map((s,i)=>`<li class="${i?'':'on'}"><button><span class="no">0${i+1}</span><span class="t">${s[0]}</span><span class="c">${s[1]}</span></button></li>`).join('');
+$('#scap').textContent=S[0][3];
+$$('#slist li').forEach((li,i)=>{const go=()=>{$$('#slist li').forEach(x=>x.classList.toggle('on',x===li));sis.forEach((x,k)=>{x.classList.toggle('on',k===i);x.style.zIndex=k===i?1:0;});$('#scap').textContent=S[i][3];};li.addEventListener(fine?'mouseenter':'click',go);li.addEventListener('click',go);});
+// D: swap image on hover
+$$('.col').forEach(c=>{const imgs=c.querySelectorAll('.cv img');c.querySelectorAll('li').forEach((li,k)=>li.addEventListener('mouseenter',()=>{if(imgs[1]){imgs[1].style.opacity=k%2?1:0;}}));c.addEventListener('mouseleave',()=>{if(imgs[1])imgs[1].style.opacity=0;});});
+// nav highlight
+const navs=$$('.vbar a[href^="#"]');const hl=()=>{const m=innerHeight/2;navs.forEach(a=>{const r=$(a.getAttribute('href')).getBoundingClientRect();a.classList.toggle('on',r.top<m&&r.bottom>m);});};addEventListener('scroll',hl,{passive:true});hl();
+</script>
+</body>
+</html>
