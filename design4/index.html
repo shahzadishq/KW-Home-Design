@@ -896,8 +896,8 @@ function goStep(n){busy=true;idx=n;tl2.tweenTo(T[n],{duration:1.05,ease:'power2.
 var y=stv.start+(stv.end-stv.start)*(n/3);if(lenis)lenis.scrollTo(y,{immediate:true,force:true});else window.scrollTo(0,y)}
 function lock(fromBelow){if(window.navScroll||Date.now()-releasedAt<900)return;locked=true;
 var n=fromBelow?3:0,y=stv.start+(stv.end-stv.start)*(n/3);if(lenis){lenis.scrollTo(y,{immediate:true,force:true});lenis.stop()}else window.scrollTo(0,y);
-document.documentElement.classList.add('vc-lock');busy=true;idx=n;tl2.tweenTo(T[n],{duration:fromBelow?.6:1,ease:'power2.out',onComplete:function(){busy=false}})}
-function release(dir){locked=false;releasedAt=Date.now();document.documentElement.classList.remove('vc-lock');if(lenis)lenis.start();
+document.documentElement.classList.add('vc-lock');$('#hdr').classList.add('hd');busy=true;idx=n;tl2.tweenTo(T[n],{duration:fromBelow?.6:1,ease:'power2.out',onComplete:function(){busy=false}})}
+function release(dir){locked=false;releasedAt=Date.now();document.documentElement.classList.remove('vc-lock');if(dir<0)$('#hdr').classList.remove('hd');if(lenis)lenis.start();
 var y=dir>0?stv.end+2:stv.start-2;if(lenis){lenis.scrollTo(y,{immediate:true,force:true});lenis.scrollTo(y+dir*innerHeight*.55,{duration:1.1})}else window.scrollTo({top:y+dir*innerHeight*.55,behavior:'smooth'})}
 function step(dir){if(!locked||busy)return;var n=idx+dir;if(n>3)return release(1);if(n<0)return release(-1);goStep(n)}
 stv=ScrollTrigger.create({trigger:'.vc',start:'top top',end:'+=150%',pin:'.vc-pin',
