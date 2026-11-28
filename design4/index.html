@@ -387,6 +387,15 @@ form.mf{padding:44px 48px;display:flex;flex-direction:column;min-height:620px}
 .done2 p{color:var(--muted);max-width:400px;line-height:1.7}
 @media(max-width:1000px){.fcard{grid-template-columns:1fr}.fsum-in{padding:30px}.trust{margin-top:0}form.mf{padding:30px 24px;min-height:0}.rooms{grid-template-columns:1fr 1fr}.sws{grid-template-columns:repeat(2,1fr)}.flds{grid-template-columns:1fr}.fl.wide{grid-column:auto}}
 
+/* contact icons */
+.ci{width:17px;height:17px;flex:0 0 17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:.15em}
+.ln{display:flex;align-items:flex-start;gap:10px}
+.fcols .ln{margin-bottom:8px}
+.fcols .ln .ci{color:var(--red2)}
+.hq p.ln .ci{color:var(--red2);width:15px;height:15px;flex-basis:15px}
+.hq .call{display:inline-flex;align-items:center;gap:8px}
+.hq .call .ci{margin-top:0}
+.fcontact .ln{align-items:center}.fcontact .ci{color:var(--red2);margin-top:0}
 footer{background:#0A0908;padding:110px 0 36px;color:#8C827A;font-size:14px}
 .ftop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;padding-bottom:60px;border-bottom:1px solid var(--line)}
 .ftop img{height:clamp(80px,9vw,130px);width:auto}
@@ -598,8 +607,8 @@ footer{background:#0A0908;padding:110px 0 36px;color:#8C827A;font-size:14px}
       <span class="eyebrow">Einsatzgebiet</span>
       <h2 class="serif h2">Von Mannheim<br>bis zum <em>Bodensee.</em></h2>
       <p>Von unseren zwei Standorten aus sind wir in ganz Baden-Württemberg für Sie im Einsatz. Fahren Sie über einen Standort, um seine Region zu sehen.</p>
-      <div class="hq" data-h="0" tabindex="0"><span class="pin">01</span><span><h3>Empfingen</h3><p>Zollernring 12, 72186 Empfingen</p></span><a class="call" href="tel:+4974852830609">07485 2830 609 →</a></div>
-      <div class="hq" data-h="1" tabindex="0"><span class="pin">02</span><span><h3>Lehrensteinsfeld</h3><p>Starenweg 3, 74251 Lehrensteinsfeld</p></span><a class="call" href="tel:+4971349069440">07134 9069 440 →</a></div>
+      <div class="hq" data-h="0" tabindex="0"><span class="pin">01</span><span><h3>Empfingen</h3><p class="ln"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Zollernring 12, 72186 Empfingen</p></span><a class="call" href="tel:+4974852830609"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>07485 2830 609 →</a></div>
+      <div class="hq" data-h="1" tabindex="0"><span class="pin">02</span><span><h3>Lehrensteinsfeld</h3><p class="ln"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Starenweg 3, 74251 Lehrensteinsfeld</p></span><a class="call" href="tel:+4971349069440"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>07134 9069 440 →</a></div>
       <div class="ga-stats"><div><b>2</b><span>Standorte</span></div><div><b id="aCnt">0</b><span>Städte &amp; Regionen</span></div><div><b>1</b><span>Bundesland, ganz abgedeckt</span></div></div>
     </div>
     <div class="ga-map"><svg id="aMap" viewBox="0 0 600 640" role="img" aria-label="Karte: Einsatzgebiet in Baden-Württemberg mit den Standorten Empfingen und Lehrensteinsfeld"></svg></div>
@@ -623,7 +632,7 @@ footer{background:#0A0908;padding:110px 0 36px;color:#8C827A;font-size:14px}
             <li><small>Kontakt</small><b id="sK">–</b></li>
           </ul>
           <div class="trust"><span>✓ Kostenlos &amp; unverbindlich</span><span>✓ 15 Jahre Herstellergarantie</span><span>✓ Einbau meist an einem Tag</span></div>
-          <div class="fcontact"><a href="tel:+4974852830609">Empfingen · 07485 2830 609</a><a href="tel:+4971349069440">Lehrensteinsfeld · 07134 9069 440</a></div>
+          <div class="fcontact"><a class="ln" href="tel:+4974852830609"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Empfingen · 07485 2830 609</a><a class="ln" href="tel:+4971349069440"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Lehrensteinsfeld · 07134 9069 440</a><a class="ln" href="mailto:info@kw-homedesign.de"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>info@kw-homedesign.de</a></div>
         </div>
       </aside>
       <form class="mf" id="mf" novalidate>
@@ -679,9 +688,9 @@ footer{background:#0A0908;padding:110px 0 36px;color:#8C827A;font-size:14px}
   <div class="wrap">
     <div class="ftop"><a href="#top" aria-label="Nach oben"><img src="../design2/img/logo-light.webp" alt="KW Home Design – Mit Hand ans Werk!"></a><div class="big">Ihr starker Partner für Spanndecken <span>und Raumausstattung.</span></div></div>
     <div class="fcols">
-      <div><h4>Unternehmen</h4>KW Home Design GmbH &amp; Co. KG<br><a href="mailto:info@kw-homedesign.de">info@kw-homedesign.de</a></div>
-      <div><h4>Empfingen</h4>Zollernring 12<br>72186 Empfingen<br><a href="tel:+4974852830609">07485 2830 609</a></div>
-      <div><h4>Lehrensteinsfeld</h4>Starenweg 3<br>74251 Lehrensteinsfeld<br><a href="tel:+4971349069440">07134 9069 440</a></div>
+      <div><h4>Unternehmen</h4><span class="ln"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>KW Home Design GmbH &amp; Co. KG</span><a class="ln" href="mailto:info@kw-homedesign.de"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>info@kw-homedesign.de</a></div>
+      <div><h4>Empfingen</h4><span class="ln"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Zollernring 12<br>72186 Empfingen</span></span><a class="ln" href="tel:+4974852830609"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>07485 2830 609</a></div>
+      <div><h4>Lehrensteinsfeld</h4><span class="ln"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Starenweg 3<br>74251 Lehrensteinsfeld</span></span><a class="ln" href="tel:+4971349069440"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>07134 9069 440</a></div>
       <div><h4>Leistungen</h4>Spanndecken · Holzdecken<br>Laminat · Vinylboden<br>Tapeten · Wandverklinkung</div>
     </div>
     <div class="fbot"><span>© KW Home Design</span><span style="display:flex;gap:22px"><a href="https://www.kw-homedesign.de/impressum.html">Impressum</a><a href="https://www.kw-homedesign.de/datenschutz.html">Datenschutz</a><a href="https://www.kw-homedesign.de/agb.html">AGB</a></span></div>
