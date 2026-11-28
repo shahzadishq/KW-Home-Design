@@ -262,11 +262,11 @@ function jump(y){window.scrollTo(0,y);lenis.animatedScroll=lenis.targetScroll=le
 var active=null,navScroll=false,releasedAt=0;
 function Stepper(sec,show){var self=this;this.sec=sec;this.n=+sec.dataset.n;this.idx=0;this.busy=false;this.show=show;
  this.st=ScrollTrigger.create({trigger:sec,start:'top top',end:'+=150%',pin:$('.pin',sec),onEnter:function(){self.lock(false)},onEnterBack:function(){self.lock(true)}});}
-Stepper.prototype.y=function(i){return this.st.start+(this.st.end-this.st.start)*(i/(this.n-1))};
-Stepper.prototype.lock=function(fromBelow){if(navScroll||Date.now()-releasedAt<900)return;active=this;var i=fromBelow?this.n-1:0;jump(this.y(i));lenis.stop();$('#vbar').classList.add('hide');this.go(i,fromBelow?-1:1,true)};
+Stepper.prototype.y=function(i){return this.st.start+2+(this.st.end-this.st.start-4)*(i/(this.n-1))};
+Stepper.prototype.lock=function(fromBelow){if(active===this||navScroll||Date.now()-releasedAt<900)return;active=this;var i=fromBelow?this.n-1:0;jump(this.y(i));lenis.stop();$('#vbar').classList.add('hide');this.go(i,fromBelow?-1:1,true)};
 Stepper.prototype.go=function(i,dir,first){var self=this;this.busy=true;var prev=this.idx;this.idx=i;this.show(i,prev,dir,first);jump(this.y(i));setTimeout(function(){self.busy=false},first?700:1050)};
 Stepper.prototype.step=function(dir){if(this.busy)return;var i=this.idx+dir;if(i<0||i>=this.n){return this.release(dir)}this.go(i,dir)};
-Stepper.prototype.release=function(dir){active=null;releasedAt=Date.now();lenis.start();$('#vbar').classList.remove('hide');var y=dir>0?this.st.end+2:this.st.start-2;jump(y);lenis.scrollTo(y+dir*innerHeight*.5,{duration:1.1})};
+Stepper.prototype.release=function(dir){active=null;releasedAt=Date.now();lenis.start();$('#vbar').classList.remove('hide');var y=dir>0?this.st.end+3:this.st.start-3;jump(y);lenis.scrollTo(y+dir*innerHeight*.5,{duration:1.1})};
 var acc=0,accT=0;
 addEventListener('wheel',function(e){if(!active)return;e.preventDefault();var now=Date.now();if(now-accT>220)acc=0;accT=now;acc+=e.deltaY;if(Math.abs(acc)>30&&!active.busy){active.step(acc>0?1:-1);acc=0}},{passive:false});
 var ty=null;addEventListener('touchstart',function(e){if(active)ty=e.touches[0].clientY},{passive:true});
