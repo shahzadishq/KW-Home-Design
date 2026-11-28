@@ -186,7 +186,7 @@ var rings=[];
 HQ.forEach(function(h,i){var p=P(h[1],h[2]);for(var k=0;k<3;k++)rings.push(el('circle',{class:'ring',cx:p[0],cy:p[1],r:10},svg));
 var hg=el('g',{class:'hqp'},svg);el('circle',{class:'c',cx:p[0],cy:p[1],r:10},hg);var t=el('text',{x:i===0?p[0]-18:p[0]+14,y:i===0?p[1]-14:p[1]-22,'text-anchor':i===0?'end':'start'},hg);t.textContent=h[0]});
 // labels collide a bit near Heilbronn/Neckarsulm and Böblingen/Sindelfingen: hide small duplicates
-['Neckarsulm','Sindelfingen','Metzingen','Rottenburg','Horb am Neckar','Herrenberg','Sinsheim'].forEach(function(n){var i=CITIES.findIndex(function(c){return c[0]===n});if(i>-1)cityEls[i].g.querySelector('text').style.display='none'});
+['Neckarsulm','Sindelfingen','Metzingen','Rottenburg','Horb am Neckar','Herrenberg','Sinsheim','Öhringen'].forEach(function(n){var i=CITIES.findIndex(function(c){return c[0]===n});if(i>-1)cityEls[i].g.querySelector('text').style.display='none'});
 function focusHQ(i){$$('.hq').forEach(function(h){h.classList.toggle('on',+h.dataset.h===i)});cityEls.forEach(function(c){c.g.classList.toggle('hot',c.h===i);c.l.classList.toggle('on',c.h===i)})}
 function clearHQ(){$$('.hq').forEach(function(h){h.classList.remove('on')});cityEls.forEach(function(c){c.g.classList.remove('hot');c.l.classList.remove('on')})}
 $$('.hq').forEach(function(h){h.addEventListener('mouseenter',function(){focusHQ(+h.dataset.h)});h.addEventListener('focus',function(){focusHQ(+h.dataset.h)});h.addEventListener('mouseleave',clearHQ);h.addEventListener('blur',clearHQ)});
