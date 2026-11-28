@@ -87,7 +87,8 @@ em.r{font-style:italic;color:var(--red)}
 
 /* ---------- loader ---------- */
 #loader{position:fixed;inset:0;z-index:300;display:grid;place-items:center}
-#loader .panels{position:absolute;inset:0;display:flex}
+#loader .panels{position:absolute;inset:0;display:flex;gap:0;height:auto;min-height:0}
+#loader .panels i{margin-right:-1px}
 #loader .panels i{flex:1;background:var(--coal);transform-origin:top}
 #loader .inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:26px}
 #loader .roof{width:120px;height:auto;overflow:visible}
@@ -153,7 +154,8 @@ em.r{font-style:italic;color:var(--red)}
 @keyframes pulse{50%{box-shadow:0 0 0 9px rgba(255,74,80,0)}}
 .hero h1{margin-top:clamp(16px,2.4vh,26px);font-size:clamp(50px,min(9.4vw,15vh),170px);line-height:.9;letter-spacing:-.04em;max-width:10.5ch}
 .hero h1 em{font-style:italic;color:var(--red2)}
-.hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:clamp(22px,3.4vh,40px);flex-wrap:wrap}
+.hero-c .wrap{width:100%}
+.hero-row{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(20px,3vh,30px);margin-top:clamp(20px,3vh,34px)}
 .hero-row p{max-width:440px;color:rgba(255,255,255,.8);font-size:clamp(15px,1.15vw,17px);line-height:1.75}
 .hero-bar{position:absolute;left:0;right:0;bottom:0;z-index:4;border-top:1px solid rgba(255,255,255,.12);background:linear-gradient(0deg,rgba(26,23,21,.55),rgba(26,23,21,.15));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .hero-bar .wrap{display:grid;grid-template-columns:repeat(3,1fr) auto;align-items:center}
@@ -241,37 +243,40 @@ em.r{font-style:italic;color:var(--red)}
   .pstep .ph img{transform:none}
 }
 
-/* ---------- services: expanding panels ---------- */
+/* ---------- services: showcase list + big image (variant C) ---------- */
 .svc{padding:clamp(110px,15vh,180px) 0}
 .svc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(40px,6vh,70px)}
 .svc-head p{max-width:420px;color:var(--stone);line-height:1.75}
-.panels{display:flex;gap:12px;height:min(74vh,660px);min-height:480px}
-.pnl{position:relative;flex:1;min-width:0;border-radius:26px;overflow:hidden;cursor:pointer;background:var(--coal);transition:flex .9s var(--ease);outline:none;isolation:isolate}
-.pnl.on{flex:4.6;cursor:default}
-.pnl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15);transition:transform 1.4s var(--out),filter .8s;filter:saturate(.6) brightness(.75);z-index:-2}
-.pnl.on img{transform:scale(1);filter:none}
-.pnl::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,23,21,.35) 0%,rgba(26,23,21,.1) 35%,rgba(26,23,21,.85) 100%);z-index:-1}
-.pnl:focus-visible{box-shadow:0 0 0 3px var(--red2)}
-.pno{position:absolute;left:22px;top:22px;font-family:'Enriqueta',serif;font-size:15px;color:#fff;padding:7px 13px;border-radius:999px;background:rgba(26,23,21,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.pcat{position:absolute;right:22px;top:22px;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#fff;padding:8px 14px;border-radius:999px;background:var(--red);opacity:0;transform:translateY(-10px);transition:opacity .5s,transform .6s var(--out)}
-.pnl.on .pcat{opacity:1;transform:none;transition-delay:.35s}
-.vt{position:absolute;left:50%;bottom:30px;writing-mode:vertical-rl;transform:translateX(-50%) rotate(180deg);font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(22px,1.8vw,30px);color:#fff;white-space:nowrap;transition:opacity .4s}
-.pnl.on .vt{opacity:0}
-.pbody{position:absolute;left:clamp(24px,3vw,44px);right:clamp(24px,3vw,44px);bottom:clamp(24px,3vw,40px);color:#fff;opacity:0;transform:translateY(30px);transition:opacity .4s,transform .7s var(--out);pointer-events:none;max-width:560px}
-.pnl.on .pbody{opacity:1;transform:none;transition-delay:.35s;pointer-events:auto}
-.pbody h3{font-size:clamp(38px,4vw,68px);line-height:1;margin-bottom:14px}
-.pbody p{color:rgba(255,255,255,.82);font-size:16px;line-height:1.7;margin-bottom:22px}
+.ssplit{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,90px);align-items:center}
+.slist{list-style:none;border-top:1px solid var(--line);margin:0;padding:0}
+.slist li{border-bottom:1px solid var(--line);position:relative}
+.slist li::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
+.slist li.on::after{transform:scaleX(1)}
+.slist button{width:100%;display:flex;align-items:baseline;gap:22px;padding:clamp(16px,2.4vh,24px) 0;text-align:left;transition:padding .5s var(--out)}
+.slist .no{font-family:'Enriqueta',serif;font-size:14px;color:var(--muted);width:28px;flex:none}
+.slist .t{font-family:'Enriqueta',serif;font-size:clamp(30px,3.4vw,56px);line-height:1;letter-spacing:-.02em;color:rgba(52,48,44,.28);transition:color .4s}
+.slist .c{margin-left:auto;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);transition:color .4s}
+.slist li.on button{padding-left:18px}
+.slist li.on .t{color:var(--coal)}.slist li.on .no,.slist li.on .c{color:var(--red)}
+.slist button:hover .t{color:rgba(52,48,44,.6)}.slist li.on button:hover .t{color:var(--coal)}
+.show{position:relative;aspect-ratio:4/4.4;max-height:74vh;width:100%;border-radius:28px;overflow:hidden;background:var(--coal);box-shadow:0 50px 90px -50px rgba(42,36,32,.55)}
+.show .shi{position:absolute;inset:0;clip-path:inset(100% 0 0 0);transition:clip-path 1s var(--ease)}
+.show .shi.on{clip-path:inset(0)}
+.show .shi img{width:100%;height:100%;object-fit:cover;transform:scale(1.15);transition:transform 1.6s var(--out)}
+.show .shi.on img{transform:scale(1)}
+.show::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,23,21,.25) 0%,transparent 30%,transparent 48%,rgba(26,23,21,.88));pointer-events:none;z-index:2}
+.show .stop{position:absolute;left:24px;right:24px;top:22px;z-index:3;display:flex;justify-content:space-between;align-items:center}
+.show .sno{font-family:'Enriqueta',serif;font-size:15px;color:#fff;padding:7px 13px;border-radius:999px;background:rgba(26,23,21,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.show .scat{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#fff;padding:8px 14px;border-radius:999px;background:var(--red)}
+.show .cap{position:absolute;left:clamp(22px,2.6vw,36px);right:clamp(22px,2.6vw,36px);bottom:clamp(22px,2.6vw,34px);z-index:3;color:#fff}
+.show .cap h3{font-size:clamp(32px,3vw,50px);line-height:1;margin-bottom:12px}
+.show .cap p{color:rgba(255,255,255,.85);line-height:1.65;margin-bottom:18px;max-width:440px}
+.show .cap .sw{transition:opacity .35s,transform .5s var(--out)}
+.show .cap.swap .sw{opacity:0;transform:translateY(12px)}
 .pbtn{display:inline-flex;align-items:center;gap:12px;height:52px;padding:0 22px;border-radius:999px;background:#fff;color:var(--coal);font-weight:700;font-size:14px;transition:background .4s,color .4s}
 .pbtn svg{width:16px;height:16px;transition:transform .5s var(--ease)}
 .pbtn:hover{background:var(--red);color:#fff}.pbtn:hover svg{transform:rotate(-45deg)}
-@media(max-width:900px){
-  .panels{flex-direction:column;height:auto;min-height:0;gap:10px}
-  .pnl{flex:none;height:96px;transition:height .8s var(--ease)}
-  .pnl.on{flex:none;height:min(440px,110vw)}
-  .vt{writing-mode:horizontal-tb;transform:none;left:76px;bottom:auto;top:50%;margin-top:-.6em;font-size:24px}
-  .pnl .pno{top:50%;margin-top:-17px}
-  .pnl.on .pno{top:22px;margin-top:0}
-}
+@media(max-width:900px){.ssplit{grid-template-columns:1fr;gap:26px}.show{order:-1;aspect-ratio:4/4.4;max-height:none}.slist .t{font-size:clamp(26px,7.4vw,40px)}}
 
 /* ---------- spanndecken carousel ---------- */
 .types{padding:clamp(110px,15vh,170px) 0 clamp(90px,12vh,140px);overflow:hidden}
@@ -661,45 +666,13 @@ a.fc:hover .fi{background:var(--red);color:#fff}
       <div><span class="kicker"><i></i>Leistungen</span><h2 class="serif h-l split" style="margin-top:20px">Decke. Boden. <em class="r">Wand.</em></h2></div>
       <p>Sechs Disziplinen, ein Anspruch: Räume, die beim ersten Blick begeistern – sauber ausgeführt von unserem Team.</p>
     </div>
-    <div class="panels" id="panels">
-      <article class="pnl on" tabindex="0" aria-label="Spanndecken">
-        <img src="../design2/img/img_0642.webp" alt="Spanndecken" loading="lazy">
-        <span class="pno">01</span><span class="pcat">Decke</span>
-        <h3 class="vt">Spanndecken</h3>
-        <div class="pbody"><h3 class="serif">Spanndecken</h3><p>Fugenlos, pflegeleicht und in vielen Oberflächen – montiert direkt unter der alten Decke.</p><a class="pbtn" href="#kontakt" data-pick="decke:spann">Anfragen <svg><use href="#i-arrow"/></svg></a></div>
-      </article>
-      <article class="pnl" tabindex="0" aria-label="Holzdecken">
-        <img src="../design2/img/img_0632.webp" alt="Holzdecken" loading="lazy">
-        <span class="pno">02</span><span class="pcat">Decke</span>
-        <h3 class="vt">Holzdecken</h3>
-        <div class="pbody"><h3 class="serif">Holzdecken</h3><p>Natürliche Wärme und Charakter über Kopf – handwerklich sauber montiert.</p><a class="pbtn" href="#kontakt" data-pick="decke:holz">Anfragen <svg><use href="#i-arrow"/></svg></a></div>
-      </article>
-      <article class="pnl" tabindex="0" aria-label="Laminat">
-        <img src="../design2/img/k-bathroom-1336167_1920.webp" alt="Laminat" loading="lazy">
-        <span class="pno">03</span><span class="pcat">Boden</span>
-        <h3 class="vt">Laminat</h3>
-        <div class="pbody"><h3 class="serif">Laminat</h3><p>Nahezu jede Optik, robust und leicht zu reinigen – ideal auch für Allergiker.</p><a class="pbtn" href="#kontakt" data-pick="boden:laminat">Anfragen <svg><use href="#i-arrow"/></svg></a></div>
-      </article>
-      <article class="pnl" tabindex="0" aria-label="Vinylboden">
-        <img src="../design2/img/k-interior-2685518_1920.webp" alt="Vinylboden" loading="lazy">
-        <span class="pno">04</span><span class="pcat">Boden</span>
-        <h3 class="vt">Vinylboden</h3>
-        <div class="pbody"><h3 class="serif">Vinylboden</h3><p>Widerstandsfähig, rutschhemmend und lichtecht – auch für Küche und Bad.</p><a class="pbtn" href="#kontakt" data-pick="boden:vinyl">Anfragen <svg><use href="#i-arrow"/></svg></a></div>
-      </article>
-      <article class="pnl" tabindex="0" aria-label="Tapeten">
-        <img src="../design2/img/k-interior-3012218_1920.webp" alt="Tapeten" loading="lazy">
-        <span class="pno">05</span><span class="pcat">Wand</span>
-        <h3 class="vt">Tapeten</h3>
-        <div class="pbody"><h3 class="serif">Tapeten</h3><p>Tapete in unzähligen Farben und Mustern – alles andere als langweilig.</p><a class="pbtn" href="#kontakt" data-pick="wand:tapete">Anfragen <svg><use href="#i-arrow"/></svg></a></div>
-      </article>
-      <article class="pnl" tabindex="0" aria-label="Wandklinker">
-        <img src="../design2/img/k-room-3051846_1920.webp" alt="Wandklinker" loading="lazy">
-        <span class="pno">06</span><span class="pcat">Wand</span>
-        <h3 class="vt">Wandklinker</h3>
-        <div class="pbody"><h3 class="serif">Wandklinker</h3><p>Als Akzent, rund um den Kamin oder über die ganze Wand.</p><a class="pbtn" href="#kontakt" data-pick="wand:klinker">Anfragen <svg><use href="#i-arrow"/></svg></a></div>
-      </article>
+    <div class="ssplit">
+      <ul class="slist" id="slist"></ul>
+      <div class="show" id="show">
+        <div class="stop"><span class="sno" id="sno">01</span><span class="scat" id="scat">Decke</span></div>
+        <div class="cap" id="scapw"><div class="sw"><h3 class="serif" id="stit">Spanndecken</h3><p id="scap"></p><a class="pbtn" id="sbtn" href="#kontakt" data-pick="decke:spann">Anfragen <svg><use href="#i-arrow"/></svg></a></div></div>
+      </div>
     </div>
-  </ul>
   </div>
 </section>
 
@@ -1025,11 +998,24 @@ $$('.cnt').forEach(el=>{const to=+el.dataset.to,from=el.dataset.from?+el.dataset
   }});
 })();
 
-/* ---------- services: expanding panels ---------- */
-(()=>{const ps=$$('.pnl');const open=p=>{ps.forEach(x=>x.classList.toggle('on',x===p));};
-  ps.forEach(p=>{if(FINE)p.addEventListener('mouseenter',()=>open(p));p.addEventListener('click',e=>{if(!p.classList.contains('on')){e.preventDefault();open(p);}});
-    p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(p);}});});
-  if(!RM)gsap.from('.pnl',{y:90,opacity:0,stagger:.08,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:'#panels',start:'top 85%'}});
+/* ---------- services: showcase list + big image ---------- */
+(()=>{const S=[['Spanndecken','Decke','img_0642','Fugenlos, pflegeleicht und in vielen Oberflächen – montiert direkt unter der alten Decke.','decke:spann'],
+['Holzdecken','Decke','img_0632','Natürliche Wärme und Charakter über Kopf – handwerklich sauber montiert.','decke:holz'],
+['Laminat','Boden','k-bathroom-1336167_1920','Nahezu jede Optik, robust und leicht zu reinigen – ideal auch für Allergiker.','boden:laminat'],
+['Vinylboden','Boden','k-interior-2685518_1920','Widerstandsfähig, rutschhemmend und lichtecht – auch für Küche und Bad.','boden:vinyl'],
+['Tapeten','Wand','k-interior-3012218_1920','Tapete in unzähligen Farben und Mustern – alles andere als langweilig.','wand:tapete'],
+['Wandklinker','Wand','k-room-3051846_1920','Als Akzent, rund um den Kamin oder über die ganze Wand.','wand:klinker']];
+  const sh=$('#show'),top=sh.querySelector('.stop');
+  const sis=S.map((x,i)=>{const d=document.createElement('div');d.className='shi'+(i?'':' on');d.innerHTML=`<img src="../design2/img/${x[2]}.webp" alt="${x[0]}" loading="lazy">`;sh.insertBefore(d,top);return d;});
+  const ul=$('#slist');ul.innerHTML=S.map((x,i)=>`<li class="${i?'':'on'}"><button type="button" aria-label="${x[0]}"><span class="no">0${i+1}</span><span class="t">${x[0]}</span><span class="c">${x[1]}</span></button></li>`).join('');
+  const lis=[...ul.children],cw=$('#scapw');let cur=0,tm;
+  const fill=i=>{const x=S[i];$('#stit').textContent=x[0];$('#scap').textContent=x[3];$('#sno').textContent='0'+(i+1);$('#scat').textContent=x[1];$('#sbtn').dataset.pick=x[4];};
+  fill(0);
+  const go=i=>{if(i===cur)return;cur=i;lis.forEach((l,k)=>l.classList.toggle('on',k===i));sis.forEach((d,k)=>{d.classList.toggle('on',k===i);d.style.zIndex=k===i?1:0;});
+    cw.classList.add('swap');clearTimeout(tm);tm=setTimeout(()=>{fill(i);cw.classList.remove('swap');},300);};
+  lis.forEach((l,i)=>{if(FINE)l.addEventListener('mouseenter',()=>go(i));l.querySelector('button').addEventListener('click',()=>go(i));});
+  if(!RM){gsap.from(lis,{y:40,opacity:0,stagger:.07,duration:1,ease:'expo.out',scrollTrigger:{trigger:ul,start:'top 85%'}});
+    gsap.fromTo(sh,{clipPath:'inset(14% 8% 14% 8% round 28px)'},{clipPath:'inset(0% 0% 0% 0% round 28px)',duration:1.4,ease:'expo.out',clearProps:'clipPath',scrollTrigger:{trigger:sh,start:'top 85%'}});}
 })();
 
 /* ---------- spanndecken carousel (drag + buttons) ---------- */
