@@ -198,7 +198,7 @@ em.r{font-style:italic;color:var(--red)}
 .proc{padding:clamp(110px,15vh,180px) 0;overflow:clip}
 .proc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,120px);position:relative;z-index:1}
 .proc-l{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center}
-.proc-l .h-l{margin:22px 0 40px}
+.proc-l .h-l{margin:22px 0 40px;font-size:clamp(38px,4.4vw,76px)}
 .ring{position:relative;width:min(340px,28vw);aspect-ratio:1}
 .ring svg{width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
 .ring circle{fill:none;stroke-width:2}
@@ -930,7 +930,8 @@ $$('.cnt').forEach(el=>{const to=+el.dataset.to,from=el.dataset.from?+el.dataset
   fg.style.strokeDasharray=C;fg.style.strokeDashoffset=C;let cur=-1;
   const setStep=i=>{if(i===cur)return;const dir=i>cur?1:-1;cur=i;steps.forEach((s,k)=>s.classList.toggle('on',k===i));ticks.forEach((t,k)=>t.classList.toggle('on',k<=i));
     if(RM){n.textContent='0'+(i+1);l.textContent=steps[i].dataset.t;return;}
-    gsap.to(n,{yPercent:-100*dir,duration:.3,ease:'power2.in',onComplete:()=>{n.textContent='0'+(i+1);l.textContent=steps[i].dataset.t;gsap.fromTo(n,{yPercent:100*dir},{yPercent:0,duration:.55,ease:'expo.out'});}});};
+    l.textContent=steps[i].dataset.t;
+    gsap.to(n,{yPercent:-100*dir,duration:.25,ease:'power2.in',overwrite:true,onComplete:()=>{n.textContent='0'+(cur+1);gsap.fromTo(n,{yPercent:100*dir},{yPercent:0,duration:.5,ease:'expo.out',overwrite:true});}});};
   setStep(0);
   ScrollTrigger.create({trigger:'.proc-r',start:'top 50%',end:'bottom 50%',onUpdate:s=>{fg.style.strokeDashoffset=C*(1-s.progress);}});
   steps.forEach((s,i)=>{ScrollTrigger.create({trigger:s,start:'top 55%',end:'bottom 55%',onToggle:t=>{if(t.isActive)setStep(i);}});
