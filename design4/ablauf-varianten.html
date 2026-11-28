@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KW Home Design – Ablauf: 4 Varianten (A / B / C / D)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#DC0F16;--red2:#FF4A50;--dark:#34302C;--ink:#100E0C;--ink2:#1B1816;--cream:#F5F2ED;--sand:#E9E1D7;--muted:#6B625C;--warm:#FFD9A8}
+*{box-sizing:border-box;margin:0;padding:0}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--ink);color:#fff;font-family:'Open Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}
+.serif{font-family:'Enriqueta',Georgia,serif;font-weight:400;letter-spacing:-.015em}
+.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--red2);display:inline-flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:34px;height:2px;background:currentColor}
+.h2{font-size:clamp(32px,min(4.6vw,8vh),72px);line-height:1.02}
+.h2 em{font-style:normal;color:var(--red2)}
+
+/* top bar */
+.vbar{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:100;display:flex;gap:4px;background:rgba(16,14,12,.85);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);padding:6px;border-radius:999px;transition:transform .5s,opacity .5s}
+.vbar.hide{transform:translate(-50%,-140%);opacity:0}
+.vbar a{padding:10px 16px;border-radius:999px;font-size:13px;font-weight:700;color:#CFC6BE;white-space:nowrap}
+.vbar a.on,.vbar a:hover{background:#fff;color:var(--ink)}
+.vbar .back{color:var(--red2)}
+.intro{min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:22px;padding:140px 20px 60px}
+.intro p{color:#B8AEA6;max-width:620px;line-height:1.7}
+.vlabel{position:absolute;top:22px;right:24px;z-index:20;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;background:var(--red);color:#fff;padding:8px 14px;border-radius:999px}
+.pin{position:relative;height:100vh;min-height:620px;overflow:hidden}
+.hint{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:20;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:10px}
+.hint i{width:18px;height:28px;border:1px solid currentColor;border-radius:10px;position:relative}
+.hint i::after{content:"";position:absolute;left:50%;top:5px;width:2px;height:6px;margin-left:-1px;background:var(--red2);border-radius:2px;animation:wh 1.6s infinite}
+@keyframes wh{to{transform:translateY(9px);opacity:0}}
+.sep{height:22vh;display:flex;align-items:center;justify-content:center;color:#5E5650;font-size:12px;letter-spacing:.3em;text-transform:uppercase}
+
+/* ============ A – Schnitt (cross-section) ============ */
+.va{background:var(--cream);color:var(--dark)}
+.va .hint{color:var(--muted)}
+.va-in{height:100%;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(30px,4vw,70px);align-items:center;padding-top:70px;padding-bottom:50px}
+.va-svg{width:100%;height:auto;max-height:calc(100vh - 160px)}
+.va-txt{display:flex;flex-direction:column;gap:22px}
+.va-txt .eyebrow{color:var(--red)}
+.va-txt .h2 em{color:var(--red)}
+.va-steps{display:grid}
+.va-st{grid-area:1/1;opacity:0;visibility:hidden}
+.va-st .n{font-family:'Enriqueta',serif;font-size:clamp(54px,min(7vw,12vh),110px);line-height:1;color:var(--red)}
+.va-st h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(26px,min(2.6vw,5vh),40px);margin:6px 0 10px}
+.va-st p{color:var(--muted);line-height:1.7;font-size:17px;max-width:440px}
+.pdots{display:flex;gap:8px}
+.pdots i{width:44px;height:4px;border-radius:4px;background:rgba(52,48,44,.15);overflow:hidden;position:relative}
+.pdots i b{position:absolute;inset:0;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.7,0,.2,1)}
+.pdots i.on b{transform:none}
+.va .lbl{font-family:'Open Sans',sans-serif;font-size:13px;font-weight:700;fill:var(--muted);letter-spacing:.06em}
+@media(max-width:900px){.va-in{grid-template-columns:1fr;gap:10px;padding-top:60px}.va-svg{max-height:42vh}}
+
+/* ============ B – Uhr (clock) ============ */
+.vb{background:radial-gradient(ellipse at 30% 50%,#2A2420,#100E0C 70%)}
+.vb-in{height:100%;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,5vw,80px);align-items:center;padding-top:70px;padding-bottom:50px}
+.clock{position:relative;width:min(460px,80vw,calc(100vh - 200px));aspect-ratio:1;justify-self:center}
+.clock svg{width:100%;height:100%;overflow:visible}
+.clock .face{fill:rgba(255,255,255,.03);stroke:rgba(255,255,255,.14);stroke-width:2}
+.clock .tick{stroke:rgba(255,255,255,.35);stroke-width:2}
+.clock .tick.big{stroke:#fff;stroke-width:3}
+.clock .hr{font-family:'Enriqueta',serif;font-size:22px;fill:rgba(255,255,255,.7);text-anchor:middle;dominant-baseline:middle}
+.clock .fill{fill:none;stroke:var(--red);stroke-width:14;stroke-linecap:round}
+.clock .hand{stroke:#fff;stroke-width:5;stroke-linecap:round}
+.clock .center{fill:var(--red)}
+.clock .mk circle{fill:var(--ink);stroke:rgba(255,255,255,.4);stroke-width:2;transition:fill .4s,stroke .4s}
+.clock .mk.on circle{fill:var(--red);stroke:#fff}
+.clock .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;padding-top:38%}
+.clock .mid b{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(20px,2.2vw,30px)}
+.clock .mid small{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--warm)}
+.vb-list{display:flex;flex-direction:column;gap:6px;margin-top:26px}
+.vb-it{display:grid;grid-template-columns:64px 1fr;gap:20px;padding:18px 20px;border-radius:18px;border:1px solid transparent;transition:background .5s,border-color .5s,opacity .5s;opacity:.35}
+.vb-it.on{opacity:1;background:rgba(255,255,255,.06);border-color:rgba(255,74,80,.5)}
+.vb-it .n{font-family:'Enriqueta',serif;font-size:42px;line-height:1;color:var(--red2)}
+.vb-it h3{font-family:'Enriqueta',serif;font-weight:400;font-size:24px;margin-bottom:4px}
+.vb-it p{color:#CFC6BE;line-height:1.6;font-size:15px;max-height:0;overflow:hidden;transition:max-height .6s}
+.vb-it.on p{max-height:80px}
+@media(max-width:900px){.vb-in{grid-template-columns:1fr;gap:16px}.clock{width:min(260px,60vw)}.vb-it{padding:10px 14px}.vb-it .n{font-size:30px}}
+
+/* ============ C – Foto-Panels (horizontal) ============ */
+.vc{background:#000}
+.vc-track{position:absolute;inset:0;display:flex;width:400%;will-change:transform}
+.vc-panel{position:relative;width:25%;height:100%;overflow:hidden}
+.vc-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15)}
+.vc-panel::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,14,12,.88),rgba(16,14,12,.35) 60%,rgba(16,14,12,.15))}
+.vc-card{position:absolute;z-index:2;left:clamp(20px,6vw,90px);bottom:clamp(90px,16vh,150px);max-width:520px;display:flex;flex-direction:column;gap:14px}
+.vc-card .n{font-family:'Enriqueta',serif;font-size:clamp(80px,min(11vw,18vh),180px);line-height:.85;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.8)}
+.vc-card .k{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--warm);font-weight:700}
+.vc-card h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(34px,min(4vw,7vh),60px);line-height:1}
+.vc-card p{font-size:17px;line-height:1.7;color:#E2D9D1;max-width:440px}
+.vc-head{position:absolute;z-index:5;left:clamp(20px,6vw,90px);top:80px}
+.vc-rail{position:absolute;z-index:5;left:clamp(20px,6vw,90px);right:clamp(20px,6vw,90px);bottom:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.vc-rail button{background:none;border:0;text-align:left;color:rgba(255,255,255,.55);font-size:13px;font-weight:700;display:flex;flex-direction:column;gap:10px;padding:0}
+.vc-rail button i{display:block;height:3px;background:rgba(255,255,255,.2);position:relative;overflow:hidden;border-radius:3px}
+.vc-rail button i b{position:absolute;inset:0;background:var(--red2);transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.7,0,.2,1)}
+.vc-rail button.on{color:#fff}.vc-rail button.on i b,.vc-rail button.done i b{transform:none}
+
+/* ============ D – Typo + Icons ============ */
+.vd{background:var(--red);color:#fff}
+.vd .hint{color:rgba(255,255,255,.75)}
+.vd-in{height:100%;display:grid;grid-template-columns:auto 1fr;gap:clamp(30px,6vw,110px);align-items:center;padding-top:70px;padding-bottom:50px}
+.vd-num{position:relative;font-family:'Enriqueta',serif;font-size:clamp(160px,min(26vw,52vh),420px);line-height:.8;height:.8em;overflow:hidden;letter-spacing:-.04em}
+.vd-num .col{display:inline-block;vertical-align:top}
+.vd-num .roll{display:flex;flex-direction:column}
+.vd-num .roll span{height:.8em;display:block}
+.vd-num .o{color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.75)}
+.vd-r{display:flex;flex-direction:column;gap:26px;max-width:560px}
+.vd-r .eyebrow{color:#fff}
+.vd-r .h2 em{color:var(--ink)}
+.vd-box{background:#fff;color:var(--dark);border-radius:28px;padding:30px;display:grid;grid-template-columns:96px 1fr;gap:24px;align-items:center;box-shadow:0 40px 80px -40px rgba(0,0,0,.5)}
+.vd-ic{width:96px;height:96px;border-radius:24px;background:var(--cream);display:flex;align-items:center;justify-content:center}
+.vd-ic svg{width:58px;height:58px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.vd-t{display:grid}
+.vd-st{grid-area:1/1;opacity:0;visibility:hidden}
+.vd-st small{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700}
+.vd-st h3{font-family:'Enriqueta',serif;font-weight:400;font-size:30px;margin:4px 0 6px}
+.vd-st p{color:var(--muted);line-height:1.6;font-size:15px}
+.vd-bar{display:flex;gap:8px;align-items:center;font-size:13px;font-weight:700}
+.vd-bar i{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.3);position:relative;overflow:hidden}
+.vd-bar i b{position:absolute;inset:0;background:#fff;transform:scaleX(.25);transform-origin:left;transition:transform .8s cubic-bezier(.7,0,.2,1)}
+@media(max-width:900px){.vd-in{grid-template-columns:1fr;gap:10px}.vd-num{font-size:clamp(110px,30vw,180px)}.vd-box{grid-template-columns:64px 1fr;padding:20px}.vd-ic{width:64px;height:64px}.vd-ic svg{width:40px;height:40px}}
+
+footer{padding:80px 20px;text-align:center;color:#8C827A;font-size:15px;line-height:1.8}
+footer b{color:#fff}
+</style>
+</head>
+<body>
+<nav class="vbar" id="vbar"><a class="back" href="./">← Design 4</a><a href="#a" data-s="a">A · Schnitt</a><a href="#b" data-s="b">B · Uhr</a><a href="#c" data-s="c">C · Foto-Panels</a><a href="#d" data-s="d">D · Typo &amp; Icons</a></nav>
+
+<section class="intro">
+  <span class="eyebrow">Ablauf · So funktioniert’s</span>
+  <h1 class="serif h2">Vier Varianten für<br><em>„Neue Decke. An einem Tag.“</em></h1>
+  <p>Scrollen Sie durch alle vier Varianten. In jeder Variante gilt: <b>ein Scroll = ein Schritt</b>. Nach Schritt 4 geht es zur nächsten Variante weiter.</p>
+</section>
+
+<!-- ================= A ================= -->
+<section class="stepper va" id="a" data-n="4">
+  <div class="pin">
+    <span class="vlabel">Variante A · Schnitt-Animation</span>
+    <div class="wrap va-in">
+      <svg class="va-svg" viewBox="0 0 800 500" aria-hidden="true">
+        <defs>
+          <linearGradient id="cone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE7B8" stop-opacity=".85"/><stop offset="1" stop-color="#FFE7B8" stop-opacity="0"/></linearGradient>
+          <pattern id="crack" width="40" height="30" patternUnits="userSpaceOnUse"><rect width="40" height="30" fill="#8C827A"/><path d="M4 10l8 6 6-4 10 8M26 4l4 6" stroke="#6B625C" stroke-width="1.5" fill="none"/></pattern>
+        </defs>
+        <rect x="40" y="20" width="720" height="460" rx="18" fill="#fff"/>
+        <g id="aRoomTint"><rect x="80" y="70" width="640" height="390" fill="#FFF4E0" opacity="0" id="aWarm"/></g>
+        <rect x="60" y="20" width="20" height="460" fill="#CFC6BE"/><rect x="720" y="20" width="20" height="460" fill="#CFC6BE"/>
+        <rect x="80" y="40" width="640" height="30" fill="url(#crack)" id="aOld"/>
+        <text class="lbl" x="400" y="34" text-anchor="middle" id="aOldL">ALTE DECKE BLEIBT</text>
+        <g id="aProf"><rect x="80" y="104" width="22" height="14" rx="2" fill="#DC0F16"/><rect x="698" y="104" width="22" height="14" rx="2" fill="#DC0F16"/>
+          <text class="lbl" x="112" y="140" id="aProfL">PROFIL</text></g>
+        <g id="aHeat" opacity="0"><path d="M300 300c10-14-10-24 0-38s-10-24 0-38M400 300c10-14-10-24 0-38s-10-24 0-38M500 300c10-14-10-24 0-38s-10-24 0-38" stroke="#FF4A50" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+        <path id="aMem" d="M102 111 Q400 111 698 111" stroke="#34302C" stroke-width="5" fill="none" stroke-linecap="round" opacity="0"/>
+        <text class="lbl" x="400" y="98" text-anchor="middle" id="aMemL" opacity="0">NEUE SPANNDECKE</text>
+        <g id="aLights" opacity="0">
+          <polygon points="236,116 264,116 320,460 180,460" fill="url(#cone)"/><polygon points="386,116 414,116 470,460 330,460" fill="url(#cone)"/><polygon points="536,116 564,116 620,460 480,460" fill="url(#cone)"/>
+          <circle cx="250" cy="114" r="9" fill="#fff" stroke="#FFD08A" stroke-width="3"/><circle cx="400" cy="114" r="9" fill="#fff" stroke="#FFD08A" stroke-width="3"/><circle cx="550" cy="114" r="9" fill="#fff" stroke="#FFD08A" stroke-width="3"/>
+        </g>
+        <rect x="80" y="460" width="640" height="20" fill="#9A7B5E"/>
+        <g opacity=".9"><rect x="250" y="390" width="300" height="70" rx="12" fill="#4A4440"/><rect x="236" y="410" width="328" height="50" rx="10" fill="#3D3834"/></g>
+      </svg>
+      <div class="va-txt">
+        <span class="eyebrow">So funktioniert’s</span>
+        <h2 class="serif h2">Neue Decke. <em>An einem Tag.</em></h2>
+        <div class="va-steps">
+          <div class="va-st"><div class="n">01</div><h3>Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist – kein Abriss, kein Staub, keine Verschmutzung.</p></div>
+          <div class="va-st"><div class="n">02</div><h3>Profil montieren</h3><p>Ein schlankes Profil wird umlaufend an der Wand befestigt – knapp unter der bestehenden Decke.</p></div>
+          <div class="va-st"><div class="n">03</div><h3>Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei eingespannt. Beim Abkühlen zieht sie sich straff und glatt.</p></div>
+          <div class="va-st"><div class="n">04</div><h3>Licht an – fertig!</h3><p>Lampen, Spots und Rauchmelder – alles aus einer Hand integriert. Fertig am selben Tag.</p></div>
+        </div>
+        <div class="pdots" id="aDots"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+      </div>
+    </div>
+    <div class="hint"><i></i>Scrollen = nächster Schritt</div>
+  </div>
+</section>
+<div class="sep">— Variante B —</div>
+
+<!-- ================= B ================= -->
+<section class="stepper vb" id="b" data-n="4">
+  <div class="pin">
+    <span class="vlabel">Variante B · Tages-Uhr</span>
+    <div class="wrap vb-in">
+      <div class="clock"><svg viewBox="-250 -250 500 500" id="bClock" aria-hidden="true"></svg><div class="mid"><small id="bK">Morgens</small><b id="bT">Start</b></div></div>
+      <div>
+        <span class="eyebrow">So funktioniert’s</span>
+        <h2 class="serif h2" style="margin-top:16px">Neue Decke. <em>An einem Tag.</em></h2>
+        <div class="vb-list">
+          <div class="vb-it"><span class="n">01</span><div><h3>Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist – kein Abriss, kein Staub.</p></div></div>
+          <div class="vb-it"><span class="n">02</span><div><h3>Profil montieren</h3><p>Ein schlankes Profil wird umlaufend an der Wand befestigt.</p></div></div>
+          <div class="vb-it"><span class="n">03</span><div><h3>Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei eingespannt – straff und glatt.</p></div></div>
+          <div class="vb-it"><span class="n">04</span><div><h3>Licht &amp; Service</h3><p>Lampen, Spots und Rauchmelder – alles aus einer Hand integriert.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="hint"><i></i>Scrollen = nächster Schritt</div>
+  </div>
+</section>
+<div class="sep">— Variante C —</div>
+
+<!-- ================= C ================= -->
+<section class="stepper vc" id="c" data-n="4">
+  <div class="pin">
+    <span class="vlabel">Variante C · Foto-Panels</span>
+    <div class="vc-track" id="cTrack">
+      <div class="vc-panel"><img src="../design2/img/img_0664.webp" alt=""><div class="vc-card"><span class="n">01</span><span class="k">Morgens</span><h3>Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist – kein Abriss, kein Staub, keine Verschmutzung.</p></div></div>
+      <div class="vc-panel"><img src="../design2/img/img_0642.webp" alt=""><div class="vc-card"><span class="n">02</span><span class="k">Vormittags</span><h3>Profil montieren</h3><p>Ein schlankes Profil wird umlaufend an der Wand befestigt – knapp unter der bestehenden Decke.</p></div></div>
+      <div class="vc-panel"><img src="../design2/img/img_0678.webp" alt=""><div class="vc-card"><span class="n">03</span><span class="k">Mittags</span><h3>Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei eingespannt. Beim Abkühlen zieht sie sich straff und glatt.</p></div></div>
+      <div class="vc-panel"><img src="../design2/img/img_20191216_203021.webp" alt=""><div class="vc-card"><span class="n">04</span><span class="k">Abends</span><h3>Licht an – fertig!</h3><p>Lampen, Spots und Rauchmelder – alles aus einer Hand integriert.</p></div></div>
+    </div>
+    <div class="vc-head"><span class="eyebrow" style="color:var(--warm)">So funktioniert’s</span><h2 class="serif h2" style="margin-top:14px">Neue Decke. <em style="color:var(--warm)">An einem Tag.</em></h2></div>
+    <div class="vc-rail" id="cRail"><button data-i="0">01 · Bestand bleibt<i><b></b></i></button><button data-i="1">02 · Profil<i><b></b></i></button><button data-i="2">03 · Spannen<i><b></b></i></button><button data-i="3">04 · Licht &amp; fertig<i><b></b></i></button></div>
+    <div class="hint" style="bottom:14px"><i></i>Scrollen = nächster Schritt</div>
+  </div>
+</section>
+<div class="sep">— Variante D —</div>
+
+<!-- ================= D ================= -->
+<section class="stepper vd" id="d" data-n="4">
+  <div class="pin">
+    <span class="vlabel" style="background:#fff;color:var(--red)">Variante D · Typo &amp; Icons</span>
+    <div class="wrap vd-in">
+      <div class="vd-num" aria-hidden="true"><span class="col o">0</span><span class="col"><span class="roll" id="dRoll"><span>1</span><span>2</span><span>3</span><span>4</span></span></span></div>
+      <div class="vd-r">
+        <span class="eyebrow">So funktioniert’s</span>
+        <h2 class="serif h2">Neue Decke. <em>An einem Tag.</em></h2>
+        <div class="vd-box">
+          <div class="vd-ic"><svg viewBox="0 0 24 24" id="dIcon" aria-hidden="true"><path d="M3 10l9-6 9 6M5 9v11h14V9"/></svg></div>
+          <div class="vd-t">
+            <div class="vd-st"><small>Schritt 1 · Morgens</small><h3>Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist – kein Abriss, kein Staub.</p></div>
+            <div class="vd-st"><small>Schritt 2 · Vormittags</small><h3>Profil montieren</h3><p>Ein schlankes Profil wird umlaufend an der Wand befestigt.</p></div>
+            <div class="vd-st"><small>Schritt 3 · Mittags</small><h3>Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei eingespannt – straff und glatt.</p></div>
+            <div class="vd-st"><small>Schritt 4 · Abends</small><h3>Licht &amp; Service</h3><p>Lampen, Spots und Rauchmelder – alles aus einer Hand integriert.</p></div>
+          </div>
+        </div>
+        <div class="vd-bar"><span>Start</span><i><b id="dBar"></b></i><span>Fertig</span></div>
+      </div>
+    </div>
+    <div class="hint"><i></i>Scrollen = nächster Schritt</div>
+  </div>
+</section>
+
+<footer>Welche Variante gefällt Ihnen? <b>A, B, C oder D</b> – die gewählte ersetzt den Ablauf auf Design 4.<br><a href="./" style="color:var(--red2);font-weight:700">← zurück zu Design 4</a></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+var $=function(s,c){return(c||document).querySelector(s)},$$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+gsap.registerPlugin(ScrollTrigger);
+var lenis=new Lenis({duration:1.15});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0);
+window.lenisRef=lenis;
+
+/* ---------- generic stepper: one gesture = one step ---------- */
+var active=null,navScroll=false,releasedAt=0;
+function Stepper(sec,show){var self=this;this.sec=sec;this.n=+sec.dataset.n;this.idx=0;this.busy=false;this.show=show;
+ this.st=ScrollTrigger.create({trigger:sec,start:'top top',end:'+=150%',pin:$('.pin',sec),onEnter:function(){self.lock(false)},onEnterBack:function(){self.lock(true)}});}
+Stepper.prototype.y=function(i){return this.st.start+(this.st.end-this.st.start)*(i/(this.n-1))};
+Stepper.prototype.lock=function(fromBelow){if(navScroll||Date.now()-releasedAt<900)return;active=this;var i=fromBelow?this.n-1:0;lenis.scrollTo(this.y(i),{immediate:true,force:true});lenis.stop();$('#vbar').classList.add('hide');this.go(i,fromBelow?-1:1,true)};
+Stepper.prototype.go=function(i,dir,first){var self=this;this.busy=true;var prev=this.idx;this.idx=i;this.show(i,prev,dir,first);lenis.scrollTo(this.y(i),{immediate:true,force:true});setTimeout(function(){self.busy=false},first?700:1050)};
+Stepper.prototype.step=function(dir){if(this.busy)return;var i=this.idx+dir;if(i<0||i>=this.n){return this.release(dir)}this.go(i,dir)};
+Stepper.prototype.release=function(dir){active=null;releasedAt=Date.now();lenis.start();$('#vbar').classList.remove('hide');var y=dir>0?this.st.end+2:this.st.start-2;lenis.scrollTo(y,{immediate:true,force:true});lenis.scrollTo(y+dir*innerHeight*.5,{duration:1.1})};
+var acc=0,accT=0;
+addEventListener('wheel',function(e){if(!active)return;e.preventDefault();var now=Date.now();if(now-accT>220)acc=0;accT=now;acc+=e.deltaY;if(Math.abs(acc)>30&&!active.busy){active.step(acc>0?1:-1);acc=0}},{passive:false});
+var ty=null;addEventListener('touchstart',function(e){if(active)ty=e.touches[0].clientY},{passive:true});
+addEventListener('touchmove',function(e){if(active)e.preventDefault()},{passive:false});
+addEventListener('touchend',function(e){if(!active||ty===null)return;var dy=ty-e.changedTouches[0].clientY;ty=null;if(Math.abs(dy)>40)active.step(dy>0?1:-1)},{passive:true});
+addEventListener('keydown',function(e){if(!active)return;if(['ArrowDown','PageDown',' '].indexOf(e.key)>-1){e.preventDefault();active.step(1)}if(['ArrowUp','PageUp'].indexOf(e.key)>-1){e.preventDefault();active.step(-1)}});
+$$('.vbar a[data-s]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();navScroll=true;lenis.scrollTo($(a.getAttribute('href')),{offset:-1,duration:1.2,onComplete:function(){navScroll=false;var s=steppers[a.dataset.s];if(s)s.lock(false)}})})});
+function swap(list,i,prev,dir){if(prev!==i&&list[prev])gsap.to(list[prev],{autoAlpha:0,y:-18*dir,duration:.22,ease:'power2.in'});list.forEach(function(x,k){if(k!==i&&k!==prev)gsap.set(x,{autoAlpha:0})});gsap.fromTo(list[i],{autoAlpha:0,y:20*dir},{autoAlpha:1,y:0,duration:.5,delay:prev!==i?.22:0,ease:'power3.out'})}
+var steppers={};
+
+/* ---------- A: cross-section ---------- */
+(function(){var sts=$$('.va-st'),dots=$$('#aDots i'),mem=$('#aMem'),M={c:111};
+function memD(){mem.setAttribute('d','M102 111 Q400 '+M.c.toFixed(1)+' 698 111')}
+gsap.set('#aProf',{scaleY:0,transformOrigin:'50% 50%',opacity:0});
+var states=[
+ function(){gsap.to('#aOld',{opacity:1,duration:.4});gsap.fromTo('#aOld',{y:-6},{y:0,duration:.6,ease:'bounce.out'});gsap.to('#aOldL',{fill:'#DC0F16',duration:.3});gsap.to('#aProf',{opacity:0,scaleY:0,duration:.3});gsap.to(['#aMem','#aMemL','#aHeat','#aLights'],{opacity:0,duration:.3});gsap.to('#aWarm',{opacity:0,duration:.4})},
+ function(){gsap.to('#aOldL',{fill:'#6B625C',duration:.3});gsap.to('#aProf',{opacity:1,scaleY:1,duration:.7,ease:'back.out(3)'});gsap.to(['#aMem','#aMemL','#aHeat','#aLights'],{opacity:0,duration:.3});gsap.to('#aWarm',{opacity:0,duration:.4})},
+ function(){gsap.to('#aProf',{opacity:1,scaleY:1,duration:.3});gsap.set(mem,{opacity:1});gsap.to('#aMemL',{opacity:1,duration:.4,delay:.6});gsap.to('#aHeat',{opacity:1,duration:.3});gsap.fromTo('#aHeat',{y:20},{y:-6,duration:1,ease:'sine.out'});
+  M.c=300;memD();gsap.to(M,{c:111,duration:1.1,ease:'elastic.out(1,.35)',delay:.15,onUpdate:memD});gsap.to('#aHeat',{opacity:0,duration:.4,delay:.9});gsap.to(['#aLights'],{opacity:0,duration:.3});gsap.to('#aWarm',{opacity:0,duration:.4})},
+ function(){gsap.to(['#aMem','#aMemL','#aProf'],{opacity:1,duration:.3});M.c=111;memD();gsap.to('#aHeat',{opacity:0,duration:.2});gsap.fromTo('#aLights',{opacity:0},{opacity:1,duration:.15,repeat:3,yoyo:true,onComplete:function(){gsap.set('#aLights',{opacity:1})}});gsap.to('#aWarm',{opacity:1,duration:.8,delay:.3})}];
+steppers.a=new Stepper($('#a'),function(i,prev,dir,first){swap(sts,i,prev,dir);dots.forEach(function(d,k){d.classList.toggle('on',k<=i)});states[i]()});
+gsap.set(sts,{autoAlpha:0});})();
+
+/* ---------- B: clock ---------- */
+(function(){var svg=$('#bClock'),NS='http://www.w3.org/2000/svg',R=200,items=$$('.vb-it');
+function pt(h,r){var a=(h/12)*Math.PI*2-Math.PI/2;return[Math.cos(a)*r,Math.sin(a)*r]}
+var html='<circle class="face" r="'+R+'"/>';
+for(var h=0;h<60;h++){var big=h%5===0,a=pt(h/5,R-8),b=pt(h/5,R-(big?26:16));html+='<line class="tick'+(big?' big':'')+'" x1="'+a[0]+'" y1="'+a[1]+'" x2="'+b[0]+'" y2="'+b[1]+'"/>'}
+[12,3,6,9].forEach(function(h){var p=pt(h,R-50);html+='<text class="hr" x="'+p[0]+'" y="'+p[1]+'">'+h+'</text>'});
+html+='<path class="fill" id="bFill"/>';
+var hours=[8,10,13,17],labels=['Morgens','Vormittags','Mittags','Abends'],titles=['Bestand bleibt','Profil','Spannen','Fertig!'];
+hours.forEach(function(h,i){var p=pt(h%12,R+26);html+='<g class="mk" id="bm'+i+'"><circle cx="'+p[0]+'" cy="'+p[1]+'" r="14"/><text x="'+p[0]+'" y="'+(p[1]+1)+'" fill="#fff" font-size="12" font-family="Open Sans" font-weight="700" text-anchor="middle" dominant-baseline="middle">0'+(i+1)+'</text></g>'});
+html+='<line class="hand" id="bHand" x1="0" y1="0" x2="0" y2="-150"/><circle class="center" r="12"/>';
+svg.innerHTML=html;
+var C={h:7};
+function arc(h0,h1){if(h1<=h0+.01)return'';var a=pt(h0%12,R-40),b=pt(h1%12,R-40),large=(h1-h0)>6?1:0;return'M'+a[0]+' '+a[1]+' A'+(R-40)+' '+(R-40)+' 0 '+large+' 1 '+b[0]+' '+b[1]}
+function draw(){$('#bHand').setAttribute('transform','rotate('+((C.h%12)/12*360)+')');$('#bFill').setAttribute('d',arc(7,C.h))}
+draw();
+steppers.b=new Stepper($('#b'),function(i,prev,dir,first){gsap.to(C,{h:hours[i],duration:first?.8:1,ease:'power3.inOut',onUpdate:draw});
+items.forEach(function(it,k){it.classList.toggle('on',k===i)});hours.forEach(function(h,k){$('#bm'+k).classList.toggle('on',k<=i)});
+gsap.timeline().to(['#bK','#bT'],{y:-12,opacity:0,duration:.2}).add(function(){$('#bK').textContent=labels[i];$('#bT').textContent=titles[i]}).to(['#bK','#bT'],{y:0,opacity:1,duration:.4,ease:'power3.out'})});})();
+
+/* ---------- C: photo panels ---------- */
+(function(){var tr=$('#cTrack'),btn=$$('#cRail button'),imgs=$$('.vc-panel img'),cards=$$('.vc-card');
+var s=steppers.c=new Stepper($('#c'),function(i,prev,dir,first){gsap.to(tr,{xPercent:-25*i,duration:first?.01:1.1,ease:'expo.inOut'});
+gsap.fromTo(imgs[i],{scale:1.25},{scale:1.08,duration:1.8,ease:'expo.out'});
+gsap.fromTo(cards[i].children,{y:40,opacity:0},{y:0,opacity:1,duration:.8,stagger:.07,delay:first?0:.45,ease:'expo.out'});
+btn.forEach(function(b,k){b.classList.toggle('on',k===i);b.classList.toggle('done',k<i)})});
+btn.forEach(function(b){b.addEventListener('click',function(){if(active===s&&!s.busy){var i=+b.dataset.i;if(i!==s.idx)s.go(i,i>s.idx?1:-1)}})});})();
+
+/* ---------- D: rolling number + icons ---------- */
+(function(){var sts=$$('.vd-st'),ic=$('#dIcon');
+var icons=['<path d="M3 10l9-6 9 6M5 9v11h14V9"/><path d="M9 20v-6h6v6"/>','<path d="M3 6h18M3 6v3M21 6v3"/><path d="M6 6v4M10 6v4M14 6v4M18 6v4"/><rect x="5" y="14" width="14" height="5" rx="1"/>','<path d="M4 7h16"/><path d="M7 12c1-1.5-1-2.5 0-4M12 12c1-1.5-1-2.5 0-4M17 12c1-1.5-1-2.5 0-4"/><path d="M4 18c4-2 12-2 16 0"/>','<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>'];
+gsap.set(sts,{autoAlpha:0});
+steppers.d=new Stepper($('#d'),function(i,prev,dir,first){gsap.to('#dRoll',{yPercent:-25*i,duration:first?.6:.9,ease:'expo.inOut'});swap(sts,i,prev,dir);
+$('#dBar').style.transform='scaleX('+((i+1)/4)+')';
+ic.innerHTML=icons[i];$$('path,rect',ic).forEach(function(p){var l=p.getTotalLength?p.getTotalLength():60;gsap.fromTo(p,{strokeDasharray:l,strokeDashoffset:l},{strokeDashoffset:0,duration:.9,delay:.15,ease:'power2.out'})});
+gsap.fromTo('.vd-ic',{scale:.85,rotate:-8},{scale:1,rotate:0,duration:.8,ease:'back.out(2)'})});})();
+
+/* nav highlight */
+var navs=$$('.vbar a[data-s]');function hl(){var m=innerHeight/2;navs.forEach(function(a){var r=$(a.getAttribute('href')).getBoundingClientRect();a.classList.toggle('on',r.top<m&&r.bottom>m)})}
+lenis.on('scroll',hl);hl();
+addEventListener('load',function(){ScrollTrigger.refresh()});
+})();
+</script>
+</body>
+</html>
