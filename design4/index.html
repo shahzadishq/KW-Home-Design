@@ -90,35 +90,36 @@ header nav a:hover{background:#fff;color:var(--ink)}
 .cfg .head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:60px}
 .cfg .head p{max-width:420px;line-height:1.75;color:var(--muted)}
 .cgrid{display:grid;grid-template-columns:1.55fr 1fr;gap:40px;align-items:stretch}
-.stage{position:relative;height:620px;border-radius:28px;overflow:hidden;background:#2A2623;perspective:1100px;perspective-origin:50% 74%;cursor:grab;touch-action:pan-y}
+.stage{position:relative;height:620px;border-radius:28px;overflow:hidden;background:#2A2623;cursor:grab;touch-action:pan-y}
 .stage:active{cursor:grabbing}
-.room{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;transition:filter .8s}
-.f{position:absolute;transition:background 1s,filter 1s,box-shadow 1s}
-.f.back{width:1000px;height:560px;left:-500px;top:-280px;transform:translateZ(-500px);background:linear-gradient(180deg,#E9E3DB,#D9D1C6)}
-.f.lw,.f.rw{width:1000px;height:560px;left:-500px;top:-280px;background:linear-gradient(90deg,#D6CEC3,#E6DFD6)}
-.f.lw{transform:rotateY(90deg) translateZ(-500px)}
-.f.rw{transform:rotateY(-90deg) translateZ(-500px);background:linear-gradient(270deg,#D6CEC3,#E6DFD6)}
-.f.flr{width:1000px;height:1000px;left:-500px;top:-500px;transform:rotateX(90deg) translateZ(-280px);background:repeating-linear-gradient(90deg,#9A7B5E 0 80px,#8E7055 80px 82px,#A3846A 82px 162px,#8E7055 162px 164px);}
-.f.flr::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.18),transparent 60%)}
-.f.ceil{width:1000px;height:1000px;left:-500px;top:-500px;transform:rotateX(-90deg) translateZ(-280px);overflow:hidden}
-/* window on back wall */
-.win{position:absolute;left:330px;top:120px;width:340px;height:250px;background:linear-gradient(180deg,#BFD9EE,#EAF3F9);border:10px solid #F7F4EF;box-shadow:0 0 120px 40px rgba(255,250,235,.35)}
-.win::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:8px;margin-left:-4px;background:#F7F4EF}
-.sofa{position:absolute;left:260px;bottom:0;width:480px;height:120px;background:linear-gradient(180deg,#4A4440,#35302C);border-radius:24px 24px 0 0}
-.sofa::before{content:"";position:absolute;left:-20px;right:-20px;top:40px;height:80px;background:#3D3834;border-radius:18px 18px 0 0}
-.plant{position:absolute;right:120px;bottom:0;width:70px;height:220px}
-.plant::before{content:"";position:absolute;bottom:0;left:15px;width:40px;height:60px;background:#F2EEE8;border-radius:4px 4px 10px 10px}
-.plant::after{content:"";position:absolute;bottom:55px;left:-20px;width:110px;height:170px;background:radial-gradient(ellipse at 50% 60%,#5E7A55 0 45%,transparent 46%),radial-gradient(ellipse at 25% 40%,#6E8C63 0 30%,transparent 31%),radial-gradient(ellipse at 75% 35%,#55704C 0 30%,transparent 31%)}
+.room{position:absolute;inset:0;transition:filter .8s}
+.pl{position:absolute;inset:0;transition:filter 1s}
+.lw{background:linear-gradient(90deg,#CFC6BA,#E3DCD2)}
+.rw{background:linear-gradient(270deg,#CFC6BA,#E3DCD2)}
+.flr{background:repeating-linear-gradient(90deg,#9A7B5E 0 6%,#8E7055 6% 6.3%,#A3846A 6.3% 12.3%,#8E7055 12.3% 12.6%)}
+.flr::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.2),rgba(255,255,255,.12))}
+.ceil{overflow:hidden}
+.bwall{position:absolute;background:linear-gradient(180deg,#ECE6DE,#DCD4C9);transition:filter 1s;overflow:hidden}
+.win{position:absolute;left:30%;top:16%;width:40%;height:46%;background:linear-gradient(180deg,#BFD9EE,#EAF3F9);border:6px solid #F7F4EF;box-shadow:0 0 80px 26px rgba(255,250,235,.35)}
+.win::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:5px;margin-left:-2.5px;background:#F7F4EF}
+.sofa{position:absolute;left:20%;bottom:0;width:60%;height:22%;background:linear-gradient(180deg,#4A4440,#35302C);border-radius:14px 14px 0 0}
+.sofa::before{content:"";position:absolute;left:-4%;right:-4%;top:35%;bottom:0;background:#3D3834;border-radius:12px 12px 0 0}
+.plant{position:absolute;right:6%;bottom:0;width:9%;height:44%}
+.plant::before{content:"";position:absolute;bottom:0;left:22%;width:56%;height:28%;background:#F2EEE8;border-radius:3px 3px 8px 8px}
+.plant::after{content:"";position:absolute;bottom:25%;left:-30%;width:160%;height:80%;background:radial-gradient(ellipse at 50% 60%,#5E7A55 0 45%,transparent 46%),radial-gradient(ellipse at 25% 40%,#6E8C63 0 30%,transparent 31%),radial-gradient(ellipse at 75% 35%,#55704C 0 30%,transparent 31%)}
+.refl{position:absolute;opacity:0;background:linear-gradient(0deg,rgba(191,217,238,.7),rgba(234,243,249,.15));filter:blur(4px);transition:opacity .8s}
+.room.glossy .refl{opacity:.85}
+.fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#ledG{opacity:0;transition:opacity .6s}
+.room.led-on #ledG{opacity:1}
+#led1,#led2{stroke:var(--ledc,#FFE2B8)}
+#spotG{opacity:0;transition:opacity .6s}
+.room.spots-on #spotG{opacity:1}
 /* ceiling finishes */
 .ceil .mat{position:absolute;inset:0;transition:opacity 1s}
-.ceil .spots{position:absolute;inset:0;opacity:0;transition:opacity .6s}
-.ceil .spots i{position:absolute;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle,#fff 0 30%,#FFE8C8 45%,rgba(255,220,170,0) 72%);box-shadow:0 0 30px 12px rgba(255,225,180,.6)}
-.ceil .led{position:absolute;inset:0;opacity:0;transition:opacity .6s,box-shadow .6s;box-shadow:inset 0 0 0 3px var(--ledc,#FFE2B8),inset 0 0 60px 12px var(--ledc,#FFE2B8)}
-.room.spots-on .ceil .spots,.room.led-on .ceil .led{opacity:1}
 .m-matt{background:#F4F1EC}
 .m-satin{background:radial-gradient(ellipse 60% 50% at 50% 50%,#FFFFFF,#ECE7E0 70%),#ECE7E0}
 .m-glanz{background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.95) 31%,rgba(255,255,255,.2) 38%,transparent 39%),linear-gradient(115deg,transparent 52%,rgba(255,255,255,.6) 53%,transparent 56%),linear-gradient(180deg,#D8D1C8,#FBFAF8 45%,#CFC6BB);}
-.m-glanz::after{content:"";position:absolute;left:330px;top:640px;width:340px;height:250px;background:linear-gradient(0deg,rgba(191,217,238,.65),rgba(234,243,249,.25));filter:blur(3px)}
 .m-schwarz{background:linear-gradient(115deg,transparent 34%,rgba(255,255,255,.35) 35%,transparent 40%),linear-gradient(115deg,transparent 56%,rgba(255,255,255,.18) 57%,transparent 60%),linear-gradient(180deg,#0E0D0C,#272320 50%,#0E0D0C)}
 .m-stern{background:radial-gradient(ellipse at 50% 50%,#1B2340,#070A16 75%)}
 .m-stern::before,.m-stern::after{content:"";position:absolute;left:0;top:0;width:2px;height:2px;border-radius:50%;background:#fff;animation:tw 3s ease-in-out infinite alternate}
@@ -127,9 +128,9 @@ header nav a:hover{background:#fff;color:var(--ink)}
 .m-druck{background:radial-gradient(ellipse 30% 18% at 30% 40%,rgba(255,255,255,.95),transparent 70%),radial-gradient(ellipse 26% 14% at 62% 58%,rgba(255,255,255,.9),transparent 70%),radial-gradient(ellipse 22% 12% at 72% 28%,rgba(255,255,255,.85),transparent 70%),radial-gradient(ellipse 34% 16% at 35% 72%,rgba(255,255,255,.8),transparent 70%),linear-gradient(180deg,#6FA8DC,#A9CDEB)}
 .m-akustik{background:radial-gradient(circle,rgba(0,0,0,.18) 1.2px,transparent 1.6px) 0 0/14px 14px,#EFEBE5}
 @keyframes tw{from{opacity:.25}to{opacity:1}}
-.room.dark .f.back,.room.dark .f.lw,.room.dark .f.rw{filter:brightness(.55)}
-.room.dark .f.flr{filter:brightness(.5)}
-.room.bright .f.back,.room.bright .f.lw,.room.bright .f.rw,.room.bright .f.flr{filter:brightness(1.12)}
+.room.dark .lw,.room.dark .rw,.room.dark .bwall{filter:brightness(.5)}
+.room.dark .flr{filter:brightness(.45)}
+.room.bright .lw,.room.bright .rw,.room.bright .bwall,.room.bright .flr{filter:brightness(1.12)}
 .stage .ui{position:absolute;left:20px;right:20px;bottom:20px;display:flex;justify-content:space-between;align-items:center;gap:14px;z-index:5;flex-wrap:wrap}
 .chip{display:inline-flex;align-items:center;gap:10px;background:rgba(16,14,12,.72);backdrop-filter:blur(10px);color:#fff;border:1px solid rgba(255,255,255,.18);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;transition:background .3s,border-color .3s}
 .chip[aria-pressed="true"]{background:var(--red);border-color:var(--red)}
@@ -153,7 +154,6 @@ header nav a:hover{background:#fff;color:var(--ink)}
 .mats button[aria-pressed="true"] .sq{border-color:var(--red)}
 .mats .sq.m-stern::before,.mats .sq.m-stern::after{display:none}
 .mats .sq.m-stern{background:radial-gradient(circle,#fff 1px,transparent 1.5px) 0 0/9px 9px,radial-gradient(ellipse,#1B2340,#070A16)}
-.mats .sq.m-glanz::after{display:none}
 .panel .go{margin-top:auto;display:flex;flex-direction:column;gap:12px}
 .panel .go small{color:var(--muted);font-size:13px}
 @media(max-width:1000px){.cgrid{grid-template-columns:1fr}.stage{height:480px}}
@@ -355,9 +355,10 @@ footer{background:#0A0908;padding:110px 0 36px;color:#8C827A;font-size:14px}
       <div class="stage rv" id="stage" data-cursor="drag" aria-label="3D-Vorschau eines Wohnraums">
         <div class="hint">↔ Raum ziehen</div>
         <div class="room" id="room">
-          <div class="f back"><div class="win"></div><div class="sofa"></div><div class="plant"></div></div>
-          <div class="f lw"></div><div class="f rw"></div><div class="f flr"></div>
-          <div class="f ceil" id="ceil"><div class="mat m-glanz" id="mat"></div><div class="spots" id="spots"></div><div class="led"></div></div>
+          <div class="pl lw" id="pLw"></div><div class="pl rw" id="pRw"></div><div class="pl flr" id="pFl"></div>
+          <div class="pl ceil" id="ceil"><div class="mat m-glanz" id="mat"></div><div class="refl" id="refl"></div></div>
+          <div class="bwall" id="bw"><div class="win"></div><div class="sofa"></div><div class="plant"></div></div>
+          <svg class="fx" id="fx" aria-hidden="true"><defs><filter id="gl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter></defs><g id="ledG"><polygon id="led1" fill="none" stroke-width="10" filter="url(#gl)"/><polygon id="led2" fill="none" stroke-width="2.5"/></g><g id="spotG"></g></svg>
         </div>
         <div class="ui">
           <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -536,12 +537,11 @@ licht:['Leuchtdecke','Die ganze Decke wird zur Lichtquelle – gleichmäßig, bl
 druck:['Digitaldruck','Ihr Wunschmotiv auf der Decke – vom Himmel bis zum Firmenlogo.',''],
 akustik:['Akustik','Fein perforiert für spürbar weniger Hall – ideal für Büros und große Räume.','']};
 var order=Object.keys(MATS),room=$('#room'),mat=$('#mat'),stage=$('#stage'),cur='glanz';
-var spots=$('#spots');[[30,30],[50,30],[70,30],[30,70],[50,70],[70,70]].forEach(function(p){var i=document.createElement('i');i.style.left='calc('+p[0]+'% - 13px)';i.style.top='calc('+p[1]+'% - 13px)';spots.appendChild(i)});
 room.classList.add('spots-on');
 // stars
-var st='';for(var k=0;k<120;k++){st+=(Math.random()*1000|0)+'px '+(Math.random()*1000|0)+'px 0 '+(Math.random()<.2?1:0)+'px rgba(255,255,255,'+(.4+Math.random()*.6).toFixed(2)+'),'}
-var sty=document.createElement('style');sty.textContent='.f.ceil .m-stern::before{box-shadow:'+st.slice(0,-1)+'}.f.ceil .m-stern::after{box-shadow:'+st.split(',').reverse().slice(1,60).join(',')+'}';document.head.appendChild(sty);
-function setMat(m){cur=m;var d=MATS[m];mat.className='mat m-'+m;room.classList.toggle('dark',d[2]==='dark');room.classList.toggle('bright',d[2]==='bright');
+var st='';for(var k=0;k<160;k++){st+=(Math.random()*1400|0)+'px '+(Math.random()*400|0)+'px 0 '+(Math.random()<.2?1:0)+'px rgba(255,255,255,'+(.4+Math.random()*.6).toFixed(2)+'),'}
+var sty=document.createElement('style');sty.textContent='.ceil .m-stern::before{box-shadow:'+st.slice(0,-1)+'}.ceil .m-stern::after{box-shadow:'+st.split(',').reverse().slice(1,60).join(',')+'}';document.head.appendChild(sty);
+function setMat(m){cur=m;var d=MATS[m];mat.className='mat m-'+m;room.classList.toggle('glossy',m==='glanz'||m==='schwarz');room.classList.toggle('dark',d[2]==='dark');room.classList.toggle('bright',d[2]==='bright');
 $('#cN').textContent='Oberfläche 0'+(order.indexOf(m)+1)+' / 08';$('#cT').textContent=d[0];$('#cD').textContent=d[1];
 $$('#mats button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.m===m)});$('#ob').value=d[0]+(room.classList.contains('led-on')?' + LED-Linie':'');
 if(window.gsap){gsap.fromTo(mat,{opacity:0},{opacity:1,duration:.9,ease:'power2.out'});gsap.fromTo(['#cT','#cD'],{y:16,opacity:0},{y:0,opacity:1,duration:.6,stagger:.06,ease:'expo.out'});}}
@@ -549,17 +549,30 @@ $$('#mats button').forEach(function(b){b.addEventListener('click',function(){set
 $('#tSpots').addEventListener('click',function(){var on=this.getAttribute('aria-pressed')!=='true';this.setAttribute('aria-pressed',on);room.classList.toggle('spots-on',on)});
 $('#tLed').addEventListener('click',function(){var on=this.getAttribute('aria-pressed')!=='true';this.setAttribute('aria-pressed',on);room.classList.toggle('led-on',on);setMat(cur)});
 $$('#ledc button').forEach(function(b){b.addEventListener('click',function(){room.style.setProperty('--ledc',b.dataset.c);$$('#ledc button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});if(!room.classList.contains('led-on'))$('#tLed').click()})});
-// room camera + drag
-var rot={y:-14,x:0},target={y:-14};
-function fit(){var s=Math.min(1,stage.clientWidth/1050);room.style.setProperty('--s',s);apply()}
-function apply(){var s=parseFloat(room.style.getPropertyValue('--s'))||1;room.style.transform='scale('+(s*0.62)+') translateZ(820px) rotateX('+rot.x+'deg) rotateY('+rot.y+'deg)'}
-var drag=false,sx=0,sy=0;
-stage.addEventListener('pointerdown',function(e){drag=true;sx=e.clientX;sy=target.y});
+// room: one-point perspective drawn with clip-paths (vanishing point follows drag/mouse)
+var cam={x:.5,y:.62},tgt={x:.5,y:.62},drag=false,sx=0,sx0=0;
+var pLw=$('#pLw'),pRw=$('#pRw'),pFl=$('#pFl'),pC=$('#ceil'),bwl=$('#bw'),refl=$('#refl'),fx=$('#fx'),spotG=$('#spotG');
+var SP=[[.2,.25],[.5,.25],[.8,.25],[.2,.62],[.5,.62],[.8,.62]];
+SP.forEach(function(){var g=document.createElementNS('http://www.w3.org/2000/svg','g');g.innerHTML='<ellipse fill="rgba(255,225,180,.45)" filter="url(#gl)"/><ellipse fill="#FFF7E8"/>';spotG.appendChild(g)});
+function poly(el,pts){el.style.clipPath='polygon('+pts.map(function(p){return p[0].toFixed(1)+'px '+p[1].toFixed(1)+'px'}).join(',')+')'}
+function draw(){var W=stage.clientWidth,H=stage.clientHeight,bw=W*.44,bh=H*.34,cx=W*cam.x,cy=H*cam.y;
+var x1=cx-bw/2,x2=cx+bw/2,y1=cy-bh/2,y2=cy+bh/2;
+poly(pC,[[0,0],[W,0],[x2,y1],[x1,y1]]);poly(pLw,[[0,0],[x1,y1],[x1,y2],[0,H]]);poly(pRw,[[W,0],[W,H],[x2,y2],[x2,y1]]);poly(pFl,[[0,H],[x1,y2],[x2,y2],[W,H]]);
+bwl.style.cssText='left:'+x1+'px;top:'+y1+'px;width:'+bw+'px;height:'+bh+'px';
+refl.style.cssText='left:'+(x1+bw*.3)+'px;width:'+(bw*.4)+'px;top:'+(y1-bh*.55)+'px;height:'+(bh*.45)+'px;transform:perspective(400px) rotateX(-40deg)';
+fx.setAttribute('viewBox','0 0 '+W+' '+H);
+var inset=8,q=[[inset,inset],[W-inset,inset],[x2-3,y1-3],[x1+3,y1-3]];var pts=q.map(function(p){return p.join(',')}).join(' ');$('#led1').setAttribute('points',pts);$('#led2').setAttribute('points',pts);
+// spots: bilinear interpolation inside ceiling quad (u across, v depth 0=front,1=back)
+SP.forEach(function(sp,i){var u=sp[0],v=sp[1];var lx=0+(x1-0)*v,rx=W+(x2-W)*v,y=0+(y1-0)*v;var x=lx+(rx-lx)*u;var sc=1-v*.6;var g=spotG.children[i];
+g.children[0].setAttribute('cx',x);g.children[0].setAttribute('cy',y);g.children[0].setAttribute('rx',34*sc);g.children[0].setAttribute('ry',14*sc);
+g.children[1].setAttribute('cx',x);g.children[1].setAttribute('cy',y);g.children[1].setAttribute('rx',11*sc);g.children[1].setAttribute('ry',4.5*sc)})}
+stage.addEventListener('pointerdown',function(e){drag=true;sx=e.clientX;sx0=tgt.x});
 addEventListener('pointerup',function(){drag=false});
-addEventListener('pointermove',function(e){if(drag){target.y=Math.max(-40,Math.min(40,sy+(e.clientX-sx)*.15))}});
-stage.addEventListener('mousemove',function(e){if(!drag){var r=stage.getBoundingClientRect();rot.x=((e.clientY-r.top)/r.height-.5)*-6}});
-(function loop(){rot.y+=(target.y-rot.y)*.08;apply();requestAnimationFrame(loop)})();
-addEventListener('resize',fit);fit();
+addEventListener('pointermove',function(e){if(drag){tgt.x=Math.max(.3,Math.min(.7,sx0-(e.clientX-sx)/stage.clientWidth*.6))}});
+stage.addEventListener('mousemove',function(e){if(!drag){var r=stage.getBoundingClientRect();tgt.y=.62+((e.clientY-r.top)/r.height-.5)*-.08;tgt.x=.5+((e.clientX-r.left)/r.width-.5)*-.12}});
+stage.addEventListener('mouseleave',function(){tgt.x=.5;tgt.y=.62});
+(function loop(){cam.x+=(tgt.x-cam.x)*.08;cam.y+=(tgt.y-cam.y)*.08;draw();requestAnimationFrame(loop)})();
+var target=tgt;
 $('#cGo').addEventListener('click',function(){$('#ob').value=MATS[cur][0]+(room.classList.contains('led-on')?' + LED-Linie':'')+(room.classList.contains('spots-on')?' + Spots':'')});
 
 /* ---------- map ---------- */
@@ -653,7 +666,7 @@ var mq=$('#mq'),mx=0,sp=1;gsap.ticker.add(function(){mx-=sp;var w=mq.scrollWidth
 ScrollTrigger.create({onUpdate:function(s){var v=s.getVelocity()/100;if(Math.abs(v)>1)sp=gsap.utils.clamp(-14,14,v)}});
 
 // configurator entrance: room swings in
-gsap.fromTo(target,{y:-60},{y:-14,duration:2,ease:'expo.out',scrollTrigger:{trigger:'#stage',start:'top 75%'}});
+gsap.fromTo(cam,{x:.2},{x:.5,duration:2.2,ease:'expo.out',scrollTrigger:{trigger:'#stage',start:'top 75%'}});
 gsap.fromTo('.mats button',{y:30,opacity:0},{y:0,opacity:1,duration:.8,stagger:.05,ease:'expo.out',scrollTrigger:{trigger:'#mats',start:'top 88%'}});
 
 // DAY – sun travels, sky shifts, steps swap
