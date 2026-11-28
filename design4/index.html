@@ -895,7 +895,7 @@ function jumpTo(y){window.scrollTo(0,y);if(lenis){lenis.animatedScroll=lenis.tar
 var T=[.15,.39,.63,1.02],idx=0,locked=false,busy=false,releasedAt=0,stv=null;
 function goStep(n){busy=true;idx=n;tl2.tweenTo(T[n],{duration:1.05,ease:'power2.inOut',onComplete:function(){busy=false}});
 var y=stv.start+2+(stv.end-stv.start-4)*(n/3);jumpTo(y)}
-function lock(fromBelow){if(locked||window.navScroll||Date.now()-releasedAt<900)return;locked=true;
+function lock(fromBelow){if(locked||window.navScroll||Date.now()-releasedAt<900)return;var cy=window.scrollY;if(cy<stv.start-8||cy>stv.end+8)return;locked=true;
 var n=fromBelow?3:0,y=stv.start+2+(stv.end-stv.start-4)*(n/3);jumpTo(y);if(lenis)lenis.stop();
 document.documentElement.classList.add('vc-lock');$('#hdr').classList.add('hd');busy=true;idx=n;tl2.tweenTo(T[n],{duration:fromBelow?.6:1,ease:'power2.out',onComplete:function(){busy=false}})}
 function release(dir){locked=false;releasedAt=Date.now();document.documentElement.classList.remove('vc-lock');if(dir<0)$('#hdr').classList.remove('hd');if(lenis)lenis.start();
