@@ -90,10 +90,10 @@ header nav a:hover{background:#fff;color:var(--ink)}
 .cfg .head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:60px}
 .cfg .head p{max-width:420px;line-height:1.75;color:var(--muted)}
 .cgrid{display:grid;grid-template-columns:1.55fr 1fr;gap:40px;align-items:stretch}
-.stage{position:relative;height:620px;border-radius:28px;overflow:hidden;background:#2A2623;perspective:1100px;perspective-origin:50% 88%;cursor:grab;touch-action:pan-y}
+.stage{position:relative;height:620px;border-radius:28px;overflow:hidden;background:#2A2623;perspective:1100px;perspective-origin:50% 74%;cursor:grab;touch-action:pan-y}
 .stage:active{cursor:grabbing}
 .room{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;transition:filter .8s}
-.f{position:absolute;backface-visibility:hidden;transition:background 1s,filter 1s,box-shadow 1s}
+.f{position:absolute;transition:background 1s,filter 1s,box-shadow 1s}
 .f.back{width:1000px;height:560px;left:-500px;top:-280px;transform:translateZ(-500px);background:linear-gradient(180deg,#E9E3DB,#D9D1C6)}
 .f.lw,.f.rw{width:1000px;height:560px;left:-500px;top:-280px;background:linear-gradient(90deg,#D6CEC3,#E6DFD6)}
 .f.lw{transform:rotateY(90deg) translateZ(-500px)}
@@ -552,7 +552,7 @@ $$('#ledc button').forEach(function(b){b.addEventListener('click',function(){roo
 // room camera + drag
 var rot={y:-14,x:0},target={y:-14};
 function fit(){var s=Math.min(1,stage.clientWidth/1050);room.style.setProperty('--s',s);apply()}
-function apply(){var s=parseFloat(room.style.getPropertyValue('--s'))||1;room.style.transform='scale('+(s*0.62)+') translateZ(380px) rotateX('+rot.x+'deg) rotateY('+rot.y+'deg)'}
+function apply(){var s=parseFloat(room.style.getPropertyValue('--s'))||1;room.style.transform='scale('+(s*0.62)+') translateZ(820px) rotateX('+rot.x+'deg) rotateY('+rot.y+'deg)'}
 var drag=false,sx=0,sy=0;
 stage.addEventListener('pointerdown',function(e){drag=true;sx=e.clientX;sy=target.y});
 addEventListener('pointerup',function(){drag=false});
@@ -567,7 +567,7 @@ var svgNS='http://www.w3.org/2000/svg',map=$('#map');
 function P(lon,lat){return[(lon-7.45)/(10.6-7.45)*560+20,(49.75-lat)/(49.75-47.5)*600+20]}
 var bw=[[8.2,49.6],[8.6,49.65],[9.1,49.62],[9.6,49.75],[10.2,49.55],[10.45,49.1],[10.5,48.7],[10.25,48.3],[10.0,47.95],[9.6,47.55],[9.0,47.65],[8.6,47.62],[8.1,47.58],[7.55,47.6],[7.55,48.1],[7.8,48.6],[8.1,48.95],[8.35,49.2],[8.2,49.6]];
 var bp=document.createElementNS(svgNS,'path');bp.setAttribute('d','M'+bw.map(function(c){var p=P(c[0],c[1]);return p[0].toFixed(1)+' '+p[1].toFixed(1)}).join(' L')+'Z');bp.setAttribute('class','bw');map.appendChild(bp);
-var cities=[['Mannheim',8.47,49.49],['Heidelberg',8.69,49.40],['Heilbronn',9.22,49.14],['Öhringen',9.50,49.20],['Schwäbisch Hall',9.74,49.11],['Bad Mergentheim',9.77,49.49],['Ludwigsburg',9.19,48.90],['Stuttgart',9.18,48.78],['Böblingen',9.01,48.68],['Tübingen',9.06,48.52],['Reutlingen',9.21,48.49],['Rottweil',8.63,48.17],['Villingen-Schwenningen',8.46,48.06],['Konstanz',9.17,47.66],['Freudenstadt',8.41,48.46]];
+var cities=[['Mannheim',8.47,49.49],['Heidelberg',8.69,49.40],['Öhringen',9.50,49.20],['Schwäbisch Hall',9.74,49.11],['Bad Mergentheim',9.77,49.49],['Ludwigsburg',9.19,48.90],['Stuttgart',9.18,48.78],['Böblingen',9.01,48.68],['Tübingen',9.06,48.52],['Reutlingen',9.21,48.49],['Rottweil',8.63,48.17],['Villingen-Schwenningen',8.46,48.06],['Konstanz',9.17,47.66],['Calw',8.74,48.71]];
 var hqs=[['Empfingen',8.71,48.39],['Lehrensteinsfeld',9.33,49.13]];
 var routes=document.createElementNS(svgNS,'g');map.appendChild(routes);
 cities.forEach(function(c){var p=P(c[1],c[2]);var near=hqs.map(function(h){var q=P(h[1],h[2]);return[Math.hypot(q[0]-p[0],q[1]-p[1]),q]}).sort(function(a,b){return a[0]-b[0]})[0][1];
