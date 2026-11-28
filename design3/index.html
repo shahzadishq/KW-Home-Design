@@ -483,7 +483,7 @@ footer{background:var(--coal2);color:var(--sand);padding:clamp(70px,10vh,110px) 
 .fc .fi svg{width:17px;height:17px}
 a.fc{align-items:center}
 a.fc:hover .fi{background:var(--red);color:#fff}
-.ft-word{font-family:'Enriqueta',serif;font-size:clamp(52px,13.6vw,250px);line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.12);white-space:nowrap;text-align:center;user-select:none;margin:10px 0 30px}
+.ft-word{font-family:'Enriqueta',serif;font-size:clamp(48px,11.6vw,220px);line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.12);white-space:nowrap;text-align:center;user-select:none;margin:10px 0 30px}
 .ft-word span{display:inline-block}
 .ft-bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);padding-top:22px;border-top:1px solid rgba(255,255,255,.08)}
 .ft-bot a{padding:6px 4px}
@@ -494,6 +494,17 @@ a.fc:hover .fi{background:var(--red);color:#fff}
 .totop svg{width:18px;height:18px}
 .totop.on{transform:scale(1)}
 
+
+/* funnel buttons in design3 */
+.fcard .btn{height:56px;padding:0 10px 0 26px}
+.fcard .btn-red{background:var(--red);color:#fff}
+.fcard .btn-red .ar{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;font-size:16px}
+.fcard .btn-red::before{background:var(--coal)}
+.fcard .btn-dark{color:var(--coal);box-shadow:inset 0 0 0 1px rgba(52,48,44,.28);padding:0 24px}
+.fcard .btn-dark::before{background:var(--coal)}.fcard .btn-dark:hover{color:#fff}
+/* process ring fits short screens */
+.ring{width:min(340px,28vw,calc(100vh - 360px));min-width:200px}
+@media(max-height:760px){.proc-l .h-l{margin:16px 0 26px;font-size:clamp(34px,3.8vw,60px)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
