@@ -3,519 +3,352 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KW Home Design – Spanndecken, die Räume verwandeln</title>
-<meta name="description" content="KW Home Design – Spanndecken und Raumausstattung aus Empfingen und Lehrensteinsfeld. Konfigurieren Sie Ihre neue Decke live. 15 Jahre Herstellergarantie, Einbau meist an einem Tag.">
+<title>KW Home Design – Schluss mit langweiligen Decken</title>
+<meta name="description" content="KW Home Design – Spanndecken und Raumausstattung aus Empfingen und Lehrensteinsfeld. 15 Jahre Herstellergarantie, Einbau meist an einem Tag, ohne Schmutz.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400;62..125,500;62..125,700;62..125,800;62..125,900&display=swap" rel="stylesheet">
 <style>
-:root{--red:#DC0F16;--red2:#FF4A50;--dark:#34302C;--ink:#100E0C;--ink2:#1B1816;--cream:#F5F2ED;--muted:#5E5650;--line:rgba(255,255,255,.12)}
+:root{--red:#DC0F16;--red-d:#A80B11;--ink:#121010;--cream:#F6F1EA;--peach:#FFD9CC;--sun:#FFD23F;--grey:#6B625C}
 *{box-sizing:border-box;margin:0;padding:0}
 html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
-body{background:var(--ink);color:#fff;font-family:'Open Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
-.serif{font-family:'Enriqueta',Georgia,serif;font-weight:400;letter-spacing:-.015em}
-.wrap{max-width:1360px;margin:0 auto;padding:0 48px}
-.eyebrow{font-size:12px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--red2);display:flex;align-items:center;gap:14px}
-.eyebrow::before{content:"";width:40px;height:2px;background:currentColor}
-.h2{font-size:clamp(40px,5.2vw,86px);line-height:1}
-.line{display:block;overflow:hidden;padding-bottom:.08em}.line>span{display:inline-block}
-.btn{display:inline-flex;align-items:center;gap:12px;padding:19px 32px;font-weight:700;font-size:15px;letter-spacing:.02em;border-radius:999px;position:relative;overflow:hidden;isolation:isolate;cursor:pointer;border:0}
-.btn::before{content:"";position:absolute;inset:0;border-radius:inherit;transform:scale(0);transition:transform .6s cubic-bezier(.7,0,.2,1);z-index:-1}
-.btn:hover::before{transform:scale(1.05)}
-.btn .ar{transition:transform .4s}.btn:hover .ar{transform:translateX(5px)}
-.b-red{background:var(--red);color:#fff}.b-red::before{background:#fff}.b-red:hover{color:var(--ink)}
-.b-ghost{border:1px solid rgba(255,255,255,.35);color:#fff}.b-ghost::before{background:#fff}.b-ghost:hover{color:var(--ink)}
-.b-dark{background:var(--ink);color:#fff}.b-dark::before{background:var(--red)}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-
-/* loader */
-#ld{position:fixed;inset:0;z-index:200;background:var(--ink);display:flex;align-items:center;justify-content:center}
-#ld .ln{width:min(420px,70vw);height:2px;background:rgba(255,255,255,.1);position:relative;overflow:hidden}
-#ld .ln i{position:absolute;inset:0;background:var(--red);transform:scaleX(0);transform-origin:left}
-#ld .t{position:absolute;bottom:40px;left:48px;right:48px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#7D746D}
+body{background:var(--cream);color:var(--ink);font-family:'Archivo',system-ui,sans-serif;font-stretch:100%;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+.mega{font-weight:900;font-stretch:72%;text-transform:uppercase;line-height:.82;letter-spacing:-.01em}
+.wide{font-weight:800;font-stretch:125%;text-transform:uppercase;letter-spacing:-.02em}
+.tag{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.tag::before{content:"";width:10px;height:10px;border-radius:50%;background:currentColor}
+.btn{display:inline-flex;align-items:center;gap:14px;padding:20px 30px;border-radius:999px;font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;position:relative;overflow:hidden;isolation:isolate;border:0;transition:transform .3s}
+.btn::after{content:"";position:absolute;inset:0;border-radius:inherit;transform:translateY(102%);transition:transform .5s cubic-bezier(.7,0,.2,1);z-index:-1}
+.btn:hover::after{transform:none}
+.btn .ar{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;transition:transform .4s}
+.btn:hover .ar{transform:rotate(-45deg)}
+.b-ink{background:var(--ink);color:#fff}.b-ink::after{background:var(--sun)}.b-ink:hover{color:var(--ink)}.b-ink .ar{background:var(--red)}
+.b-white{background:#fff;color:var(--ink)}.b-white::after{background:var(--ink)}.b-white:hover{color:#fff}.b-white .ar{background:var(--red);color:#fff}
+.b-red{background:var(--red);color:#fff}.b-red::after{background:var(--ink)}.b-red .ar{background:#fff;color:var(--red)}
+.line{display:block;overflow:hidden}.line>span{display:inline-block}
 
 /* cursor */
-.cur{position:fixed;left:0;top:0;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,74,80,.8);pointer-events:none;z-index:150;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;transition:width .35s,height .35s,background .35s,border-color .35s;mix-blend-mode:normal}
-.cur span{opacity:0;transition:opacity .2s}
-.cur.h{width:70px;height:70px;background:rgba(255,74,80,.12)}
-.cur.d{width:96px;height:96px;background:var(--red);border-color:var(--red)}.cur.d span{opacity:1}
-.cdot{position:fixed;left:0;top:0;width:5px;height:5px;border-radius:50%;background:var(--red2);pointer-events:none;z-index:151;transform:translate(-50%,-50%)}
-@media(hover:none),(max-width:900px){.cur,.cdot{display:none}}
+.cur{position:fixed;left:0;top:0;width:18px;height:18px;border-radius:50%;background:var(--ink);pointer-events:none;z-index:300;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .3s,height .3s,background .3s}
+.cur.big{width:90px;height:90px;background:#fff}
+@media(hover:none),(max-width:900px){.cur{display:none}}
+
+/* loader: color wipes */
+#ld{position:fixed;inset:0;z-index:400;pointer-events:none}
+#ld i{position:absolute;inset:0}
+#ld i:nth-child(1){background:var(--ink)}#ld i:nth-child(2){background:var(--sun)}#ld i:nth-child(3){background:var(--red);display:flex;align-items:center;justify-content:center}
+#ld b{font-weight:900;font-stretch:72%;font-size:22vw;color:#fff;line-height:1;text-transform:uppercase}
 
 /* header */
-header{position:fixed;left:0;right:0;top:0;z-index:100;transition:transform .5s,background .4s}
-header.s{background:rgba(16,14,12,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-header.hd{transform:translateY(-100%)}
-header .wrap{height:92px;display:flex;align-items:center;justify-content:space-between;gap:30px}
-header .logo img{height:50px;width:auto}
-header nav{display:flex;gap:6px;background:rgba(255,255,255,.06);border:1px solid var(--line);padding:6px;border-radius:999px;backdrop-filter:blur(10px)}
-header nav a{font-size:13.5px;font-weight:600;padding:10px 18px;border-radius:999px;transition:background .3s,color .3s;color:#D8CFC7}
-header nav a:hover{background:#fff;color:var(--ink)}
-@media(max-width:1060px){header nav{display:none}}
+header{position:fixed;top:16px;left:16px;right:16px;z-index:200;display:flex;justify-content:space-between;align-items:center;gap:16px;pointer-events:none;transition:transform .5s}
+header>*{pointer-events:auto}
+header.hd{transform:translateY(-130%)}
+.logo{background:#fff;border-radius:18px;padding:8px 14px;box-shadow:0 10px 30px -15px rgba(0,0,0,.3)}
+.logo img{height:46px;width:auto}
+header nav{display:flex;gap:4px;background:var(--ink);border-radius:999px;padding:6px}
+header nav a{color:#fff;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:12px 18px;border-radius:999px;transition:background .3s,color .3s}
+header nav a:hover{background:var(--sun);color:var(--ink)}
+.hcta{background:var(--sun);color:var(--ink);font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:16px 22px;border-radius:999px;transition:background .3s,color .3s}
+.hcta:hover{background:var(--ink);color:#fff}
+@media(max-width:1000px){header nav{display:none}}
 
-/* HERO – membrane */
-.hero{position:relative;height:100vh;min-height:720px;overflow:hidden;background:#000}
-.hz{position:absolute;inset:-3%;width:106%;height:106%}
-.hero .veil{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 30% 60%,rgba(16,14,12,.15),rgba(16,14,12,.75)),linear-gradient(180deg,rgba(16,14,12,.5),transparent 30%,transparent 55%,rgba(16,14,12,.95))}
-.frame{position:absolute;inset:22px;pointer-events:none;z-index:3}
-.frame i{position:absolute;background:var(--red2)}
-.frame .t,.frame .b{height:1px;left:0;right:0}.frame .t{top:0;transform-origin:left}.frame .b{bottom:0;transform-origin:right}
-.frame .l,.frame .r{width:1px;top:0;bottom:0}.frame .l{left:0;transform-origin:bottom}.frame .r{right:0;transform-origin:top}
-.frame em{position:absolute;width:14px;height:14px;border:2px solid var(--red2);border-radius:50%;background:var(--ink)}
-.frame em:nth-of-type(1){left:-7px;top:-7px}.frame em:nth-of-type(2){right:-7px;top:-7px}.frame em:nth-of-type(3){left:-7px;bottom:-7px}.frame em:nth-of-type(4){right:-7px;bottom:-7px}
-.hc{position:relative;z-index:4;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:70px;gap:34px}
-.htop{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:end}
-.hero h1{font-size:clamp(58px,min(9.4vw,14vh),168px);line-height:.9}
-.hero h1 .w{display:block;overflow:hidden}.hero h1 .w>span{display:inline-block}
+/* HERO */
+.hero{position:relative;min-height:100vh;background:var(--red);color:#fff;overflow:hidden;padding:130px 0 0}
+.hero .wrap{position:relative;z-index:3}
+.hero h1{font-size:clamp(90px,19vw,330px);pointer-events:none}
+.hero h1 .row{display:flex;align-items:center;gap:2vw;overflow:hidden}
 .hero h1 .ch{display:inline-block}
-.hero h1 .rd{color:var(--red2)}
-.hside{display:flex;flex-direction:column;gap:26px;padding-bottom:12px}
-.hside p{font-size:17px;line-height:1.75;color:#D8CFC7;max-width:440px}
-.hside .ctas{display:flex;gap:12px;flex-wrap:wrap}
-.hbar{display:flex;justify-content:space-between;align-items:center;gap:30px;border-top:1px solid rgba(255,255,255,.18);padding-top:22px;font-size:13px;color:#B8AEA6;flex-wrap:wrap}
-.hbar b{color:#fff;font-family:'Enriqueta',serif;font-size:22px;font-weight:400;margin-right:8px}
-.hbar .tension{display:flex;align-items:center;gap:12px;letter-spacing:.2em;text-transform:uppercase;font-size:11px}
-.hbar .tension .meter{width:120px;height:2px;background:rgba(255,255,255,.2);position:relative}
-.hbar .tension .meter i{position:absolute;inset:0;background:var(--red2);transform-origin:left;transform:scaleX(0)}
-@media(max-width:900px){.htop{grid-template-columns:1fr;gap:26px}.hbar .tension{display:none}}
+.hero h1 .out{-webkit-text-stroke:2px #fff;color:transparent}
+.pill-img{display:inline-block;width:clamp(120px,22vw,380px);height:clamp(70px,13vw,230px);border-radius:999px;overflow:hidden;flex:0 0 auto;transform-origin:left center}
+.pill-img img{width:100%;height:100%;object-fit:cover}
+.hrow2{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-top:34px}
+.hrow2 p{font-size:clamp(18px,1.5vw,22px);line-height:1.5;max-width:560px;font-weight:500}
+.hrow2 .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.sticker{position:absolute;z-index:4;width:170px;height:170px;border-radius:50%;background:var(--sun);color:var(--ink);display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;font-stretch:80%;text-transform:uppercase;line-height:.9}
+.sticker svg{position:absolute;inset:0;animation:spin 14s linear infinite}
+.sticker b{font-size:54px;display:block}
+.sticker small{font-size:13px;letter-spacing:.06em}
+.s1{right:6%;top:18%}
+@keyframes spin{to{transform:rotate(360deg)}}
+.trail{position:absolute;inset:0;z-index:2;pointer-events:none}
+.trail img{position:absolute;width:220px;height:280px;object-fit:cover;border-radius:18px;transform:translate(-50%,-50%);box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.xband{position:relative;z-index:3;margin-top:70px;height:170px}
+.band{position:absolute;left:-5%;right:-5%;padding:20px 0;white-space:nowrap;overflow:hidden}
+.band .tr{display:inline-flex;gap:40px;font-weight:900;font-stretch:72%;text-transform:uppercase;font-size:44px;line-height:1}
+.band .tr span:nth-child(even){color:var(--red)}
+.band.a{background:var(--ink);color:#fff;transform:rotate(-3deg);top:20px}
+.band.b{background:var(--sun);color:var(--ink);transform:rotate(2.5deg);top:60px}
+.band.b .tr span:nth-child(even){color:var(--red)}
+@media(max-width:900px){.hrow2{grid-template-columns:1fr}.sticker{width:120px;height:120px;top:auto;bottom:220px}.sticker b{font-size:36px}}
 
-/* marquee */
-.mq{padding:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;background:var(--ink)}
-.mq .tr{display:inline-flex;gap:50px;font-family:'Enriqueta',serif;font-size:clamp(30px,3.6vw,54px);will-change:transform}
-.mq .tr span.o{-webkit-text-stroke:1px rgba(255,255,255,.5);color:transparent}
-.mq .tr span.s{color:var(--red2)}
+/* STATEMENT fill text */
+.stmt{padding:170px 0 150px}
+.stmt .big{font-size:clamp(38px,5.2vw,88px);font-weight:800;font-stretch:90%;line-height:1.02;letter-spacing:-.02em;max-width:1250px}
+.stmt .big .w{color:rgba(18,16,16,.13);transition:color .2s}
+.stmt .big .hl{display:inline-block;background:var(--sun);border-radius:14px;padding:0 .18em;transform:rotate(-2deg)}
+.stmt .big .ic{display:inline-block;width:1.3em;height:.82em;border-radius:999px;overflow:hidden;vertical-align:-.06em}
+.stmt .big .ic img{width:100%;height:100%;object-fit:cover}
+.stmt .foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-top:70px;align-items:center}
+.stmt .foot p{max-width:460px;font-size:18px;line-height:1.6;color:var(--grey)}
 
-/* CONFIGURATOR */
-.cfg{background:var(--cream);color:var(--dark);padding:150px 0 140px}
-.cfg .head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:60px}
-.cfg .head p{max-width:420px;line-height:1.75;color:var(--muted)}
-.cgrid{display:grid;grid-template-columns:1.55fr 1fr;gap:40px;align-items:stretch}
-.stage{position:relative;height:620px;border-radius:28px;overflow:hidden;background:#2A2623;cursor:grab;touch-action:pan-y}
-.stage:active{cursor:grabbing}
-.room{position:absolute;inset:0;transition:filter .8s}
-.pl{position:absolute;inset:0;transition:filter 1s}
-.lw{background:linear-gradient(90deg,#CFC6BA,#E3DCD2)}
-.rw{background:linear-gradient(270deg,#CFC6BA,#E3DCD2)}
-.flr{background:repeating-linear-gradient(90deg,#9A7B5E 0 6%,#8E7055 6% 6.3%,#A3846A 6.3% 12.3%,#8E7055 12.3% 12.6%)}
-.flr::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.2),rgba(255,255,255,.12))}
-.ceil{overflow:hidden}
-.bwall{position:absolute;background:linear-gradient(180deg,#ECE6DE,#DCD4C9);transition:filter 1s;overflow:hidden}
-.win{position:absolute;left:30%;top:16%;width:40%;height:46%;background:linear-gradient(180deg,#BFD9EE,#EAF3F9);border:6px solid #F7F4EF;box-shadow:0 0 80px 26px rgba(255,250,235,.35)}
-.win::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:5px;margin-left:-2.5px;background:#F7F4EF}
-.sofa{position:absolute;left:20%;bottom:0;width:60%;height:22%;background:linear-gradient(180deg,#4A4440,#35302C);border-radius:14px 14px 0 0}
-.sofa::before{content:"";position:absolute;left:-4%;right:-4%;top:35%;bottom:0;background:#3D3834;border-radius:12px 12px 0 0}
-.plant{position:absolute;right:6%;bottom:0;width:9%;height:44%}
-.plant::before{content:"";position:absolute;bottom:0;left:22%;width:56%;height:28%;background:#F2EEE8;border-radius:3px 3px 8px 8px}
-.plant::after{content:"";position:absolute;bottom:25%;left:-30%;width:160%;height:80%;background:radial-gradient(ellipse at 50% 60%,#5E7A55 0 45%,transparent 46%),radial-gradient(ellipse at 25% 40%,#6E8C63 0 30%,transparent 31%),radial-gradient(ellipse at 75% 35%,#55704C 0 30%,transparent 31%)}
-.refl{position:absolute;opacity:0;background:linear-gradient(0deg,rgba(191,217,238,.7),rgba(234,243,249,.15));filter:blur(4px);transition:opacity .8s}
-.room.glossy .refl{opacity:.85}
-.fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-#ledG{opacity:0;transition:opacity .6s}
-.room.led-on #ledG{opacity:1}
-#led1,#led2{stroke:var(--ledc,#FFE2B8)}
-#spotG{opacity:0;transition:opacity .6s}
-.room.spots-on #spotG{opacity:1}
-/* ceiling finishes */
-.ceil .mat{position:absolute;inset:0;transition:opacity 1s}
-.m-matt{background:#F4F1EC}
-.m-satin{background:radial-gradient(ellipse 60% 50% at 50% 50%,#FFFFFF,#ECE7E0 70%),#ECE7E0}
-.m-glanz{background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.95) 31%,rgba(255,255,255,.2) 38%,transparent 39%),linear-gradient(115deg,transparent 52%,rgba(255,255,255,.6) 53%,transparent 56%),linear-gradient(180deg,#D8D1C8,#FBFAF8 45%,#CFC6BB);}
-.m-schwarz{background:linear-gradient(115deg,transparent 34%,rgba(255,255,255,.35) 35%,transparent 40%),linear-gradient(115deg,transparent 56%,rgba(255,255,255,.18) 57%,transparent 60%),linear-gradient(180deg,#0E0D0C,#272320 50%,#0E0D0C)}
-.m-stern{background:radial-gradient(ellipse at 50% 50%,#1B2340,#070A16 75%)}
-.m-stern::before,.m-stern::after{content:"";position:absolute;left:0;top:0;width:2px;height:2px;border-radius:50%;background:#fff;animation:tw 3s ease-in-out infinite alternate}
-.m-stern::after{animation-delay:1.5s;width:3px;height:3px}
-.m-licht{background:radial-gradient(ellipse at 50% 50%,#FFFFFF,#FFF8EC 60%,#F3E9D8);box-shadow:inset 0 0 120px 30px rgba(255,255,255,.9)}
-.m-druck{background:radial-gradient(ellipse 30% 18% at 30% 40%,rgba(255,255,255,.95),transparent 70%),radial-gradient(ellipse 26% 14% at 62% 58%,rgba(255,255,255,.9),transparent 70%),radial-gradient(ellipse 22% 12% at 72% 28%,rgba(255,255,255,.85),transparent 70%),radial-gradient(ellipse 34% 16% at 35% 72%,rgba(255,255,255,.8),transparent 70%),linear-gradient(180deg,#6FA8DC,#A9CDEB)}
-.m-akustik{background:radial-gradient(circle,rgba(0,0,0,.18) 1.2px,transparent 1.6px) 0 0/14px 14px,#EFEBE5}
-@keyframes tw{from{opacity:.25}to{opacity:1}}
-.room.dark .lw,.room.dark .rw,.room.dark .bwall{filter:brightness(.5)}
-.room.dark .flr{filter:brightness(.45)}
-.room.bright .lw,.room.bright .rw,.room.bright .bwall,.room.bright .flr{filter:brightness(1.12)}
-.stage .ui{position:absolute;left:20px;right:20px;bottom:20px;display:flex;justify-content:space-between;align-items:center;gap:14px;z-index:5;flex-wrap:wrap}
-.chip{display:inline-flex;align-items:center;gap:10px;background:rgba(16,14,12,.72);backdrop-filter:blur(10px);color:#fff;border:1px solid rgba(255,255,255,.18);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;transition:background .3s,border-color .3s}
-.chip[aria-pressed="true"]{background:var(--red);border-color:var(--red)}
-.chip .sw{width:30px;height:18px;border-radius:999px;background:rgba(255,255,255,.25);position:relative}
-.chip .sw::after{content:"";position:absolute;left:2px;top:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .35s}
-.chip[aria-pressed="true"] .sw::after{transform:translateX(12px)}
-.ledc{display:flex;gap:6px;align-items:center}
-.ledc button{width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.6);cursor:pointer}
-.ledc button[aria-pressed="true"]{outline:2px solid #fff;outline-offset:2px}
-.stage .hint{position:absolute;left:20px;top:20px;z-index:5;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:rgba(16,14,12,.6);padding:8px 14px;border-radius:999px;backdrop-filter:blur(8px)}
-.panel{background:#fff;border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:24px}
-.panel .now{display:flex;flex-direction:column;gap:10px;min-height:150px}
-.panel .now small{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:700}
-.panel .now h3{font-family:'Enriqueta',serif;font-weight:400;font-size:44px;line-height:1}
-.panel .now p{color:var(--muted);line-height:1.7;font-size:15px}
-.mats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.mats button{display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;cursor:pointer;font-size:12px;font-weight:600;color:var(--muted)}
-.mats .sq{width:100%;aspect-ratio:1;border-radius:14px;border:2px solid transparent;transition:border-color .3s,transform .4s;position:relative;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
-.mats button:hover .sq{transform:translateY(-3px)}
-.mats button[aria-pressed="true"]{color:var(--dark)}
-.mats button[aria-pressed="true"] .sq{border-color:var(--red)}
-.mats .sq.m-stern::before,.mats .sq.m-stern::after{display:none}
-.mats .sq.m-stern{background:radial-gradient(circle,#fff 1px,transparent 1.5px) 0 0/9px 9px,radial-gradient(ellipse,#1B2340,#070A16)}
-.panel .go{margin-top:auto;display:flex;flex-direction:column;gap:12px}
-.panel .go small{color:var(--muted);font-size:13px}
-@media(max-width:1000px){.cgrid{grid-template-columns:1fr}.stage{height:480px}}
+/* STACK CARDS */
+.stack{padding:0 0 120px}
+.stack .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:50px;flex-wrap:wrap}
+.stack h2{font-size:clamp(70px,11vw,190px)}
+.scard{position:sticky;top:110px;height:min(78vh,700px);border-radius:36px;overflow:hidden;display:grid;grid-template-columns:1fr 1.15fr;margin-bottom:28px;box-shadow:0 -20px 60px -30px rgba(0,0,0,.35);transform-origin:center top}
+.scard .txt{padding:50px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.scard .no{font-weight:900;font-stretch:72%;font-size:clamp(90px,10vw,170px);line-height:.8}
+.scard h3{font-size:clamp(40px,4.6vw,78px);line-height:.9}
+.scard p{font-size:18px;line-height:1.6;max-width:440px;font-weight:500}
+.scard .chips{display:flex;flex-wrap:wrap;gap:8px}
+.scard .chips span{font-size:13px;font-weight:700;padding:9px 14px;border-radius:999px;border:2px solid currentColor}
+.scard .im{position:relative;overflow:hidden}
+.scard .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.c-red{background:var(--red);color:#fff}.c-ink{background:var(--ink);color:#fff}.c-sun{background:var(--sun);color:var(--ink)}.c-peach{background:var(--peach);color:var(--ink)}.c-white{background:#fff;color:var(--ink)}.c-cream{background:#EDE4D8;color:var(--ink)}
+.c-ink .no,.c-red .no{color:transparent;-webkit-text-stroke:2px #fff}
+.c-sun .no,.c-peach .no,.c-white .no,.c-cream .no{color:var(--red)}
+@media(max-width:900px){.scard{grid-template-columns:1fr;grid-template-rows:auto 280px;height:auto;position:relative;top:0}.scard .txt{padding:30px}}
 
-/* DAY TIMELINE */
-.day{position:relative;height:100vh;min-height:680px;overflow:hidden;color:#fff;background:#1C2433}
-.day .sky{position:absolute;inset:0}
-.day .arc{position:absolute;left:0;right:0;bottom:0;width:100%;height:100%}
-.day .sun{position:absolute;left:0;top:0;width:90px;height:90px;margin:-45px 0 0 -45px;border-radius:50%;background:radial-gradient(circle,#FFF6E0 0 40%,#FFD08A 60%,rgba(255,180,90,0) 72%);box-shadow:0 0 120px 50px rgba(255,200,120,.45)}
-.day .wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding-top:140px;padding-bottom:60px}
-.day h2{max-width:900px}
-.steps{position:relative;height:220px}
-.step{position:absolute;inset:0;display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:start;opacity:0}
-.step .tm{font-family:'Enriqueta',serif;font-size:clamp(50px,6vw,96px);line-height:1}
-.step .tm small{display:block;font-family:'Open Sans',sans-serif;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:10px}
-.step h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(30px,3.2vw,48px);margin-bottom:14px}
-.step p{font-size:17px;line-height:1.75;color:rgba(255,255,255,.85);max-width:560px}
-.dots{display:flex;gap:10px;margin-top:20px}
-.dots i{width:40px;height:3px;background:rgba(255,255,255,.25);border-radius:3px;overflow:hidden;position:relative}
-.dots i b{position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left}
-.ground{position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(180deg,transparent,rgba(0,0,0,.45));z-index:1}
-@media(max-width:800px){.step{grid-template-columns:1fr;gap:10px}.steps{height:300px}}
+/* FLIP SWATCHES */
+.fin{background:var(--ink);color:#fff;padding:150px 0;border-radius:48px 48px 0 0}
+.fin .head{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;margin-bottom:70px}
+.fin h2{font-size:clamp(60px,8vw,140px)}
+.fin .head p{font-size:18px;line-height:1.6;color:#BDB3AC;max-width:440px}
+.flips{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.flip{perspective:1000px;height:300px;position:relative}
+.flip .in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.flip:hover .in,.flip:focus-within .in,.flip.on .in{transform:rotateY(180deg)}
+.flip .fa,.flip .ba{position:absolute;inset:0;border-radius:26px;backface-visibility:hidden;padding:26px;display:flex;flex-direction:column;justify-content:space-between}
+.flip .ba{transform:rotateY(180deg);background:#fff;color:var(--ink)}
+.flip .fa h3{font-size:30px;line-height:.95}
+.flip .fa .n{font-weight:900;font-stretch:72%;font-size:22px}
+.flip .ba h3{font-size:22px}
+.flip .ba p{font-size:15px;line-height:1.55;color:var(--grey)}
+.flip .ba .n{color:var(--red);font-weight:900;font-size:13px;letter-spacing:.1em}
+.flip button{position:absolute;inset:0;opacity:0;border:0;background:none;z-index:3}
+.sw-satin{background:radial-gradient(ellipse at 30% 20%,#fff,#E6DED3 70%);color:var(--ink)}
+.sw-lack{background:linear-gradient(120deg,#151313 0 40%,#4A4441 47%,#151313 54%);color:#fff}
+.sw-matt{background:#EFEAE3;color:var(--ink)}
+.sw-akustik{background:radial-gradient(circle,rgba(0,0,0,.25) 1.4px,transparent 1.8px) 0 0/12px 12px,#E9E3DA;color:var(--ink)}
+.sw-dv{background:linear-gradient(135deg,var(--red) 50%,#fff 50%);color:var(--ink)}
+.sw-dv h3{color:var(--ink)}
+.sw-perf{background:radial-gradient(circle,var(--ink) 3px,transparent 3.5px) 0 0/22px 22px,var(--sun);color:var(--ink)}
+.sw-perf h3{background:var(--sun);align-self:flex-start;padding:4px 8px;border-radius:8px}
+.sw-leucht{background:radial-gradient(ellipse at 50% 40%,#fff,#FFF1C9 50%,#FFD23F);color:var(--ink);box-shadow:0 0 60px -10px rgba(255,210,63,.7)}
+.sw-druck{background:radial-gradient(ellipse 30% 18% at 30% 35%,#fff,transparent 70%),radial-gradient(ellipse 26% 14% at 70% 60%,#fff,transparent 70%),linear-gradient(180deg,#2F7FCC,#7DB8E8);color:#fff}
+@media(max-width:1000px){.flips{grid-template-columns:1fr 1fr}.fin .head{grid-template-columns:1fr}}
 
-/* BENTO SERVICES */
-.svc{background:var(--ink);padding:150px 0}
-.svc .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:60px}
-.svc .head p{color:#B8AEA6;max-width:400px;line-height:1.75}
-.bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:260px;gap:16px}
-.tile{position:relative;overflow:hidden;border-radius:24px;display:block;background:#222}
-.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
-.tile:hover img{transform:scale(1.02)}
-.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,14,12,0) 35%,rgba(16,14,12,.9))}
-.tile .in{position:absolute;left:28px;right:28px;bottom:26px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
-.tile small{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red2);margin-bottom:8px;font-weight:700}
-.tile h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(26px,2.4vw,40px);line-height:1}
-.tile .pl{width:50px;height:50px;flex:0 0 50px;border-radius:50%;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:22px;transform:scale(0) rotate(-90deg);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.tile:hover .pl{transform:none}
-.tile .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;max-height:0;opacity:0;overflow:hidden;transition:max-height .6s,opacity .6s}
-.tile:hover .tags{max-height:80px;opacity:1}
-.tile .tags span{font-size:12px;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.14)}
-.t1{grid-column:span 4;grid-row:span 2}.t2{grid-column:span 2;grid-row:span 2}.t3{grid-column:span 2}.t4{grid-column:span 2}.t5{grid-column:span 2}.t6{grid-column:span 6;grid-row:span 1}
-.t6 img{object-position:50% 60%}
-@media(max-width:900px){.bento{grid-template-columns:1fr 1fr;grid-auto-rows:240px}.t1,.t2,.t3,.t4,.t5,.t6{grid-column:span 2;grid-row:span 1}}
+/* NUMBERS */
+.nums{background:var(--ink);color:#fff;padding:0 0 150px}
+.ngrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.nb{border-radius:30px;padding:40px;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+.nb .v{font-weight:900;font-stretch:72%;font-size:clamp(110px,13vw,230px);line-height:.8}
+.nb .v small{font-size:.3em;font-stretch:100%;margin-left:8px}
+.nb p{font-size:18px;font-weight:600;max-width:260px;line-height:1.4}
+.nb .deco{position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;border:30px solid rgba(255,255,255,.15)}
+@media(max-width:900px){.ngrid{grid-template-columns:1fr}}
 
-/* 3D CAROUSEL */
-.refs{background:linear-gradient(180deg,var(--ink),#1A1613);padding:150px 0 120px;overflow:hidden}
-.refs .head{text-align:center;display:flex;flex-direction:column;align-items:center;gap:22px}
-.refs .head .eyebrow::after{content:"";width:40px;height:2px;background:currentColor}
-.ring-wrap{position:relative;height:560px;margin-top:50px;perspective:1600px;cursor:grab;touch-action:pan-y;user-select:none}
-.ring-wrap:active{cursor:grabbing}
-.ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
-.card{position:absolute;width:300px;height:400px;left:-150px;top:-200px;border-radius:20px;overflow:hidden;backface-visibility:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
-.card img{width:100%;height:100%;object-fit:cover;pointer-events:none}
-.card span{position:absolute;left:18px;bottom:16px;right:18px;font-size:13px;font-weight:600;z-index:2}
-.card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.65))}
-.refs .ctl{display:flex;justify-content:center;gap:12px;margin-top:20px}
-.rbtn{width:60px;height:60px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:none;color:#fff;font-size:20px;cursor:pointer;transition:background .3s,border-color .3s}
-.rbtn:hover{background:var(--red);border-color:var(--red)}
-.refs .reflect{position:absolute;left:0;right:0;bottom:-40px;height:120px;background:radial-gradient(ellipse 40% 50% at 50% 0,rgba(255,74,80,.18),transparent 70%);pointer-events:none}
+/* PROCESS zig-zag */
+.proc{padding:150px 0;position:relative;overflow:hidden}
+.proc h2{font-size:clamp(60px,9vw,160px);text-align:center;margin-bottom:90px}
+.proc h2 .s{color:var(--red)}
+.ps{position:relative;max-width:1100px;margin:0 auto}
+.ps svg.path{position:absolute;inset:0;width:100%;height:100%;z-index:0;overflow:visible}
+.pstep{position:relative;z-index:1;display:grid;grid-template-columns:170px 1fr;gap:34px;align-items:center;width:62%;background:#fff;border-radius:30px;padding:34px 40px;margin-bottom:70px;box-shadow:0 30px 60px -40px rgba(0,0,0,.35)}
+.pstep.rt{margin-left:auto}
+.pstep .n{width:150px;height:150px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-stretch:72%;font-size:90px;line-height:1}
+.pstep h3{font-size:clamp(26px,2.4vw,38px);margin-bottom:10px}
+.pstep p{font-size:17px;line-height:1.6;color:var(--grey)}
+@media(max-width:900px){.pstep{width:100%;grid-template-columns:1fr;gap:16px}.pstep .n{width:100px;height:100px;font-size:60px}}
 
-/* PROMISE */
-.prom{background:var(--red);color:#fff;padding:120px 0;overflow:hidden}
-.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.pg{padding:10px 30px 10px 0;border-right:1px solid rgba(255,255,255,.25);margin-right:30px}
-.pg:last-child{border:0}
-.pg .n{font-family:'Enriqueta',serif;font-size:clamp(60px,6.4vw,110px);line-height:1}
-.pg .n sup{font-size:.35em;vertical-align:top;margin-left:6px;opacity:.85}
-.pg p{margin-top:12px;font-size:15px;line-height:1.6;opacity:.9;max-width:220px}
-@media(max-width:900px){.pgrid{grid-template-columns:1fr 1fr;gap:40px}.pg{border:0;margin:0}}
+/* REFS skew gallery */
+.refs{background:var(--red);color:#fff;padding:140px 0 150px;overflow:hidden;border-radius:48px}
+.refs .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:60px}
+.refs h2{font-size:clamp(60px,9vw,160px)}
+.rtrack{display:flex;gap:22px;padding:0 40px;will-change:transform;align-items:flex-start}
+.rimg{flex:0 0 auto;width:min(420px,72vw);height:520px;border-radius:28px;overflow:hidden;position:relative}
+.rimg:nth-child(even){height:420px;margin-top:100px}
+.rimg img{width:100%;height:100%;object-fit:cover;transform:scale(1.15);transition:transform 1s}
+.rimg:hover img{transform:scale(1.02)}
+.rimg span{position:absolute;left:16px;bottom:16px;background:#fff;color:var(--ink);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.06em;padding:10px 14px;border-radius:999px}
+@media(max-width:900px){.rtrack{overflow-x:auto;scroll-snap-type:x mandatory}.rimg{height:380px;scroll-snap-align:start}.rimg:nth-child(even){height:320px;margin-top:60px}}
 
-/* MAP */
-.area{background:var(--cream);color:var(--dark);padding:150px 0}
-.agrid{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;align-items:center}
-.area p.lead{color:var(--muted);line-height:1.8;font-size:17px;max-width:480px;margin:26px 0 40px}
-.locs{display:flex;flex-direction:column;gap:14px}
-.loc{display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;background:#fff;border-radius:20px;padding:22px 26px;transition:transform .5s,box-shadow .5s}
-.loc:hover{transform:translateX(10px);box-shadow:0 20px 50px -25px rgba(52,48,44,.4)}
-.loc .pin{width:48px;height:48px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Enriqueta',serif}
-.loc h3{font-family:'Enriqueta',serif;font-weight:400;font-size:26px}
-.loc p{font-size:14px;color:var(--muted);line-height:1.6}
-.loc .call{font-size:13px;font-weight:700;color:var(--red);white-space:nowrap}
-.map{position:relative;background:#fff;border-radius:28px;padding:20px;aspect-ratio:1/1.05}
-.map svg{width:100%;height:100%}
-.map .city circle{fill:var(--dark)}
-.map .city text{font-size:13px;fill:var(--muted);font-family:'Open Sans',sans-serif}
-.map .hq circle.c{fill:var(--red)}
-.map .hq text{font-size:15px;font-weight:700;fill:var(--dark)}
-.map .pulse{fill:none;stroke:var(--red);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:pu 2.4s ease-out infinite}
-@keyframes pu{from{transform:scale(.4);opacity:1}to{transform:scale(3);opacity:0}}
-.map .route{fill:none;stroke:var(--red);stroke-width:1.4;stroke-dasharray:4 5;opacity:.65}
-.map .bw{fill:#F3EFE9;stroke:#E2DBD2;stroke-width:2}
-@media(max-width:1000px){.agrid{grid-template-columns:1fr}}
+/* LOCATIONS */
+.locs{padding:150px 0 120px}
+.lgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:60px}
+.loc{border-radius:30px;padding:40px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;gap:30px;transition:transform .5s}
+.loc:hover{transform:rotate(-1.2deg) scale(1.01)}
+.loc h3{font-size:clamp(40px,4.6vw,78px);line-height:.9}
+.loc .meta{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end;font-size:17px;font-weight:600;line-height:1.5}
+.loc .call{font-weight:900;font-size:22px;border-bottom:3px solid currentColor}
+.locs .area{margin-top:18px;border-radius:30px;background:#fff;padding:34px 40px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.locs .area b{font-weight:900;text-transform:uppercase;letter-spacing:.06em;margin-right:10px}
+.locs .area span{padding:9px 14px;border-radius:999px;background:var(--cream);font-weight:700;font-size:14px;transition:background .3s,color .3s}
+.locs .area span:hover{background:var(--red);color:#fff}
+@media(max-width:900px){.lgrid{grid-template-columns:1fr}}
 
-/* FORM */
-.ask{background:var(--ink);padding:150px 0}
-.fbox{display:grid;grid-template-columns:1fr 1.2fr;gap:70px;align-items:start}
-.fbox .l p{color:#B8AEA6;line-height:1.8;margin-top:26px;max-width:440px}
-.fbox .l .contact{margin-top:40px;display:flex;flex-direction:column;gap:10px;font-size:15px}
-.fbox .l .contact a{color:#fff;border-bottom:1px solid var(--line);padding-bottom:10px;display:flex;justify-content:space-between}
-.fbox .l .contact a:hover{color:var(--red2)}
-form.mf{background:var(--ink2);border:1px solid var(--line);border-radius:28px;padding:40px;position:relative;overflow:hidden}
-.prog{display:flex;gap:8px;margin-bottom:34px}
-.prog i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.12);position:relative;overflow:hidden}
-.prog i b{position:absolute;inset:0;background:var(--red2);transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.7,0,.2,1)}
-.fs{display:none;flex-direction:column;gap:22px}
-.fs.on{display:flex}
-.fs legend{font-family:'Enriqueta',serif;font-size:32px;margin-bottom:6px}
-.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.opts label{position:relative;cursor:pointer}
-.opts input{position:absolute;opacity:0}
-.opts span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:62px;padding:12px;border-radius:14px;border:1px solid rgba(255,255,255,.18);font-weight:600;font-size:14px;transition:background .3s,border-color .3s,color .3s}
-.opts input:checked+span{background:#fff;color:var(--ink);border-color:#fff}
-.opts input:focus-visible+span{outline:2px solid var(--red2);outline-offset:2px}
-.fld{display:flex;flex-direction:column;gap:8px}
-.fld label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#B8AEA6;font-weight:700}
-.fld input,.fld textarea{background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.25);color:#fff;font:400 17px 'Open Sans',sans-serif;padding:10px 0;outline:none;transition:border-color .3s}
-.fld input:focus,.fld textarea:focus{border-color:var(--red2)}
-.range{display:flex;align-items:center;gap:20px}
-.range input{flex:1;accent-color:var(--red)}
-.range output{font-family:'Enriqueta',serif;font-size:34px;min-width:110px;text-align:right}
-.fnav{display:flex;justify-content:space-between;align-items:center;margin-top:30px}
-.back{background:none;border:0;color:#B8AEA6;cursor:pointer;font-weight:600;padding:10px 0}
-.back:hover{color:#fff}
-.done{text-align:center;padding:30px 0;display:none;flex-direction:column;align-items:center;gap:16px}
-.done.on{display:flex}
-.done .ok{width:80px;height:80px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center}
-.done h3{font-family:'Enriqueta',serif;font-weight:400;font-size:36px}
-.done p{color:#B8AEA6;max-width:380px;line-height:1.7}
-.note{font-size:12px;color:#8C827A;margin-top:18px;line-height:1.6}
-@media(max-width:1000px){.fbox{grid-template-columns:1fr}.opts{grid-template-columns:1fr 1fr}}
+/* CTA */
+.cta{background:var(--sun);color:var(--ink);padding:150px 0;overflow:hidden;position:relative}
+.cta .mega{font-size:clamp(80px,15vw,270px);text-align:center}
+.cta .mega .r{color:var(--red)}
+.cta .row{display:flex;justify-content:center;align-items:center;gap:50px;margin-top:50px;flex-wrap:wrap}
+.rbtn{position:relative;width:190px;height:190px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:44px;transition:background .4s}
+.rbtn:hover{background:var(--red)}
+.rbtn svg{position:absolute;inset:-18px;width:calc(100% + 36px);height:calc(100% + 36px);animation:spin 12s linear infinite}
+.cta .info{display:flex;flex-direction:column;gap:8px;font-size:20px;font-weight:700}
+.cta .info a{border-bottom:3px solid var(--ink);align-self:flex-start}
+.cta .info a:hover{color:var(--red);border-color:var(--red)}
 
-footer{background:#0A0908;padding:110px 0 36px;color:#8C827A;font-size:14px}
-.ftop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;padding-bottom:60px;border-bottom:1px solid var(--line)}
-.ftop img{height:clamp(80px,9vw,130px);width:auto}
-.ftop .big{font-family:'Enriqueta',serif;font-size:clamp(32px,3.6vw,56px);color:#fff;line-height:1.1;max-width:640px}
-.ftop .big span{color:var(--red2)}
+footer{background:var(--ink);color:#BDB3AC;padding:90px 0 30px;font-size:15px}
+.ftop{display:grid;grid-template-columns:auto 1fr;gap:60px;align-items:center;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.12)}
+.ftop .lg{background:#fff;border-radius:24px;padding:20px 26px}
+.ftop .lg img{height:clamp(80px,8vw,120px);width:auto}
+.ftop .w{font-size:clamp(40px,5vw,84px);color:#fff;line-height:.9}
+.ftop .w span{color:var(--sun)}
 .fcols{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;padding:50px 0;line-height:1.8}
-.fcols h4{color:#fff;font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:12px}
-.fcols a:hover{color:#fff}
-.fbot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;border-top:1px solid var(--line);padding-top:24px}
-@media(max-width:900px){.fcols{grid-template-columns:1fr 1fr}.wrap{padding:0 22px}}
+.fcols h4{color:#fff;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+.fcols a:hover{color:var(--sun)}
+.fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;font-size:13px}
+@media(max-width:900px){.ftop{grid-template-columns:1fr}.fcols{grid-template-columns:1fr 1fr}.wrap{padding:0 20px}}
 .js .rv{opacity:0}
-@media (prefers-reduced-motion:reduce){#ld{display:none}.js .rv{opacity:1}}
+@media (prefers-reduced-motion:reduce){#ld{display:none}.js .rv{opacity:1}*{animation:none!important}}
 </style>
 </head>
 <body>
-
-<div id="ld" aria-hidden="true"><div class="ln"><i></i></div><div class="t"><span>KW Home Design</span><span id="ldp">Folie wird gespannt …</span></div></div>
-<div class="cur"><span>Ziehen</span></div><div class="cdot"></div>
+<div id="ld" aria-hidden="true"><i></i><i></i><i><b>KW</b></i></div>
+<div class="cur"></div>
 
 <header id="hdr">
-  <div class="wrap">
-    <a class="logo" href="#top" aria-label="KW Home Design – Startseite"><img src="../design2/img/logo-light.webp" alt="KW Home Design – Mit Hand ans Werk!"></a>
-    <nav aria-label="Hauptnavigation"><a href="#konfigurator">Konfigurator</a><a href="#ablauf">Ablauf</a><a href="#leistungen">Leistungen</a><a href="#referenzen">Referenzen</a><a href="#gebiet">Einsatzgebiet</a></nav>
-    <a class="btn b-red mag" href="#anfrage" style="padding:15px 24px">Anfrage <span class="ar">→</span></a>
-  </div>
+  <a class="logo" href="#top" aria-label="KW Home Design – Startseite"><img src="../design2/img/logo.webp" alt="KW Home Design – Mit Hand ans Werk!"></a>
+  <nav aria-label="Hauptnavigation"><a href="#leistungen">Leistungen</a><a href="#oberflaechen">Oberflächen</a><a href="#ablauf">Ablauf</a><a href="#referenzen">Referenzen</a><a href="#standorte">Standorte</a></nav>
+  <a class="hcta" href="#kontakt">Beratung →</a>
 </header>
 
 <main>
-<!-- HERO -->
 <section class="hero" id="top">
-  <svg class="hz" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <defs><filter id="membrane" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence id="turb" type="fractalNoise" baseFrequency="0.006 0.018" numOctaves="2" seed="7" result="n"/><feDisplacementMap id="disp" in="SourceGraphic" in2="n" scale="260" xChannelSelector="R" yChannelSelector="G"/></filter></defs>
-    <image id="himg" href="../design2/img/img_20191220_124021.webp" x="0" y="0" width="1600" height="900" preserveAspectRatio="xMidYMid slice" filter="url(#membrane)"/>
-  </svg>
-  <div class="veil"></div>
-  <div class="frame" aria-hidden="true"><i class="t"></i><i class="r"></i><i class="b"></i><i class="l"></i><em></em><em></em><em></em><em></em></div>
-  <div class="wrap hc">
-    <div class="htop">
-      <h1 class="serif" aria-label="Gespannt. Glatt. Perfekt."><span class="w"><span class="chs">Gespannt.</span></span><span class="w"><span class="chs">Glatt.</span></span><span class="w"><span class="chs rd">Perfekt.</span></span></h1>
-      <div class="hside h-in">
-        <div class="eyebrow">Spanndecken &amp; Raumausstattung</div>
-        <p>Wir spannen Ihre neue Decke einfach unter die alte – faltenfrei, in jeder Farbe und Oberfläche. Ohne Abriss, ohne Schmutz, meist an einem Tag.</p>
-        <div class="ctas"><a class="btn b-red mag" href="#konfigurator">Decke konfigurieren <span class="ar">→</span></a><a class="btn b-ghost mag" href="#anfrage">Beratung anfragen</a></div>
-      </div>
-    </div>
-    <div class="hbar h-in">
-      <span><b>15</b>Jahre Herstellergarantie</span>
-      <span><b>1</b>Tag Einbauzeit</span>
-      <span><b>2</b>Standorte in Baden-Württemberg</span>
-      <span class="tension" aria-hidden="true">Spannung <span class="meter"><i id="tm"></i></span></span>
-    </div>
-  </div>
-</section>
-
-<div class="mq" aria-label="Oberflächen"><div class="tr" id="mq">
-  <span>Satin</span><span class="s">✦</span><span class="o">Lack</span><span class="s">✦</span><span>Matt</span><span class="s">✦</span><span class="o">Akustik</span><span class="s">✦</span><span>Double Vision</span><span class="s">✦</span><span class="o">Perforiert</span><span class="s">✦</span><span>Leuchtdecken</span><span class="s">✦</span><span class="o">Digitaldruck</span><span class="s">✦</span>
-  <span>Satin</span><span class="s">✦</span><span class="o">Lack</span><span class="s">✦</span><span>Matt</span><span class="s">✦</span><span class="o">Akustik</span><span class="s">✦</span><span>Double Vision</span><span class="s">✦</span><span class="o">Perforiert</span><span class="s">✦</span><span>Leuchtdecken</span><span class="s">✦</span><span class="o">Digitaldruck</span><span class="s">✦</span>
-</div></div>
-
-<!-- CONFIGURATOR -->
-<section class="cfg" id="konfigurator">
+  <div class="trail" id="trail" aria-hidden="true"></div>
+  <div class="sticker s1" aria-label="15 Jahre Herstellergarantie"><svg viewBox="0 0 170 170" aria-hidden="true"><defs><path id="cc" d="M85,85 m-66,0 a66,66 0 1,1 132,0 a66,66 0 1,1 -132,0"/></defs><text font-size="12" font-weight="800" letter-spacing="3" fill="#121010"><textPath href="#cc">HERSTELLERGARANTIE ✦ SPANNDECKEN ✦ </textPath></text></svg><span><b>15</b><small>Jahre</small></span></div>
   <div class="wrap">
-    <div class="head">
-      <div style="display:flex;flex-direction:column;gap:22px"><div class="eyebrow rv" style="color:var(--red)">Live-Konfigurator</div><h2 class="serif h2 split"><span class="line"><span>Ihre neue Decke –</span></span><span class="line"><span>in Sekunden <span style="color:var(--red)">erleben.</span></span></span></h2></div>
-      <p class="rv">Wählen Sie Oberfläche, Spots und LED-Linie und sehen Sie sofort, wie Ihr Raum wirkt. Ziehen Sie den Raum, um sich umzusehen.</p>
+    <h1 class="mega" aria-label="Schluss mit langweiligen Decken">
+      <span class="row"><span class="chs">Schluss</span><span class="pill-img"><img src="../design2/img/img_20191220_124021.webp" alt=""></span></span>
+      <span class="row"><span class="chs out">mit lang</span></span>
+      <span class="row"><span class="chs">weiligen</span></span>
+      <span class="row"><span class="pill-img"><img src="../design2/img/7.webp" alt=""></span><span class="chs">Decken!</span></span>
+    </h1>
+    <div class="hrow2 h-in">
+      <p>Wir montieren Ihre neue Decke einfach über die alte. Spiegelnd, matt oder glänzend, in jeder Farbe. Fertig meist an einem Tag, ohne Schmutz.</p>
+      <div class="ctas"><a class="btn b-white mag" href="#kontakt">Kostenlos beraten <span class="ar">↗</span></a><a class="btn b-ink mag" href="#referenzen">Referenzen <span class="ar">↗</span></a></div>
     </div>
-    <div class="cgrid">
-      <div class="stage rv" id="stage" data-cursor="drag" aria-label="3D-Vorschau eines Wohnraums">
-        <div class="hint">↔ Raum ziehen</div>
-        <div class="room" id="room">
-          <div class="pl lw" id="pLw"></div><div class="pl rw" id="pRw"></div><div class="pl flr" id="pFl"></div>
-          <div class="pl ceil" id="ceil"><div class="mat m-glanz" id="mat"></div><div class="refl" id="refl"></div></div>
-          <div class="bwall" id="bw"><div class="win"></div><div class="sofa"></div><div class="plant"></div></div>
-          <svg class="fx" id="fx" aria-hidden="true"><defs><filter id="gl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter></defs><g id="ledG"><polygon id="led1" fill="none" stroke-width="10" filter="url(#gl)"/><polygon id="led2" fill="none" stroke-width="2.5"/></g><g id="spotG"></g></svg>
-        </div>
-        <div class="ui">
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button class="chip" id="tSpots" aria-pressed="true"><span class="sw"></span>Spots</button>
-            <button class="chip" id="tLed" aria-pressed="false"><span class="sw"></span>LED-Linie</button>
-          </div>
-          <div class="ledc" id="ledc" aria-label="LED-Farbe">
-            <button style="background:#FFE2B8" data-c="#FFE2B8" aria-label="Warmweiß" aria-pressed="true"></button>
-            <button style="background:#FF3B42" data-c="#FF3B42" aria-label="Rot" aria-pressed="false"></button>
-            <button style="background:#5AA9FF" data-c="#5AA9FF" aria-label="Blau" aria-pressed="false"></button>
-            <button style="background:#B06BFF" data-c="#B06BFF" aria-label="Violett" aria-pressed="false"></button>
-          </div>
-        </div>
-      </div>
-      <div class="panel rv">
-        <div class="now" aria-live="polite"><small id="cN">Oberfläche 03 / 08</small><h3 id="cT">Hochglanz</h3><p id="cD">Spiegelt Licht und Raum – lässt niedrige Räume deutlich höher und größer wirken.</p></div>
-        <div class="mats" id="mats">
-          <button data-m="matt"><span class="sq m-matt"></span>Matt</button>
-          <button data-m="satin"><span class="sq m-satin"></span>Satin</button>
-          <button data-m="glanz" aria-pressed="true"><span class="sq m-glanz"></span>Hochglanz</button>
-          <button data-m="schwarz"><span class="sq m-schwarz"></span>Schwarz Lack</button>
-          <button data-m="stern"><span class="sq m-stern"></span>Sternenhimmel</button>
-          <button data-m="licht"><span class="sq m-licht"></span>Leuchtdecke</button>
-          <button data-m="druck"><span class="sq m-druck"></span>Digitaldruck</button>
-          <button data-m="akustik"><span class="sq m-akustik"></span>Akustik</button>
-        </div>
-        <div class="go"><a class="btn b-dark mag" href="#anfrage" id="cGo">Diese Decke anfragen <span class="ar">→</span></a><small>Ihre Auswahl wird automatisch in die Anfrage übernommen.</small></div>
-      </div>
-    </div>
+  </div>
+  <div class="xband" aria-hidden="true">
+    <div class="band a"><div class="tr" id="bA"><span>Spanndecken</span><span>✦</span><span>Holzdecken</span><span>✦</span><span>Laminat</span><span>✦</span><span>Vinyl</span><span>✦</span><span>Tapeten</span><span>✦</span><span>Klinker</span><span>✦</span><span>Spanndecken</span><span>✦</span><span>Holzdecken</span><span>✦</span><span>Laminat</span><span>✦</span><span>Vinyl</span><span>✦</span><span>Tapeten</span><span>✦</span><span>Klinker</span><span>✦</span></div></div>
+    <div class="band b"><div class="tr" id="bB"><span>1 Tag Einbau</span><span>●</span><span>0 Schmutz</span><span>●</span><span>15 Jahre Garantie</span><span>●</span><span>Alles aus einer Hand</span><span>●</span><span>1 Tag Einbau</span><span>●</span><span>0 Schmutz</span><span>●</span><span>15 Jahre Garantie</span><span>●</span><span>Alles aus einer Hand</span><span>●</span></div></div>
   </div>
 </section>
 
-<!-- DAY -->
-<section class="day" id="ablauf">
-  <div class="sky" id="sky"></div>
-  <svg class="arc" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true"><path id="sunpath" d="M-80 760 Q 800 -80 1680 760" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1.5" stroke-dasharray="3 8"/></svg>
-  <div class="sun" id="sun"></div>
-  <div class="ground"></div>
+<section class="stmt">
   <div class="wrap">
-    <div><div class="eyebrow" style="color:#FFD9B8">So läuft Ihr Einbautag</div><h2 class="serif h2" style="margin-top:22px">Ein Tag.<br>Eine neue Decke.</h2></div>
-    <div>
-      <div class="steps">
-        <div class="step"><div class="tm">01<small>Morgens</small></div><div><h3>Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist. Kein Abriss, kein Staub, keine Verschmutzung der Baustelle.</p></div></div>
-        <div class="step"><div class="tm">02<small>Vormittags</small></div><div><h3>Profil montieren</h3><p>Ein schlankes Profil wird umlaufend an der Wand befestigt – knapp unter der bestehenden Decke.</p></div></div>
-        <div class="step"><div class="tm">03<small>Mittags</small></div><div><h3>Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei ins Profil eingespannt. Beim Abkühlen zieht sie sich straff und glatt.</p></div></div>
-        <div class="step"><div class="tm">04<small>Abends</small></div><div><h3>Licht an – fertig.</h3><p>Lampen aller Art, Spots und Rauchmelder – alles aus einer Hand integriert. Ihre neue Decke ist fertig.</p></div></div>
-      </div>
-      <div class="dots" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
-    </div>
+    <div class="tag rv" style="color:var(--red)">Willkommen bei KW Home Design</div>
+    <p class="big" id="fill" style="margin-top:34px">Wir sind ein Handwerksbetrieb, bei dem <span class="hl">Qualität</span> und Ihre Zufriedenheit an erster Stelle stehen. Von der Spanndecke <span class="ic"><img src="../design2/img/img_0678.webp" alt=""></span> bis zur Wandverklinkung – wir verwandeln Räume. <span class="rd">Mit Hand ans Werk.</span></p>
+    <div class="foot"><p class="rv">Zwei Standorte in Baden-Württemberg, ein Team, das alles aus einer Hand liefert – inklusive Lampen aller Art und Rauchmeldern.</p><a class="btn b-red mag rv" href="#leistungen">Unsere Leistungen <span class="ar">↓</span></a></div>
   </div>
 </section>
 
-<!-- BENTO -->
-<section class="svc" id="leistungen">
+<section class="stack" id="leistungen">
   <div class="wrap">
-    <div class="head">
-      <div style="display:flex;flex-direction:column;gap:22px"><div class="eyebrow rv">Leistungen</div><h2 class="serif h2 split"><span class="line"><span>Decke. Boden.</span></span><span class="line"><span>Wand. <span style="color:var(--red2)">Alles aus einer Hand.</span></span></span></h2></div>
-      <p class="rv">Vom ersten Gespräch bis zum fertigen Raum – jede Fläche mit derselben Sorgfalt.</p>
-    </div>
-    <div class="bento">
-      <a class="tile t1 rv" href="#konfigurator" data-cursor="view"><img src="../design2/img/img_0642.webp" alt="Glänzende Spanndecke" loading="lazy"><div class="in"><div><small>Deckendesign</small><h3>Spanndecken</h3><div class="tags"><span>Satin</span><span>Lack</span><span>Matt</span><span>Akustik</span><span>Leuchtdecken</span><span>Digitaldruck</span></div></div><span class="pl" aria-hidden="true">↗</span></div></a>
-      <a class="tile t2 rv" href="#anfrage" data-cursor="view"><img src="../design2/img/img_0632.webp" alt="Holzdecke" loading="lazy"><div class="in"><div><small>Deckendesign</small><h3>Holzdecken</h3><div class="tags"><span>Natürlich</span><span>Warm</span></div></div><span class="pl" aria-hidden="true">↗</span></div></a>
-      <a class="tile t3 rv" href="#anfrage" data-cursor="view"><img src="../design2/img/k-bathroom-1336167_1920.webp" alt="Laminatboden" loading="lazy"><div class="in"><div><small>Bodendesign</small><h3>Laminat</h3></div><span class="pl" aria-hidden="true">↗</span></div></a>
-      <a class="tile t4 rv" href="#anfrage" data-cursor="view"><img src="../design2/img/k-interior-2685518_1920.webp" alt="Vinylboden" loading="lazy"><div class="in"><div><small>Bodendesign</small><h3>Vinylboden</h3></div><span class="pl" aria-hidden="true">↗</span></div></a>
-      <a class="tile t5 rv" href="#anfrage" data-cursor="view"><img src="../design2/img/k-interior-3012218_1920.webp" alt="Tapetengestaltung" loading="lazy"><div class="in"><div><small>Wanddesign</small><h3>Tapeten</h3></div><span class="pl" aria-hidden="true">↗</span></div></a>
-      <a class="tile t6 rv" href="#anfrage" data-cursor="view"><img src="../design2/img/k-room-3051846_1920.webp" alt="Wandverklinkung" loading="lazy"><div class="in"><div><small>Wanddesign</small><h3>Wandverklinkung – der echte Klinker-Look, modern umgesetzt.</h3></div><span class="pl" aria-hidden="true">↗</span></div></a>
+    <div class="head"><h2 class="mega split"><span class="line"><span>Was wir</span></span><span class="line"><span style="color:var(--red)">machen.</span></span></h2><div class="tag rv">6 Leistungen · 3 Bereiche</div></div>
+    <article class="scard c-red"><div class="txt"><span class="no">01</span><div><h3 class="wide">Spann&shy;decken</h3><p style="margin-top:16px">Über die alte Decke einfach eine neue – in zahlreichen Farben und Oberflächen. Fertig meist an einem Tag.</p></div><div class="chips"><span>Satin</span><span>Lack</span><span>Matt</span><span>Akustik</span><span>Leuchtdecken</span></div></div><div class="im"><img src="../design2/img/img_0642.webp" alt="Glänzende Spanndecke" loading="lazy"></div></article>
+    <article class="scard c-sun"><div class="txt"><span class="no">02</span><div><h3 class="wide">Holz&shy;decken</h3><p style="margin-top:16px">Natürliche Wärme und Charakter – handwerklich sauber montiert.</p></div><div class="chips"><span>Natürlich</span><span>Warm</span><span>Langlebig</span></div></div><div class="im"><img src="../design2/img/img_0632.webp" alt="Holzdecke" loading="lazy"></div></article>
+    <article class="scard c-ink"><div class="txt"><span class="no">03</span><div><h3 class="wide">Laminat</h3><p style="margin-top:16px">Robust, pflegeleicht und in vielen Dekoren erhältlich.</p></div><div class="chips"><span>Pflegeleicht</span><span>Robust</span></div></div><div class="im"><img src="../design2/img/k-bathroom-1336167_1920.webp" alt="Laminatboden" loading="lazy"></div></article>
+    <article class="scard c-peach"><div class="txt"><span class="no">04</span><div><h3 class="wide">Vinyl&shy;boden</h3><p style="margin-top:16px">Angenehm warm unter den Füßen, leise und wohnlich.</p></div><div class="chips"><span>Fußwarm</span><span>Leise</span></div></div><div class="im"><img src="../design2/img/k-interior-2685518_1920.webp" alt="Vinylboden" loading="lazy"></div></article>
+    <article class="scard c-white"><div class="txt"><span class="no">05</span><div><h3 class="wide">Tapeten</h3><p style="margin-top:16px">Wände mit Persönlichkeit – vom dezenten Muster bis zum Statement.</p></div><div class="chips"><span>Individuell</span><span>Stilvoll</span></div></div><div class="im"><img src="../design2/img/k-interior-3012218_1920.webp" alt="Tapetengestaltung" loading="lazy"></div></article>
+    <article class="scard c-cream"><div class="txt"><span class="no">06</span><div><h3 class="wide">Wand&shy;klinker</h3><p style="margin-top:16px">Der echte Klinker-Look – modern umgesetzt.</p></div><div class="chips"><span>Klinker-Optik</span><span>Modern</span></div></div><div class="im"><img src="../design2/img/k-room-3051846_1920.webp" alt="Wandverklinkung" loading="lazy"></div></article>
+  </div>
+</section>
+
+<section class="fin" id="oberflaechen">
+  <div class="wrap">
+    <div class="head"><h2 class="mega split"><span class="line"><span>Acht</span></span><span class="line"><span style="color:var(--sun)">Oberflächen.</span></span></h2><p class="rv">Fahren Sie über eine Karte – oder tippen Sie darauf – und erfahren Sie, was sie kann.</p></div>
+    <div class="flips">
+      <div class="flip rv"><div class="in"><div class="fa sw-satin"><span class="n">01</span><h3 class="wide">Satin</h3></div><div class="ba"><span class="n">01 · SATIN</span><div><h3 class="wide">Seidig &amp; edel</h3><p>Dezenter Schimmer, ohne zu spiegeln – passt in jeden Wohnraum.</p></div></div></div><button aria-label="Satin umdrehen"></button></div>
+      <div class="flip rv"><div class="in"><div class="fa sw-lack"><span class="n">02</span><h3 class="wide">Lack</h3></div><div class="ba"><span class="n">02 · LACK</span><div><h3 class="wide">Hochglanz</h3><p>Spiegelt Licht und Raum – lässt Räume höher und größer wirken.</p></div></div></div><button aria-label="Lack umdrehen"></button></div>
+      <div class="flip rv"><div class="in"><div class="fa sw-matt"><span class="n">03</span><h3 class="wide">Matt</h3></div><div class="ba"><span class="n">03 · MATT</span><div><h3 class="wide">Zeitlos</h3><p>Wirkt wie eine perfekt verputzte, makellose Decke.</p></div></div></div><button aria-label="Matt umdrehen"></button></div>
+      <div class="flip rv"><div class="in"><div class="fa sw-akustik"><span class="n">04</span><h3 class="wide">Akustik</h3></div><div class="ba"><span class="n">04 · AKUSTIK</span><div><h3 class="wide">Weniger Hall</h3><p>Fein perforiert – ideal für Büros, Praxen und große Räume.</p></div></div></div><button aria-label="Akustik umdrehen"></button></div>
+      <div class="flip rv"><div class="in"><div class="fa sw-dv"><span class="n" style="color:#fff">05</span><h3 class="wide">Double Vision</h3></div><div class="ba"><span class="n">05 · DOUBLE VISION</span><div><h3 class="wide">Zweifarbig</h3><p>Zwei Farben, ein Look – für besondere Effekte und Kontraste.</p></div></div></div><button aria-label="Double Vision umdrehen"></button></div>
+      <div class="flip rv"><div class="in"><div class="fa sw-perf"><span class="n">06</span><h3 class="wide">Perforiert</h3></div><div class="ba"><span class="n">06 · PERFORIERT</span><div><h3 class="wide">Mit Struktur</h3><p>Gelochte Oberfläche – gestalterisch und akustisch wirksam.</p></div></div></div><button aria-label="Perforiert umdrehen"></button></div>
+      <div class="flip rv"><div class="in"><div class="fa sw-leucht"><span class="n">07</span><h3 class="wide">Leucht&shy;decken</h3></div><div class="ba"><span class="n">07 · LEUCHTDECKEN</span><div><h3 class="wide">Die Decke als Licht</h3><p>Gleichmäßig, blendfrei und hell – die ganze Fläche leuchtet.</p></div></div></div><button aria-label="Leuchtdecken umdrehen"></button></div>
+      <div class="flip rv"><div class="in"><div class="fa sw-druck"><span class="n">08</span><h3 class="wide">Digital&shy;druck</h3></div><div class="ba"><span class="n">08 · DIGITALDRUCK</span><div><h3 class="wide">Ihr Motiv</h3><p>Bedruckte Spanndecken und Wände – vom Himmel bis zum Logo.</p></div></div></div><button aria-label="Digitaldruck umdrehen"></button></div>
     </div>
   </div>
 </section>
 
-<!-- 3D CAROUSEL -->
+<section class="nums">
+  <div class="wrap ngrid">
+    <div class="nb c-red rv"><span class="deco"></span><div class="v"><span class="cnt" data-to="15">15</span><small>Jahre</small></div><p>Herstellergarantie auf alle Spanndecken</p></div>
+    <div class="nb c-sun rv"><span class="deco"></span><div class="v"><span class="cnt" data-to="1">1</span><small>Tag</small></div><p>Einbauzeit – meist innerhalb eines Tages</p></div>
+    <div class="nb c-white rv"><span class="deco" style="border-color:rgba(220,15,22,.15)"></span><div class="v" style="color:var(--red)"><span class="cnt" data-to="0" data-from="99">0</span><small style="color:var(--ink)">Schmutz</small></div><p>Die vorherige Decke bleibt erhalten – kein Abriss</p></div>
+  </div>
+</section>
+
+<section class="proc" id="ablauf">
+  <div class="wrap">
+    <h2 class="mega split"><span class="line"><span>So läuft's</span></span><span class="line"><span class="s">ab.</span></span></h2>
+    <div class="ps" id="ps">
+      <svg class="path" aria-hidden="true"><path id="zz" fill="none" stroke="#DC0F16" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 16"/></svg>
+      <div class="pstep rv"><span class="n c-red">1</span><div><h3 class="wide">Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist. Kein Abriss, kein Staub, keine Verschmutzung.</p></div></div>
+      <div class="pstep rt rv"><span class="n c-sun">2</span><div><h3 class="wide">Profil montieren</h3><p>Ein schlankes Profil wird umlaufend an der Wand befestigt – knapp unter der bestehenden Decke.</p></div></div>
+      <div class="pstep rv"><span class="n c-ink">3</span><div><h3 class="wide">Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei eingespannt. Beim Abkühlen zieht sie sich straff und glatt.</p></div></div>
+      <div class="pstep rt rv"><span class="n c-peach" style="color:var(--red)">4</span><div><h3 class="wide">Licht an – fertig!</h3><p>Lampen aller Art, Spots und Rauchmelder – alles aus einer Hand integriert.</p></div></div>
+    </div>
+  </div>
+</section>
+
 <section class="refs" id="referenzen">
-  <div class="wrap head">
-    <div class="eyebrow rv">Referenzen</div>
-    <h2 class="serif h2 split"><span class="line"><span>Räume, die wir</span></span><span class="line"><span style="color:var(--red2)">verwandelt haben.</span></span></h2>
-  </div>
-  <div class="ring-wrap" id="rw" data-cursor="drag" aria-label="Referenz-Karussell, zum Drehen ziehen">
-    <div class="ring" id="ring"></div>
-    <div class="reflect"></div>
-  </div>
-  <div class="ctl"><button class="rbtn" id="rPrev" aria-label="Vorheriges Projekt">←</button><button class="rbtn" id="rNext" aria-label="Nächstes Projekt">→</button></div>
-</section>
-
-<!-- PROMISE -->
-<section class="prom">
-  <div class="wrap pgrid">
-    <div class="pg rv"><div class="n"><span class="cnt" data-to="15">0</span><sup>Jahre</sup></div><p>Herstellergarantie auf alle Spanndecken</p></div>
-    <div class="pg rv"><div class="n"><span class="cnt" data-to="1">0</span><sup>Tag</sup></div><p>Einbauzeit – meist innerhalb eines Tages</p></div>
-    <div class="pg rv"><div class="n"><span class="cnt" data-to="0">0</span><sup>Schmutz</sup></div><p>Die vorherige Decke bleibt erhalten – kein Abriss</p></div>
-    <div class="pg rv"><div class="n"><span class="cnt" data-to="1">0</span><sup>Hand</sup></div><p>Alles aus einer Hand – inkl. Lampen &amp; Rauchmelder</p></div>
+  <div class="wrap head"><h2 class="mega split"><span class="line"><span>Echte</span></span><span class="line"><span style="color:var(--sun)">Projekte.</span></span></h2><a class="btn b-white mag rv" href="https://www.kw-homedesign.de/referenzen.html">Alle Referenzen <span class="ar">↗</span></a></div>
+  <div class="rtrack" id="rt">
+    <a class="rimg" href="https://www.kw-homedesign.de/referenzen.html"><img src="../design2/img/img_0678.webp" alt="Hochglanz-Spanndecke im Gastraum" loading="lazy"><span>Gastraum · Hochglanz</span></a>
+    <a class="rimg" href="https://www.kw-homedesign.de/referenzen.html"><img src="../design2/img/spanndecke-schwarz.webp" alt="Schwarze Spanndecke" loading="lazy"><span>Schwarz · Spots</span></a>
+    <a class="rimg" href="https://www.kw-homedesign.de/referenzen.html"><img src="../design2/img/1.webp" alt="Bar mit schwarzer Spanndecke" loading="lazy"><span>Bar · Schwarz-Rot</span></a>
+    <a class="rimg" href="https://www.kw-homedesign.de/referenzen.html"><img src="../design2/img/img_0668.webp" alt="Spanndecke in Marmoroptik" loading="lazy"><span>Marmor-Druck</span></a>
+    <a class="rimg" href="https://www.kw-homedesign.de/referenzen.html"><img src="../design2/img/7.webp" alt="Spanndecke mit roter LED-Linie" loading="lazy"><span>LED-Linie · Rot</span></a>
+    <a class="rimg" href="https://www.kw-homedesign.de/referenzen.html"><img src="../design2/img/ref-gw8_7328.webp" alt="Weiße Spanndecke in Wohnküche" loading="lazy"><span>Wohnküche · Weiß</span></a>
+    <a class="rimg" href="https://www.kw-homedesign.de/referenzen.html"><img src="../design2/img/img_20191216_203021.webp" alt="Spanndecke mit Spots" loading="lazy"><span>Wohnzimmer · Spots</span></a>
+    <a class="rimg" href="https://www.kw-homedesign.de/referenzen.html"><img src="../design2/img/leuchten.webp" alt="Leuchten in Spanndecke" loading="lazy"><span>Leuchten-Detail</span></a>
   </div>
 </section>
 
-<!-- MAP -->
-<section class="area" id="gebiet">
-  <div class="wrap agrid">
-    <div>
-      <div class="eyebrow rv" style="color:var(--red)">Einsatzgebiet</div>
-      <h2 class="serif h2 split" style="margin-top:22px"><span class="line"><span>Von Mannheim</span></span><span class="line"><span>bis zum <span style="color:var(--red)">Bodensee.</span></span></span></h2>
-      <p class="lead rv">Von unseren zwei Standorten aus sind wir in ganz Baden-Württemberg für Sie im Einsatz.</p>
-      <div class="locs">
-        <a class="loc rv" href="tel:+4974852830609"><span class="pin">01</span><span><h3>Empfingen</h3><p>Zollernring 12, 72186 Empfingen</p></span><span class="call">07485 2830 609 →</span></a>
-        <a class="loc rv" href="tel:+4971349069440"><span class="pin">02</span><span><h3>Lehrensteinsfeld</h3><p>Starenweg 3, 74251 Lehrensteinsfeld</p></span><span class="call">07134 9069 440 →</span></a>
-      </div>
+<section class="locs" id="standorte">
+  <div class="wrap">
+    <h2 class="mega split" style="font-size:clamp(60px,9vw,160px)"><span class="line"><span>Zweimal</span></span><span class="line"><span style="color:var(--red)">in Ihrer Nähe.</span></span></h2>
+    <div class="lgrid">
+      <a class="loc c-ink rv" href="tel:+4974852830609"><span class="tag" style="color:var(--sun)">Standort 01</span><h3 class="wide">Emp&shy;fingen</h3><div class="meta"><span>Zollernring 12<br>72186 Empfingen</span><span class="call">07485 2830 609</span></div></a>
+      <a class="loc c-red rv" href="tel:+4971349069440"><span class="tag" style="color:var(--sun)">Standort 02</span><h3 class="wide">Lehren&shy;steins&shy;feld</h3><div class="meta"><span>Starenweg 3<br>74251 Lehrensteinsfeld</span><span class="call">07134 9069 440</span></div></a>
     </div>
-    <div class="map rv"><svg id="map" viewBox="0 0 600 640" role="img" aria-label="Karte des Einsatzgebiets in Baden-Württemberg"></svg></div>
+    <div class="area rv"><b>Im Einsatz in:</b><span>Stuttgart</span><span>Heilbronn</span><span>Böblingen</span><span>Tübingen</span><span>Reutlingen</span><span>Ludwigsburg</span><span>Rottweil</span><span>Heidelberg</span><span>Mannheim</span><span>Schwäbisch Hall</span><span>Villingen-Schwenningen</span><span>Konstanz</span><span>+ Umgebung</span></div>
   </div>
 </section>
 
-<!-- FORM -->
-<section class="ask" id="anfrage">
-  <div class="wrap fbox">
-    <div class="l">
-      <div class="eyebrow rv">Anfrage</div>
-      <h2 class="serif h2 split" style="margin-top:22px"><span class="line"><span>Erfüllen Sie sich</span></span><span class="line"><span>Ihren Traum von</span></span><span class="line"><span style="color:var(--red2)">schöner Decke.</span></span></h2>
-      <p class="rv">Drei kurze Fragen – wir melden uns mit einem unverbindlichen Angebot.</p>
-      <div class="contact rv"><a href="mailto:info@kw-homedesign.de">info@kw-homedesign.de <span>→</span></a><a href="tel:+4974852830609">Empfingen · 07485 2830 609 <span>→</span></a><a href="tel:+4971349069440">Lehrensteinsfeld · 07134 9069 440 <span>→</span></a></div>
+<section class="cta" id="kontakt">
+  <div class="wrap">
+    <h2 class="mega split"><span class="line"><span>Bereit für</span></span><span class="line"><span class="r">Ihre neue</span></span><span class="line"><span>Decke?</span></span></h2>
+    <div class="row">
+      <a class="rbtn mag" href="mailto:info@kw-homedesign.de" aria-label="E-Mail an KW Home Design schreiben"><svg viewBox="0 0 226 226" aria-hidden="true"><defs><path id="rc" d="M113,113 m-100,0 a100,100 0 1,1 200,0 a100,100 0 1,1 -200,0"/></defs><text font-size="15" font-weight="800" letter-spacing="4.5" fill="#121010"><textPath href="#rc">JETZT ANFRAGEN ✦ KOSTENLOS BERATEN ✦ </textPath></text></svg>↗</a>
+      <div class="info"><a href="mailto:info@kw-homedesign.de">info@kw-homedesign.de</a><a href="tel:+4974852830609">07485 2830 609</a><a href="tel:+4971349069440">07134 9069 440</a></div>
     </div>
-    <form class="mf rv" id="mf" novalidate>
-      <div class="prog" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i></div>
-      <fieldset class="fs on" data-s="0"><legend>Welcher Raum?</legend>
-        <div class="opts">
-          <label><input type="radio" name="raum" value="Wohnzimmer" checked><span>Wohnzimmer</span></label>
-          <label><input type="radio" name="raum" value="Küche"><span>Küche</span></label>
-          <label><input type="radio" name="raum" value="Bad"><span>Bad</span></label>
-          <label><input type="radio" name="raum" value="Schlafzimmer"><span>Schlafzimmer</span></label>
-          <label><input type="radio" name="raum" value="Gewerbe"><span>Gewerbe</span></label>
-          <label><input type="radio" name="raum" value="Mehrere Räume"><span>Mehrere Räume</span></label>
-        </div>
-      </fieldset>
-      <fieldset class="fs" data-s="1"><legend>Wie groß ist die Fläche?</legend>
-        <div class="range"><label class="sr" for="qm">Fläche in Quadratmetern</label><input type="range" id="qm" name="qm" min="5" max="150" value="25"><output id="qmo">25 m²</output></div>
-        <div class="fld"><label for="ob">Gewünschte Oberfläche</label><input id="ob" name="ob" value="Hochglanz"></div>
-      </fieldset>
-      <fieldset class="fs" data-s="2"><legend>Wie erreichen wir Sie?</legend>
-        <div class="fld"><label for="nm">Name</label><input id="nm" name="nm" autocomplete="name" required></div>
-        <div class="fld"><label for="tel">Telefon oder E-Mail</label><input id="tel" name="tel" autocomplete="email" required></div>
-        <div class="fld"><label for="msg">Nachricht (optional)</label><textarea id="msg" name="msg" rows="2"></textarea></div>
-      </fieldset>
-      <div class="done" id="done" role="status"><div class="ok"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><h3>Fast geschafft!</h3><p>Ihr E-Mail-Programm öffnet sich mit Ihrer Anfrage. Einfach absenden – wir melden uns schnellstmöglich.</p></div>
-      <div class="fnav" id="fnav"><button type="button" class="back" id="fBack">← Zurück</button><button type="submit" class="btn b-red mag" id="fNext">Weiter <span class="ar">→</span></button></div>
-      <p class="note">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben zur Bearbeitung der Anfrage zu. Details in der <a href="https://www.kw-homedesign.de/datenschutz.html" style="text-decoration:underline">Datenschutzerklärung</a>.</p>
-    </form>
   </div>
 </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div class="ftop"><a href="#top" aria-label="Nach oben"><img src="../design2/img/logo-light.webp" alt="KW Home Design – Mit Hand ans Werk!"></a><div class="big">Ihr starker Partner für Spanndecken <span>und Raumausstattung.</span></div></div>
+    <div class="ftop"><a class="lg" href="#top" aria-label="Nach oben"><img src="../design2/img/logo.webp" alt="KW Home Design – Mit Hand ans Werk!"></a><div class="w wide">Mit Hand <span>ans Werk.</span></div></div>
     <div class="fcols">
       <div><h4>Unternehmen</h4>KW Home Design GmbH &amp; Co. KG<br><a href="mailto:info@kw-homedesign.de">info@kw-homedesign.de</a></div>
       <div><h4>Empfingen</h4>Zollernring 12<br>72186 Empfingen<br><a href="tel:+4974852830609">07485 2830 609</a></div>
       <div><h4>Lehrensteinsfeld</h4>Starenweg 3<br>74251 Lehrensteinsfeld<br><a href="tel:+4971349069440">07134 9069 440</a></div>
-      <div><h4>Leistungen</h4>Spanndecken · Holzdecken<br>Laminat · Vinylboden<br>Tapeten · Wandverklinkung</div>
+      <div><h4>Rechtliches</h4><a href="https://www.kw-homedesign.de/impressum.html">Impressum</a><br><a href="https://www.kw-homedesign.de/datenschutz.html">Datenschutz</a><br><a href="https://www.kw-homedesign.de/agb.html">AGB</a></div>
     </div>
-    <div class="fbot"><span>© KW Home Design</span><span style="display:flex;gap:22px"><a href="https://www.kw-homedesign.de/impressum.html">Impressum</a><a href="https://www.kw-homedesign.de/datenschutz.html">Datenschutz</a><a href="https://www.kw-homedesign.de/agb.html">AGB</a></span></div>
+    <div class="fbot"><span>© KW Home Design</span><span>Spanndecken · Holzdecken · Laminat · Vinyl · Tapeten · Klinker</span></div>
   </div>
 </footer>
 
@@ -525,182 +358,99 @@ footer{background:#0A0908;padding:110px 0 36px;color:#8C827A;font-size:14px}
 <script>
 (function(){
 var $=function(s,c){return(c||document).querySelector(s)},$$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+$$('.flip button').forEach(function(b){b.addEventListener('click',function(){b.parentNode.classList.toggle('on')})});
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/* ---------- configurator (works without GSAP too) ---------- */
-var MATS={matt:['Matt','Zeitlos und ruhig – wirkt wie eine perfekt verputzte, makellose Decke.','bright0'],
-satin:['Satin','Seidiger, dezenter Schimmer – edel, ohne zu spiegeln.',''],
-glanz:['Hochglanz','Spiegelt Licht und Raum – lässt niedrige Räume deutlich höher und größer wirken.',''],
-schwarz:['Schwarz Lack','Dramatisch und elegant – ideal für Bars, Kinos und besondere Wohnräume.','dark'],
-stern:['Sternenhimmel','Ein funkelnder Nachthimmel über Ihnen – perfekt fürs Schlafzimmer.','dark'],
-licht:['Leuchtdecke','Die ganze Decke wird zur Lichtquelle – gleichmäßig, blendfrei, hell.','bright'],
-druck:['Digitaldruck','Ihr Wunschmotiv auf der Decke – vom Himmel bis zum Firmenlogo.',''],
-akustik:['Akustik','Fein perforiert für spürbar weniger Hall – ideal für Büros und große Räume.','']};
-var order=Object.keys(MATS),room=$('#room'),mat=$('#mat'),stage=$('#stage'),cur='glanz';
-room.classList.add('spots-on');
-// stars
-var st='';for(var k=0;k<160;k++){st+=(Math.random()*1400|0)+'px '+(Math.random()*400|0)+'px 0 '+(Math.random()<.2?1:0)+'px rgba(255,255,255,'+(.4+Math.random()*.6).toFixed(2)+'),'}
-var sty=document.createElement('style');sty.textContent='.ceil .m-stern::before{box-shadow:'+st.slice(0,-1)+'}.ceil .m-stern::after{box-shadow:'+st.split(',').reverse().slice(1,60).join(',')+'}';document.head.appendChild(sty);
-function setMat(m){cur=m;var d=MATS[m];mat.className='mat m-'+m;room.classList.toggle('glossy',m==='glanz'||m==='schwarz');room.classList.toggle('dark',d[2]==='dark');room.classList.toggle('bright',d[2]==='bright');
-$('#cN').textContent='Oberfläche 0'+(order.indexOf(m)+1)+' / 08';$('#cT').textContent=d[0];$('#cD').textContent=d[1];
-$$('#mats button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.m===m)});$('#ob').value=d[0]+(room.classList.contains('led-on')?' + LED-Linie':'');
-if(window.gsap){gsap.fromTo(mat,{opacity:0},{opacity:1,duration:.9,ease:'power2.out'});gsap.fromTo(['#cT','#cD'],{y:16,opacity:0},{y:0,opacity:1,duration:.6,stagger:.06,ease:'expo.out'});}}
-$$('#mats button').forEach(function(b){b.addEventListener('click',function(){setMat(b.dataset.m)})});
-$('#tSpots').addEventListener('click',function(){var on=this.getAttribute('aria-pressed')!=='true';this.setAttribute('aria-pressed',on);room.classList.toggle('spots-on',on)});
-$('#tLed').addEventListener('click',function(){var on=this.getAttribute('aria-pressed')!=='true';this.setAttribute('aria-pressed',on);room.classList.toggle('led-on',on);setMat(cur)});
-$$('#ledc button').forEach(function(b){b.addEventListener('click',function(){room.style.setProperty('--ledc',b.dataset.c);$$('#ledc button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});if(!room.classList.contains('led-on'))$('#tLed').click()})});
-// room: one-point perspective drawn with clip-paths (vanishing point follows drag/mouse)
-var cam={x:.5,y:.62},tgt={x:.5,y:.62},drag=false,sx=0,sx0=0;
-var pLw=$('#pLw'),pRw=$('#pRw'),pFl=$('#pFl'),pC=$('#ceil'),bwl=$('#bw'),refl=$('#refl'),fx=$('#fx'),spotG=$('#spotG');
-var SP=[[.2,.25],[.5,.25],[.8,.25],[.2,.62],[.5,.62],[.8,.62]];
-SP.forEach(function(){var g=document.createElementNS('http://www.w3.org/2000/svg','g');g.innerHTML='<ellipse fill="rgba(255,225,180,.45)" filter="url(#gl)"/><ellipse fill="#FFF7E8"/>';spotG.appendChild(g)});
-function poly(el,pts){el.style.clipPath='polygon('+pts.map(function(p){return p[0].toFixed(1)+'px '+p[1].toFixed(1)+'px'}).join(',')+')'}
-function draw(){var W=stage.clientWidth,H=stage.clientHeight,bw=W*.44,bh=H*.34,cx=W*cam.x,cy=H*cam.y;
-var x1=cx-bw/2,x2=cx+bw/2,y1=cy-bh/2,y2=cy+bh/2;
-poly(pC,[[0,0],[W,0],[x2,y1],[x1,y1]]);poly(pLw,[[0,0],[x1,y1],[x1,y2],[0,H]]);poly(pRw,[[W,0],[W,H],[x2,y2],[x2,y1]]);poly(pFl,[[0,H],[x1,y2],[x2,y2],[W,H]]);
-bwl.style.cssText='left:'+x1+'px;top:'+y1+'px;width:'+bw+'px;height:'+bh+'px';
-refl.style.cssText='left:'+(x1+bw*.3)+'px;width:'+(bw*.4)+'px;top:'+(y1-bh*.55)+'px;height:'+(bh*.45)+'px;transform:perspective(400px) rotateX(-40deg)';
-fx.setAttribute('viewBox','0 0 '+W+' '+H);
-var inset=8,q=[[inset,inset],[W-inset,inset],[x2-3,y1-3],[x1+3,y1-3]];var pts=q.map(function(p){return p.join(',')}).join(' ');$('#led1').setAttribute('points',pts);$('#led2').setAttribute('points',pts);
-// spots: bilinear interpolation inside ceiling quad (u across, v depth 0=front,1=back)
-SP.forEach(function(sp,i){var u=sp[0],v=sp[1];var lx=0+(x1-0)*v,rx=W+(x2-W)*v,y=0+(y1-0)*v;var x=lx+(rx-lx)*u;var sc=1-v*.6;var g=spotG.children[i];
-g.children[0].setAttribute('cx',x);g.children[0].setAttribute('cy',y);g.children[0].setAttribute('rx',34*sc);g.children[0].setAttribute('ry',14*sc);
-g.children[1].setAttribute('cx',x);g.children[1].setAttribute('cy',y);g.children[1].setAttribute('rx',11*sc);g.children[1].setAttribute('ry',4.5*sc)})}
-stage.addEventListener('pointerdown',function(e){drag=true;sx=e.clientX;sx0=tgt.x});
-addEventListener('pointerup',function(){drag=false});
-addEventListener('pointermove',function(e){if(drag){tgt.x=Math.max(.3,Math.min(.7,sx0-(e.clientX-sx)/stage.clientWidth*.6))}});
-stage.addEventListener('mousemove',function(e){if(!drag){var r=stage.getBoundingClientRect();tgt.y=.62+((e.clientY-r.top)/r.height-.5)*-.08;tgt.x=.5+((e.clientX-r.left)/r.width-.5)*-.12}});
-stage.addEventListener('mouseleave',function(){tgt.x=.5;tgt.y=.62});
-(function loop(){cam.x+=(tgt.x-cam.x)*.08;cam.y+=(tgt.y-cam.y)*.08;draw();requestAnimationFrame(loop)})();
-var target=tgt;
-$('#cGo').addEventListener('click',function(){$('#ob').value=MATS[cur][0]+(room.classList.contains('led-on')?' + LED-Linie':'')+(room.classList.contains('spots-on')?' + Spots':'')});
-
-/* ---------- map ---------- */
-var svgNS='http://www.w3.org/2000/svg',map=$('#map');
-function P(lon,lat){return[(lon-7.45)/(10.6-7.45)*560+20,(49.75-lat)/(49.75-47.5)*600+20]}
-var bw=[[8.2,49.6],[8.6,49.65],[9.1,49.62],[9.6,49.75],[10.2,49.55],[10.45,49.1],[10.5,48.7],[10.25,48.3],[10.0,47.95],[9.6,47.55],[9.0,47.65],[8.6,47.62],[8.1,47.58],[7.55,47.6],[7.55,48.1],[7.8,48.6],[8.1,48.95],[8.35,49.2],[8.2,49.6]];
-var bp=document.createElementNS(svgNS,'path');bp.setAttribute('d','M'+bw.map(function(c){var p=P(c[0],c[1]);return p[0].toFixed(1)+' '+p[1].toFixed(1)}).join(' L')+'Z');bp.setAttribute('class','bw');map.appendChild(bp);
-var cities=[['Mannheim',8.47,49.49],['Heidelberg',8.69,49.40],['Öhringen',9.50,49.20],['Schwäbisch Hall',9.74,49.11],['Bad Mergentheim',9.77,49.49],['Ludwigsburg',9.19,48.90],['Stuttgart',9.18,48.78],['Böblingen',9.01,48.68],['Tübingen',9.06,48.52],['Reutlingen',9.21,48.49],['Rottweil',8.63,48.17],['Villingen-Schwenningen',8.46,48.06],['Konstanz',9.17,47.66],['Calw',8.74,48.71]];
-var hqs=[['Empfingen',8.71,48.39],['Lehrensteinsfeld',9.33,49.13]];
-var routes=document.createElementNS(svgNS,'g');map.appendChild(routes);
-cities.forEach(function(c){var p=P(c[1],c[2]);var near=hqs.map(function(h){var q=P(h[1],h[2]);return[Math.hypot(q[0]-p[0],q[1]-p[1]),q]}).sort(function(a,b){return a[0]-b[0]})[0][1];
-var path=document.createElementNS(svgNS,'path');var mx=(p[0]+near[0])/2,my=(p[1]+near[1])/2-30;path.setAttribute('d','M'+near[0]+' '+near[1]+' Q'+mx+' '+my+' '+p[0]+' '+p[1]);path.setAttribute('class','route');routes.appendChild(path);
-var g=document.createElementNS(svgNS,'g');g.setAttribute('class','city');g.innerHTML='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="4"/><text x="'+(p[0]+9)+'" y="'+(p[1]+4)+'">'+c[0]+'</text>';map.appendChild(g)});
-hqs.forEach(function(h){var p=P(h[1],h[2]);var g=document.createElementNS(svgNS,'g');g.setAttribute('class','hq');g.innerHTML='<circle class="pulse" cx="'+p[0]+'" cy="'+p[1]+'" r="10"/><circle class="c" cx="'+p[0]+'" cy="'+p[1]+'" r="9"/><text x="'+(h[0]==='Empfingen'?p[0]-16:p[0]+16)+'" y="'+(p[1]-12)+'" text-anchor="'+(h[0]==='Empfingen'?'end':'start')+'">'+h[0]+'</text>';map.appendChild(g)});
-
-/* ---------- form ---------- */
-var fs=$$('.fs'),fstep=0,prog=$$('.prog b'),qm=$('#qm');
-qm.addEventListener('input',function(){$('#qmo').textContent=qm.value+' m²'});
-function show(n){fs.forEach(function(f,i){f.classList.toggle('on',i===n)});prog.forEach(function(b,i){b.style.transform='scaleX('+(i<=n?1:0)+')'});$('#fBack').style.visibility=n?'visible':'hidden';$('#fNext').firstChild.nodeValue=n===2?'Anfrage senden ':'Weiter ';fstep=n;
-if(window.gsap)gsap.fromTo(fs[n].children,{x:30,opacity:0},{x:0,opacity:1,duration:.6,stagger:.06,ease:'expo.out'})}
-show(0);
-$('#fBack').addEventListener('click',function(){if(fstep>0)show(fstep-1)});
-$('#mf').addEventListener('submit',function(e){e.preventDefault();
-if(fstep<2){show(fstep+1);return}
-var nm=$('#nm'),tel=$('#tel');if(!nm.value.trim()){nm.focus();return}if(!tel.value.trim()){tel.focus();return}
-var f=new FormData(this),body='Raum: '+f.get('raum')+'\nFläche: '+f.get('qm')+' m²\nOberfläche: '+f.get('ob')+'\nName: '+f.get('nm')+'\nKontakt: '+f.get('tel')+'\n\n'+(f.get('msg')||'');
-location.href='mailto:info@kw-homedesign.de?subject='+encodeURIComponent('Anfrage Spanndecke – '+f.get('raum'))+'&body='+encodeURIComponent(body);
-fs.forEach(function(x){x.classList.remove('on')});$('#fnav').style.display='none';$('#done').classList.add('on');prog.forEach(function(b){b.style.transform='scaleX(1)'})});
-
-/* ---------- carousel build ---------- */
-var R=[['img_0678','Gastraum · Hochglanz'],['spanndecke-schwarz','Wohnraum · Schwarz'],['img_0668','Showroom · Marmor-Druck'],['1','Bar · Schwarz-Rot'],['img_20191216_203021','Wohnzimmer · Spots'],['7','Flur · LED-Linie'],['leuchten','Leuchten-Detail'],['ref-gw8_7328','Wohnküche · Weiß'],['img_0673','Showroom · Hochglanz'],['ref-gw8_7331','Wohnraum · Glanz'],['img_0664','Büro · Weiß'],['img_20191220_124021','Leuchtdecke · LED']];
-var ring=$('#ring'),N=R.length,rad=Math.round(300/(2*Math.tan(Math.PI/N)))+40;
-R.forEach(function(r,i){var c=document.createElement('div');c.className='card';c.style.transform='rotateY('+(i*360/N)+'deg) translateZ('+rad+'px)';c.innerHTML='<img src="../design2/img/'+r[0]+'.webp" alt="'+r[1]+'" loading="lazy" draggable="false"><span>'+r[1]+'</span>';ring.appendChild(c)});
-var ra={a:0,t:0,v:0},rw=$('#rw'),rd=false,rx=0,ra0=0;
-rw.addEventListener('pointerdown',function(e){rd=true;rx=e.clientX;ra0=ra.t});
-addEventListener('pointerup',function(){rd=false});
-addEventListener('pointermove',function(e){if(rd)ra.t=ra0+(e.clientX-rx)*.25});
-$('#rNext').addEventListener('click',function(){ra.t=Math.round(ra.t/(360/N))*(360/N)-360/N});
-$('#rPrev').addEventListener('click',function(){ra.t=Math.round(ra.t/(360/N))*(360/N)+360/N});
-(function spin(){if(!rd)ra.t-=0.04;ra.a+=(ra.t-ra.a)*.07;ring.style.transform='translateZ(-'+rad+'px) rotateX(-6deg) rotateY('+ra.a+'deg)';requestAnimationFrame(spin)})();
-
-/* ---------- motion (GSAP) ---------- */
-var ld=$('#ld');
-if(!window.gsap||reduce){if(ld)ld.remove();$('#disp').setAttribute('scale','0');return}
+if(!window.gsap||reduce){var l=$('#ld');if(l)l.remove();return}
 document.documentElement.classList.add('js');
 gsap.registerPlugin(ScrollTrigger);
 var lenis=null;
-if(window.Lenis){lenis=new Lenis({duration:1.2});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0);
-$$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=$(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-60})}})})}
+if(window.Lenis){lenis=new Lenis({duration:1.15});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0);
+$$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=$(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-20})}})})}
 
-// split hero letters
-$$('.chs').forEach(function(w){var t=w.textContent;w.textContent='';t.split('').forEach(function(c){var s=document.createElement('span');s.className='ch';s.textContent=c;w.appendChild(s)})});
-gsap.set('.hero .ch',{yPercent:120,rotate:8});
-gsap.set('.h-in',{y:40,opacity:0});gsap.set('#hdr',{yPercent:-100});
-gsap.set('.split .line>span',{yPercent:110});
-gsap.set('.frame .t,.frame .b',{scaleX:0});gsap.set('.frame .l,.frame .r',{scaleY:0});gsap.set('.frame em',{scale:0});
+/* split hero letters */
+$$('.chs').forEach(function(w){var t=w.textContent;w.textContent='';t.split('').forEach(function(c){var s=document.createElement('span');s.className='ch';s.textContent=c===' '?' ':c;w.appendChild(s)})});
+gsap.set('.hero .ch',{yPercent:110});gsap.set('.pill-img',{scaleX:0});gsap.set('.h-in',{y:40,opacity:0});gsap.set('.sticker',{scale:0,rotate:-120});gsap.set('#hdr',{yPercent:-160});gsap.set('.xband',{yPercent:100,opacity:0});
+gsap.set('.split .line>span',{yPercent:105});
 
-// membrane: disp scale driven by M.s
-var disp=$('#disp'),turb=$('#turb'),M={s:260,f:0.006},tm=$('#tm');
-function mem(){disp.setAttribute('scale',M.s.toFixed(1));turb.setAttribute('baseFrequency',M.f.toFixed(4)+' '+(M.f*3).toFixed(4));tm.style.transform='scaleX('+Math.max(0,1-M.s/260).toFixed(3)+')'}
-mem();
+/* loader: three colour wipes */
 var tl=gsap.timeline();
-tl.to('#ld .ln i',{scaleX:1,duration:1.2,ease:'power2.inOut'})
-  .to('#ld',{opacity:0,duration:.6,onComplete:function(){ld.remove()}})
-  .to('.frame em',{scale:1,duration:.5,stagger:.06,ease:'back.out(3)'},'-=.2')
-  .to('.frame .t,.frame .b',{scaleX:1,duration:1.4,ease:'expo.inOut'},'<.1')
-  .to('.frame .l,.frame .r',{scaleY:1,duration:1.4,ease:'expo.inOut'},'<')
-  .to(M,{s:0,f:0.002,duration:2.6,ease:'expo.inOut',onUpdate:mem},'<')
-  .add(function(){$('#ldp')&&0},'<')
-  .to('.hero .ch',{yPercent:0,rotate:0,duration:1.2,stagger:.03,ease:'expo.out'},'-=1.5')
-  .to('.h-in',{y:0,opacity:1,duration:1,stagger:.12,ease:'expo.out'},'-=.9')
-  .to('#hdr',{yPercent:0,duration:1,ease:'expo.out'},'-=1');
+tl.from('#ld b',{yPercent:100,duration:.7,ease:'expo.out'})
+  .to('#ld i:nth-child(3)',{yPercent:-100,duration:.8,ease:'expo.inOut'},'+=.25')
+  .to('#ld i:nth-child(2)',{yPercent:-100,duration:.8,ease:'expo.inOut'},'-=.65')
+  .to('#ld i:nth-child(1)',{yPercent:-100,duration:.8,ease:'expo.inOut'},'-=.65')
+  .add(function(){var l=$('#ld');if(l)l.remove()})
+  .to('.hero .ch',{yPercent:0,duration:1,stagger:.025,ease:'expo.out'},'-=.55')
+  .to('.pill-img',{scaleX:1,duration:1.1,stagger:.15,ease:'expo.inOut'},'-=.9')
+  .to('.sticker',{scale:1,rotate:0,duration:1.2,ease:'elastic.out(1,.5)'},'-=.8')
+  .to('.h-in',{y:0,opacity:1,duration:.9,ease:'expo.out'},'-=1')
+  .to('.xband',{yPercent:0,opacity:1,duration:1,ease:'expo.out'},'-=.8')
+  .to('#hdr',{yPercent:0,duration:.9,ease:'expo.out'},'-=.9');
 
-// mouse ripple – speed makes the membrane wobble, then it re-tightens
-var lastX=0,lastY=0,hero=$('.hero'),settle=null;
-hero.addEventListener('mousemove',function(e){var v=Math.min(60,Math.hypot(e.clientX-lastX,e.clientY-lastY));lastX=e.clientX;lastY=e.clientY;if(tl.isActive())return;
-M.s=Math.min(70,M.s+v*.6);mem();if(settle)settle.kill();settle=gsap.to(M,{s:0,duration:1.6,ease:'elastic.out(1,.35)',onUpdate:mem});
-gsap.to('#himg',{x:(e.clientX/innerWidth-.5)*-24,y:(e.clientY/innerHeight-.5)*-16,duration:1.2,ease:'power3.out'})});
-gsap.to('.hz',{yPercent:14,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom top',scrub:true}});
-gsap.to('.hc',{yPercent:-18,opacity:0,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom top',scrub:true}});
+/* image trail on hero */
+var trail=$('#trail'),hero=$('.hero'),srcs=['img_0678','spanndecke-schwarz','1','img_0668','7','ref-gw8_7328','img_20191216_203021','leuchten','img_0642','img_0673'],ti=0,lx=-999,ly=-999;
+var pool=srcs.map(function(s){var im=new Image();im.src='../design2/img/'+s+'.webp';im.alt='';return im});
+hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;if(Math.hypot(x-lx,y-ly)<110||tl.isActive())return;lx=x;ly=y;
+var im=pool[ti%pool.length].cloneNode();ti++;trail.appendChild(im);
+gsap.fromTo(im,{left:x,top:y,scale:.4,rotate:gsap.utils.random(-14,14),opacity:1},{scale:1,duration:.5,ease:'expo.out'});
+gsap.to(im,{scale:.2,opacity:0,y:60,duration:.7,delay:.55,ease:'power2.in',onComplete:function(){im.remove()}})});
+gsap.to('.sticker',{y:-120,rotate:40,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom top',scrub:true}});
 
-// header
-var hdr=$('#hdr');ScrollTrigger.create({start:60,end:'max',onUpdate:function(s){hdr.classList.toggle('s',s.scroll()>60);hdr.classList.toggle('hd',s.direction===1&&s.scroll()>800)}});
+/* crossing bands */
+var bx={a:0,b:-400},vel=1;
+gsap.ticker.add(function(){bx.a-=vel*1.2;bx.b+=vel*1.2;var wa=$('#bA').scrollWidth/2,wb=$('#bB').scrollWidth/2;if(bx.a<=-wa)bx.a+=wa;if(bx.a>0)bx.a-=wa;if(bx.b>=0)bx.b-=wb;if(bx.b<-wb)bx.b+=wb;$('#bA').style.transform='translateX('+bx.a+'px)';$('#bB').style.transform='translateX('+bx.b+'px)';vel+=(1-vel)*.06});
+ScrollTrigger.create({onUpdate:function(s){var v=s.getVelocity()/90;if(Math.abs(v)>1)vel=gsap.utils.clamp(-16,16,v)}});
 
-// generic
-$$('.split').forEach(function(el){gsap.to($$('.line>span',el),{yPercent:0,duration:1.2,stagger:.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 86%'}})});
-$$('.rv').forEach(function(el){gsap.fromTo(el,{y:60,opacity:0},{y:0,opacity:1,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 92%'}})});
+/* header hide on down-scroll */
+var hdr=$('#hdr');ScrollTrigger.create({start:200,end:'max',onUpdate:function(s){hdr.classList.toggle('hd',s.direction===1&&s.scroll()>700)}});
 
-// marquee with velocity
-var mq=$('#mq'),mx=0,sp=1;gsap.ticker.add(function(){mx-=sp;var w=mq.scrollWidth/2;if(mx<=-w)mx+=w;if(mx>0)mx-=w;mq.style.transform='translateX('+mx+'px)';sp+=(1-sp)*.05});
-ScrollTrigger.create({onUpdate:function(s){var v=s.getVelocity()/100;if(Math.abs(v)>1)sp=gsap.utils.clamp(-14,14,v)}});
+/* generic */
+$$('.split').forEach(function(el){gsap.to($$('.line>span',el),{yPercent:0,duration:1.1,stagger:.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'}})});
+$$('.rv').forEach(function(el){gsap.fromTo(el,{y:70,opacity:0},{y:0,opacity:1,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 92%'}})});
 
-// configurator entrance: room swings in
-gsap.fromTo(cam,{x:.2},{x:.5,duration:2.2,ease:'expo.out',scrollTrigger:{trigger:'#stage',start:'top 75%'}});
-gsap.fromTo('.mats button',{y:30,opacity:0},{y:0,opacity:1,duration:.8,stagger:.05,ease:'expo.out',scrollTrigger:{trigger:'#mats',start:'top 88%'}});
+/* statement fill word by word */
+var fill=$('#fill');(function wrap(node){Array.prototype.slice.call(node.childNodes).forEach(function(n){if(n.nodeType===3){var frag=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(function(t){if(!t)return;if(/^\s+$/.test(t)){frag.appendChild(document.createTextNode(t))}else{var s=document.createElement('span');s.className='w';s.textContent=t;frag.appendChild(s)}});n.replaceWith(frag)}else if(n.nodeType===1&&!n.classList.contains('ic')){wrap(n)}})})(fill);
+var ws=$$('.w',fill);ws.forEach(function(w){if(w.closest('.rd'))w.dataset.c='#DC0F16'});
+ScrollTrigger.create({trigger:fill,start:'top 80%',end:'bottom 45%',scrub:true,onUpdate:function(s){var n=Math.round(s.progress*ws.length);ws.forEach(function(w,i){w.style.color=i<n?(w.dataset.c||'#121010'):''})}});
+gsap.fromTo('.stmt .hl',{rotate:6,scale:.7},{rotate:-2,scale:1,ease:'elastic.out(1,.5)',duration:1.4,scrollTrigger:{trigger:'.stmt .hl',start:'top 70%'}});
 
-// DAY – sun travels, sky shifts, steps swap
-var sky=$('#sky'),sun=$('#sun'),pth=$('#sunpath'),L=pth.getTotalLength(),steps=$$('.step'),dots=$$('.dots b'),cs=-1;
-var skies=[['#2B3350','#E59A7A'],['#5E9ED6','#CFE6F5'],['#3E8FDA','#BFE0F7'],['#2A2140','#E0674E']];
-function lerpC(a,b,t){var A=parseInt(a.slice(1),16),B=parseInt(b.slice(1),16);var r=(A>>16)+(((B>>16)-(A>>16))*t),g=((A>>8)&255)+((((B>>8)&255)-((A>>8)&255))*t),bl=(A&255)+(((B&255)-(A&255))*t);return'rgb('+(r|0)+','+(g|0)+','+(bl|0)+')'}
-function dayAt(p){var pt=pth.getPointAtLength(L*(.08+p*.84)),svg=pth.ownerSVGElement,bx=svg.getBoundingClientRect();
-gsap.set(sun,{x:pt.x/1600*bx.width,y:pt.y/900*bx.height});
-var seg=Math.min(2.999,p*3),i=Math.floor(seg),t=seg-i;var top=lerpC(skies[i][0],skies[i+1][0],t),bot=lerpC(skies[i][1],skies[i+1][1],t);sky.style.background='linear-gradient(180deg,'+top+','+bot+')';
-var n=Math.min(3,Math.floor(p*4));dots.forEach(function(d,k){d.style.transform='scaleX('+(k<n?1:k===n?(p*4-n):0)+')'});
-if(n!==cs){if(cs>=0)gsap.to(steps[cs],{opacity:0,y:-30,duration:.4,ease:'power2.in'});gsap.fromTo(steps[n],{opacity:0,y:40},{opacity:1,y:0,duration:.8,delay:.15,ease:'expo.out'});cs=n}}
-dayAt(0);
-ScrollTrigger.create({trigger:'.day',start:'top top',end:'+=260%',pin:true,scrub:true,onUpdate:function(s){dayAt(s.progress)},onRefresh:function(s){dayAt(s.progress)}});
+/* stacking cards */
+var cards=$$('.scard');
+if(matchMedia('(min-width: 901px)').matches){cards.forEach(function(c,i){if(i===cards.length-1)return;
+gsap.to(c,{scale:.92,filter:'brightness(.75)',ease:'none',scrollTrigger:{trigger:cards[i+1],start:'top bottom',end:'top 110px',scrub:true}})});}
+cards.forEach(function(c){gsap.fromTo($('.im img',c),{scale:1.3},{scale:1,ease:'none',scrollTrigger:{trigger:c,start:'top bottom',end:'top 110px',scrub:true}})});
 
-// bento reveal
-$$('.tile img').forEach(function(im){gsap.fromTo(im,{scale:1.35},{scale:1.12,ease:'none',scrollTrigger:{trigger:im.parentNode,start:'top bottom',end:'bottom top',scrub:true}})});
+/* flip cards entrance */
+gsap.fromTo('.flip .in',{rotateY:-90},{rotateY:0,duration:1.2,stagger:.08,ease:'expo.out',scrollTrigger:{trigger:'.flips',start:'top 80%'},clearProps:'transform'});
 
-// carousel entrance
-gsap.fromTo('#ring',{scale:.6,opacity:0},{scale:1,opacity:1,duration:1.6,ease:'expo.out',scrollTrigger:{trigger:'#rw',start:'top 80%'}});
+/* counters */
+$$('.cnt').forEach(function(c){var to=+c.dataset.to,from=+(c.dataset.from||0),o={n:from};c.textContent=from;gsap.to(o,{n:to,duration:2,ease:'power3.out',scrollTrigger:{trigger:c,start:'top 90%'},onUpdate:function(){c.textContent=Math.round(o.n)}})});
+gsap.utils.toArray('.nb .deco').forEach(function(d){gsap.to(d,{rotate:180,scale:1.4,ease:'none',scrollTrigger:{trigger:d.parentNode,start:'top bottom',end:'bottom top',scrub:true}})});
 
-// counters
-$$('.cnt').forEach(function(c){var to=+c.dataset.to,o={n:to===0?9:0};gsap.to(o,{n:to,duration:2,ease:'power2.out',scrollTrigger:{trigger:c,start:'top 90%'},onUpdate:function(){c.textContent=Math.round(o.n)}})});
+/* zig-zag path through steps */
+var ps=$('#ps'),zz=$('#zz');
+function zpath(){var r=ps.getBoundingClientRect(),pts=$$('.pstep .n',ps).map(function(n){var b=n.getBoundingClientRect();return[b.left-r.left+b.width/2,b.top-r.top+b.height/2]});
+var d='M'+pts[0][0]+' '+pts[0][1];for(var i=1;i<pts.length;i++){var a=pts[i-1],b=pts[i],my=(a[1]+b[1])/2;d+=' C'+a[0]+' '+my+' '+b[0]+' '+my+' '+b[0]+' '+b[1]}zz.setAttribute('d',d)}
+zpath();addEventListener('resize',zpath);
+ScrollTrigger.create({trigger:ps,start:'top 70%',end:'bottom 70%',scrub:true,onUpdate:function(s){zz.style.clipPath='inset(0 0 '+((1-s.progress)*100)+'% 0)'}});
+zz.style.clipPath='inset(0 0 100% 0)';
+$$('.pstep .n').forEach(function(n){gsap.fromTo(n,{scale:0,rotate:-180},{scale:1,rotate:0,duration:1.2,ease:'elastic.out(1,.55)',scrollTrigger:{trigger:n,start:'top 85%'}})});
 
-// map: draw routes
-$$('#map .route').forEach(function(p){var l=p.getTotalLength();p.style.strokeDasharray=l;p.style.strokeDashoffset=l});
-gsap.to('#map .route',{strokeDashoffset:0,duration:1.6,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'#map',start:'top 75%'},onComplete:function(){$$('#map .route').forEach(function(p){p.style.strokeDasharray='4 5'})}});
-gsap.fromTo('#map .city',{opacity:0,scale:0,transformOrigin:'center'},{opacity:1,scale:1,duration:.6,stagger:.05,ease:'back.out(2)',scrollTrigger:{trigger:'#map',start:'top 75%'}});
+/* refs: pinned horizontal with velocity skew */
+var rt=$('#rt'),mm=gsap.matchMedia();
+mm.add('(min-width: 901px)',function(){
+var dist=function(){return rt.scrollWidth-innerWidth+80};
+gsap.to(rt,{x:function(){return -dist()},ease:'none',scrollTrigger:{trigger:'.refs',start:'top top',end:function(){return '+='+dist()},pin:true,scrub:1,invalidateOnRefresh:true,onUpdate:function(s){var v=gsap.utils.clamp(-12,12,s.getVelocity()/250);gsap.to('.rimg',{skewX:-v,duration:.4,ease:'power2.out',overwrite:'auto'})}}});
+});
+gsap.fromTo('.rimg',{y:120,opacity:0},{y:0,opacity:1,duration:1.1,stagger:.06,ease:'expo.out',scrollTrigger:{trigger:'#rt',start:'top 90%'}});
 
-// magnetic + cursor
-$$('.mag').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.25,y:(e.clientY-r.top-r.height/2)*.35,duration:.5})});b.addEventListener('mouseleave',function(){gsap.to(b,{x:0,y:0,duration:.8,ease:'elastic.out(1,.4)'})})});
-if(matchMedia('(hover:hover)').matches){var cu=$('.cur'),cd=$('.cdot'),xT=gsap.quickTo(cu,'x',{duration:.45,ease:'power3'}),yT=gsap.quickTo(cu,'y',{duration:.45,ease:'power3'});
-addEventListener('mousemove',function(e){xT(e.clientX);yT(e.clientY);gsap.set(cd,{x:e.clientX,y:e.clientY})});
-$$('a,button,[data-cursor]').forEach(function(a){a.addEventListener('mouseenter',function(){var t=a.dataset.cursor;cu.classList.add(t?'d':'h');cu.querySelector('span').textContent=t==='view'?'Ansehen':'Ziehen'});a.addEventListener('mouseleave',function(){cu.classList.remove('d','h')})});}
-addEventListener('load',function(){ScrollTrigger.refresh()});
+/* cta mega grows */
+gsap.fromTo('.cta .mega',{scale:.85},{scale:1,ease:'none',scrollTrigger:{trigger:'.cta',start:'top bottom',end:'center center',scrub:true}});
+
+/* magnetic + cursor */
+$$('.mag').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.3,y:(e.clientY-r.top-r.height/2)*.4,duration:.5})});b.addEventListener('mouseleave',function(){gsap.to(b,{x:0,y:0,duration:.9,ease:'elastic.out(1,.35)'})})});
+if(matchMedia('(hover:hover)').matches){var cu=$('.cur'),xT=gsap.quickTo(cu,'x',{duration:.25}),yT=gsap.quickTo(cu,'y',{duration:.25});addEventListener('mousemove',function(e){xT(e.clientX);yT(e.clientY)});
+$$('a,button,.flip').forEach(function(a){a.addEventListener('mouseenter',function(){cu.classList.add('big')});a.addEventListener('mouseleave',function(){cu.classList.remove('big')})})}
+addEventListener('load',function(){zpath();ScrollTrigger.refresh()});
 })();
 </script>
 </body>
