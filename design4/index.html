@@ -169,27 +169,38 @@ header nav a:hover{background:#fff;color:var(--ink)}
 .panel .go small{color:var(--muted);font-size:13px}
 @media(max-width:1000px){.cgrid{grid-template-columns:1fr}.stage{height:480px}}
 
-/* DAY – Variante C (Sonnenbogen) */
-.vc{position:relative;overflow:hidden;color:#fff;background:#2a2420}
-.vc-pin{height:100vh;min-height:620px;position:relative}
-.vc .sky{position:absolute;inset:0;background:linear-gradient(180deg,#2a2420 0%,#4a3a33 60%,#7a5a4a 100%)}
-.vc .sky2{position:absolute;inset:0;background:linear-gradient(180deg,#5d8fd6 0%,#a9c8ee 55%,#f3e2cc 100%);opacity:0}
-.vc .sky3{position:absolute;inset:0;background:linear-gradient(180deg,#2a2420 0%,#6b2b25 55%,#DC0F16 120%);opacity:0}
-.vc-in{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(10px,2.4vh,26px);padding:clamp(90px,13vh,120px) 20px clamp(24px,5vh,50px)}
-.vc-head{text-align:center}
-.vc-head .eyebrow{color:var(--warm);justify-content:center}
-.vc-head h2{margin-top:12px;font-size:clamp(34px,min(4.8vw,8vh),76px);line-height:1}
-.vc-head h2 em{font-style:normal;color:var(--warm)}
-.arcwrap{width:min(1100px,92vw,calc((100vh - 430px) * 3.2));min-width:300px;padding-top:4%}
-.arcwrap svg{display:block;width:100%;height:auto;overflow:visible}
-.vc-card{display:grid;width:min(560px,90vw);text-align:center;margin-top:-1.5vh}
-.vc-card .st{grid-area:1/1;opacity:0;visibility:hidden}
-.vc-card .st:first-child{opacity:1;visibility:visible}
-.vc-card .k{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--warm);font-weight:700}
-.vc-card h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(26px,min(2.8vw,5vh),42px);margin:8px 0 8px}
-.vc-card p{color:rgba(255,255,255,.88);line-height:1.65;font-size:16px}
-.vc-room{position:absolute;left:0;right:0;bottom:0;height:16vh;z-index:1;background:linear-gradient(180deg,transparent,rgba(0,0,0,.35))}
-.vc-done{padding:12px 24px;border-radius:999px;background:#fff;color:var(--red);font-weight:700;letter-spacing:.06em;opacity:0;transform:scale(.7);white-space:nowrap}
+/* DAY – Variante B (Tages-Uhr) */
+.vb{background:radial-gradient(ellipse at 30% 50%,#2A2420,#100E0C 70%);color:#fff}
+.vb-pin{position:relative;height:100vh;min-height:620px;overflow:hidden}
+.vb-in{height:100%;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,5vw,80px);align-items:center;padding-top:70px;padding-bottom:56px}
+.vb-h{font-size:clamp(32px,min(4.4vw,7.5vh),70px);line-height:1.02;margin-top:14px}
+.vb-h em{font-style:normal;color:var(--red2)}
+.clock{position:relative;width:min(460px,80vw,calc(100vh - 200px));aspect-ratio:1;justify-self:center}
+.clock svg{width:100%;height:100%;overflow:visible}
+.clock .face{fill:rgba(255,255,255,.03);stroke:rgba(255,255,255,.14);stroke-width:2}
+.clock .tick{stroke:rgba(255,255,255,.35);stroke-width:2}
+.clock .tick.big{stroke:#fff;stroke-width:3}
+.clock .hr{font-family:'Enriqueta',serif;font-size:20px;fill:rgba(255,255,255,.55);text-anchor:middle;dominant-baseline:middle}
+.clock .fill{fill:none;stroke:var(--red);stroke-width:14;stroke-linecap:round}
+.clock .hand{stroke:#fff;stroke-width:5;stroke-linecap:round}
+.clock .center{fill:var(--red)}
+.clock .mk circle{fill:var(--ink);stroke:rgba(255,255,255,.4);stroke-width:2;transition:fill .4s,stroke .4s}
+.clock .mk.on circle{fill:var(--red);stroke:#fff}
+.clock .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;padding-top:36%}
+.clock .mid b{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(20px,2.2vw,30px)}
+.clock .mid small{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--warm)}
+.vb-list{display:flex;flex-direction:column;gap:6px;margin-top:clamp(14px,3vh,26px)}
+.vb-it{display:grid;grid-template-columns:64px 1fr;gap:20px;padding:clamp(10px,2vh,18px) 20px;border-radius:18px;border:1px solid transparent;transition:background .5s,border-color .5s,opacity .5s;opacity:.35}
+.vb-it.on{opacity:1;background:rgba(255,255,255,.06);border-color:rgba(255,74,80,.5)}
+.vb-it .n{font-family:'Enriqueta',serif;font-size:clamp(30px,min(3vw,6vh),42px);line-height:1;color:var(--red2)}
+.vb-it h3{font-family:'Enriqueta',serif;font-weight:400;font-size:clamp(20px,min(2vw,4vh),24px);margin-bottom:4px}
+.vb-it p{color:#CFC6BE;line-height:1.6;font-size:15px;max-height:0;overflow:hidden;transition:max-height .6s}
+.vb-it.on p{max-height:80px}
+.vb-hint{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:10px}
+.vb-hint i{width:18px;height:28px;border:1px solid currentColor;border-radius:10px;position:relative}
+.vb-hint i::after{content:"";position:absolute;left:50%;top:5px;width:2px;height:6px;margin-left:-1px;background:var(--red2);border-radius:2px;animation:vbw 1.6s infinite}
+@keyframes vbw{to{transform:translateY(9px);opacity:0}}
+@media(max-width:900px){.vb-in{grid-template-columns:1fr;gap:14px}.clock{width:min(240px,58vw)}.vb-it{padding:8px 12px;grid-template-columns:48px 1fr}}
 
 /* BENTO SERVICES */
 .svc{background:var(--ink);padding:150px 0}
@@ -475,30 +486,23 @@ footer{background:#0A0908;padding:110px 0 36px;color:#8C827A;font-size:14px}
   </div>
 </section>
 
-<!-- DAY (Variante C) -->
-<section class="vc" id="ablauf">
-  <div class="vc-pin">
-    <div class="sky"></div><div class="sky2"></div><div class="sky3"></div>
-    <div class="vc-in">
-      <div class="vc-head"><span class="eyebrow">So funktioniert’s</span><h2 class="serif">Neue Decke. <em>An einem Tag.</em></h2></div>
-      <div class="arcwrap">
-        <svg viewBox="0 0 1000 300" id="arcsvg" aria-hidden="true">
-          <defs><radialGradient id="sunGr"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#FFD9A8"/><stop offset="1" stop-color="#FFD9A8" stop-opacity="0"/></radialGradient></defs>
-          <path id="arcbg" d="M40 290 Q500 -150 960 290" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="2" stroke-dasharray="4 8"/>
-          <path id="arcfg" d="M40 290 Q500 -150 960 290" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-          <g id="stops"></g>
-          <g id="sunG"><circle r="70" fill="url(#sunGr)"/><circle r="18" fill="#fff"/></g>
-        </svg>
+<!-- DAY (Variante B – Tages-Uhr) -->
+<section class="vb" id="ablauf">
+  <div class="vb-pin">
+    <div class="wrap vb-in">
+      <div class="clock"><svg viewBox="-250 -250 500 500" id="bClock" aria-hidden="true"></svg><div class="mid"><small id="bK">Morgens</small><b id="bT">Start</b></div></div>
+      <div>
+        <span class="eyebrow">So funktioniert’s</span>
+        <h2 class="serif vb-h">Neue Decke. <em>An einem Tag.</em></h2>
+        <div class="vb-list">
+          <div class="vb-it on"><span class="n">01</span><div><h3>Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist – kein Abriss, kein Staub.</p></div></div>
+          <div class="vb-it"><span class="n">02</span><div><h3>Profil montieren</h3><p>Ein schlankes Profil wird umlaufend an der Wand befestigt.</p></div></div>
+          <div class="vb-it"><span class="n">03</span><div><h3>Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei eingespannt – straff und glatt.</p></div></div>
+          <div class="vb-it"><span class="n">04</span><div><h3>Licht &amp; Service</h3><p>Lampen, Spots und Rauchmelder – alles aus einer Hand integriert.</p></div></div>
+        </div>
       </div>
-      <div class="vc-card" aria-live="polite">
-        <div class="st"><div class="k">Schritt 1 · Morgens</div><h3>Bestand bleibt</h3><p>Ihre vorherige Decke bleibt, wie sie ist – kein Abriss, kein Staub.</p></div>
-        <div class="st"><div class="k">Schritt 2 · Vormittags</div><h3>Profil montieren</h3><p>Ein schlankes Profil wird umlaufend an der Wand befestigt.</p></div>
-        <div class="st"><div class="k">Schritt 3 · Mittags</div><h3>Erwärmen &amp; spannen</h3><p>Die Folie wird erwärmt und faltenfrei eingespannt – straff und glatt.</p></div>
-        <div class="st"><div class="k">Schritt 4 · Abends</div><h3>Licht &amp; Service</h3><p>Lampen, Spots und Rauchmelder – alles aus einer Hand integriert.</p></div>
-      </div>
-      <div class="vc-done">✓ Fertig – am selben Tag</div>
     </div>
-    <div class="vc-room"></div>
+    <div class="vb-hint" aria-hidden="true"><i></i>Scrollen = nächster Schritt</div>
   </div>
 </section>
 
@@ -871,38 +875,34 @@ ScrollTrigger.create({onUpdate:function(s){var v=s.getVelocity()/100;if(Math.abs
 gsap.fromTo(cam,{x:.2},{x:.5,duration:2.2,ease:'expo.out',scrollTrigger:{trigger:'#stage',start:'top 75%'}});
 gsap.fromTo('.mats button',{y:30,opacity:0},{y:0,opacity:1,duration:.8,stagger:.05,ease:'expo.out',scrollTrigger:{trigger:'#mats',start:'top 88%'}});
 
-// DAY – Variante C: sun travels along the arc, steps swap cleanly (old fades out first, then new fades in)
-(function(){var fg=$('#arcfg'),L=fg.getTotalLength(),sun=$('#sunG'),stopsG=$('#stops'),sts=$$('.vc-card .st'),NS='http://www.w3.org/2000/svg';
-fg.style.strokeDasharray=L;fg.style.strokeDashoffset=L;
-var marks=[.14,.38,.62,.86].map(function(f,i){var pt=fg.getPointAtLength(L*f),g=document.createElementNS(NS,'g');g.setAttribute('transform','translate('+pt.x+','+pt.y+')');
-g.innerHTML='<circle r="16" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.6)"/><circle class="dot" r="7" fill="rgba(255,255,255,.6)"/><text y="-28" text-anchor="middle" fill="#fff" font-family="Enriqueta" font-size="18">0'+(i+1)+'</text>';stopsG.appendChild(g);return{f:f,g:g}});
-var st={p:0},cur=0;gsap.set(sts.slice(1),{autoAlpha:0,y:16});
-function show(idx){if(idx===cur)return;var dir=idx>cur?1:-1,out=sts[cur],inn=sts[idx];gsap.killTweensOf(sts);
-sts.forEach(function(x){if(x!==out&&x!==inn)gsap.set(x,{autoAlpha:0})});
-gsap.to(out,{autoAlpha:0,y:-16*dir,duration:.22,ease:'power2.in'});
-gsap.fromTo(inn,{autoAlpha:0,y:18*dir},{autoAlpha:1,y:0,duration:.45,delay:.22,ease:'power3.out'});cur=idx}
-function upd(){var pt=fg.getPointAtLength(L*st.p);sun.setAttribute('transform','translate('+pt.x+','+pt.y+')');fg.style.strokeDashoffset=L*(1-st.p);
-var idx=-1;marks.forEach(function(m,i){var on=st.p>=m.f-.02;m.g.querySelector('.dot').setAttribute('fill',on?'#DC0F16':'rgba(255,255,255,.6)');if(on)idx=i});show(Math.max(0,idx))}
-upd();
-var tl2=gsap.timeline();
-tl2.to(st,{p:1,duration:1,ease:'none',onUpdate:upd},0)
- .to('.vc .sky2',{opacity:1,duration:.35,ease:'none'},.1).to('.vc .sky2',{opacity:0,duration:.3,ease:'none'},.62)
- .to('.vc .sky3',{opacity:1,duration:.3,ease:'none'},.66)
- .to('.vc .vc-done',{opacity:1,scale:1,duration:.12,ease:'back.out(2)'},.9).to({},{duration:.15});
-tl2.pause(0);
-// one scroll gesture = one step: the section locks, each wheel/swipe jumps the sun to the next stop
+// DAY – Variante B (Tages-Uhr): one scroll gesture = one step
+(function(){var svg=$('#bClock'),R=200,items=$$('.vb-it');
+function pt(h,r){var a=(h/12)*Math.PI*2-Math.PI/2;return[Math.cos(a)*r,Math.sin(a)*r]}
+var html='<circle class="face" r="'+R+'"/>';
+for(var h=0;h<60;h++){var big=h%5===0,p1=pt(h/5,R-8),p2=pt(h/5,R-(big?26:16));html+='<line class="tick'+(big?' big':'')+'" x1="'+p1[0]+'" y1="'+p1[1]+'" x2="'+p2[0]+'" y2="'+p2[1]+'"/>'}
+[12,3,6,9].forEach(function(h){var p=pt(h,R-78);html+='<text class="hr" x="'+p[0]+'" y="'+p[1]+'">'+h+'</text>'});
+html+='<path class="fill" id="bFill"/>';
+var hours=[8,10,13,17],labels=['Morgens','Vormittags','Mittags','Abends'],titles=['Bestand bleibt','Profil','Spannen','Fertig!'];
+hours.forEach(function(h,i){var p=pt(h%12,R+26);html+='<g class="mk'+(i===0?' on':'')+'" id="bm'+i+'"><circle cx="'+p[0]+'" cy="'+p[1]+'" r="14"/><text x="'+p[0]+'" y="'+(p[1]+1)+'" fill="#fff" font-size="12" font-family="Open Sans" font-weight="700" text-anchor="middle" dominant-baseline="middle">0'+(i+1)+'</text></g>'});
+html+='<line class="hand" id="bHand" x1="0" y1="0" x2="0" y2="-140"/><circle class="center" r="12"/>';
+svg.innerHTML=html;
+var C={h:7.2},RA=R-42;
+function arc(h0,h1){if(h1<=h0+.01)return'';var a=pt(h0%12,RA),b=pt(h1%12,RA),large=(h1-h0)>6?1:0;return'M'+a[0]+' '+a[1]+' A'+RA+' '+RA+' 0 '+large+' 1 '+b[0]+' '+b[1]}
+function draw(){$('#bHand').setAttribute('transform','rotate('+((C.h%12)/12*360)+')');$('#bFill').setAttribute('d',arc(7,C.h))}
+function show(i,first){gsap.to(C,{h:hours[i],duration:first?.8:1,ease:'power3.inOut',onUpdate:draw});
+items.forEach(function(it,k){it.classList.toggle('on',k===i)});hours.forEach(function(h,k){$('#bm'+k).classList.toggle('on',k<=i)});
+gsap.timeline().to(['#bK','#bT'],{y:-12,opacity:0,duration:.2}).add(function(){$('#bK').textContent=labels[i];$('#bT').textContent=titles[i]}).to(['#bK','#bT'],{y:0,opacity:1,duration:.4,ease:'power3.out'})}
+draw();
 function jumpTo(y){window.scrollTo(0,y);if(lenis){lenis.animatedScroll=lenis.targetScroll=lenis.scroll=y}ScrollTrigger.update()}
-var T=[.15,.39,.63,1.02],idx=0,locked=false,busy=false,releasedAt=0,stv=null;
-function goStep(n){busy=true;idx=n;tl2.tweenTo(T[n],{duration:1.05,ease:'power2.inOut',onComplete:function(){busy=false}});
-var y=stv.start+2+(stv.end-stv.start-4)*(n/3);jumpTo(y)}
-function lock(fromBelow){if(locked||window.navScroll||Date.now()-releasedAt<900)return;var cy=window.scrollY;if(cy<stv.start-8||cy>stv.end+8)return;locked=true;
-var n=fromBelow?3:0,y=stv.start+2+(stv.end-stv.start-4)*(n/3);jumpTo(y);if(lenis)lenis.stop();
-document.documentElement.classList.add('vc-lock');$('#hdr').classList.add('hd');busy=true;idx=n;tl2.tweenTo(T[n],{duration:fromBelow?.6:1,ease:'power2.out',onComplete:function(){busy=false}})}
-function release(dir){locked=false;releasedAt=Date.now();document.documentElement.classList.remove('vc-lock');if(dir<0)$('#hdr').classList.remove('hd');if(lenis)lenis.start();
-var y=dir>0?stv.end+3:stv.start-3;jumpTo(y);if(lenis){lenis.scrollTo(y+dir*innerHeight*.55,{duration:1.1})}else window.scrollTo({top:y+dir*innerHeight*.55,behavior:'smooth'})}
+var idx=0,locked=false,busy=false,releasedAt=0,stv=null;
+function yAt(n){return stv.start+2+(stv.end-stv.start-4)*(n/3)}
+function goStep(n,first){busy=true;idx=n;show(n,first);jumpTo(yAt(n));setTimeout(function(){busy=false},first?700:1050)}
+function lock(fromBelow){if(locked||window.navScroll||Date.now()-releasedAt<900)return;var cy=window.scrollY;if(cy<stv.start-8||cy>stv.end+8)return;
+locked=true;if(lenis)lenis.stop();$('#hdr').classList.add('hd');goStep(fromBelow?3:0,true)}
+function release(dir){locked=false;releasedAt=Date.now();if(dir<0)$('#hdr').classList.remove('hd');if(lenis)lenis.start();
+var y=dir>0?stv.end+3:stv.start-3;jumpTo(y);if(lenis)lenis.scrollTo(y+dir*innerHeight*.55,{duration:1.1});else window.scrollTo({top:y+dir*innerHeight*.55,behavior:'smooth'})}
 function step(dir){if(!locked||busy)return;var n=idx+dir;if(n>3)return release(1);if(n<0)return release(-1);goStep(n)}
-stv=ScrollTrigger.create({trigger:'.vc',start:'top top',end:'+=150%',pin:'.vc-pin',
- onEnter:function(){lock(false)},onEnterBack:function(){lock(true)}});
+stv=ScrollTrigger.create({trigger:'.vb',start:'top top',end:'+=150%',pin:'.vb-pin',onEnter:function(){lock(false)},onEnterBack:function(){lock(true)}});
 var acc=0,accT=0;
 addEventListener('wheel',function(e){if(!locked)return;e.preventDefault();var now=Date.now();if(now-accT>220)acc=0;accT=now;acc+=e.deltaY;if(Math.abs(acc)>30&&!busy){step(acc>0?1:-1);acc=0}},{passive:false});
 var ty=null;
