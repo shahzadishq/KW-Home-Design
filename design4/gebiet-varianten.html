@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KW Home Design – Einsatzgebiet: 2 Varianten (A / B)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#DC0F16;--red2:#FF4A50;--dark:#34302C;--ink:#100E0C;--cream:#F5F2ED;--sand:#E9E1D7;--muted:#6B625C;--warm:#FFD9A8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:#fff;font-family:'Open Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}
+.serif{font-family:'Enriqueta',Georgia,serif;font-weight:400;letter-spacing:-.015em}
+.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--red2);display:inline-flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:34px;height:2px;background:currentColor}
+.h2{font-size:clamp(36px,4.8vw,74px);line-height:1.02}
+.vbar{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:100;display:flex;gap:4px;background:rgba(16,14,12,.85);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);padding:6px;border-radius:999px}
+.vbar a{padding:10px 16px;border-radius:999px;font-size:13px;font-weight:700;color:#CFC6BE;white-space:nowrap}
+.vbar a:hover{background:#fff;color:var(--ink)}.vbar .back{color:var(--red2)}
+.intro{min-height:52vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:20px;padding:130px 20px 50px}
+.intro p{color:#B8AEA6;max-width:600px;line-height:1.7}
+.vlabel{position:absolute;top:24px;right:24px;z-index:5;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;background:var(--red);color:#fff;padding:8px 14px;border-radius:999px}
+section.v{position:relative;padding:140px 0 130px;overflow:hidden}
+.sep{height:14vh;display:flex;align-items:center;justify-content:center;color:#5E5650;font-size:12px;letter-spacing:.3em;text-transform:uppercase}
+
+/* ============ A – Reichweite / Radar (dark) ============ */
+.ga{background:radial-gradient(ellipse at 70% 50%,#2A1A18,#100E0C 65%)}
+.ga-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,5vw,80px);align-items:center}
+.ga-l{display:flex;flex-direction:column;gap:26px}
+.ga-l .h2 em{font-style:normal;color:var(--red2)}
+.ga-l p{color:#B8AEA6;line-height:1.8;font-size:17px;max-width:470px}
+.ga-stats{display:flex;gap:34px;border-top:1px solid rgba(255,255,255,.12);padding-top:22px}
+.ga-stats b{display:block;font-family:'Enriqueta',serif;font-weight:400;font-size:52px;line-height:1;color:#fff}
+.ga-stats span{font-size:13px;color:#9C928A}
+.hq{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:20px 22px;border-radius:20px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);transition:background .4s,border-color .4s,transform .4s;cursor:pointer}
+.hq:hover,.hq.on{background:rgba(255,74,80,.1);border-color:rgba(255,74,80,.6);transform:translateX(6px)}
+.hq .pin{width:46px;height:46px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-family:'Enriqueta',serif;box-shadow:0 0 0 6px rgba(220,15,22,.2)}
+.hq h3{font-family:'Enriqueta',serif;font-weight:400;font-size:24px}
+.hq p{font-size:14px;color:#9C928A}
+.hq .call{font-weight:700;font-size:14px;color:var(--red2);white-space:nowrap}
+.ga-map{position:relative;aspect-ratio:1/1.06}
+.ga-map svg{width:100%;height:100%;overflow:visible}
+.ga .bw{fill:rgba(255,255,255,.025);stroke:rgba(255,120,110,.55);stroke-width:1.6;filter:drop-shadow(0 0 10px rgba(255,74,80,.35))}
+.ga .gridl{stroke:rgba(255,255,255,.05);stroke-width:1}
+.ga .ring{fill:none;stroke:var(--red2);stroke-width:1.4;opacity:0}
+.ga .zone{fill:rgba(220,15,22,.07);stroke:rgba(255,74,80,.35);stroke-width:1;stroke-dasharray:4 6}
+.ga .sweep{fill:url(#swG);transform-box:view-box}
+.ga .city circle{fill:#6B625C;transition:fill .4s,r .4s}
+.ga .city text{font-size:12px;fill:#6B625C;font-family:'Open Sans',sans-serif;transition:fill .4s}
+.ga .city.lit circle{fill:#fff}.ga .city.lit text{fill:#E8E0D9}
+.ga .city.hot circle{fill:var(--red2)}.ga .city.hot text{fill:#fff;font-weight:700}
+.ga .hqp circle.c{fill:var(--red);stroke:#fff;stroke-width:3}
+.ga .hqp text{font-size:15px;font-weight:700;fill:#fff;font-family:'Open Sans',sans-serif}
+.ga .link{stroke:rgba(255,74,80,.0);stroke-width:1.2;fill:none;transition:stroke .4s}
+.ga .link.on{stroke:rgba(255,74,80,.7)}
+@media(max-width:960px){.ga-grid{grid-template-columns:1fr}}
+
+/* ============ B – Punkt-Karte + Stadt-Finder (light) ============ */
+.gb{background:var(--cream);color:var(--dark)}
+.gb .vlabel{background:var(--dark)}
+.gb-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:50px}
+.gb-head .h2 em{font-style:normal;color:var(--red)}
+.gb-head .eyebrow{color:var(--red)}
+.gb-head p{max-width:420px;color:var(--muted);line-height:1.7}
+.gb-card{display:grid;grid-template-columns:360px 1fr;background:#fff;border-radius:32px;overflow:hidden;box-shadow:0 50px 100px -50px rgba(52,48,44,.45)}
+.gb-side{border-right:1px solid var(--sand);display:flex;flex-direction:column;max-height:680px}
+.gb-search{padding:24px 24px 14px}
+.gb-search label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.gb-search input{margin-top:10px;width:100%;border:2px solid var(--sand);border-radius:14px;padding:14px 16px;font:500 16px 'Open Sans',sans-serif;color:var(--dark);outline:none;transition:border-color .3s}
+.gb-search input:focus{border-color:var(--red)}
+.gb-list{list-style:none;overflow-y:auto;padding:0 12px 16px;flex:1;scrollbar-width:thin}
+.gb-grp{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--red);padding:14px 12px 6px}
+.gb-list button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;background:none;border:0;padding:11px 12px;border-radius:12px;font-size:15px;font-weight:600;color:var(--dark);text-align:left;transition:background .25s}
+.gb-list button small{font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap}
+.gb-list button:hover{background:var(--cream)}
+.gb-list button.on{background:var(--red);color:#fff}.gb-list button.on small{color:#FFD9D9}
+.gb-mapwrap{position:relative;padding:20px;background:linear-gradient(180deg,#fff,#FBF8F4)}
+.gb-mapwrap svg{width:100%;height:100%;max-height:640px;display:block}
+.gb .dot{fill:#E2D9CE}
+.gb .dot.near0{fill:#F2C9C3}.gb .dot.near1{fill:#E9D3B9}
+.gb .route{fill:none;stroke:var(--red);stroke-width:3;stroke-linecap:round}
+.gb .route-bg{fill:none;stroke:rgba(220,15,22,.15);stroke-width:9;stroke-linecap:round}
+.gb .cdot{fill:var(--dark)}
+.gb .cdot.on{fill:var(--red)}
+.gb .clabel{font:600 12px 'Open Sans',sans-serif;fill:var(--muted)}
+.gb .hqm circle.c{fill:var(--red);stroke:#fff;stroke-width:3}
+.gb .hqm text{font:700 14px 'Open Sans',sans-serif;fill:var(--dark)}
+.gb .car{fill:#fff;stroke:var(--red);stroke-width:3}
+.gb-info{position:absolute;left:30px;bottom:30px;right:30px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;pointer-events:none}
+.gb-pill{pointer-events:auto;background:var(--dark);color:#fff;border-radius:20px;padding:18px 22px;display:flex;flex-direction:column;gap:4px;min-width:260px;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.gb-pill small{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--warm);font-weight:700}
+.gb-pill b{font-family:'Enriqueta',serif;font-weight:400;font-size:24px}
+.gb-pill span{font-size:14px;color:#CFC6BE}
+.gb-cta{pointer-events:auto;background:var(--red);color:#fff;border-radius:999px;padding:16px 24px;font-weight:700;font-size:15px;transition:background .3s}
+.gb-cta:hover{background:var(--dark)}
+@media(max-width:960px){.gb-card{grid-template-columns:1fr}.gb-side{max-height:320px;border-right:0;border-bottom:1px solid var(--sand)}.gb-info{position:static;padding:14px 0 0}}
+
+footer{padding:70px 20px;text-align:center;color:#8C827A;font-size:15px;line-height:1.8}
+footer b{color:#fff}
+</style>
+</head>
+<body>
+<nav class="vbar"><a class="back" href="./">← Design 4</a><a href="#a">A · Reichweite</a><a href="#b">B · Stadt-Finder</a></nav>
+
+<section class="intro">
+  <span class="eyebrow">Einsatzgebiet</span>
+  <h1 class="serif h2">Zwei Varianten für<br><span style="color:var(--red2)">„Von Mannheim bis zum Bodensee“</span></h1>
+  <p>Beide Varianten zeigen die zwei Standorte und die Städte, in denen KW Home Design im Einsatz ist. Fahren Sie mit der Maus darüber bzw. klicken Sie sich durch.</p>
+</section>
+
+<!-- ============ A ============ -->
+<section class="v ga" id="a">
+  <span class="vlabel">Variante A · Reichweite</span>
+  <div class="wrap ga-grid">
+    <div class="ga-l">
+      <span class="eyebrow">Einsatzgebiet</span>
+      <h2 class="serif h2">Von Mannheim<br>bis zum <em>Bodensee.</em></h2>
+      <p>Von unseren zwei Standorten aus sind wir in ganz Baden-Württemberg für Sie im Einsatz. Fahren Sie über einen Standort, um seine Region zu sehen.</p>
+      <div class="hq" data-h="0" tabindex="0"><span class="pin">01</span><span><h3>Empfingen</h3><p>Zollernring 12, 72186 Empfingen</p></span><a class="call" href="tel:+4974852830609">07485 2830 609 →</a></div>
+      <div class="hq" data-h="1" tabindex="0"><span class="pin">02</span><span><h3>Lehrensteinsfeld</h3><p>Starenweg 3, 74251 Lehrensteinsfeld</p></span><a class="call" href="tel:+4971349069440">07134 9069 440 →</a></div>
+      <div class="ga-stats"><div><b>2</b><span>Standorte</span></div><div><b id="aCnt">0</b><span>Städte &amp; Regionen</span></div><div><b>1</b><span>Bundesland, ganz abgedeckt</span></div></div>
+    </div>
+    <div class="ga-map"><svg id="aMap" viewBox="0 0 600 640" role="img" aria-label="Karte: Einsatzgebiet in Baden-Württemberg mit den Standorten Empfingen und Lehrensteinsfeld"></svg></div>
+  </div>
+</section>
+<div class="sep">— Variante B —</div>
+
+<!-- ============ B ============ -->
+<section class="v gb" id="b">
+  <span class="vlabel">Variante B · Stadt-Finder</span>
+  <div class="wrap">
+    <div class="gb-head">
+      <div style="display:flex;flex-direction:column;gap:20px"><span class="eyebrow">Einsatzgebiet</span><h2 class="serif h2">Kommen wir auch<br><em>zu Ihnen?</em></h2></div>
+      <p>Wählen Sie Ihre Stadt – wir zeigen Ihnen, welcher Standort für Sie zuständig ist und wie nah wir sind.</p>
+    </div>
+    <div class="gb-card">
+      <div class="gb-side">
+        <div class="gb-search"><label for="bQ">Stadt suchen</label><input id="bQ" placeholder="z. B. Stuttgart" autocomplete="off"></div>
+        <ul class="gb-list" id="bList"></ul>
+      </div>
+      <div class="gb-mapwrap">
+        <svg id="bMap" viewBox="0 0 600 640" role="img" aria-label="Punktkarte von Baden-Württemberg mit Route vom zuständigen Standort zur gewählten Stadt"></svg>
+        <div class="gb-info"><div class="gb-pill" aria-live="polite"><small id="bK">Zuständig: Empfingen</small><b id="bT">Stuttgart</b><span id="bD">ca. 60 km Luftlinie</span></div><a class="gb-cta" href="../design4/#anfrage">Kostenlos anfragen →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Welche Variante gefällt Ihnen? <b>A oder B</b> – die gewählte ersetzt das Einsatzgebiet auf Design 4.<br><a href="./" style="color:var(--red2);font-weight:700">← zurück zu Design 4</a></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+var $=function(s,c){return(c||document).querySelector(s)},$$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+var NS='http://www.w3.org/2000/svg',G=window.gsap;
+if(G)gsap.registerPlugin(ScrollTrigger);
+/* shared geo data (approximate outline of Baden-Württemberg) */
+var BW=[[8.47,49.58],[8.62,49.68],[8.95,49.52],[9.10,49.58],[9.35,49.66],[9.47,49.78],[9.65,49.72],[9.90,49.80],[10.12,49.63],[10.15,49.40],[10.30,49.15],[10.45,48.95],[10.48,48.70],[10.30,48.52],[10.15,48.45],[10.05,48.20],[10.10,47.98],[9.95,47.75],[9.75,47.58],[9.55,47.55],[9.25,47.66],[8.95,47.67],[8.70,47.72],[8.58,47.62],[8.40,47.57],[8.20,47.62],[7.95,47.55],[7.60,47.58],[7.52,47.75],[7.58,48.05],[7.70,48.30],[7.82,48.60],[8.05,48.80],[8.20,48.97],[8.33,49.10],[8.45,49.28],[8.47,49.58]];
+var HQ=[['Empfingen',8.71,48.39,'07485 2830 609'],['Lehrensteinsfeld',9.33,49.13,'07134 9069 440']];
+var CITIES=[['Mannheim',8.47,49.49],['Heidelberg',8.69,49.40],['Sinsheim',8.88,49.25],['Heilbronn',9.22,49.14],['Neckarsulm',9.22,49.19],['Öhringen',9.50,49.20],['Schwäbisch Hall',9.74,49.11],['Bad Mergentheim',9.77,49.49],['Ludwigsburg',9.19,48.90],['Stuttgart',9.18,48.78],['Sindelfingen',9.00,48.71],['Böblingen',9.01,48.68],['Herrenberg',8.87,48.60],['Tübingen',9.06,48.52],['Reutlingen',9.21,48.49],['Metzingen',9.28,48.54],['Rottenburg',8.93,48.48],['Horb am Neckar',8.69,48.44],['Oberndorf',8.58,48.29],['Rottweil',8.63,48.17],['Villingen-Schwenningen',8.46,48.06],['Konstanz',9.17,47.66]];
+function P(lon,lat){return[(lon-7.45)/(10.6-7.45)*560+20,(49.85-lat)/(49.85-47.45)*600+20]}
+function km(a,b){var R=6371,r=Math.PI/180,dLat=(b[1]-a[1])*r,dLon=(b[0]-a[0])*r,x=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(a[1]*r)*Math.cos(b[1]*r)*Math.sin(dLon/2)*Math.sin(dLon/2);return 2*R*Math.asin(Math.sqrt(x))}
+function nearest(c){var d0=km([c[1],c[2]],[HQ[0][1],HQ[0][2]]),d1=km([c[1],c[2]],[HQ[1][1],HQ[1][2]]);return d0<=d1?[0,d0]:[1,d1]}
+var bwPath='M'+BW.map(function(c){var p=P(c[0],c[1]);return p[0].toFixed(1)+' '+p[1].toFixed(1)}).join(' L')+'Z';
+function el(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e}
+
+/* =========== A: radar =========== */
+(function(){var svg=$('#aMap');
+el('defs',{},svg).innerHTML='<radialGradient id="swG" cx="0" cy="0" r="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#FF4A50" stop-opacity=".0"/></radialGradient><linearGradient id="swL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FF4A50" stop-opacity="0"/><stop offset="1" stop-color="#FF4A50" stop-opacity=".45"/></linearGradient><clipPath id="bwClip"><path d="'+bwPath+'"/></clipPath>';
+var g=el('g',{},svg);
+for(var x=40;x<600;x+=40)el('line',{class:'gridl',x1:x,y1:0,x2:x,y2:640},g);
+for(var y=40;y<640;y+=40)el('line',{class:'gridl',x1:0,y1:y,x2:600,y2:y},g);
+el('path',{class:'bw',d:bwPath},svg);
+var clipG=el('g',{'clip-path':'url(#bwClip)'},svg);
+var zones=HQ.map(function(h,i){var p=P(h[1],h[2]);return el('circle',{class:'zone',cx:p[0],cy:p[1],r:0},clipG)});
+var sweeps=HQ.map(function(h){var p=P(h[1],h[2]);var w=el('g',{transform:'translate('+p[0]+','+p[1]+')'},clipG);var rg=el('g',{},w);el('path',{d:'M0 0 L260 0 A260 260 0 0 0 225.2 -130 Z',fill:'url(#swL)',opacity:'.55'},rg);return rg});
+var links=el('g',{},svg),cg=el('g',{},svg);
+var cityEls=CITIES.map(function(c){var p=P(c[1],c[2]),n=nearest(c),h=P(HQ[n[0]][1],HQ[n[0]][2]);
+var l=el('line',{class:'link',x1:h[0],y1:h[1],x2:p[0],y2:p[1]},links);l.dataset.h=n[0];
+var gg=el('g',{class:'city'},cg);gg.dataset.h=n[0];el('circle',{cx:p[0],cy:p[1],r:3.5},gg);var left=p[0]>470;var t=el('text',{x:left?p[0]-8:p[0]+8,y:p[1]+4,'text-anchor':left?'end':'start'},gg);t.textContent=c[0];
+gg.dataset.d=Math.hypot(p[0]-h[0],p[1]-h[1]);return{g:gg,l:l,d:+gg.dataset.d,h:n[0]}});
+var rings=[];
+HQ.forEach(function(h,i){var p=P(h[1],h[2]);for(var k=0;k<3;k++)rings.push(el('circle',{class:'ring',cx:p[0],cy:p[1],r:10},svg));
+var hg=el('g',{class:'hqp'},svg);el('circle',{class:'c',cx:p[0],cy:p[1],r:10},hg);var t=el('text',{x:i===0?p[0]-18:p[0]+18,y:p[1]-14,'text-anchor':i===0?'end':'start'},hg);t.textContent=h[0]});
+// labels collide a bit near Heilbronn/Neckarsulm and Böblingen/Sindelfingen: hide small duplicates
+['Neckarsulm','Sindelfingen','Metzingen'].forEach(function(n){var i=CITIES.findIndex(function(c){return c[0]===n});if(i>-1)cityEls[i].g.querySelector('text').style.display='none'});
+function focusHQ(i){$$('.hq').forEach(function(h){h.classList.toggle('on',+h.dataset.h===i)});cityEls.forEach(function(c){c.g.classList.toggle('hot',c.h===i);c.l.classList.toggle('on',c.h===i)})}
+function clearHQ(){$$('.hq').forEach(function(h){h.classList.remove('on')});cityEls.forEach(function(c){c.g.classList.remove('hot');c.l.classList.remove('on')})}
+$$('.hq').forEach(function(h){h.addEventListener('mouseenter',function(){focusHQ(+h.dataset.h)});h.addEventListener('focus',function(){focusHQ(+h.dataset.h)});h.addEventListener('mouseleave',clearHQ);h.addEventListener('blur',clearHQ)});
+function lightAll(){cityEls.forEach(function(c){c.g.classList.add('lit')});$('#aCnt').textContent=CITIES.length}
+if(!G){zones.forEach(function(z){z.setAttribute('r',210)});lightAll();return}
+// entrance: zones grow, cities light up as the wave passes
+var W={r:0};
+ScrollTrigger.create({trigger:'#aMap',start:'top 75%',once:true,onEnter:function(){
+ gsap.to(W,{r:230,duration:2.4,ease:'power2.out',onUpdate:function(){zones.forEach(function(z){z.setAttribute('r',W.r)});cityEls.forEach(function(c){if(c.d<=W.r)c.g.classList.add('lit')})},onComplete:lightAll});
+ var o={n:0};gsap.to(o,{n:CITIES.length,duration:2.4,ease:'power2.out',onUpdate:function(){$('#aCnt').textContent=Math.round(o.n)}});
+ gsap.from('.ga .bw',{opacity:0,duration:1})}});
+// continuous radar rings + sweep
+rings.forEach(function(r,i){gsap.fromTo(r,{attr:{r:10},opacity:.9},{attr:{r:170},opacity:0,duration:3.6,repeat:-1,delay:(i%3)*1.2,ease:'power1.out'})});
+sweeps.forEach(function(s,i){gsap.to(s,{rotation:360,svgOrigin:'0 0',duration:6+i,repeat:-1,ease:'none'})});
+gsap.from('.ga-l > *',{y:40,opacity:0,duration:1,stagger:.08,ease:'expo.out',scrollTrigger:{trigger:'.ga-l',start:'top 80%'}});
+})();
+
+/* =========== B: dot map + city finder =========== */
+(function(){var svg=$('#bMap');
+// dot matrix inside the outline
+var poly=BW.map(function(c){return P(c[0],c[1])});
+function inside(x,y){var c=false;for(var i=0,j=poly.length-1;i<poly.length;j=i++){var a=poly[i],b=poly[j];if(((a[1]>y)!==(b[1]>y))&&(x<(b[0]-a[0])*(y-a[1])/(b[1]-a[1])+a[0]))c=!c}return c}
+var dots=el('g',{},svg),hqP=HQ.map(function(h){return P(h[1],h[2])});
+for(var y=24;y<630;y+=12)for(var x=24;x<590;x+=12){if(!inside(x,y))continue;var d0=Math.hypot(x-hqP[0][0],y-hqP[0][1]),d1=Math.hypot(x-hqP[1][0],y-hqP[1][1]);el('circle',{class:'dot '+(d0<d1?'near0':'near1'),cx:x,cy:y,r:3.6},dots)}
+var routeBg=el('path',{class:'route-bg',d:''},svg),route=el('path',{class:'route',d:''},svg);
+var cg=el('g',{},svg),cityDots=[];
+CITIES.forEach(function(c,i){var p=P(c[1],c[2]);cityDots.push(el('circle',{class:'cdot',cx:p[0],cy:p[1],r:4.5},cg))});
+var lab=el('text',{class:'clabel',x:0,y:0},svg);
+HQ.forEach(function(h,i){var p=hqP[i],g=el('g',{class:'hqm'},svg);el('circle',{class:'c',cx:p[0],cy:p[1],r:10},g);var t=el('text',{x:i===0?p[0]-16:p[0]+16,y:p[1]-14,'text-anchor':i===0?'end':'start'},g);t.textContent=h[0]});
+var car=el('circle',{class:'car',r:7,cx:-50,cy:-50},svg);
+// list grouped by responsible location
+var list=$('#bList'),btns=[];
+[0,1].forEach(function(hi){var li=document.createElement('li');li.className='gb-grp';li.textContent='Standort '+HQ[hi][0];list.appendChild(li);
+CITIES.map(function(c,i){return[c,i,nearest(c)]}).filter(function(x){return x[2][0]===hi}).sort(function(a,b){return a[2][1]-b[2][1]}).forEach(function(x){var li=document.createElement('li'),b=document.createElement('button');b.type='button';b.dataset.i=x[1];b.innerHTML=x[0][0]+'<small>ca. '+Math.max(5,Math.round(x[2][1]/5)*5)+' km</small>';li.appendChild(b);list.appendChild(li);btns.push(b);b.addEventListener('click',function(){pick(x[1])})})});
+function pick(i){var c=CITIES[i],n=nearest(c),h=hqP[n[0]],p=P(c[1],c[2]);
+btns.forEach(function(b){b.classList.toggle('on',+b.dataset.i===i)});cityDots.forEach(function(d,k){d.classList.toggle('on',k===i);d.setAttribute('r',k===i?7:4.5)});
+var mx=(h[0]+p[0])/2,my=(h[1]+p[1])/2-Math.max(30,Math.hypot(p[0]-h[0],p[1]-h[1])*.25),d='M'+h[0]+' '+h[1]+' Q'+mx+' '+my+' '+p[0]+' '+p[1];
+route.setAttribute('d',d);routeBg.setAttribute('d',d);
+var left=p[0]>440;lab.setAttribute('x',left?p[0]-12:p[0]+12);lab.setAttribute('y',p[1]+4);lab.setAttribute('text-anchor',left?'end':'start');lab.textContent=c[0];lab.style.fill='#DC0F16';lab.style.fontWeight='700';
+$('#bK').textContent='Zuständig: Standort '+HQ[n[0]][0];$('#bT').textContent=c[0];$('#bD').textContent='ca. '+Math.max(5,Math.round(n[1]/5)*5)+' km Luftlinie · Tel. '+HQ[n[0]][3];
+var L=route.getTotalLength();
+if(G){gsap.fromTo(route,{strokeDasharray:L,strokeDashoffset:L},{strokeDashoffset:0,duration:1,ease:'power2.inOut'});
+var o={t:0};gsap.killTweensOf(car);gsap.to(o,{t:1,duration:1,ease:'power2.inOut',onUpdate:function(){var q=route.getPointAtLength(L*o.t);car.setAttribute('cx',q.x);car.setAttribute('cy',q.y)}});
+gsap.fromTo('.gb-pill',{y:14,opacity:.4},{y:0,opacity:1,duration:.5,ease:'expo.out'})}else{car.setAttribute('cx',p[0]);car.setAttribute('cy',p[1])}}
+// search filter
+$('#bQ').addEventListener('input',function(){var q=this.value.trim().toLowerCase();btns.forEach(function(b){b.parentNode.style.display=!q||b.textContent.toLowerCase().indexOf(q)>-1?'':'none'});
+var first=btns.find(function(b){return b.parentNode.style.display!=='none'});if(q&&first)pick(+first.dataset.i)});
+// click on map dots
+cityDots.forEach(function(d,i){d.style.cursor='pointer';d.addEventListener('click',function(){pick(i)})});
+pick(CITIES.findIndex(function(c){return c[0]==='Stuttgart'}));
+if(G){gsap.from($$('.dot',svg),{opacity:0,scale:0,transformOrigin:'center',duration:.6,stagger:{amount:1.2,from:'random'},ease:'back.out(2)',scrollTrigger:{trigger:'#bMap',start:'top 80%'}})}
+})();
+})();
+</script>
+</body>
+</html>
